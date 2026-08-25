@@ -8,3 +8,4 @@ coverage/
 !.env.preview.example
 !.env.production.example
 .DS_Store
+graphify-out/cache/
