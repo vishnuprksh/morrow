@@ -16,11 +16,9 @@ Build a browser-only, single-user note application with:
 
 - Note-aware AI agent that can reason over note context and perform approved note actions
 
-- Inline AI autocomplete
-
 - Bring-your-own API key (BYOK)
 
-The MVP is complete when a user can sign in, organize and edit Markdown notes, configure an AI provider securely, use all three AI workflows, and export their notes.
+The MVP is complete when a user can sign in, organize and edit Markdown notes, configure an AI provider securely, use selected-text editing and the note-aware agent, and export their notes.
 
 **## 2. Chosen stack**
 
@@ -75,8 +73,6 @@ The MVP is complete when a user can sign in, organize and edit Markdown notes, c
 - Selected-text AI editing with accept/discard preview
 
 - Note-aware sidebar agent with controlled tools for reading, creating and editing notes
-
-- Inline autocomplete accepted with `Tab`
 
 - One OpenAI-compatible provider and model selection
 
@@ -688,71 +684,13 @@ Add a streaming agent that understands the active note, can retrieve other user-
 
 ---
 
-**# Phase 9 — Inline AI autocomplete**
-
-**## Goal**
-
-Provide low-friction, cancellable continuation suggestions while typing.
-
-**## Prototype first**
-
-Implement this phase as a narrow technical prototype before polishing its UI. It is the highest-risk MVP feature.
-
-**## Tasks**
-
-- [ ] Create a Milkdown/ProseMirror autocomplete plugin.
-
-- [ ] Trigger only when:
-
-  - The user pauses for roughly 600–900 ms
-
-  - The cursor is collapsed
-
-  - Enough preceding context exists
-
-  - No selection menu or agent write action is active
-
-- [ ] Send bounded text before and after the cursor to `/api/ai/complete`.
-
-- [ ] Render suggestions as grey ghost text using a ProseMirror decoration.
-
-- [ ] Accept with `Tab`.
-
-- [ ] Dismiss with `Escape`.
-
-- [ ] Cancel pending requests when the user resumes typing, changes notes or moves the cursor.
-
-- [ ] Reject stale responses using a request ID and document-version check.
-
-- [ ] Add a user setting to disable autocomplete.
-
-- [ ] Add a minimum interval and maximum completion length to control API cost.
-
-- [ ] Avoid triggering inside code blocks, links and other unsuitable nodes initially.
-
-**## Acceptance criteria**
-
-- Suggestions never become document content without explicit acceptance.
-
-- Typing remains responsive while requests are running.
-
-- A stale response never appears in the wrong cursor position or note.
-
-- `Tab`, `Escape`, continued typing and note switching behave predictably.
-
-- Autocomplete can be disabled completely.
-
-**## Fallback**
-
-If continuous autocomplete is not stable enough for the MVP, ship a manual `Continue writing` action bound to a keyboard shortcut and keep ghost-text autocomplete behind an experimental flag.
-
----
-
-**# Phase 10 — Quality, security and accessibility**
+**# Phase 9 — Quality, security and accessibility**
 
 **## Goal**
 
 Make the MVP safe and dependable enough for real personal notes.
+
+---
 
 **## Tasks**
 
@@ -769,66 +707,6 @@ Make the MVP safe and dependable enough for real personal notes.
   - Input validation
 
 - [ ] Add Playwright tests for:
-
-  - Sign-up and sign-in
-
-  - Folder and note CRUD
-
-  - Editing and autosave
-
-  - Markdown import/export
-
-  - AI-key setup using a mocked provider
-
-  - Selection editing
-
-  - Agent retrieval, confirmation and note mutation
-
-  - Autocomplete acceptance and cancellation
-
-- [ ] Test RLS policies with two independent users.
-
-- [ ] Add security headers and a restrictive Content Security Policy.
-
-- [ ] Sanitize or disallow unsafe raw HTML in Markdown.
-
-- [ ] Add request-size limits and rate limiting.
-
-- [ ] Add keyboard navigation and visible focus states.
-
-- [ ] Label interactive controls for screen readers.
-
-- [ ] Add structured, secret-free server logs.
-
-- [ ] Add an error boundary and useful failure screens.
-
-- [ ] Test Chrome, Edge, Firefox and Safari where available.
-
-**## Acceptance criteria**
-
-- Critical end-to-end tests pass in CI.
-
-- Cross-user access attempts fail.
-
-- No API key or note content is unintentionally written to logs.
-
-- The core workflow is usable with a keyboard.
-
-- Supported desktop browsers pass a documented smoke-test checklist.
-
----
-
-**# Phase 11 — Deployment and MVP release**
-
-**## Goal**
-
-Deploy a production-ready MVP and validate the real workflow with a small group.
-
-**## Tasks**
-
-- [ ] Apply production database migrations.
-
-- [ ] Configure production authentication URLs and email templates.
 
 - [ ] Configure Vercel environment variables.
 
@@ -912,9 +790,7 @@ Use for essential user journeys:
 
 8. Review and approve the proposed write, then verify the activity trail.
 
-9. Accept and dismiss autocomplete suggestions.
-
-10. Export the note as Markdown.
+9. Export the note as Markdown.
 
 ---
 
@@ -932,9 +808,7 @@ Use for essential user journeys:
 
 | M4: Note-aware agent | 8 | Agent can retrieve context and perform approved, auditable note actions |
 
-| M5: AI-native writing | 9 | User can accept inline continuation suggestions |
-
-| M6: MVP release | 10–11 | Tested and deployed product ready for early users |
+| M5: MVP release | 9–10 | Tested and deployed product ready for early users |
 
 ---
 
@@ -959,8 +833,6 @@ The MVP is done when all of the following are true:
 - [ ] The agent uses only authorized note context and exposes which notes it reads.
 
 - [ ] Every agent write is previewed, explicitly approved, version-checked and recorded.
-
-- [ ] Inline autocomplete is stable or ships behind an experimental flag with `Continue writing` as the fallback.
 
 - [ ] Critical security and end-to-end tests pass.
 
