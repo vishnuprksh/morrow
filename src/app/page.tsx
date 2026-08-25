@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Archive, ChevronDown, ChevronRight, FileText, Folder, FolderPlus, MoreHorizontal, PanelRight, Plus, Search, Sparkles, Star } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
+import { SignOutButton } from './auth/auth-form';
 
 const folders = [
   { name: 'Personal', count: 8, open: true },
@@ -16,6 +18,14 @@ const notes = [
 ];
 
 export default function Home() {
+  const [user, setUser] = useState<{ email?: string; user_metadata?: { display_name?: string } } | null>(null);
+  useEffect(() => {
+    let supabase;
+    try { supabase = createClient(); } catch { return; }
+    supabase.auth.getUser().then(({ data }) => setUser(data.user));
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => setUser(session?.user ?? null));
+    return () => listener.subscription.unsubscribe();
+  }, []);
   const [chatOpen, setChatOpen] = useState(true);
   const [content, setContent] = useState(`Morrow is a quiet place for your ideas.\n\nStart writing here, or create a new note from the sidebar. Everything is saved automatically as you work.\n\n## A little inspiration\n\n> The best thinking happens when you give it room to wander.\n\nTry using **Markdown** to add structure to your thoughts.`);
 
@@ -27,7 +37,7 @@ export default function Home() {
         <nav className="nav-list"><button className="nav-item selected"><FileText size={16} /> All notes <span>25</span></button><button className="nav-item"><Star size={16} /> Favorites</button><button className="nav-item"><Archive size={16} /> Archive</button></nav>
         <div className="section-heading"><span>Folders</span><button aria-label="Add folder"><FolderPlus size={15} /></button></div>
         <div className="folder-list">{folders.map((folder) => <div className="folder-row" key={folder.name}><button className="folder-toggle" aria-label={`Toggle ${folder.name}`}>{folder.open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}<Folder size={15} /> <span>{folder.name}</span></button><span className="muted-count">{folder.count}</span></div>)}</div>
-        <div className="sidebar-footer"><div className="avatar">AK</div><div className="profile"><strong>Alex Kim</strong><small>Personal workspace</small></div><button className="more-button" aria-label="More options"><MoreHorizontal size={17} /></button></div>
+        <div className="sidebar-footer"><div className="avatar">{(user?.user_metadata?.display_name ?? user?.email ?? 'U').slice(0, 2).toUpperCase()}</div><div className="profile"><strong>{user?.user_metadata?.display_name ?? user?.email}</strong><small>Personal workspace</small></div><SignOutButton /></div>
       </aside>
       <section className="notes-panel"><div className="panel-header"><div><p className="eyebrow">Personal workspace</p><h2>All notes</h2></div><button className="icon-button"><MoreHorizontal size={18} /></button></div><div className="note-search"><Search size={15} /><input placeholder="Filter notes" /></div><div className="note-list">{notes.map((note) => <button className={`note-card ${note.active ? 'active' : ''}`} key={note.title}><div className="note-card-icon"><FileText size={16} /></div><div><strong>{note.title}</strong><small>{note.folder} · Just now</small></div></button>)}</div><button className="add-note"><Plus size={16} /> Add a note</button></section>
       <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>Personal</span><span>/</span><span>Welcome to Morrow</span></div><div className="editor-tools"><span className="save-status"><span className="saved-dot" /> Saved</span><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content"><input className="title-input" defaultValue="Welcome to Morrow" aria-label="Note title" /><div className="formatting"><button><strong>B</strong></button><button><em>I</em></button><button><s>S</s></button><span /><button>H1</button><button>☷</button><button>❝</button><button>&lt;/&gt;</button><button>↗</button></div><textarea value={content} onChange={(event) => setContent(event.target.value)} aria-label="Markdown note content" /></div></section>
