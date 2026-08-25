@@ -5,9 +5,10 @@ import { Archive, ChevronDown, ChevronRight, FileText, Folder, FolderPlus, MoreH
 import { createClient } from '@/lib/supabase/client';
 import { SignOutButton } from './auth/auth-form';
 import { MarkdownEditor } from './editor/markdown-editor';
+import { createAutosaveController, readRecoveryCopy, removeRecoveryCopy, type AutosaveController, type NoteDraft, type SaveResult } from '@/lib/notes/autosave';
 
 type FolderRow = { id: string; name: string; parent_id: string | null; position: number };
-type NoteRow = { id: string; title: string; folder_id: string | null; content_markdown: string; updated_at: string };
+type NoteRow = { id: string; title: string; folder_id: string | null; content_markdown: string; version: number; updated_at: string };
 
 export default function Home() {
   const [user, setUser] = useState<{ id: string; email?: string; user_metadata?: { display_name?: string } } | null>(null);
@@ -23,7 +24,9 @@ export default function Home() {
   const [folderNameInput, setFolderNameInput] = useState('');
   const [folderSaving, setFolderSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'error'>('saved');
-  const saveTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const autosaveRef = useRef<AutosaveController | null>(null);
+  const supabaseRef = useRef<ReturnType<typeof createClient> | null>(null);
+  const previousNoteRef = useRef<string | null>(null);
 
   async function loadWorkspace(supabase: ReturnType<typeof createClient>) {
     setLoading(true); setError(null);
@@ -33,7 +36,7 @@ export default function Home() {
     if (!authData.user) { setFolders([]); setNotes([]); setSelectedNote(null); setLoading(false); return; }
     const [folderResult, noteResult] = await Promise.all([
       supabase.from('folders').select('id, name, parent_id, position').order('position', { ascending: true }),
-      supabase.from('notes').select('id, title, content_markdown, folder_id, updated_at').order('updated_at', { ascending: false }),
+      supabase.from('notes').select('id, title, content_markdown, folder_id, version, updated_at').order('updated_at', { ascending: false }),
     ]);
     if (folderResult.error || noteResult.error) {
       setError(`Could not load your workspace: ${folderResult.error?.message ?? noteResult.error?.message ?? 'Unknown error'}`);
@@ -50,29 +53,48 @@ export default function Home() {
   useEffect(() => {
     let supabase;
     try { supabase = createClient(); } catch { return; }
+    supabaseRef.current = supabase;
+    autosaveRef.current = createAutosaveController(async (noteId, draft, expectedVersion): Promise<SaveResult> => {
+      const { data, error: updateError } = await supabase.from('notes').update({ ...draft, version: expectedVersion + 1 }).eq('id', noteId).eq('version', expectedVersion).select('version, updated_at').maybeSingle();
+      if (updateError) return { status: 'error', error: new Error(updateError.message) };
+      if (!data) return { status: 'stale' };
+      return { status: 'saved', version: data.version, updated_at: data.updated_at };
+    }, ({ noteId, ...result }) => {
+      if (result.status === 'saved') {
+        setNotes((current) => current.map((note) => note.id === noteId ? { ...note, version: result.version, updated_at: result.updated_at } : note));
+        setSaveStatus('saved');
+      } else if (result.status === 'stale') {
+        setSaveStatus('error');
+        setError('This note changed in another tab. Your local draft is preserved for recovery.');
+      } else {
+        setSaveStatus('error');
+        setError(`Could not save your note: ${result.error.message}`);
+      }
+    });
     void Promise.resolve().then(() => loadWorkspace(supabase));
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       if (session?.user) void loadWorkspace(supabase);
       else { setFolders([]); setNotes([]); setSelectedNote(null); }
     });
-    const timers = saveTimers.current;
-    return () => { listener.subscription.unsubscribe(); Object.values(timers).forEach(clearTimeout); };
+    return () => { listener.subscription.unsubscribe(); autosaveRef.current?.dispose(); autosaveRef.current = null; supabaseRef.current = null; };
   }, []);
+  useEffect(() => {
+    const previousNote = previousNoteRef.current;
+    if (previousNote && previousNote !== selectedNote) void autosaveRef.current?.flush(previousNote);
+    previousNoteRef.current = selectedNote;
+  }, [selectedNote]);
   const [chatOpen, setChatOpen] = useState(true);
   const selected = notes.find((note) => note.id === selectedNote) ?? null;
   const visibleNotes = useMemo(() => notes.filter((note) => (!selectedFolder || note.folder_id === selectedFolder) && note.title.toLowerCase().includes(filter.toLowerCase())), [notes, selectedFolder, filter]);
   const folderName = (id: string | null) => id ? folders.find((folder) => folder.id === id)?.name ?? 'Unknown folder' : 'Unfiled';
   function updateNote(noteId: string, changes: Partial<Pick<NoteRow, 'title' | 'content_markdown'>>) {
-    setNotes((current) => current.map((note) => note.id === noteId ? { ...note, ...changes } : note));
+    const note = notes.find((item) => item.id === noteId);
+    if (!note) return;
+    const draft: NoteDraft = { title: changes.title ?? note.title, content_markdown: changes.content_markdown ?? note.content_markdown };
+    setNotes((current) => current.map((item) => item.id === noteId ? { ...item, ...changes } : item));
     setSaveStatus('saving');
-    if (saveTimers.current[noteId]) clearTimeout(saveTimers.current[noteId]);
-    saveTimers.current[noteId] = setTimeout(async () => {
-      const { data, error: updateError } = await createClient().from('notes').update(changes).eq('id', noteId).select('updated_at').single();
-      if (updateError) { setSaveStatus('error'); setError(`Could not save your note: ${updateError.message}`); return; }
-      setNotes((current) => current.map((note) => note.id === noteId ? { ...note, updated_at: data.updated_at } : note));
-      setSaveStatus('saved');
-    }, 800);
+    autosaveRef.current?.schedule(noteId, draft, note.version);
   }
   async function createFolder() {
     if (!user) return;
@@ -88,12 +110,14 @@ export default function Home() {
   async function createNote() {
     if (!user) return;
     const supabase = createClient();
-    const { data, error: insertError } = await supabase.from('notes').insert({ user_id: user.id, title: 'Untitled note', folder_id: selectedFolder, content_markdown: '' }).select('id, title, folder_id, content_markdown, updated_at').single();
+    const { data, error: insertError } = await supabase.from('notes').insert({ user_id: user.id, title: 'Untitled note', folder_id: selectedFolder, content_markdown: '' }).select('id, title, folder_id, content_markdown, version, updated_at').single();
     if (insertError) return setError(insertError.message);
     if (data) { setNotes((current) => [data, ...current]); setSelectedNote(data.id); }
   }
   async function deleteNote(note: NoteRow) {
     if (!window.confirm(`Delete “${note.title}”? This cannot be undone.`)) return;
+    autosaveRef.current?.cancel(note.id);
+    removeRecoveryCopy(note.id);
     const { error: deleteError } = await createClient().from('notes').delete().eq('id', note.id);
     if (deleteError) return setError(deleteError.message);
     const remaining = notes.filter((item) => item.id !== note.id); setNotes(remaining); setSelectedNote(remaining[0]?.id ?? null);
@@ -117,8 +141,14 @@ export default function Home() {
         <div className="sidebar-footer"><div className="avatar">{(user?.user_metadata?.display_name ?? user?.email ?? 'U').slice(0, 2).toUpperCase()}</div><div className="profile"><strong>{user?.user_metadata?.display_name ?? user?.email}</strong><small>Personal workspace</small></div><SignOutButton /></div>
       </aside>
       <section className="notes-panel"><div className="panel-header"><div><p className="eyebrow">Personal workspace</p><h2>{selectedFolder ? folderName(selectedFolder) : 'All notes'}</h2></div><button className="icon-button"><MoreHorizontal size={18} /></button></div><div className="note-search"><Search size={15} /><input placeholder="Filter notes" value={filter} onChange={(event) => setFilter(event.target.value)} /></div>{error && <p className="workspace-error" role="alert">{error}</p>}{loading ? <p className="workspace-message">Loading your notes…</p> : <div className="note-list">{visibleNotes.map((note) => <button className={`note-card ${note.id === selectedNote ? 'active' : ''}`} key={note.id} onClick={() => setSelectedNote(note.id)}><div className="note-card-icon"><FileText size={16} /></div><div><strong>{note.title}</strong><small>{folderName(note.folder_id)} · {new Date(note.updated_at).toLocaleDateString()}</small></div></button>)}{visibleNotes.length === 0 && <p className="workspace-message">No notes here yet.</p>}</div>}<button className="add-note" onClick={createNote}><Plus size={16} /> Add a note</button></section>
-      <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" /><MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })} /></> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
+      <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><RecoveryNotice note={selected} onRecover={(draft) => { setNotes((current) => current.map((item) => item.id === selected.id ? { ...item, ...draft } : item)); autosaveRef.current?.schedule(selected.id, draft, selected.version); setSaveStatus('saving'); }} /><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" /><MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })} /></> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
       {chatOpen && <aside className="chat-panel"><header className="chat-header"><div><p className="eyebrow">Morrow AI</p><h2>Ask about this note</h2></div><button className="icon-button" onClick={() => setChatOpen(false)} aria-label="Close AI chat"><PanelRight size={17} /></button></header><div className="chat-body"><div className="assistant-badge"><Sparkles size={16} /></div><h3>What would you like to explore?</h3><p>I can help you develop ideas, summarize this note, or find connections in your thinking.</p><div className="suggestions"><button>Summarize this note</button><button>Help me expand this idea</button></div></div><div className="chat-input"><input placeholder="Ask anything..." /><button aria-label="Send message"><ChevronRight size={18} /></button></div><p className="chat-hint">AI can make mistakes. Check important details.</p></aside>}
     </main>
   );
+}
+
+function RecoveryNotice({ note, onRecover }: { note: NoteRow; onRecover: (draft: NoteDraft) => void }) {
+  const recovery = readRecoveryCopy(note.id);
+  if (!recovery || (recovery.title === note.title && recovery.content_markdown === note.content_markdown)) return null;
+  return <div className="workspace-error" role="status">A local recovery copy is available. <button type="button" onClick={() => { onRecover(recovery); removeRecoveryCopy(note.id); }}>Restore draft</button></div>;
 }

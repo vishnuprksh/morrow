@@ -12,10 +12,10 @@
     "semantic_hash": "54d99b2e0f30c2a2859404fa4c7b24ca"
   },
   "next-env.d.ts": {
-    "mtime": 1787659673.8398573,
-    "seen": 1787664002.1568213,
-    "ast_hash": "aa94238a90e7d04b7a47ecc3145ba6a0",
-    "semantic_hash": "aa94238a90e7d04b7a47ecc3145ba6a0"
+    "mtime": 1787668727.1243434,
+    "seen": 1787668753.8822238,
+    "ast_hash": "8195d2c60ce847a459ae9d308d6a5724",
+    "semantic_hash": "8195d2c60ce847a459ae9d308d6a5724"
   },
   "next.config.ts": {
     "mtime": 1787661068.2958374,
@@ -25,9 +25,9 @@
   },
   "package.json": {
     "mtime": 1787664441.222789,
-    "seen": 1787665219.861764,
+    "seen": 1787668753.8822958,
     "ast_hash": "4b55f119b10587c7707fcce172742fb8",
-    "semantic_hash": ""
+    "semantic_hash": "4b55f119b10587c7707fcce172742fb8"
   },
   "postcss.config.mjs": {
     "mtime": 1787657724.3888853,
@@ -84,16 +84,16 @@
     "semantic_hash": "4fb2f63e613225cd67d11b81e355e189"
   },
   "src/app/page.test.tsx": {
-    "mtime": 1787665111.2527792,
-    "seen": 1787665219.8622026,
+    "mtime": 1787667436.5002887,
+    "seen": 1787668753.8833606,
     "ast_hash": "377d2f29203e05069de54d083c558456",
-    "semantic_hash": ""
+    "semantic_hash": "377d2f29203e05069de54d083c558456"
   },
   "src/app/page.tsx": {
-    "mtime": 1787665173.9197783,
-    "seen": 1787665219.862204,
-    "ast_hash": "d3d72604b5ff9ba655b82695756b9ccd",
-    "semantic_hash": ""
+    "mtime": 1787668564.6173365,
+    "seen": 1787668753.8833623,
+    "ast_hash": "15ed49a3b5e498c669606576edc80079",
+    "semantic_hash": "15ed49a3b5e498c669606576edc80079"
   },
   "src/lib/supabase/client.ts": {
     "mtime": 1787658935.515868,
@@ -180,15 +180,27 @@
     "semantic_hash": "a78b19e49010fc0e83abfd82842ff35e"
   },
   "src/app/editor/markdown-editor.test.tsx": {
-    "mtime": 1787665205.547778,
-    "seen": 1787665219.8621538,
+    "mtime": 1787667436.5002887,
+    "seen": 1787668753.8832657,
     "ast_hash": "8a9142f7f2cd90889584fbd7bfe8974c",
-    "semantic_hash": ""
+    "semantic_hash": "8a9142f7f2cd90889584fbd7bfe8974c"
   },
   "src/app/editor/markdown-editor.tsx": {
-    "mtime": 1787665048.2417803,
-    "seen": 1787665219.8621554,
+    "mtime": 1787667436.4982886,
+    "seen": 1787668753.8832676,
     "ast_hash": "b3e65813d71f9afc22d7990e42fe0dba",
-    "semantic_hash": ""
+    "semantic_hash": "b3e65813d71f9afc22d7990e42fe0dba"
+  },
+  "src/lib/notes/autosave.test.ts": {
+    "mtime": 1787668508.4523342,
+    "seen": 1787668753.8833642,
+    "ast_hash": "b0b59d863dc53d9375533fd82afd0a57",
+    "semantic_hash": "b0b59d863dc53d9375533fd82afd0a57"
+  },
+  "src/lib/notes/autosave.ts": {
+    "mtime": 1787668636.8683395,
+    "seen": 1787668753.8833654,
+    "ast_hash": "2ecd11cc9e0b792ddce0cb8fccebcba6",
+    "semantic_hash": "2ecd11cc9e0b792ddce0cb8fccebcba6"
   }
 }

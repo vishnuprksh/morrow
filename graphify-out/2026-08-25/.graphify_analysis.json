@@ -1,0 +1,503 @@
+{
+  "communities": {
+    "0": [
+      "ai",
+      "ai_sdk_openai",
+      "lucide_react",
+      "milkdown_core",
+      "milkdown_plugin_listener",
+      "milkdown_preset_commonmark",
+      "milkdown_preset_gfm",
+      "milkdown_prose",
+      "milkdown_utils",
+      "next",
+      "package_dependencies",
+      "package_dependencies_ai",
+      "package_dependencies_ai_sdk_openai",
+      "package_dependencies_lucide_react",
+      "package_dependencies_milkdown_core",
+      "package_dependencies_milkdown_plugin_listener",
+      "package_dependencies_milkdown_preset_commonmark",
+      "package_dependencies_milkdown_preset_gfm",
+      "package_dependencies_milkdown_prose",
+      "package_dependencies_milkdown_utils",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_supabase_ssr",
+      "package_dependencies_supabase_supabase_js",
+      "package_dependencies_tailwindcss_postcss",
+      "package_dependencies_testing_library_jest_dom",
+      "package_dependencies_testing_library_react",
+      "package_dependencies_zod",
+      "react",
+      "react_dom",
+      "supabase_ssr",
+      "supabase_supabase_js",
+      "tailwindcss_postcss",
+      "testing_library_jest_dom",
+      "testing_library_react",
+      "zod"
+    ],
+    "1": [
+      "eslint",
+      "eslint_config_next",
+      "jsdom",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_jsdom",
+      "package_devdependencies_postcss",
+      "package_devdependencies_prettier",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitejs_plugin_react",
+      "package_devdependencies_vitest",
+      "postcss",
+      "prettier",
+      "tailwindcss",
+      "types_node",
+      "types_react",
+      "types_react_dom",
+      "typescript",
+      "vite",
+      "vitejs_plugin_react",
+      "vitest"
+    ],
+    "2": [
+      "src_app_auth_auth_form",
+      "src_app_auth_auth_form_authform",
+      "src_app_auth_auth_form_authform_submit",
+      "src_app_auth_auth_form_signoutbutton",
+      "src_app_auth_forgot_password_page",
+      "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "src_app_auth_sign_in_page",
+      "src_app_auth_sign_in_page_signinpage",
+      "src_app_auth_sign_up_page",
+      "src_app_auth_sign_up_page_signuppage",
+      "src_app_auth_update_password_page",
+      "src_app_auth_update_password_page_updatepasswordpage",
+      "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "src_app_page_home",
+      "src_app_page_home_createfolder",
+      "src_app_page_home_createnote",
+      "src_app_page_home_deletefolder",
+      "src_app_page_home_deletenote",
+      "src_app_page_home_loadworkspace",
+      "src_app_page_home_updatenote",
+      "src_app_page_test",
+      "src_lib_supabase_client_createclient"
+    ],
+    "3": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "ref_vitest_globals",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_types"
+    ],
+    "4": [
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_noterow",
+      "src_app_page_recoverynotice",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy"
+    ],
+    "5": [
+      "package",
+      "package_name",
+      "package_packagemanager",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_scripts_test",
+      "package_scripts_test_watch",
+      "package_scripts_typecheck",
+      "package_version"
+    ],
+    "6": [
+      "proxy",
+      "proxy_config",
+      "proxy_proxy",
+      "src_lib_supabase_client",
+      "src_lib_supabase_database_types",
+      "src_lib_supabase_database_types_database",
+      "src_lib_supabase_database_types_json",
+      "src_lib_supabase_env",
+      "src_lib_supabase_env_getsupabaseenv",
+      "src_lib_supabase_middleware",
+      "src_lib_supabase_middleware_updatesession",
+      "src_lib_supabase_server",
+      "src_lib_supabase_server_createclient"
+    ],
+    "7": [
+      "ref_next_dev_types_ts",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_src_ts",
+      "ref_src_tsx",
+      "ref_vitest_config_ts",
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "8": [
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton"
+    ],
+    "9": [
+      "prettierrc",
+      "prettierrc_semi",
+      "prettierrc_singlequote",
+      "prettierrc_trailingcomma"
+    ],
+    "10": [
+      "src_app_layout",
+      "src_app_layout_metadata",
+      "src_app_layout_rootlayout"
+    ],
+    "11": [
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "12": [
+      "next_env_d",
+      "next_env_d_rationale_6"
+    ],
+    "13": [
+      "postcss_config",
+      "postcss_config_config"
+    ],
+    "14": [
+      "src_app_auth_page",
+      "src_app_auth_page_authlayout"
+    ],
+    "15": [
+      "agents_generate_agent_files"
+    ],
+    "16": [
+      "agents_nextjs_agent_rules"
+    ],
+    "17": [
+      "agents_node_modules_next_docs"
+    ],
+    "18": [
+      "claude_agents_reference"
+    ],
+    "19": [
+      "eslint_config"
+    ],
+    "20": [
+      "github_workflows_ci_ci"
+    ],
+    "21": [
+      "github_workflows_ci_lint"
+    ],
+    "22": [
+      "github_workflows_ci_pnpm_install"
+    ],
+    "23": [
+      "github_workflows_ci_quality"
+    ],
+    "24": [
+      "github_workflows_ci_test"
+    ],
+    "25": [
+      "github_workflows_ci_typecheck"
+    ],
+    "26": [
+      "plan_authentication_phase"
+    ],
+    "27": [
+      "plan_autosave"
+    ],
+    "28": [
+      "plan_byok"
+    ],
+    "29": [
+      "plan_editor_phase"
+    ],
+    "30": [
+      "plan_milkdown"
+    ],
+    "31": [
+      "plan_mvp"
+    ],
+    "32": [
+      "plan_nextjs_app_router"
+    ],
+    "33": [
+      "plan_openrouter"
+    ],
+    "34": [
+      "plan_playwright"
+    ],
+    "35": [
+      "plan_prosemirror"
+    ],
+    "36": [
+      "plan_react_tailwind_shadcn_lucide"
+    ],
+    "37": [
+      "plan_row_level_security"
+    ],
+    "38": [
+      "plan_supabase_auth"
+    ],
+    "39": [
+      "plan_supabase_postgresql"
+    ],
+    "40": [
+      "plan_supabase_storage"
+    ],
+    "41": [
+      "plan_vercel_ai_sdk"
+    ],
+    "42": [
+      "plan_vitest"
+    ],
+    "43": [
+      "plan_zod"
+    ],
+    "44": [
+      "readme_auth_redirect_url"
+    ],
+    "45": [
+      "readme_email_password_authentication"
+    ],
+    "46": [
+      "readme_env_local"
+    ],
+    "47": [
+      "readme_initial_schema_migration"
+    ],
+    "48": [
+      "readme_morrow"
+    ],
+    "49": [
+      "readme_phase_1"
+    ],
+    "50": [
+      "readme_supabase_project"
+    ],
+    "51": [
+      "src_test_setup"
+    ],
+    "52": [
+      "vitest_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.05405405405405406,
+    "1": 0.07407407407407407,
+    "2": 0.12648221343873517,
+    "3": 0.09523809523809523,
+    "4": 0.17894736842105263,
+    "5": 0.15384615384615385,
+    "6": 0.3076923076923077,
+    "7": 0.2,
+    "8": 0.2857142857142857,
+    "9": 0.5,
+    "10": 0.6666666666666666,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 17
+    },
+    {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "degree": 15
+    },
+    {
+      "id": "src_app_page_home",
+      "label": "Home()",
+      "degree": 10
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 8
+    },
+    {
+      "id": "src_lib_supabase_env_getsupabaseenv",
+      "label": "getSupabaseEnv()",
+      "degree": 7
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "degree": 7
+    },
+    {
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
+      "degree": 7
+    },
+    {
+      "id": "src_lib_notes_autosave_removerecoverycopy",
+      "label": "removeRecoveryCopy()",
+      "degree": 6
+    },
+    {
+      "id": "src_app_auth_auth_form_authform",
+      "label": "AuthForm()",
+      "degree": 4
+    },
+    {
+      "id": "src_lib_supabase_database_types_database",
+      "label": "Database",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "proxy()",
+      "target": "updateSession()",
+      "source_files": [
+        "proxy.ts",
+        "src/lib/supabase/middleware.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/forgot-password/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/update-password/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "createFolder()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `createFolder()` unexpectedly reaches hub `createClient()`"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
