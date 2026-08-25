@@ -57,6 +57,22 @@ create trigger folders_set_updated_at before update on public.folders for each r
 create trigger notes_set_updated_at before update on public.notes for each row execute function public.set_updated_at();
 create trigger ai_credentials_set_updated_at before update on public.ai_credentials for each row execute function public.set_updated_at();
 
+create or replace function public.validate_note_folder_owner()
+returns trigger language plpgsql security invoker set search_path = public as $$
+begin
+  if new.folder_id is not null and not exists (
+    select 1 from public.folders where id = new.folder_id and user_id = new.user_id
+  ) then
+    raise exception 'folder does not belong to the current user';
+  end if;
+  return new;
+end;
+$$;
+
+create trigger notes_validate_folder_owner
+before insert or update of user_id, folder_id on public.notes
+for each row execute function public.validate_note_folder_owner();
+
 create or replace function public.handle_new_user()
 returns trigger language plpgsql security definer set search_path = public as $$
 begin
