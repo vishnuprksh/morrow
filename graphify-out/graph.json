@@ -4,6 +4,19 @@
   "graph": {},
   "nodes": [
     {
+      "id": "src_app_editor_markdown_editor_editaction",
+      "label": "EditAction",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "editaction",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L18"
+    },
+    {
       "id": "src_app_editor_markdown_editor_markdowneditorprops",
       "label": "MarkdownEditorProps",
       "_callable": true,
@@ -27,7 +40,46 @@
       "file_type": "code",
       "norm_label": "toolbaraction",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L18"
+      "source_location": "L28"
+    },
+    {
+      "id": "src_app_ai_settings_credential",
+      "label": "Credential",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "credential",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_page_folderrow",
+      "label": "FolderRow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "folderrow",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L12"
+    },
+    {
+      "id": "src_app_page_noterow",
+      "label": "NoteRow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "noterow",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L13"
     },
     {
       "id": "src_lib_notes_autosave_autosavecontroller",
@@ -108,42 +160,6 @@
       "source_location": "L6"
     },
     {
-      "id": "src_app_ai_settings_credential",
-      "label": "Credential",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "credential",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_app_page_folderrow",
-      "label": "FolderRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "folderrow",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L12"
-    },
-    {
-      "id": "src_app_page_noterow",
-      "label": "NoteRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "noterow",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L13"
-    },
-    {
       "id": "src_lib_supabase_database_types_database",
       "label": "Database",
       "_callable": true,
@@ -170,12 +186,26 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_api_ai_edit_route_preset",
+      "label": "Preset",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "preset",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L15"
+    },
+    {
       "id": "src_lib_ai_validation_credentialinput",
       "label": "CredentialInput",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "credentialinput",
       "source_file": "src/lib/ai/validation.ts",
@@ -217,7 +247,31 @@
       "file_type": "code",
       "norm_label": "markdowneditor()",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L31"
+      "source_location": "L41"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "label": "applyProposal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "applyproposal()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L157"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "label": "requestEdit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "requestedit()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L124"
     },
     {
       "id": "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
@@ -229,7 +283,19 @@
       "file_type": "code",
       "norm_label": "runtoolbaraction()",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L80"
+      "source_location": "L179"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "label": "submitCustomInstruction()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "submitcustominstruction()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L148"
     },
     {
       "id": "src_app_editor_markdown_editor_toolbarbutton",
@@ -241,7 +307,7 @@
       "file_type": "code",
       "norm_label": "toolbarbutton()",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L119"
+      "source_location": "L223"
     },
     {
       "id": "src_app_layout_rootlayout",
@@ -266,6 +332,66 @@
       "norm_label": "authlayout()",
       "source_file": "src/app/auth/page.tsx",
       "source_location": "L4"
+    },
+    {
+      "id": "src_app_ai_settings_aisettings",
+      "label": "AiSettings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "aisettings()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_ai_settings_aisettings_remove",
+      "label": "remove()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "remove()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_app_ai_settings_aisettings_save",
+      "label": "save()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "save()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "src_app_ai_settings_aisettings_test",
+      "label": "test()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "test()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_app_page_recoverynotice",
+      "label": "RecoveryNotice()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "recoverynotice()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L173"
     },
     {
       "id": "src_lib_notes_autosave_createautosavecontroller",
@@ -362,61 +488,6 @@
       "norm_label": "writerecoverycopy()",
       "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L48"
-    },
-    {
-      "id": "src_app_ai_settings_aisettings",
-      "label": "AiSettings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "aisettings()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_ai_settings_aisettings_remove",
-      "label": "remove()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "remove()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L25"
-    },
-    {
-      "id": "src_app_ai_settings_aisettings_save",
-      "label": "save()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "save()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_ai_settings_aisettings_test",
-      "label": "test()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "test()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_app_page_recoverynotice",
-      "label": "RecoveryNotice()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "recoverynotice()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L173"
     },
     {
       "id": "src_app_auth_auth_form_authform",
@@ -527,23 +598,12 @@
       "source_location": "L9"
     },
     {
-      "id": "src_lib_supabase_client_createclient",
-      "label": "createClient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "createclient()",
-      "source_file": "src/lib/supabase/client.ts",
-      "source_location": "L7"
-    },
-    {
       "id": "src_app_page_home",
       "label": "Home()",
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "home()",
       "source_file": "src/app/page.tsx",
@@ -555,6 +615,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "createfolder()",
       "source_file": "src/app/page.tsx",
@@ -566,6 +627,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "createnote()",
       "source_file": "src/app/page.tsx",
@@ -577,6 +639,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "deletefolder()",
       "source_file": "src/app/page.tsx",
@@ -588,6 +651,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "deletenote()",
       "source_file": "src/app/page.tsx",
@@ -599,6 +663,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "importmarkdown()",
       "source_file": "src/app/page.tsx",
@@ -610,6 +675,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "loadworkspace()",
       "source_file": "src/app/page.tsx",
@@ -621,6 +687,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "updatenote()",
       "source_file": "src/app/page.tsx",
@@ -632,10 +699,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "createClient",
       "file_type": "code",
       "norm_label": "uploadimage()",
       "source_file": "src/app/page.tsx",
       "source_location": "L144"
+    },
+    {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createclient()",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L7"
     },
     {
       "id": "proxy_proxy",
@@ -698,11 +778,36 @@
       "source_location": "L6"
     },
     {
+      "id": "src_app_api_ai_edit_route_ispreset",
+      "label": "isPreset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "ispreset()",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "src_app_api_ai_edit_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L21"
+    },
+    {
       "id": "src_app_api_ai_settings_route_authenticatedclient",
       "label": "authenticatedClient()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "authenticatedclient()",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -714,6 +819,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "delete()",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -725,6 +831,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "get()",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -736,6 +843,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -747,6 +855,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "providerurl()",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -758,6 +867,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "put()",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -769,6 +879,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "decryptapikey()",
       "source_file": "src/lib/ai/credentials.ts",
@@ -780,6 +891,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "encryptapikey()",
       "source_file": "src/lib/ai/credentials.ts",
@@ -791,10 +903,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "encryptionkey()",
       "source_file": "src/lib/ai/credentials.ts",
       "source_location": "L7"
+    },
+    {
+      "id": "src_app_page_home_exportnote",
+      "label": "exportNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "exportnote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L134"
+    },
+    {
+      "id": "src_app_page_home_exportworkspace",
+      "label": "exportWorkspace()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "exportworkspace()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L135"
     },
     {
       "id": "src_lib_notes_portability_downloadblob",
@@ -855,28 +992,6 @@
       "norm_label": "workspacezip()",
       "source_file": "src/lib/notes/portability.ts",
       "source_location": "L38"
-    },
-    {
-      "id": "src_app_page_home_exportnote",
-      "label": "exportNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "exportnote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L134"
-    },
-    {
-      "id": "src_app_page_home_exportworkspace",
-      "label": "exportWorkspace()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "exportworkspace()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L135"
     },
     {
       "id": "package_dependencies",
@@ -1616,6 +1731,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_editor_markdown_editor_editactions",
+      "label": "editActions",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "editactions",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L20"
+    },
+    {
       "id": "src_app_editor_markdown_editor_test",
       "label": "markdown-editor.test.tsx",
       "_origin": "ast",
@@ -1635,7 +1761,7 @@
       "file_type": "code",
       "norm_label": "toolbaractions",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L20"
+      "source_location": "L30"
     },
     {
       "id": "prettierrc",
@@ -1781,6 +1907,28 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_ai_settings",
+      "label": "ai-settings.tsx",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "ai-settings.tsx",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page",
+      "label": "app/page.tsx",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "app/page.tsx",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_lib_notes_autosave",
       "label": "autosave.ts",
       "_origin": "ast",
@@ -1800,37 +1948,6 @@
       "file_type": "code",
       "norm_label": "autosave.test.ts",
       "source_file": "src/lib/notes/autosave.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page_test",
-      "label": "page.test.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "page.test.tsx",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_ai_settings",
-      "label": "ai-settings.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "ai-settings.tsx",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page",
-      "label": "app/page.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "app/page.tsx",
-      "source_file": "src/app/page.tsx",
       "source_location": "L1"
     },
     {
@@ -1897,6 +2014,17 @@
       "file_type": "code",
       "norm_label": "update-password/page.tsx",
       "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_test",
+      "label": "page.test.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "page.test.tsx",
+      "source_file": "src/app/page.test.tsx",
       "source_location": "L1"
     },
     {
@@ -2241,10 +2369,57 @@
       "source_location": "L1"
     },
     {
+      "id": "morrow_phase5_check",
+      "label": "morrow-phase5-check.md",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "morrow-phase5-check.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "morrow-phase5-check.md",
+      "source_file": "morrow-phase5-check.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "morrow_phase5_check_phase_5_browser_check",
+      "label": "Phase 5 browser check",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "morrow-phase5-check.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase 5 browser check",
+      "source_file": "morrow-phase5-check.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_edit_route",
+      "label": "edit/route.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "edit/route.ts",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_edit_route_presets",
+      "label": "presets",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "presets",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L7"
+    },
+    {
       "id": "src_app_api_ai_settings_route",
       "label": "settings/route.ts",
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "settings/route.ts",
       "source_file": "src/app/api/ai/settings/route.ts",
@@ -2255,6 +2430,7 @@
       "label": "credentials.ts",
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "credentials.ts",
       "source_file": "src/lib/ai/credentials.ts",
@@ -2265,6 +2441,7 @@
       "label": "credentials.test.ts",
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "credentials.test.ts",
       "source_file": "src/lib/ai/credentials.test.ts",
@@ -2275,6 +2452,7 @@
       "label": "validation.ts",
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "validation.ts",
       "source_file": "src/lib/ai/validation.ts",
@@ -2285,6 +2463,7 @@
       "label": "credentialSchema",
       "_origin": "ast",
       "community": 6,
+      "community_name": "settings/route.ts",
       "file_type": "code",
       "norm_label": "credentialschema",
       "source_file": "src/lib/ai/validation.ts",
@@ -3105,6 +3284,42 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_api_ai_edit_route_post",
+      "target": "src_lib_supabase_server_createclient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route_post",
+      "target": "src_app_api_ai_edit_route_ispreset",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route_post",
+      "target": "src_lib_ai_credentials_decryptapikey",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_api_ai_settings_route_authenticatedclient",
       "target": "src_lib_supabase_server_createclient",
       "relation": "calls",
@@ -3258,6 +3473,18 @@
       "context": "call",
       "source_file": "src/app/auth/update-password/page.tsx",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "target": "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -3646,6 +3873,18 @@
     },
     {
       "source": "src_app_editor_markdown_editor_markdowneditor",
+      "target": "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_markdowneditor",
       "target": "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
       "relation": "contains",
       "_origin": "ast",
@@ -3653,7 +3892,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L80",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -4281,6 +4520,30 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_lib_supabase_server_createclient",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_lib_ai_credentials_decryptapikey",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_api_ai_settings_route",
       "target": "src_lib_supabase_server_createclient",
       "relation": "imports",
@@ -4749,6 +5012,30 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_lib_supabase_server",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_lib_ai_credentials",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_api_ai_settings_route",
       "target": "src_lib_supabase_server",
       "relation": "imports_from",
@@ -5058,6 +5345,17 @@
       "context": "import",
       "source_file": "src/lib/supabase/server.ts",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "morrow_phase5_check",
+      "target": "morrow_phase5_check_phase_5_browser_check",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "morrow-phase5-check.md",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -5699,6 +5997,50 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_app_api_ai_edit_route_preset",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_app_api_ai_edit_route_ispreset",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_app_api_ai_edit_route_post",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_ai_edit_route",
+      "target": "src_app_api_ai_edit_route_presets",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_api_ai_settings_route",
       "target": "src_app_api_ai_settings_route_get",
       "relation": "contains",
@@ -5887,17 +6229,6 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_toolbarbutton",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L119",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_editor_markdown_editor",
       "target": "src_app_editor_markdown_editor_markdowneditorprops",
       "relation": "contains",
       "_origin": "ast",
@@ -5909,7 +6240,7 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_toolbaraction",
+      "target": "src_app_editor_markdown_editor_editaction",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5920,7 +6251,7 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_toolbaractions",
+      "target": "src_app_editor_markdown_editor_editactions",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5931,13 +6262,68 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
+      "target": "src_app_editor_markdown_editor_toolbarbutton",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor",
+      "target": "src_app_editor_markdown_editor_toolbaraction",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor",
+      "target": "src_app_editor_markdown_editor_toolbaractions",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor",
       "target": "src_app_editor_markdown_editor_markdowneditor",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L31",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_markdowneditor",
+      "target": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_markdowneditor",
+      "target": "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -6603,5 +6989,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8a26b342af1d9dc281aee954f55758208ba4ebd5"
+  "built_at_commit": "9915d896cd4436f1f6a865595af0f1dd75dbcf1a"
 }

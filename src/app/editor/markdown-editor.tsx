@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Editor, editorViewCtx, rootCtx, defaultValueCtx } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
 import { gfm } from '@milkdown/preset-gfm';
@@ -14,6 +14,16 @@ export type MarkdownEditorProps = {
   onChange: (markdown: string) => void;
   onUploadImage?: (file: File) => Promise<string | null>;
 };
+
+type EditAction = 'improve' | 'simplify' | 'shorten' | 'expand' | 'grammar' | 'custom';
+
+const editActions: Array<{ action: EditAction; label: string }> = [
+  { action: 'improve', label: 'Improve writing' },
+  { action: 'simplify', label: 'Simplify' },
+  { action: 'shorten', label: 'Shorten' },
+  { action: 'expand', label: 'Expand' },
+  { action: 'grammar', label: 'Fix grammar' },
+];
 
 type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link';
 
@@ -33,10 +43,21 @@ export function MarkdownEditor({ value, onChange, onUploadImage }: MarkdownEdito
   const editorRef = useRef<Editor | null>(null);
   const currentValueRef = useRef(value);
   const onChangeRef = useRef(onChange);
+  const [selection, setSelection] = useState<{ from: number; to: number; text: string; top: number; left: number } | null>(null);
+  const [proposal, setProposal] = useState<{ replacement: string; from: number; to: number; original: string } | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [customDialogOpen, setCustomDialogOpen] = useState(false);
+  const [customInstruction, setCustomInstruction] = useState('');
+  const requestRef = useRef(0);
+  const selectionRef = useRef(selection);
 
   useEffect(() => {
     onChangeRef.current = onChange;
   }, [onChange]);
+
+  useEffect(() => {
+    selectionRef.current = selection;
+  }, [selection]);
 
   useEffect(() => {
     if (!rootRef.current) return;
@@ -77,6 +98,84 @@ export function MarkdownEditor({ value, onChange, onUploadImage }: MarkdownEdito
     });
   }, [value]);
 
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const updateSelection = () => {
+      const editor = editorRef.current;
+      if (!editor) return;
+      editor.action((ctx) => {
+        const view = ctx.get(editorViewCtx);
+        const { from, to } = view.state.selection;
+        if (from === to) return setSelection(null);
+        const text = view.state.doc.textBetween(from, to, '\n');
+        if (!text.trim()) return setSelection(null);
+        const start = view.coordsAtPos(from);
+        const end = view.coordsAtPos(to);
+        const bounds = root.getBoundingClientRect();
+        setSelection({ from, to, text, top: Math.max(4, end.bottom - bounds.top + 8), left: Math.max(4, start.left - bounds.left) });
+      });
+    };
+    root.addEventListener('mouseup', updateSelection);
+    root.addEventListener('keyup', updateSelection);
+    return () => { root.removeEventListener('mouseup', updateSelection); root.removeEventListener('keyup', updateSelection); };
+  }, []);
+
+  async function requestEdit(action: EditAction, requestedInstruction = '') {
+    if (!selectionRef.current || busy) return;
+    let instruction = '';
+    if (action === 'custom') {
+      instruction = requestedInstruction.trim();
+      if (!instruction) return;
+    }
+    const snapshot = selectionRef.current;
+    const requestId = ++requestRef.current;
+    setBusy(true);
+    setProposal(null);
+    try {
+      const response = await fetch('/api/ai/edit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, selectedText: snapshot.text, contextBefore: value.slice(Math.max(0, value.indexOf(snapshot.text) - 2_000), value.indexOf(snapshot.text)), contextAfter: value.slice(value.indexOf(snapshot.text) + snapshot.text.length, value.indexOf(snapshot.text) + snapshot.text.length + 2_000), instruction }) });
+      const body = await response.json() as { replacement?: string; error?: string };
+      if (!response.ok || !body.replacement) throw new Error(body.error ?? 'Could not create an AI proposal.');
+      if (requestId !== requestRef.current) return;
+      setProposal({ replacement: body.replacement, from: snapshot.from, to: snapshot.to, original: snapshot.text });
+    } catch (error) {
+      if (requestId === requestRef.current) window.alert(error instanceof Error ? error.message : 'Could not create an AI proposal.');
+    } finally {
+      if (requestId === requestRef.current) setBusy(false);
+    }
+  }
+
+  function submitCustomInstruction(event: React.FormEvent) {
+    event.preventDefault();
+    const instruction = customInstruction.trim();
+    if (!instruction || busy) return;
+    setCustomDialogOpen(false);
+    setCustomInstruction('');
+    void requestEdit('custom', instruction);
+  }
+
+  function applyProposal() {
+    const current = proposal;
+    const editor = editorRef.current;
+    if (!current || !editor) return;
+    let applied = false;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const selectedText = view.state.doc.textBetween(current.from, current.to, '\n');
+      if (selectedText !== current.original) return;
+      view.dispatch(view.state.tr.insertText(current.replacement, current.from, current.to));
+      view.focus();
+      applied = true;
+    });
+    if (applied) {
+      setProposal(null);
+      setSelection(null);
+    } else {
+      setProposal(null);
+      window.alert('The selection changed. The AI proposal was discarded.');
+    }
+  }
+
   function runToolbarAction(action: ToolbarAction) {
     const editor = editorRef.current;
     if (!editor) return;
@@ -111,7 +210,12 @@ export function MarkdownEditor({ value, onChange, onUploadImage }: MarkdownEdito
         {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}>▧</ToolbarButton>}
       </div>
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
-      <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" />
+      <div className="editor-surface">
+        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" />
+        {selection && !proposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
+        {proposal && <div className="ai-proposal" role="dialog" aria-label="AI edit proposal"><strong>Suggested replacement</strong><p>{proposal.replacement}</p><div><button type="button" onClick={applyProposal}>Accept</button><button type="button" onClick={() => setProposal(null)}>Discard</button></div></div>}
+        {customDialogOpen && <div className="ai-custom-dialog" role="dialog" aria-modal="true" aria-labelledby="custom-instruction-title"><form onSubmit={submitCustomInstruction}><strong id="custom-instruction-title">Custom AI instruction</strong><label htmlFor="custom-instruction">Describe how to rewrite the selection</label><textarea id="custom-instruction" value={customInstruction} onChange={(event) => setCustomInstruction(event.target.value)} autoFocus maxLength={2_000} rows={4} /><div><button type="submit" disabled={!customInstruction.trim()}>Rewrite selection</button><button type="button" onClick={() => { setCustomDialogOpen(false); setCustomInstruction(''); }}>Cancel</button></div></form></div>}
+      </div>
     </>
   );
 }
