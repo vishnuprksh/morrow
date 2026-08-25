@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Archive, ChevronDown, ChevronRight, FileText, Folder, FolderPlus, MoreHorizontal, PanelRight, Plus, Search, Sparkles, Star, Trash2 } from 'lucide-react';
+import { Archive, ChevronDown, ChevronRight, Download, FileText, Folder, FolderPlus, MoreHorizontal, PanelRight, Plus, Search, Sparkles, Star, Trash2, Upload } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { SignOutButton } from './auth/auth-form';
 import { MarkdownEditor } from './editor/markdown-editor';
 import { createAutosaveController, readRecoveryCopy, removeRecoveryCopy, type AutosaveController, type NoteDraft, type SaveResult } from '@/lib/notes/autosave';
+import { downloadBlob, noteMarkdown, safeFilename, workspaceZip } from '@/lib/notes/portability';
 
 type FolderRow = { id: string; name: string; parent_id: string | null; position: number };
 type NoteRow = { id: string; title: string; folder_id: string | null; content_markdown: string; version: number; updated_at: string };
@@ -128,9 +129,28 @@ export default function Home() {
     if (deleteError) return setError(deleteError.message);
     setFolders((current) => current.filter((item) => item.id !== folder.id)); setNotes((current) => current.map((note) => note.folder_id === folder.id ? { ...note, folder_id: null } : note)); if (selectedFolder === folder.id) setSelectedFolder(null);
   }
+  function exportNote(note: NoteRow) { downloadBlob(new Blob([noteMarkdown(note)], { type: 'text/markdown;charset=utf-8' }), `${safeFilename(note.title, 'note')}.md`); }
+  async function exportWorkspace() { downloadBlob(await workspaceZip(notes, folders), 'morrow-workspace.zip'); }
+  async function importMarkdown(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]; event.target.value = '';
+    if (!file || !user) return;
+    if (!file.name.toLowerCase().endsWith('.md') || file.size > 2 * 1024 * 1024) return setError('Choose a Markdown (.md) file smaller than 2 MB.');
+    const { data, error: insertError } = await createClient().from('notes').insert({ user_id: user.id, title: file.name.replace(/\.md$/i, '') || 'Imported note', folder_id: selectedFolder, content_markdown: await file.text() }).select('id, title, folder_id, content_markdown, version, updated_at').single();
+    if (insertError) return setError(`Could not import note: ${insertError.message}`);
+    if (data) { setNotes((current) => [data, ...current]); setSelectedNote(data.id); }
+  }
+  async function uploadImage(file: File) {
+    if (!selected || !user) return null;
+    if (!['image/png', 'image/jpeg', 'image/gif', 'image/webp', 'image/svg+xml'].includes(file.type) || file.size > 5 * 1024 * 1024) { setError('Images must be PNG, JPEG, GIF, WebP or SVG and smaller than 5 MB.'); return null; }
+    const filename = `${crypto.randomUUID()}-${safeFilename(file.name, 'image')}`;
+    const { error: uploadError } = await createClient().storage.from('attachments').upload(`${user.id}/${selected.id}/${filename}`, file, { contentType: file.type });
+    if (uploadError) { setError(`Could not upload image: ${uploadError.message}`); return null; }
+    return `/api/attachments/${selected.id}/${encodeURIComponent(filename)}`;
+  }
 
   return (
     <main className="app-shell">
+      <div className="portability-actions" aria-label="Markdown portability"><label className="portability-button" title="Import Markdown"><Upload size={14} /> Import<input hidden type="file" accept=".md,text/markdown" onChange={(event) => void importMarkdown(event)} /></label><button className="portability-button" onClick={() => void exportWorkspace()}><Download size={14} /> Export ZIP</button>{selected && <button className="portability-button" onClick={() => exportNote(selected)}><Download size={14} /> Export note</button>}</div>
       <aside className="sidebar">
         <div className="brand"><div className="brand-mark"><Sparkles size={15} /></div><span>Morrow</span></div>
         <div className="sidebar-actions"><button className="new-note" onClick={createNote}><Plus size={16} /> New note</button><button className="icon-button" aria-label="Search"><Search size={17} /></button></div>
@@ -141,7 +161,7 @@ export default function Home() {
         <div className="sidebar-footer"><div className="avatar">{(user?.user_metadata?.display_name ?? user?.email ?? 'U').slice(0, 2).toUpperCase()}</div><div className="profile"><strong>{user?.user_metadata?.display_name ?? user?.email}</strong><small>Personal workspace</small></div><SignOutButton /></div>
       </aside>
       <section className="notes-panel"><div className="panel-header"><div><p className="eyebrow">Personal workspace</p><h2>{selectedFolder ? folderName(selectedFolder) : 'All notes'}</h2></div><button className="icon-button"><MoreHorizontal size={18} /></button></div><div className="note-search"><Search size={15} /><input placeholder="Filter notes" value={filter} onChange={(event) => setFilter(event.target.value)} /></div>{error && <p className="workspace-error" role="alert">{error}</p>}{loading ? <p className="workspace-message">Loading your notes…</p> : <div className="note-list">{visibleNotes.map((note) => <button className={`note-card ${note.id === selectedNote ? 'active' : ''}`} key={note.id} onClick={() => setSelectedNote(note.id)}><div className="note-card-icon"><FileText size={16} /></div><div><strong>{note.title}</strong><small>{folderName(note.folder_id)} · {new Date(note.updated_at).toLocaleDateString()}</small></div></button>)}{visibleNotes.length === 0 && <p className="workspace-message">No notes here yet.</p>}</div>}<button className="add-note" onClick={createNote}><Plus size={16} /> Add a note</button></section>
-      <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><RecoveryNotice note={selected} onRecover={(draft) => { setNotes((current) => current.map((item) => item.id === selected.id ? { ...item, ...draft } : item)); autosaveRef.current?.schedule(selected.id, draft, selected.version); setSaveStatus('saving'); }} /><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" /><MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })} /></> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
+      <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><RecoveryNotice note={selected} onRecover={(draft) => { setNotes((current) => current.map((item) => item.id === selected.id ? { ...item, ...draft } : item)); autosaveRef.current?.schedule(selected.id, draft, selected.version); setSaveStatus('saving'); }} /><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" /><MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })}  onUploadImage={uploadImage} /></> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
       {chatOpen && <aside className="chat-panel"><header className="chat-header"><div><p className="eyebrow">Morrow AI</p><h2>Ask about this note</h2></div><button className="icon-button" onClick={() => setChatOpen(false)} aria-label="Close AI chat"><PanelRight size={17} /></button></header><div className="chat-body"><div className="assistant-badge"><Sparkles size={16} /></div><h3>What would you like to explore?</h3><p>I can help you develop ideas, summarize this note, or find connections in your thinking.</p><div className="suggestions"><button>Summarize this note</button><button>Help me expand this idea</button></div></div><div className="chat-input"><input placeholder="Ask anything..." /><button aria-label="Send message"><ChevronRight size={18} /></button></div><p className="chat-hint">AI can make mistakes. Check important details.</p></aside>}
     </main>
   );

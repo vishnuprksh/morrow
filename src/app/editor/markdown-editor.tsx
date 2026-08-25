@@ -12,6 +12,7 @@ import { replaceAll } from '@milkdown/utils';
 export type MarkdownEditorProps = {
   value: string;
   onChange: (markdown: string) => void;
+  onUploadImage?: (file: File) => Promise<string | null>;
 };
 
 type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link';
@@ -27,7 +28,7 @@ const toolbarActions: Array<{ action: ToolbarAction; label: string; content: Rea
   { action: 'link', label: 'Link', content: '↗' },
 ];
 
-export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
+export function MarkdownEditor({ value, onChange, onUploadImage }: MarkdownEditorProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Editor | null>(null);
   const currentValueRef = useRef(value);
@@ -107,7 +108,9 @@ export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
     <>
       <div className="formatting" role="toolbar" aria-label="Formatting toolbar">
         {toolbarActions.map(({ action, label, content }, index) => <span key={action} className={index === 3 ? 'toolbar-group' : undefined}><ToolbarButton label={label} onClick={() => runToolbarAction(action)}>{content}</ToolbarButton></span>)}
+        {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}>▧</ToolbarButton>}
       </div>
+      {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" />
     </>
   );

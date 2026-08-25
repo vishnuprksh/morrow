@@ -9,3 +9,5 @@
 5. Run `pnpm dev`.
 
 Phase 1 includes email/password sign-up, sign-in, sign-out, password reset, protected workspace routing, user-owned schema, and Row Level Security policies. Database TypeScript types are in `src/lib/supabase/database.types.ts`.
+
+Phase 5 adds Markdown note import, single-note `.md` export, workspace ZIP export, and private image attachments. Apply `supabase/migrations/20260825010000_attachments.sql` after the initial migration. Attachments are stored under each user's ID and are served only through an authenticated note-scoped route.

@@ -3,6 +3,7 @@
     "0": [
       "ai",
       "ai_sdk_openai",
+      "jszip",
       "lucide_react",
       "milkdown_core",
       "milkdown_plugin_listener",
@@ -14,6 +15,7 @@
       "package_dependencies",
       "package_dependencies_ai",
       "package_dependencies_ai_sdk_openai",
+      "package_dependencies_jszip",
       "package_dependencies_lucide_react",
       "package_dependencies_milkdown_core",
       "package_dependencies_milkdown_plugin_listener",
@@ -88,8 +90,10 @@
       "src_app_page_home_createnote",
       "src_app_page_home_deletefolder",
       "src_app_page_home_deletenote",
+      "src_app_page_home_importmarkdown",
       "src_app_page_home_loadworkspace",
       "src_app_page_home_updatenote",
+      "src_app_page_home_uploadimage",
       "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
@@ -139,6 +143,23 @@
       "src_lib_notes_autosave_writerecoverycopy"
     ],
     "5": [
+      "proxy",
+      "proxy_config",
+      "proxy_proxy",
+      "src_app_api_attachments_noteid_filename_route",
+      "src_app_api_attachments_noteid_filename_route_get",
+      "src_lib_supabase_client",
+      "src_lib_supabase_database_types",
+      "src_lib_supabase_database_types_database",
+      "src_lib_supabase_database_types_json",
+      "src_lib_supabase_env",
+      "src_lib_supabase_env_getsupabaseenv",
+      "src_lib_supabase_middleware",
+      "src_lib_supabase_middleware_updatesession",
+      "src_lib_supabase_server",
+      "src_lib_supabase_server_createclient"
+    ],
+    "6": [
       "package",
       "package_name",
       "package_packagemanager",
@@ -153,22 +174,20 @@
       "package_scripts_typecheck",
       "package_version"
     ],
-    "6": [
-      "proxy",
-      "proxy_config",
-      "proxy_proxy",
-      "src_lib_supabase_client",
-      "src_lib_supabase_database_types",
-      "src_lib_supabase_database_types_database",
-      "src_lib_supabase_database_types_json",
-      "src_lib_supabase_env",
-      "src_lib_supabase_env_getsupabaseenv",
-      "src_lib_supabase_middleware",
-      "src_lib_supabase_middleware_updatesession",
-      "src_lib_supabase_server",
-      "src_lib_supabase_server_createclient"
-    ],
     "7": [
+      "src_app_page_home_exportnote",
+      "src_app_page_home_exportworkspace",
+      "src_lib_notes_portability",
+      "src_lib_notes_portability_downloadblob",
+      "src_lib_notes_portability_folderpath",
+      "src_lib_notes_portability_notemarkdown",
+      "src_lib_notes_portability_portablefolder",
+      "src_lib_notes_portability_portablenote",
+      "src_lib_notes_portability_safefilename",
+      "src_lib_notes_portability_test",
+      "src_lib_notes_portability_workspacezip"
+    ],
+    "8": [
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
       "ref_next_types_ts",
@@ -180,7 +199,7 @@
       "tsconfig_exclude",
       "tsconfig_include"
     ],
-    "8": [
+    "9": [
       "src_app_editor_markdown_editor",
       "src_app_editor_markdown_editor_markdowneditor",
       "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
@@ -190,161 +209,161 @@
       "src_app_editor_markdown_editor_toolbaractions",
       "src_app_editor_markdown_editor_toolbarbutton"
     ],
-    "9": [
+    "10": [
       "prettierrc",
       "prettierrc_semi",
       "prettierrc_singlequote",
       "prettierrc_trailingcomma"
     ],
-    "10": [
+    "11": [
       "src_app_layout",
       "src_app_layout_metadata",
       "src_app_layout_rootlayout"
     ],
-    "11": [
+    "12": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "12": [
+    "13": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "13": [
+    "14": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "14": [
+    "15": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "15": [
+    "16": [
       "agents_generate_agent_files"
     ],
-    "16": [
+    "17": [
       "agents_nextjs_agent_rules"
     ],
-    "17": [
+    "18": [
       "agents_node_modules_next_docs"
     ],
-    "18": [
+    "19": [
       "claude_agents_reference"
     ],
-    "19": [
+    "20": [
       "eslint_config"
     ],
-    "20": [
+    "21": [
       "github_workflows_ci_ci"
     ],
-    "21": [
+    "22": [
       "github_workflows_ci_lint"
     ],
-    "22": [
+    "23": [
       "github_workflows_ci_pnpm_install"
     ],
-    "23": [
+    "24": [
       "github_workflows_ci_quality"
     ],
-    "24": [
+    "25": [
       "github_workflows_ci_test"
     ],
-    "25": [
+    "26": [
       "github_workflows_ci_typecheck"
     ],
-    "26": [
+    "27": [
       "plan_authentication_phase"
     ],
-    "27": [
+    "28": [
       "plan_autosave"
     ],
-    "28": [
+    "29": [
       "plan_byok"
     ],
-    "29": [
+    "30": [
       "plan_editor_phase"
     ],
-    "30": [
+    "31": [
       "plan_milkdown"
     ],
-    "31": [
+    "32": [
       "plan_mvp"
     ],
-    "32": [
+    "33": [
       "plan_nextjs_app_router"
     ],
-    "33": [
+    "34": [
       "plan_openrouter"
     ],
-    "34": [
+    "35": [
       "plan_playwright"
     ],
-    "35": [
+    "36": [
       "plan_prosemirror"
     ],
-    "36": [
+    "37": [
       "plan_react_tailwind_shadcn_lucide"
     ],
-    "37": [
+    "38": [
       "plan_row_level_security"
     ],
-    "38": [
+    "39": [
       "plan_supabase_auth"
     ],
-    "39": [
+    "40": [
       "plan_supabase_postgresql"
     ],
-    "40": [
+    "41": [
       "plan_supabase_storage"
     ],
-    "41": [
+    "42": [
       "plan_vercel_ai_sdk"
     ],
-    "42": [
+    "43": [
       "plan_vitest"
     ],
-    "43": [
+    "44": [
       "plan_zod"
     ],
-    "44": [
+    "45": [
       "readme_auth_redirect_url"
     ],
-    "45": [
+    "46": [
       "readme_email_password_authentication"
     ],
-    "46": [
+    "47": [
       "readme_env_local"
     ],
-    "47": [
+    "48": [
       "readme_initial_schema_migration"
     ],
-    "48": [
+    "49": [
       "readme_morrow"
     ],
-    "49": [
+    "50": [
       "readme_phase_1"
     ],
-    "50": [
+    "51": [
       "readme_supabase_project"
     ],
-    "51": [
+    "52": [
       "src_test_setup"
     ],
-    "52": [
+    "53": [
       "vitest_config"
     ]
   },
   "cohesion": {
-    "0": 0.05405405405405406,
+    "0": 0.05128205128205128,
     "1": 0.07407407407407407,
-    "2": 0.12648221343873517,
+    "2": 0.12,
     "3": 0.09523809523809523,
     "4": 0.17894736842105263,
-    "5": 0.15384615384615385,
-    "6": 0.3076923076923077,
-    "7": 0.2,
-    "8": 0.2857142857142857,
-    "9": 0.5,
-    "10": 0.6666666666666666,
-    "11": 1.0,
+    "5": 0.26666666666666666,
+    "6": 0.15384615384615385,
+    "7": 0.36363636363636365,
+    "8": 0.2,
+    "9": 0.2857142857142857,
+    "10": 0.5,
+    "11": 0.6666666666666666,
     "12": 1.0,
     "13": 1.0,
     "14": 1.0,
@@ -385,23 +404,24 @@
     "49": 1.0,
     "50": 1.0,
     "51": 1.0,
-    "52": 1.0
+    "52": 1.0,
+    "53": 1.0
   },
   "gods": [
+    {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "degree": 17
+    },
     {
       "id": "tsconfig_compileroptions",
       "label": "compilerOptions",
       "degree": 17
     },
     {
-      "id": "src_lib_supabase_client_createclient",
-      "label": "createClient()",
-      "degree": 15
-    },
-    {
       "id": "src_app_page_home",
       "label": "Home()",
-      "degree": 10
+      "degree": 14
     },
     {
       "id": "package_scripts",
@@ -419,6 +439,16 @@
       "degree": 7
     },
     {
+      "id": "src_lib_notes_portability_safefilename",
+      "label": "safeFilename()",
+      "degree": 7
+    },
+    {
+      "id": "src_lib_notes_portability_workspacezip",
+      "label": "workspaceZip()",
+      "degree": 7
+    },
+    {
       "id": "tsconfig_include",
       "label": "include",
       "degree": 7
@@ -427,16 +457,6 @@
       "id": "src_lib_notes_autosave_removerecoverycopy",
       "label": "removeRecoveryCopy()",
       "degree": 6
-    },
-    {
-      "id": "src_lib_supabase_database_types_database",
-      "label": "Database",
-      "degree": 4
-    },
-    {
-      "id": "src_app_auth_auth_form_authform",
-      "label": "AuthForm()",
-      "degree": 4
     }
   ],
   "surprises": [
@@ -485,42 +505,42 @@
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "createFolder()",
+      "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `createFolder()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "questions": [
     {
       "type": "bridge_node",
       "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.082) - this node is a cross-community bridge."
+      "why": "High betweenness centrality (0.076) - this node is a cross-community bridge."
     },
     {
       "type": "bridge_node",
       "question": "Why does `devDependencies` connect `devDependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.065) - this node is a cross-community bridge."
+      "why": "High betweenness centrality (0.058) - this node is a cross-community bridge."
     },
     {
       "type": "bridge_node",
       "question": "Why does `createClient()` connect `createClient` to `app/page.tsx`, `client.ts`?",
-      "why": "High betweenness centrality (0.024) - this node is a cross-community bridge."
+      "why": "High betweenness centrality (0.030) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
       "question": "What connects `FolderRow`, `NoteRow`, `AutosaveResult` to the rest of the system?",
-      "why": "116 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "why": "119 weakly-connected nodes found - possible documentation gaps or missing edges."
     },
     {
       "type": "low_cohesion",
       "question": "Should `dependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected."
     },
     {
       "type": "low_cohesion",
@@ -530,7 +550,7 @@
     {
       "type": "low_cohesion",
       "question": "Should `createClient` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.12 - nodes in this community are weakly interconnected."
     }
   ]
 }

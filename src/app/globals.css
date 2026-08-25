@@ -7,6 +7,7 @@ body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans
 button, input, textarea { font:inherit; }
 button { border:0; cursor:pointer; color:inherit; background:transparent; }
 .app-shell { display:grid; grid-template-columns:230px 270px minmax(420px,1fr) 315px; height:100vh; min-height:680px; background:var(--paper); }
+.portability-actions { position:fixed; z-index:5; right:330px; bottom:18px; display:flex; gap:6px; padding:6px; background:#fffdfa; border:1px solid var(--line); border-radius:9px; box-shadow:0 8px 20px #6b5b4812; }.portability-button { display:flex; align-items:center; gap:5px; padding:7px 9px; color:#6f6a62; border-radius:6px; font-size:11px; cursor:pointer; }.portability-button:hover { background:#eeeae3; }
 .sidebar { display:flex; flex-direction:column; padding:28px 16px 18px; background:#f3f0e9; border-right:1px solid var(--line); }
 .brand { display:flex; align-items:center; gap:10px; padding:0 10px 29px; font-family:'Playfair Display',serif; font-size:21px; font-weight:600; letter-spacing:-.3px; }
 .brand-mark { display:grid; place-items:center; width:27px; height:27px; color:white; background:var(--accent); border-radius:8px; }
