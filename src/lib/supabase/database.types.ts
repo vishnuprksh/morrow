@@ -27,9 +27,15 @@ export type Database = {
         Update: { id?: string; user_id?: string; provider?: string; encrypted_api_key?: string; model?: string; created_at?: string; updated_at?: string };
         Relationships: [];
       };
+      agent_runs: {
+        Row: { id: string; user_id: string; active_note_id: string | null; status: string; messages: Json; tool_events: Json; created_at: string; updated_at: string };
+        Insert: { id?: string; user_id: string; active_note_id?: string | null; status?: string; messages?: Json; tool_events?: Json; created_at?: string; updated_at?: string };
+        Update: { id?: string; user_id?: string; active_note_id?: string | null; status?: string; messages?: Json; tool_events?: Json; created_at?: string; updated_at?: string };
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
-    Functions: { [_ in never]: never };
+    Functions: { search_user_notes: { Args: { query_text: string; result_limit?: number }; Returns: Array<{ id: string; title: string; content_markdown: string; folder_id: string | null; version: number; updated_at: string; rank: number }> } };
     Enums: { [_ in never]: never };
     CompositeTypes: { [_ in never]: never };
   };

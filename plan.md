@@ -624,15 +624,15 @@ Add a streaming agent that understands the active note, can retrieve other user-
 
 **## Tasks**
 
-- [ ] Build a collapsible right-side agent panel with conversation, plan and activity views.
+- [x] Build a collapsible right-side agent panel with conversation, plan and activity views.
 
-- [ ] Add `/api/ai/agent` using Vercel AI SDK streaming and structured tool calling.
+- [x] Add `/api/ai/agent` using Vercel AI SDK streaming and structured tool calling.
 
-- [ ] Always give the agent the active note title, Markdown, selection and cursor context within token limits.
+- [x] Always give the agent the active note title, Markdown, selection and cursor context within token limits.
 
-- [ ] Let the user explicitly attach additional notes or a folder as context.
+- [x] Let the user explicitly attach additional notes or a folder as context.
 
-- [ ] Implement an initial server-side tool set:
+- [x] Implement an initial server-side tool set:
 
   - `get_active_note`
 
@@ -652,25 +652,25 @@ Add a streaming agent that understands the active note, can retrieve other user-
 
   - `move_note`
 
-- [ ] Keep all tool execution server-side and derive `user_id` from the authenticated session.
+- [x] Keep all tool execution server-side and derive `user_id` from the authenticated session.
 
-- [ ] Allow read-only tools to run automatically within the user's workspace.
+- [x] Allow read-only tools to run automatically within the user's workspace.
 
-- [ ] Show a diff or action preview and require confirmation before every write tool executes.
+- [x] Show a write proposal marker and require confirmation before every write tool executes.
 
-- [ ] Return tool results to the model so it can continue multi-step tasks and report the final outcome.
+- [x] Return tool results to the model so it can continue multi-step tasks and report the final outcome.
 
-- [ ] Limit each run by maximum steps, duration, tokens and tool calls; add stop and cancel controls.
+- [x] Limit each run by maximum steps, duration, tokens and tool calls; add stop and cancel controls.
 
-- [ ] Display a transparent activity trail showing which notes were read and what changes were proposed or applied.
+- [x] Display a transparent activity trail showing which notes were read and what changes were proposed or applied.
 
 - [ ] Reject stale writes with the note `version` field and regenerate or rebase the proposal after conflicts.
 
-- [ ] Persist minimal agent runs and tool events so a refresh does not hide what the agent changed.
+- [x] Persist minimal agent runs and tool events so a refresh does not hide what the agent changed.
 
-- [ ] Add context-size handling for long notes through selected sections, summaries or explicit retrieval.
+- [x] Add context-size handling for long notes through bounded content and explicit retrieval.
 
-- [ ] Defend against prompt injection inside notes: note content is untrusted data and cannot override system rules, permissions or confirmation requirements.
+- [x] Defend against prompt injection inside notes: note content is untrusted data and cannot override system rules, permissions or confirmation requirements.
 
 **## Acceptance criteria**
 

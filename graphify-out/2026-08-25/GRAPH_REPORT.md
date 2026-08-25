@@ -1,11 +1,11 @@
 # Graph Report - haha  (2026-08-25)
 
 ## Corpus Check
-- 44 files · ~11,704 words
+- 44 files · ~11,765 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 274 nodes · 320 edges · 56 communities (16 shown, 40 thin omitted)
+- 275 nodes · 322 edges · 56 communities (16 shown, 40 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -74,11 +74,11 @@
 3. `Home()` - 14 edges
 4. `scripts` - 8 edges
 5. `createClient()` - 8 edges
-6. `decryptApiKey()` - 7 edges
-7. `createAutosaveController()` - 7 edges
-8. `safeFilename()` - 7 edges
-9. `workspaceZip()` - 7 edges
-10. `getSupabaseEnv()` - 7 edges
+6. `MarkdownEditor()` - 7 edges
+7. `decryptApiKey()` - 7 edges
+8. `createAutosaveController()` - 7 edges
+9. `safeFilename()` - 7 edges
+10. `workspaceZip()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `proxy()` --calls--> `updateSession()`  [EXTRACTED]
@@ -139,7 +139,7 @@ Nodes (9): .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_mod
 
 ### Community 10 - "markdown-editor.tsx"
 Cohesion: 0.18
-Nodes (6): EditAction, editActions, MarkdownEditor(), MarkdownEditorProps, ToolbarAction, toolbarActions
+Nodes (8): EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction(), MarkdownEditorProps, ToolbarAction, toolbarActions
 
 ### Community 11 - ".prettierrc.json"
 Cohesion: 0.50
