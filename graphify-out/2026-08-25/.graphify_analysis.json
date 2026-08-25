@@ -42,6 +42,39 @@
       "zod"
     ],
     "1": [
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_ai_settings",
+      "src_app_ai_settings_aisettings",
+      "src_app_ai_settings_aisettings_remove",
+      "src_app_ai_settings_aisettings_save",
+      "src_app_ai_settings_aisettings_test",
+      "src_app_ai_settings_credential",
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_noterow",
+      "src_app_page_recoverynotice",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy"
+    ],
+    "2": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -70,35 +103,6 @@
       "vitejs_plugin_react",
       "vitest"
     ],
-    "2": [
-      "src_app_ai_settings",
-      "src_app_ai_settings_aisettings",
-      "src_app_ai_settings_aisettings_remove",
-      "src_app_ai_settings_aisettings_save",
-      "src_app_ai_settings_aisettings_test",
-      "src_app_ai_settings_credential",
-      "src_app_page",
-      "src_app_page_folderrow",
-      "src_app_page_noterow",
-      "src_app_page_recoverynotice",
-      "src_app_page_test",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy"
-    ],
     "3": [
       "src_app_auth_auth_form",
       "src_app_auth_auth_form_authform",
@@ -123,6 +127,7 @@
       "src_app_page_home_loadworkspace",
       "src_app_page_home_updatenote",
       "src_app_page_home_uploadimage",
+      "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
     "4": [
@@ -149,23 +154,11 @@
       "tsconfig_compileroptions_types"
     ],
     "5": [
-      "proxy",
-      "proxy_config",
-      "proxy_proxy",
-      "src_app_api_attachments_noteid_filename_route",
-      "src_app_api_attachments_noteid_filename_route_get",
-      "src_lib_supabase_client",
-      "src_lib_supabase_database_types",
-      "src_lib_supabase_database_types_database",
-      "src_lib_supabase_database_types_json",
-      "src_lib_supabase_env",
-      "src_lib_supabase_env_getsupabaseenv",
-      "src_lib_supabase_middleware",
-      "src_lib_supabase_middleware_updatesession",
-      "src_lib_supabase_server",
-      "src_lib_supabase_server_createclient"
-    ],
-    "6": [
+      "src_app_api_ai_edit_route",
+      "src_app_api_ai_edit_route_ispreset",
+      "src_app_api_ai_edit_route_post",
+      "src_app_api_ai_edit_route_preset",
+      "src_app_api_ai_edit_route_presets",
       "src_app_api_ai_settings_route",
       "src_app_api_ai_settings_route_authenticatedclient",
       "src_app_api_ai_settings_route_delete",
@@ -181,6 +174,27 @@
       "src_lib_ai_validation",
       "src_lib_ai_validation_credentialinput",
       "src_lib_ai_validation_credentialschema"
+    ],
+    "6": [
+      "proxy",
+      "proxy_config",
+      "proxy_proxy",
+      "src_app_api_ai_agent_route",
+      "src_app_api_ai_agent_route_boundedtext",
+      "src_app_api_ai_agent_route_noteid",
+      "src_app_api_ai_agent_route_post",
+      "src_app_api_attachments_noteid_filename_route",
+      "src_app_api_attachments_noteid_filename_route_get",
+      "src_lib_supabase_client",
+      "src_lib_supabase_database_types",
+      "src_lib_supabase_database_types_database",
+      "src_lib_supabase_database_types_json",
+      "src_lib_supabase_env",
+      "src_lib_supabase_env_getsupabaseenv",
+      "src_lib_supabase_middleware",
+      "src_lib_supabase_middleware_updatesession",
+      "src_lib_supabase_server",
+      "src_lib_supabase_server_createclient"
     ],
     "7": [
       "package",
@@ -198,6 +212,21 @@
       "package_version"
     ],
     "8": [
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton"
+    ],
+    "9": [
       "src_app_page_home_exportnote",
       "src_app_page_home_exportworkspace",
       "src_lib_notes_portability",
@@ -210,7 +239,7 @@
       "src_lib_notes_portability_test",
       "src_lib_notes_portability_workspacezip"
     ],
-    "9": [
+    "10": [
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
       "ref_next_types_ts",
@@ -221,16 +250,6 @@
       "tsconfig",
       "tsconfig_exclude",
       "tsconfig_include"
-    ],
-    "10": [
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton"
     ],
     "11": [
       "prettierrc",
@@ -376,16 +395,16 @@
   },
   "cohesion": {
     "0": 0.05128205128205128,
-    "1": 0.07407407407407407,
-    "2": 0.11965811965811966,
-    "3": 0.12681159420289856,
+    "1": 0.1010752688172043,
+    "2": 0.07407407407407407,
+    "3": 0.12,
     "4": 0.09523809523809523,
-    "5": 0.26666666666666666,
-    "6": 0.26666666666666666,
+    "5": 0.18947368421052632,
+    "6": 0.2046783625730994,
     "7": 0.15384615384615385,
-    "8": 0.36363636363636365,
-    "9": 0.2,
-    "10": 0.2857142857142857,
+    "8": 0.1794871794871795,
+    "9": 0.36363636363636365,
+    "10": 0.2,
     "11": 0.5,
     "12": 0.6666666666666666,
     "13": 1.0,
@@ -448,6 +467,16 @@
       "degree": 14
     },
     {
+      "id": "src_lib_supabase_server_createclient",
+      "label": "createClient()",
+      "degree": 10
+    },
+    {
+      "id": "src_lib_ai_credentials_decryptapikey",
+      "label": "decryptApiKey()",
+      "degree": 9
+    },
+    {
       "id": "package_scripts",
       "label": "scripts",
       "degree": 8
@@ -471,16 +500,6 @@
       "id": "src_lib_notes_portability_workspacezip",
       "label": "workspaceZip()",
       "degree": 7
-    },
-    {
-      "id": "tsconfig_include",
-      "label": "include",
-      "degree": 7
-    },
-    {
-      "id": "src_lib_notes_autosave_removerecoverycopy",
-      "label": "removeRecoveryCopy()",
-      "degree": 6
     }
   ],
   "surprises": [
@@ -494,6 +513,28 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories"
+    },
+    {
+      "source": "Home()",
+      "target": "createAutosaveController()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/notes/autosave.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "deleteNote()",
+      "target": "removeRecoveryCopy()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/notes/autosave.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
     },
     {
       "source": "submit()",
@@ -516,28 +557,6 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/auth/update-password/page.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "createFolder()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `createFolder()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {

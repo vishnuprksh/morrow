@@ -2,7 +2,6 @@ import { createOpenAI } from '@ai-sdk/openai';
 import { generateText } from 'ai';
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { decryptApiKey } from '@/lib/ai/credentials';
 
 const presets = {
   improve: 'Improve the writing while preserving the meaning and the writer’s voice.',
@@ -30,18 +29,16 @@ export async function POST(request: Request) {
   if (!selectedText.trim() || selectedText.length > 20_000) return NextResponse.json({ error: 'Select between 1 and 20,000 characters.' }, { status: 400 });
   if (!isPreset(action) && !(action === 'custom' && instruction.length > 0 && instruction.length <= 2_000)) return NextResponse.json({ error: 'Choose a valid AI action.' }, { status: 400 });
 
-  const { data: credential, error: credentialError } = await supabase.from('ai_credentials').select('provider, model, encrypted_api_key').eq('user_id', user.id).maybeSingle();
-  if (credentialError || !credential) return NextResponse.json({ error: 'Configure an AI provider before using text actions.' }, { status: 400 });
-  if (credential.provider !== 'openrouter') return NextResponse.json({ error: 'This provider is not supported for AI editing yet.' }, { status: 400 });
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  if (!apiKey) return NextResponse.json({ error: 'The built-in AI agent is not configured on this server.' }, { status: 503 });
 
   try {
-    const apiKey = decryptApiKey(credential.encrypted_api_key);
     const openrouter = createOpenAI({ apiKey, baseURL: 'https://openrouter.ai/api/v1' });
     const task = action === 'custom' ? instruction : presets[action];
       const contextBefore = typeof body?.contextBefore === 'string' ? body.contextBefore.slice(-2_000) : '';
       const contextAfter = typeof body?.contextAfter === 'string' ? body.contextAfter.slice(0, 2_000) : '';
     const result = await generateText({
-      model: openrouter(credential.model),
+      model: openrouter('openai/gpt-5.6-luna'),
       system: 'You edit selected Markdown in a note. Return only the replacement text, with no explanation, labels, quotation marks, or Markdown code fences. Preserve Markdown syntax when it is part of the selection.',
       prompt: `Task: ${task}\n\nLimited surrounding context (do not rewrite it):\nBefore: ${contextBefore}\nAfter: ${contextAfter}\n\nSelected text to replace:\n${selectedText}`,
       maxOutputTokens: 4_000,

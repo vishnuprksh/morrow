@@ -1,31 +1,31 @@
 # Graph Report - haha  (2026-08-25)
 
 ## Corpus Check
-- 44 files · ~11,765 words
+- 46 files · ~12,055 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 275 nodes · 322 edges · 56 communities (16 shown, 40 thin omitted)
+- 258 nodes · 311 edges · 40 communities (17 shown, 23 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9915d896`
+- Built from commit: `c062821c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - dependencies
-- devDependencies
 - app/page.tsx
+- devDependencies
 - createClient
 - compilerOptions
-- client.ts
-- settings/route.ts
+- credentials.ts
+- createClient
 - scripts
+- markdown-editor.tsx
 - portability.ts
 - include
-- markdown-editor.tsx
 - .prettierrc.json
 - layout.tsx
 - next.config.ts
@@ -41,24 +41,8 @@
 - Quality Job
 - Test Check
 - Type Check
-- Authentication and Database Security
-- Autosave and Data Resilience
-- Bring Your Own API Key
-- WYSIWYG Markdown Editor Phase
-- Milkdown Markdown Editor
-- MVP Note Application
-- Next.js App Router
-- OpenRouter OpenAI-Compatible Provider
-- Playwright
-- ProseMirror
-- React/Tailwind/shadcn/ui/Lucide UI Stack
-- Row Level Security
-- Supabase Auth
-- Supabase PostgreSQL
-- Supabase Storage
-- Vercel AI SDK
-- Vitest
-- Zod Validation
+- ai-settings.tsx
+- validation.ts
 - Supabase Auth Redirect URL
 - Email/Password Authentication
 - .env.local Configuration
@@ -66,48 +50,47 @@
 - Morrow
 - Phase 1 Authentication Features
 - Supabase Project
-- morrow-phase5-check.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `createClient()` - 17 edges
 2. `compilerOptions` - 17 edges
 3. `Home()` - 14 edges
-4. `scripts` - 8 edges
-5. `createClient()` - 8 edges
+4. `createClient()` - 10 edges
+5. `scripts` - 8 edges
 6. `MarkdownEditor()` - 7 edges
-7. `decryptApiKey()` - 7 edges
-8. `createAutosaveController()` - 7 edges
-9. `safeFilename()` - 7 edges
-10. `workspaceZip()` - 7 edges
+7. `createAutosaveController()` - 7 edges
+8. `safeFilename()` - 7 edges
+9. `workspaceZip()` - 7 edges
+10. `getSupabaseEnv()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `proxy()` --calls--> `updateSession()`  [EXTRACTED]
   proxy.ts → src/lib/supabase/middleware.ts
-- `POST()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/api/ai/edit/route.ts → src/lib/supabase/server.ts
-- `authenticatedClient()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/api/ai/settings/route.ts → src/lib/supabase/server.ts
 - `GET()` --calls--> `createClient()`  [EXTRACTED]
   src/app/api/attachments/[noteId]/[filename]/route.ts → src/lib/supabase/server.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/auth-form.tsx → src/lib/supabase/client.ts
+- `submit()` --calls--> `createClient()`  [EXTRACTED]
+  src/app/auth/forgot-password/page.tsx → src/lib/supabase/client.ts
+- `submit()` --calls--> `createClient()`  [EXTRACTED]
+  src/app/auth/update-password/page.tsx → src/lib/supabase/client.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (56 total, 40 thin omitted)
+## Communities (40 total, 23 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.05
 Nodes (39): ai, @ai-sdk/openai, jszip, lucide-react, @milkdown/core, @milkdown/plugin-listener, @milkdown/preset-commonmark, @milkdown/preset-gfm (+31 more)
 
-### Community 1 - "devDependencies"
+### Community 1 - "app/page.tsx"
+Cohesion: 0.13
+Nodes (20): AgentPanel(), ChatMessage, NoteContext, FolderRow, NoteRow, RecoveryNotice(), AutosaveController, AutosaveResult (+12 more)
+
+### Community 2 - "devDependencies"
 Cohesion: 0.07
 Nodes (27): eslint, eslint-config-next, jsdom, devDependencies, eslint, eslint-config-next, jsdom, postcss (+19 more)
-
-### Community 2 - "app/page.tsx"
-Cohesion: 0.13
-Nodes (19): AiSettings(), Credential, FolderRow, NoteRow, RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController() (+11 more)
 
 ### Community 3 - "createClient"
 Cohesion: 0.12
@@ -117,53 +100,53 @@ Nodes (15): AuthForm(), submit(), SignOutButton(), ForgotPasswordPage(), submit(
 Cohesion: 0.10
 Nodes (21): dom, dom.iterable, esnext, vitest/globals, compilerOptions, allowJs, esModuleInterop, incremental (+13 more)
 
-### Community 5 - "client.ts"
-Cohesion: 0.27
-Nodes (8): config, proxy(), GET(), Database, Json, getSupabaseEnv(), updateSession(), createClient()
+### Community 5 - "credentials.ts"
+Cohesion: 0.80
+Nodes (3): decryptApiKey(), encryptApiKey(), encryptionKey()
 
-### Community 6 - "settings/route.ts"
-Cohesion: 0.19
-Nodes (15): isPreset(), POST(), Preset, presets, authenticatedClient(), DELETE(), GET(), POST() (+7 more)
+### Community 6 - "createClient"
+Cohesion: 0.14
+Nodes (17): config, proxy(), boundedText(), noteId, POST(), isPreset(), POST(), Preset (+9 more)
 
 ### Community 7 - "scripts"
 Cohesion: 0.15
 Nodes (12): name, packageManager, private, scripts, build, dev, lint, start (+4 more)
 
-### Community 8 - "portability.ts"
+### Community 8 - "markdown-editor.tsx"
+Cohesion: 0.18
+Nodes (8): EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction(), MarkdownEditorProps, ToolbarAction, toolbarActions
+
+### Community 9 - "portability.ts"
 Cohesion: 0.36
 Nodes (9): exportNote(), exportWorkspace(), downloadBlob(), folderPath(), noteMarkdown(), PortableFolder, PortableNote, safeFilename() (+1 more)
 
-### Community 9 - "include"
+### Community 10 - "include"
 Cohesion: 0.20
 Nodes (9): .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_modules, src/**/*.ts, src/**/*.tsx, vitest.config.ts, exclude (+1 more)
-
-### Community 10 - "markdown-editor.tsx"
-Cohesion: 0.18
-Nodes (8): EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction(), MarkdownEditorProps, ToolbarAction, toolbarActions
 
 ### Community 11 - ".prettierrc.json"
 Cohesion: 0.50
 Nodes (3): semi, singleQuote, trailingComma
 
 ## Knowledge Gaps
-- **126 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `nextConfig`, `name` (+121 more)
+- **112 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `nextConfig`, `name` (+107 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **40 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.059) - this node is a cross-community bridge._
-- **Why does `getSupabaseEnv()` connect `client.ts` to `createClient`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
-- **Why does `createClient()` connect `createClient` to `app/page.tsx`, `client.ts`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+  _High betweenness centrality (0.067) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `devDependencies` to `scripts`?**
+  _High betweenness centrality (0.051) - this node is a cross-community bridge._
+- **Why does `createClient()` connect `createClient` to `app/page.tsx`, `createClient`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
-  _126 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _112 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._
+- **Should `app/page.tsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
-- **Should `app/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.12615384615384614 - nodes in this community are weakly interconnected._
