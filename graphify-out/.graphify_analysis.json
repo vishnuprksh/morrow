@@ -71,6 +71,35 @@
       "vitest"
     ],
     "2": [
+      "src_app_ai_settings",
+      "src_app_ai_settings_aisettings",
+      "src_app_ai_settings_aisettings_remove",
+      "src_app_ai_settings_aisettings_save",
+      "src_app_ai_settings_aisettings_test",
+      "src_app_ai_settings_credential",
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_noterow",
+      "src_app_page_recoverynotice",
+      "src_app_page_test",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy"
+    ],
+    "3": [
       "src_app_auth_auth_form",
       "src_app_auth_auth_form_authform",
       "src_app_auth_auth_form_authform_submit",
@@ -94,10 +123,9 @@
       "src_app_page_home_loadworkspace",
       "src_app_page_home_updatenote",
       "src_app_page_home_uploadimage",
-      "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
-    "3": [
+    "4": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_esnext",
@@ -120,28 +148,6 @@
       "tsconfig_compileroptions_target",
       "tsconfig_compileroptions_types"
     ],
-    "4": [
-      "src_app_page",
-      "src_app_page_folderrow",
-      "src_app_page_noterow",
-      "src_app_page_recoverynotice",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy"
-    ],
     "5": [
       "proxy",
       "proxy_config",
@@ -160,6 +166,23 @@
       "src_lib_supabase_server_createclient"
     ],
     "6": [
+      "src_app_api_ai_settings_route",
+      "src_app_api_ai_settings_route_authenticatedclient",
+      "src_app_api_ai_settings_route_delete",
+      "src_app_api_ai_settings_route_get",
+      "src_app_api_ai_settings_route_post",
+      "src_app_api_ai_settings_route_providerurl",
+      "src_app_api_ai_settings_route_put",
+      "src_lib_ai_credentials",
+      "src_lib_ai_credentials_decryptapikey",
+      "src_lib_ai_credentials_encryptapikey",
+      "src_lib_ai_credentials_encryptionkey",
+      "src_lib_ai_credentials_test",
+      "src_lib_ai_validation",
+      "src_lib_ai_validation_credentialinput",
+      "src_lib_ai_validation_credentialschema"
+    ],
+    "7": [
       "package",
       "package_name",
       "package_packagemanager",
@@ -174,7 +197,7 @@
       "package_scripts_typecheck",
       "package_version"
     ],
-    "7": [
+    "8": [
       "src_app_page_home_exportnote",
       "src_app_page_home_exportworkspace",
       "src_lib_notes_portability",
@@ -187,7 +210,7 @@
       "src_lib_notes_portability_test",
       "src_lib_notes_portability_workspacezip"
     ],
-    "8": [
+    "9": [
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
       "ref_next_types_ts",
@@ -199,7 +222,7 @@
       "tsconfig_exclude",
       "tsconfig_include"
     ],
-    "9": [
+    "10": [
       "src_app_editor_markdown_editor",
       "src_app_editor_markdown_editor_markdowneditor",
       "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
@@ -209,162 +232,162 @@
       "src_app_editor_markdown_editor_toolbaractions",
       "src_app_editor_markdown_editor_toolbarbutton"
     ],
-    "10": [
+    "11": [
       "prettierrc",
       "prettierrc_semi",
       "prettierrc_singlequote",
       "prettierrc_trailingcomma"
     ],
-    "11": [
+    "12": [
       "src_app_layout",
       "src_app_layout_metadata",
       "src_app_layout_rootlayout"
     ],
-    "12": [
+    "13": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "13": [
+    "14": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "14": [
+    "15": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "15": [
+    "16": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "16": [
+    "17": [
       "agents_generate_agent_files"
     ],
-    "17": [
+    "18": [
       "agents_nextjs_agent_rules"
     ],
-    "18": [
+    "19": [
       "agents_node_modules_next_docs"
     ],
-    "19": [
+    "20": [
       "claude_agents_reference"
     ],
-    "20": [
+    "21": [
       "eslint_config"
     ],
-    "21": [
+    "22": [
       "github_workflows_ci_ci"
     ],
-    "22": [
+    "23": [
       "github_workflows_ci_lint"
     ],
-    "23": [
+    "24": [
       "github_workflows_ci_pnpm_install"
     ],
-    "24": [
+    "25": [
       "github_workflows_ci_quality"
     ],
-    "25": [
+    "26": [
       "github_workflows_ci_test"
     ],
-    "26": [
+    "27": [
       "github_workflows_ci_typecheck"
     ],
-    "27": [
+    "28": [
       "plan_authentication_phase"
     ],
-    "28": [
+    "29": [
       "plan_autosave"
     ],
-    "29": [
+    "30": [
       "plan_byok"
     ],
-    "30": [
+    "31": [
       "plan_editor_phase"
     ],
-    "31": [
+    "32": [
       "plan_milkdown"
     ],
-    "32": [
+    "33": [
       "plan_mvp"
     ],
-    "33": [
+    "34": [
       "plan_nextjs_app_router"
     ],
-    "34": [
+    "35": [
       "plan_openrouter"
     ],
-    "35": [
+    "36": [
       "plan_playwright"
     ],
-    "36": [
+    "37": [
       "plan_prosemirror"
     ],
-    "37": [
+    "38": [
       "plan_react_tailwind_shadcn_lucide"
     ],
-    "38": [
+    "39": [
       "plan_row_level_security"
     ],
-    "39": [
+    "40": [
       "plan_supabase_auth"
     ],
-    "40": [
+    "41": [
       "plan_supabase_postgresql"
     ],
-    "41": [
+    "42": [
       "plan_supabase_storage"
     ],
-    "42": [
+    "43": [
       "plan_vercel_ai_sdk"
     ],
-    "43": [
+    "44": [
       "plan_vitest"
     ],
-    "44": [
+    "45": [
       "plan_zod"
     ],
-    "45": [
+    "46": [
       "readme_auth_redirect_url"
     ],
-    "46": [
+    "47": [
       "readme_email_password_authentication"
     ],
-    "47": [
+    "48": [
       "readme_env_local"
     ],
-    "48": [
+    "49": [
       "readme_initial_schema_migration"
     ],
-    "49": [
+    "50": [
       "readme_morrow"
     ],
-    "50": [
+    "51": [
       "readme_phase_1"
     ],
-    "51": [
+    "52": [
       "readme_supabase_project"
     ],
-    "52": [
+    "53": [
       "src_test_setup"
     ],
-    "53": [
+    "54": [
       "vitest_config"
     ]
   },
   "cohesion": {
     "0": 0.05128205128205128,
     "1": 0.07407407407407407,
-    "2": 0.12,
-    "3": 0.09523809523809523,
-    "4": 0.17894736842105263,
+    "2": 0.11965811965811966,
+    "3": 0.12681159420289856,
+    "4": 0.09523809523809523,
     "5": 0.26666666666666666,
-    "6": 0.15384615384615385,
-    "7": 0.36363636363636365,
-    "8": 0.2,
-    "9": 0.2857142857142857,
-    "10": 0.5,
-    "11": 0.6666666666666666,
-    "12": 1.0,
+    "6": 0.26666666666666666,
+    "7": 0.15384615384615385,
+    "8": 0.36363636363636365,
+    "9": 0.2,
+    "10": 0.2857142857142857,
+    "11": 0.5,
+    "12": 0.6666666666666666,
     "13": 1.0,
     "14": 1.0,
     "15": 1.0,
@@ -405,7 +428,8 @@
     "50": 1.0,
     "51": 1.0,
     "52": 1.0,
-    "53": 1.0
+    "53": 1.0,
+    "54": 1.0
   },
   "gods": [
     {
@@ -516,41 +540,8 @@
       "why": "peripheral node `createFolder()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "questions": [
-    {
-      "type": "bridge_node",
-      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.076) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `devDependencies` connect `devDependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.058) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `createClient()` connect `createClient` to `app/page.tsx`, `client.ts`?",
-      "why": "High betweenness centrality (0.030) - this node is a cross-community bridge."
-    },
-    {
-      "type": "isolated_nodes",
-      "question": "What connects `FolderRow`, `NoteRow`, `AutosaveResult` to the rest of the system?",
-      "why": "119 weakly-connected nodes found - possible documentation gaps or missing edges."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `dependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `devDependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `createClient` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.12 - nodes in this community are weakly interconnected."
-    }
-  ]
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
 }
