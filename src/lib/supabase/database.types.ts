@@ -16,9 +16,9 @@ export type Database = {
         Relationships: [];
       };
       notes: {
-        Row: { id: string; user_id: string; folder_id: string | null; title: string; content_markdown: string; version: number; is_favorite: boolean; created_at: string; updated_at: string };
-        Insert: { id?: string; user_id: string; folder_id?: string | null; title?: string; content_markdown?: string; version?: number; is_favorite?: boolean; created_at?: string; updated_at?: string };
-        Update: { id?: string; user_id?: string; folder_id?: string | null; title?: string; content_markdown?: string; version?: number; is_favorite?: boolean; created_at?: string; updated_at?: string };
+        Row: { id: string; user_id: string; folder_id: string | null; title: string; content_markdown: string; version: number; is_favorite: boolean; is_archived: boolean; created_at: string; updated_at: string };
+        Insert: { id?: string; user_id: string; folder_id?: string | null; title?: string; content_markdown?: string; version?: number; is_favorite?: boolean; is_archived?: boolean; created_at?: string; updated_at?: string };
+        Update: { id?: string; user_id?: string; folder_id?: string | null; title?: string; content_markdown?: string; version?: number; is_favorite?: boolean; is_archived?: boolean; created_at?: string; updated_at?: string };
         Relationships: [];
       };
       ai_credentials: {

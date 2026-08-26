@@ -138,10 +138,10 @@
     "semantic_hash": "d10f1556a5709644572fc9a84cdfc841"
   },
   "src/app/page.tsx": {
-    "mtime": 1787738305.1264896,
-    "seen": 1787738481.3371067,
-    "ast_hash": "d1455f8be241f26e545905ae0ca4cb0e",
-    "semantic_hash": "d1455f8be241f26e545905ae0ca4cb0e"
+    "mtime": 1787739792.1495223,
+    "seen": 1787739984.8901548,
+    "ast_hash": "c14b11f7ef50385da88285d336803f3a",
+    "semantic_hash": "c14b11f7ef50385da88285d336803f3a"
   },
   "src/app/settings/page.tsx": {
     "mtime": 1787738112.4874854,
@@ -210,10 +210,10 @@
     "semantic_hash": "ba760c9c745b3a13ef85bce7ae6ee462"
   },
   "src/lib/supabase/database.types.ts": {
-    "mtime": 1787738112.4874854,
-    "seen": 1787738481.3417237,
-    "ast_hash": "a681d401139da7e3efd979d42b19bd2a",
-    "semantic_hash": "a681d401139da7e3efd979d42b19bd2a"
+    "mtime": 1787739257.6295106,
+    "seen": 1787739984.8917713,
+    "ast_hash": "eb9291952b2fbd2d804aaf09d3ab29fc",
+    "semantic_hash": "eb9291952b2fbd2d804aaf09d3ab29fc"
   },
   "src/lib/supabase/env.ts": {
     "mtime": 1787658935.515868,
