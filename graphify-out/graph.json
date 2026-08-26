@@ -749,7 +749,7 @@
       "file_type": "code",
       "norm_label": "createnote()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L124"
+      "source_location": "L139"
     },
     {
       "id": "src_app_page_home_deletefolder",
@@ -760,7 +760,7 @@
       "file_type": "code",
       "norm_label": "deletefolder()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L139"
+      "source_location": "L154"
     },
     {
       "id": "src_app_page_home_deletenote",
@@ -771,7 +771,7 @@
       "file_type": "code",
       "norm_label": "deletenote()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L131"
+      "source_location": "L146"
     },
     {
       "id": "src_app_page_home_loadworkspace",
@@ -783,6 +783,17 @@
       "norm_label": "loadworkspace()",
       "source_file": "src/app/page.tsx",
       "source_location": "L35"
+    },
+    {
+      "id": "src_app_page_home_renamefolder",
+      "label": "renameFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "renamefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L128"
     },
     {
       "id": "src_app_page_home_updatenote",
@@ -804,7 +815,7 @@
       "file_type": "code",
       "norm_label": "uploadimage()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L145"
+      "source_location": "L160"
     },
     {
       "id": "src_lib_supabase_client_createclient",
@@ -826,7 +837,7 @@
       "file_type": "code",
       "norm_label": "recoverynotice()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L172"
+      "source_location": "L186"
     },
     {
       "id": "src_lib_notes_autosave_createautosavecontroller",
@@ -2102,16 +2113,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_page_test",
-      "label": "page.test.tsx",
-      "_origin": "ast",
-      "community": 4,
-      "file_type": "code",
-      "norm_label": "page.test.tsx",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "tsconfig_compileroptions",
       "label": "compilerOptions",
       "_origin": "ast",
@@ -2329,6 +2330,16 @@
       "file_type": "code",
       "norm_label": "app/page.tsx",
       "source_file": "src/app/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_test",
+      "label": "page.test.tsx",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "page.test.tsx",
+      "source_file": "src/app/page.test.tsx",
       "source_location": "L1"
     },
     {
@@ -2816,7 +2827,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L118",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -2828,7 +2839,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L126",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -2840,7 +2851,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L141",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -2852,7 +2863,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L134",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -2864,7 +2875,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L135",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home_renamefolder",
+      "target": "src_lib_supabase_client_createclient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -2876,7 +2899,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L148",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -2888,7 +2911,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L149",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -2900,7 +2923,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L173",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -2912,7 +2935,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L175",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -3145,6 +3168,18 @@
     },
     {
       "source": "src_app_page_home",
+      "target": "src_app_page_home_renamefolder",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
       "target": "src_app_page_home_deletenote",
       "relation": "contains",
       "_origin": "ast",
@@ -3152,7 +3187,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L131",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -3164,7 +3199,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L139",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -5625,7 +5660,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L172",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -5647,7 +5682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L124",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -5658,7 +5693,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L145",
+      "source_location": "L160",
       "weight": 1.0
     },
     {

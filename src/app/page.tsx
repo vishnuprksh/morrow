@@ -24,9 +24,9 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [openFolders, setOpenFolders] = useState<Record<string, boolean>>({});
-  const [folderDialogOpen, setFolderDialogOpen] = useState(false);
-  const [folderNameInput, setFolderNameInput] = useState('');
   const [folderSaving, setFolderSaving] = useState(false);
+  const [renamingFolderId, setRenamingFolderId] = useState<string | null>(null);
+  const [folderRenameInput, setFolderRenameInput] = useState('');
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'error'>('saved');
   const autosaveRef = useRef<AutosaveController | null>(null);
   const supabaseRef = useRef<ReturnType<typeof createClient> | null>(null);
@@ -112,14 +112,29 @@ export default function Home() {
   }
   async function createFolder() {
     if (!user) return;
-    const name = folderNameInput.trim();
-    if (!name || folderSaving) return;
+    if (folderSaving) return;
     setFolderSaving(true); setError(null);
     const supabase = createClient();
-    const { data, error: insertError } = await supabase.from('folders').insert({ user_id: user.id, name, parent_id: null, position: folders.length }).select('id, name, parent_id, position').single();
+    const { data, error: insertError } = await supabase.from('folders').insert({ user_id: user.id, name: 'untitled', parent_id: null, position: folders.length }).select('id, name, parent_id, position').single();
     setFolderSaving(false);
     if (insertError) return setError(insertError.message);
-    if (data) { setFolders((current) => [...current, data]); setFolderNameInput(''); setFolderDialogOpen(false); }
+    if (data) {
+      setFolders((current) => [...current, data]);
+      setOpenFolders((current) => ({ ...current, [data.id]: true }));
+      setRenamingFolderId(data.id);
+      setFolderRenameInput(data.name);
+    }
+  }
+  async function renameFolder(folder: FolderRow) {
+    const name = folderRenameInput.trim();
+    if (!name) { setError('Folder names cannot be blank.'); return; }
+    if (name === folder.name) { setRenamingFolderId(null); return; }
+    setFolderSaving(true); setError(null);
+    const { error: updateError } = await createClient().from('folders').update({ name }).eq('id', folder.id);
+    setFolderSaving(false);
+    if (updateError) return setError(updateError.message);
+    setFolders((current) => current.map((item) => item.id === folder.id ? { ...item, name } : item));
+    setRenamingFolderId(null);
   }
   async function createNote() {
     if (!user) return;
@@ -157,9 +172,8 @@ export default function Home() {
         <div className="brand"><div className="brand-mark"><Sparkles size={15} /></div><span>Morrow</span></div>
         <div className="sidebar-actions"><button className="new-note" onClick={createNote}><Plus size={16} /> New note</button><button className="icon-button" aria-label="Search"><Search size={17} /></button></div>
         <nav className="nav-list"><button className={`nav-item ${selectedFolder === null ? 'selected' : ''}`} onClick={() => setSelectedFolder(null)}><FileText size={16} /> All notes <span>{notes.length}</span></button><button className="nav-item"><Star size={16} /> Favorites</button><button className="nav-item"><Archive size={16} /> Archive</button></nav>
-        <div className="section-heading"><span>Folders</span><button aria-label="Add folder" onClick={() => { setError(null); setFolderDialogOpen(true); }}><FolderPlus size={15} /></button></div>
-        <div className="folder-list">{folders.map((folder) => <div className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`} key={folder.id}><button className="folder-toggle" onClick={() => { setSelectedFolder(folder.id); setOpenFolders((current) => ({ ...current, [folder.id]: !current[folder.id] })); }} aria-label={`Toggle ${folder.name}`}>{openFolders[folder.id] ? <ChevronDown size={14} /> : <ChevronRight size={14} />}<Folder size={15} /> <span>{folder.name}</span></button><span className="muted-count">{notes.filter((note) => note.folder_id === folder.id).length}</span><button className="folder-delete" aria-label={`Delete ${folder.name}`} onClick={() => deleteFolder(folder)}><Trash2 size={13} /></button></div>)}</div>
-        {folderDialogOpen && <div className="folder-dialog" role="dialog" aria-modal="true" aria-labelledby="new-folder-title"><h3 id="new-folder-title">New folder</h3><form onSubmit={(event) => { event.preventDefault(); void createFolder(); }}><label htmlFor="folder-name">Folder name</label><input id="folder-name" autoFocus value={folderNameInput} onChange={(event) => setFolderNameInput(event.target.value)} placeholder="e.g. Ideas" maxLength={120} /><div className="folder-dialog-actions"><button type="button" onClick={() => { setFolderDialogOpen(false); setFolderNameInput(''); }}>Cancel</button><button type="submit" disabled={!folderNameInput.trim() || folderSaving}>{folderSaving ? 'Creating…' : 'Create folder'}</button></div></form></div>}
+        <div className="section-heading"><span>Folders</span><button aria-label="Add folder" onClick={() => void createFolder()} disabled={folderSaving}><FolderPlus size={15} /></button></div>
+        <div className="folder-list">{folders.map((folder) => <div className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`} key={folder.id}><button className="folder-toggle" onClick={() => { setSelectedFolder(folder.id); setOpenFolders((current) => ({ ...current, [folder.id]: !current[folder.id] })); }} aria-label={`Toggle ${folder.name}`}><span className="folder-icon">{openFolders[folder.id] ? <ChevronDown size={14} /> : <ChevronRight size={14} />}<Folder size={15} /></span>{renamingFolderId === folder.id ? <input className="folder-rename-input" aria-label={`Rename ${folder.name}`} autoFocus value={folderRenameInput} maxLength={120} onChange={(event) => setFolderRenameInput(event.target.value)} onClick={(event) => event.stopPropagation()} onDoubleClick={(event) => event.stopPropagation()} onBlur={() => void renameFolder(folder)} onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault(); void renameFolder(folder); } if (event.key === 'Escape') { setRenamingFolderId(null); } }} /> : <span onDoubleClick={(event) => { event.stopPropagation(); setRenamingFolderId(folder.id); setFolderRenameInput(folder.name); }}>{folder.name}</span>}</button><span className="muted-count">{notes.filter((note) => note.folder_id === folder.id).length}</span><button className="folder-delete" aria-label={`Delete ${folder.name}`} onClick={() => deleteFolder(folder)}><Trash2 size={13} /></button></div>)}</div>
         <div className="sidebar-footer"><div className="avatar">{(user?.user_metadata?.display_name ?? user?.email ?? 'U').slice(0, 2).toUpperCase()}</div><div className="profile"><strong>{user?.user_metadata?.display_name ?? user?.email}</strong><small>Personal workspace</small></div><Link className="icon-button" href="/settings" aria-label="Open settings"><Settings size={16} /></Link><SignOutButton /></div>
       </aside>
       <section className="notes-panel"><div className="panel-header"><div><p className="eyebrow">Personal workspace</p><h2>{selectedFolder ? folderName(selectedFolder) : 'All notes'}</h2></div><button className="icon-button"><MoreHorizontal size={18} /></button></div><div className="note-search"><Search size={15} /><input placeholder="Filter notes" value={filter} onChange={(event) => setFilter(event.target.value)} /></div>{error && <p className="workspace-error" role="alert">{error}</p>}{loading ? <p className="workspace-message">Loading your notes…</p> : <div className="note-list">{visibleNotes.map((note) => <button className={`note-card ${note.id === selectedNote ? 'active' : ''}`} key={note.id} onClick={() => setSelectedNote(note.id)}><div className="note-card-icon"><FileText size={16} /></div><div><strong>{note.title}</strong><small>{folderName(note.folder_id)} · {new Date(note.updated_at).toLocaleDateString()}</small></div></button>)}{visibleNotes.length === 0 && <p className="workspace-message">No notes here yet.</p>}</div>}<button className="add-note" onClick={createNote}><Plus size={16} /> Add a note</button></section>
