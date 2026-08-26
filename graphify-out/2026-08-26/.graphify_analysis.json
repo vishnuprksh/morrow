@@ -42,6 +42,36 @@
       "zod"
     ],
     "1": [
+      "src_app_auth_auth_form",
+      "src_app_auth_auth_form_authform",
+      "src_app_auth_auth_form_authform_submit",
+      "src_app_auth_auth_form_signoutbutton",
+      "src_app_auth_forgot_password_page",
+      "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "src_app_auth_sign_in_page",
+      "src_app_auth_sign_in_page_signinpage",
+      "src_app_auth_sign_up_page",
+      "src_app_auth_sign_up_page_signuppage",
+      "src_app_auth_update_password_page",
+      "src_app_auth_update_password_page_updatepasswordpage",
+      "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "src_app_page_home",
+      "src_app_page_home_acceptproposal",
+      "src_app_page_home_archivenote",
+      "src_app_page_home_createfolder",
+      "src_app_page_home_createnote",
+      "src_app_page_home_deletefolder",
+      "src_app_page_home_deletenote",
+      "src_app_page_home_loadworkspace",
+      "src_app_page_home_movenote",
+      "src_app_page_home_opennotemenu",
+      "src_app_page_home_renamefolder",
+      "src_app_page_home_updatenote",
+      "src_app_page_home_uploadimage",
+      "src_lib_supabase_client_createclient"
+    ],
+    "2": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -70,7 +100,7 @@
       "vitejs_plugin_react",
       "vitest"
     ],
-    "2": [
+    "3": [
       "proxy",
       "proxy_config",
       "proxy_proxy",
@@ -99,7 +129,7 @@
       "src_lib_supabase_server",
       "src_lib_supabase_server_createclient"
     ],
-    "3": [
+    "4": [
       "src_app_agent_panel",
       "src_app_agent_panel_agentpanel",
       "src_app_agent_panel_agentpanel_send",
@@ -127,35 +157,32 @@
       "src_lib_ai_proposals_notechangeproposal",
       "src_lib_ai_proposals_test"
     ],
-    "4": [
-      "src_app_auth_auth_form",
-      "src_app_auth_auth_form_authform",
-      "src_app_auth_auth_form_authform_submit",
-      "src_app_auth_auth_form_signoutbutton",
-      "src_app_auth_forgot_password_page",
-      "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "src_app_auth_sign_in_page",
-      "src_app_auth_sign_in_page_signinpage",
-      "src_app_auth_sign_up_page",
-      "src_app_auth_sign_up_page_signuppage",
-      "src_app_auth_update_password_page",
-      "src_app_auth_update_password_page_updatepasswordpage",
-      "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "src_app_page_home",
-      "src_app_page_home_acceptproposal",
-      "src_app_page_home_createfolder",
-      "src_app_page_home_createnote",
-      "src_app_page_home_deletefolder",
-      "src_app_page_home_deletenote",
-      "src_app_page_home_importmarkdown",
-      "src_app_page_home_loadworkspace",
-      "src_app_page_home_updatenote",
-      "src_app_page_home_uploadimage",
-      "src_app_page_test",
-      "src_lib_supabase_client_createclient"
-    ],
     "5": [
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_noteaction",
+      "src_app_page_notecontextmenu",
+      "src_app_page_noterow",
+      "src_app_page_recoverynotice",
+      "src_app_page_test",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy"
+    ],
+    "6": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_esnext",
@@ -178,28 +205,6 @@
       "tsconfig_compileroptions_target",
       "tsconfig_compileroptions_types"
     ],
-    "6": [
-      "src_app_page",
-      "src_app_page_folderrow",
-      "src_app_page_noterow",
-      "src_app_page_recoverynotice",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy"
-    ],
     "7": [
       "package",
       "package_name",
@@ -216,19 +221,6 @@
       "package_version"
     ],
     "8": [
-      "src_app_page_home_exportnote",
-      "src_app_page_home_exportworkspace",
-      "src_lib_notes_portability",
-      "src_lib_notes_portability_downloadblob",
-      "src_lib_notes_portability_folderpath",
-      "src_lib_notes_portability_notemarkdown",
-      "src_lib_notes_portability_portablefolder",
-      "src_lib_notes_portability_portablenote",
-      "src_lib_notes_portability_safefilename",
-      "src_lib_notes_portability_test",
-      "src_lib_notes_portability_workspacezip"
-    ],
-    "9": [
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
       "ref_next_types_ts",
@@ -239,6 +231,17 @@
       "tsconfig",
       "tsconfig_exclude",
       "tsconfig_include"
+    ],
+    "9": [
+      "src_lib_notes_portability",
+      "src_lib_notes_portability_downloadblob",
+      "src_lib_notes_portability_folderpath",
+      "src_lib_notes_portability_notemarkdown",
+      "src_lib_notes_portability_portablefolder",
+      "src_lib_notes_portability_portablenote",
+      "src_lib_notes_portability_safefilename",
+      "src_lib_notes_portability_test",
+      "src_lib_notes_portability_workspacezip"
     ],
     "10": [
       "src_lib_ai_credentials",
@@ -264,137 +267,71 @@
       "src_app_layout_rootlayout"
     ],
     "14": [
+      "src_app_settings_page",
+      "src_app_settings_page_settingspage",
+      "src_app_settings_page_settingspage_changetheme"
+    ],
+    "15": [
       "src_lib_ai_validation",
       "src_lib_ai_validation_credentialinput",
       "src_lib_ai_validation_credentialschema"
     ],
-    "15": [
+    "16": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "16": [
+    "17": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "17": [
+    "18": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "18": [
+    "19": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "19": [
-      "agents_generate_agent_files"
-    ],
     "20": [
-      "agents_nextjs_agent_rules"
-    ],
-    "21": [
-      "agents_node_modules_next_docs"
-    ],
-    "22": [
-      "claude_agents_reference"
-    ],
-    "23": [
       "eslint_config"
     ],
-    "24": [
-      "github_workflows_ci_ci"
-    ],
-    "25": [
-      "github_workflows_ci_lint"
-    ],
-    "26": [
-      "github_workflows_ci_pnpm_install"
-    ],
-    "27": [
-      "github_workflows_ci_quality"
-    ],
-    "28": [
-      "github_workflows_ci_test"
-    ],
-    "29": [
-      "github_workflows_ci_typecheck"
-    ],
-    "30": [
-      "mvp_plan"
-    ],
-    "31": [
-      "readme_auth_redirect_url"
-    ],
-    "32": [
-      "readme_email_password_authentication"
-    ],
-    "33": [
-      "readme_env_local"
-    ],
-    "34": [
-      "readme_initial_schema_migration"
-    ],
-    "35": [
-      "readme_morrow"
-    ],
-    "36": [
-      "readme_phase_1"
-    ],
-    "37": [
-      "readme_supabase_project"
-    ],
-    "38": [
+    "21": [
       "src_test_setup"
     ],
-    "39": [
+    "22": [
       "vitest_config"
     ]
   },
   "cohesion": {
     "0": 0.05128205128205128,
-    "1": 0.07407407407407407,
-    "2": 0.1396011396011396,
-    "3": 0.10153846153846154,
-    "4": 0.11692307692307692,
-    "5": 0.09523809523809523,
-    "6": 0.17894736842105263,
+    "1": 0.1111111111111111,
+    "2": 0.07407407407407407,
+    "3": 0.1396011396011396,
+    "4": 0.10153846153846154,
+    "5": 0.14624505928853754,
+    "6": 0.09523809523809523,
     "7": 0.15384615384615385,
-    "8": 0.36363636363636365,
-    "9": 0.2,
+    "8": 0.2,
+    "9": 0.4166666666666667,
     "10": 0.8,
     "11": 0.5,
     "12": 0.6666666666666666,
     "13": 0.6666666666666666,
     "14": 0.6666666666666666,
-    "15": 1.0,
+    "15": 0.6666666666666666,
     "16": 1.0,
     "17": 1.0,
     "18": 1.0,
     "19": 1.0,
     "20": 1.0,
     "21": 1.0,
-    "22": 1.0,
-    "23": 1.0,
-    "24": 1.0,
-    "25": 1.0,
-    "26": 1.0,
-    "27": 1.0,
-    "28": 1.0,
-    "29": 1.0,
-    "30": 1.0,
-    "31": 1.0,
-    "32": 1.0,
-    "33": 1.0,
-    "34": 1.0,
-    "35": 1.0,
-    "36": 1.0,
-    "37": 1.0,
-    "38": 1.0,
-    "39": 1.0
+    "22": 1.0
   },
   "gods": [
     {
       "id": "src_lib_supabase_client_createclient",
       "label": "createClient()",
-      "degree": 17
+      "degree": 19
     },
     {
       "id": "tsconfig_compileroptions",
@@ -404,7 +341,7 @@
     {
       "id": "src_app_page_home",
       "label": "Home()",
-      "degree": 15
+      "degree": 16
     },
     {
       "id": "src_lib_supabase_server_createclient",
@@ -422,24 +359,24 @@
       "degree": 7
     },
     {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "degree": 7
+    },
+    {
       "id": "src_lib_notes_autosave_createautosavecontroller",
       "label": "createAutosaveController()",
-      "degree": 7
-    },
-    {
-      "id": "src_lib_notes_portability_safefilename",
-      "label": "safeFilename()",
-      "degree": 7
-    },
-    {
-      "id": "src_lib_notes_portability_workspacezip",
-      "label": "workspaceZip()",
       "degree": 7
     },
     {
       "id": "tsconfig_include",
       "label": "include",
       "degree": 7
+    },
+    {
+      "id": "src_lib_notes_autosave_removerecoverycopy",
+      "label": "removeRecoveryCopy()",
+      "degree": 6
     }
   ],
   "surprises": [

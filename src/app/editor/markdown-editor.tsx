@@ -232,8 +232,42 @@ function DiffText({ segments }: { segments: DiffSegment[] }) {
 function ProposalDiff({ proposal, onAccept, onDiscard }: { proposal: NoteChangeProposal; onAccept?: (proposal: NoteChangeProposal) => void; onDiscard?: () => void }) {
   const [editedProposal, setEditedProposal] = useState(proposal.replacement);
   const proposedTextRef = useRef<HTMLDivElement>(null);
+  const removedPaneRef = useRef<HTMLDivElement>(null);
+  const addedPaneRef = useRef<HTMLDivElement>(null);
   const diff = diffSegments(proposal.original, proposal.replacement);
-  return <div className="ai-note-proposal-backdrop"><div className="ai-note-proposal" role="dialog" aria-modal="true" aria-label="AI note change proposal"><div className="ai-note-proposal-header"><div><strong>Pending note update</strong><span>Review before applying</span></div><button type="button" className="ai-proposal-close" onClick={onDiscard} aria-label="Revert suggested changes">×</button></div><p>{proposal.explanation}</p><div className="diff-block"><div className="diff-pane diff-removed"><b>− Original</b><DiffText segments={diff.original} /></div><div className="diff-pane diff-added"><b>＋ Proposed · editable</b><div ref={proposedTextRef} className="diff-editor" contentEditable suppressContentEditableWarning role="textbox" aria-label="Edit proposed note changes" onInput={(event) => setEditedProposal(event.currentTarget.textContent ?? '')}>{diff.replacement.map((segment, index) => segment.changed ? <mark key={index}>{segment.value}</mark> : <span key={index}>{segment.value}</span>)}</div></div></div><div className="ai-proposal-actions"><button type="button" onClick={() => onAccept?.({ ...proposal, replacement: editedProposal })}>Apply changes</button><button type="button" onClick={() => { setEditedProposal(proposal.replacement); if (proposedTextRef.current) proposedTextRef.current.textContent = proposal.replacement; }}>Reset edit</button><button type="button" onClick={onDiscard}>Revert</button></div><span className="diff-legend"><i className="legend-removed" /> Removed <i className="legend-added" /> Added</span></div></div>;
+  
+  // Synchronized scrolling for locked state diff viewing
+  useEffect(() => {
+    const removedPane = removedPaneRef.current;
+    const addedPane = addedPaneRef.current;
+    if (!removedPane || !addedPane) return;
+
+    let frame = 0;
+    const sync = (source: HTMLDivElement, target: HTMLDivElement) => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const sourceMax = source.scrollHeight - source.clientHeight;
+        const targetMax = target.scrollHeight - target.clientHeight;
+        if (sourceMax <= 0 || targetMax <= 0) return;
+        const next = (source.scrollTop / sourceMax) * targetMax;
+        if (Math.abs(target.scrollTop - next) > 0.5) target.scrollTop = next;
+      });
+    };
+
+    const handleRemovedScroll = () => sync(removedPane, addedPane);
+    const handleAddedScroll = () => sync(addedPane, removedPane);
+
+    removedPane.addEventListener('scroll', handleRemovedScroll);
+    addedPane.addEventListener('scroll', handleAddedScroll);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      removedPane.removeEventListener('scroll', handleRemovedScroll);
+      addedPane.removeEventListener('scroll', handleAddedScroll);
+    };
+  }, [diff]);
+  
+  return <div className="ai-note-proposal-backdrop"><div className="ai-note-proposal" role="dialog" aria-modal="true" aria-label="AI note change proposal"><div className="ai-note-proposal-header"><div><strong>Pending note update</strong><span>Review before applying</span></div><button type="button" className="ai-proposal-close" onClick={onDiscard} aria-label="Revert suggested changes">×</button></div><p>{proposal.explanation}</p><div className="diff-block"><div className="diff-pane diff-removed" ref={removedPaneRef}><b>− Original</b><DiffText segments={diff.original} /></div><div className="diff-pane diff-added" ref={addedPaneRef}><b>＋ Proposed · editable</b><div ref={proposedTextRef} className="diff-editor" contentEditable suppressContentEditableWarning role="textbox" aria-label="Edit proposed note changes" onInput={(event) => setEditedProposal(event.currentTarget.textContent ?? '')}>{diff.replacement.map((segment, index) => segment.changed ? <mark key={index}>{segment.value}</mark> : <span key={index}>{segment.value}</span>)}</div></div></div><div className="ai-proposal-actions"><button type="button" onClick={() => onAccept?.({ ...proposal, replacement: editedProposal })}>Apply changes</button><button type="button" onClick={() => { setEditedProposal(proposal.replacement); if (proposedTextRef.current) proposedTextRef.current.textContent = proposal.replacement; }}>Reset edit</button><button type="button" onClick={onDiscard}>Revert</button></div><span className="diff-legend"><i className="legend-removed" /> Removed <i className="legend-added" /> Added</span></div></div>;
 }
 
 function ToolbarButton({ label, onClick, children }: { label: string; onClick: () => void; children: React.ReactNode }) {
