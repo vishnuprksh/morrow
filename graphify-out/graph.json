@@ -936,7 +936,7 @@
       "file_type": "code",
       "norm_label": "toolbarbutton()",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L239"
+      "source_location": "L273"
     },
     {
       "id": "src_lib_ai_proposals_changedlinecount",
@@ -3186,7 +3186,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L235",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -6046,17 +6046,6 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_toolbarbutton",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L239",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_editor_markdown_editor",
       "target": "src_app_editor_markdown_editor_editactions",
       "relation": "contains",
       "_origin": "ast",
@@ -6064,6 +6053,17 @@
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor",
+      "target": "src_app_editor_markdown_editor_toolbarbutton",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L273",
       "weight": 1.0
     },
     {
@@ -6872,5 +6872,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "14c7eab011af970319c2c8fe0c0165ca29224635"
+  "built_at_commit": "9b00636908ed61e0684b252d8e879cccd3233075"
 }

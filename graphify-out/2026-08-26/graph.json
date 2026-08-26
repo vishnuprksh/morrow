@@ -4,7 +4,6 @@
   "graph": {},
   "nodes": [
     {
-<<<<<<< Updated upstream
       "id": "src_app_ai_settings_agent",
       "label": "Agent",
       "_callable": true,
@@ -14,28 +13,16 @@
       "community_name": "ai-settings.tsx",
       "file_type": "code",
       "norm_label": "agent",
-=======
-      "id": "src_app_ai_settings_credential",
-      "label": "Credential",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "credential",
->>>>>>> Stashed changes
       "source_file": "src/app/ai-settings.tsx",
       "source_location": "L6"
     },
     {
-<<<<<<< Updated upstream
       "id": "src_lib_ai_validation_credentialinput",
       "label": "CredentialInput",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 14,
+      "community": 15,
       "community_name": "validation.ts",
       "file_type": "code",
       "norm_label": "credentialinput",
@@ -48,7 +35,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "preset",
@@ -61,7 +48,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "database",
@@ -74,7 +61,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "json",
@@ -87,7 +74,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "chatmessage",
@@ -100,7 +87,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "notecontext",
@@ -113,7 +100,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "editaction",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -125,7 +113,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "markdowneditorprops",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -137,7 +126,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "toolbaraction",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -149,7 +139,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "diffsegment",
       "source_file": "src/lib/ai/proposals.ts",
@@ -161,7 +152,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "notechangeproposal",
       "source_file": "src/lib/ai/proposals.ts",
@@ -173,12 +165,25 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "folderrow",
       "source_file": "src/app/page.tsx",
-      "source_location": "L13"
+      "source_location": "L14"
+    },
+    {
+      "id": "src_app_page_noteaction",
+      "label": "NoteAction",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "noteaction",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L16"
     },
     {
       "id": "src_app_page_noterow",
@@ -186,26 +191,20 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "noterow",
       "source_file": "src/app/page.tsx",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
-=======
->>>>>>> Stashed changes
       "id": "src_lib_notes_autosave_autosavecontroller",
       "label": "AutosaveController",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "autosavecontroller",
@@ -218,11 +217,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "autosaveresult",
@@ -235,11 +230,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "entry",
@@ -252,11 +243,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "notedraft",
@@ -269,11 +256,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "savenote",
@@ -286,11 +269,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "saveresult",
@@ -298,152 +277,12 @@
       "source_location": "L6"
     },
     {
-<<<<<<< Updated upstream
-=======
-      "id": "src_app_agent_panel_chatmessage",
-      "label": "ChatMessage",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "chatmessage",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_agent_panel_notecontext",
-      "label": "NoteContext",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "notecontext",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_app_page_folderrow",
-      "label": "FolderRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "folderrow",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L13"
-    },
-    {
-      "id": "src_app_page_noterow",
-      "label": "NoteRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "noterow",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_lib_ai_validation_credentialinput",
-      "label": "CredentialInput",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "credentialinput",
-      "source_file": "src/lib/ai/validation.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_ai_edit_route_preset",
-      "label": "Preset",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "preset",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L15"
-    },
-    {
-      "id": "src_lib_supabase_database_types_database",
-      "label": "Database",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "database",
-      "source_file": "src/lib/supabase/database.types.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_lib_supabase_database_types_json",
-      "label": "Json",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "json",
-      "source_file": "src/lib/supabase/database.types.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_editaction",
-      "label": "EditAction",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "editaction",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L18"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditorprops",
-      "label": "MarkdownEditorProps",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "markdowneditorprops",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L12"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_toolbaraction",
-      "label": "ToolbarAction",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "toolbaraction",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L28"
-    },
-    {
->>>>>>> Stashed changes
       "id": "src_lib_notes_portability_portablefolder",
       "label": "PortableFolder",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "portablefolder",
@@ -456,11 +295,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "portablenote",
@@ -468,7 +303,294 @@
       "source_location": "L3"
     },
     {
-<<<<<<< Updated upstream
+      "id": "src_app_auth_auth_form_authform",
+      "label": "AuthForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "authform()",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_auth_auth_form_authform_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "src_app_auth_auth_form_signoutbutton",
+      "label": "SignOutButton()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "signoutbutton()",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L41"
+    },
+    {
+      "id": "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "label": "ForgotPasswordPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "forgotpasswordpage()",
+      "source_file": "src/app/auth/forgot-password/page.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "src/app/auth/forgot-password/page.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_auth_sign_in_page_signinpage",
+      "label": "SignInPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "signinpage()",
+      "source_file": "src/app/auth/sign-in/page.tsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_app_auth_sign_up_page_signuppage",
+      "label": "SignUpPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "signuppage()",
+      "source_file": "src/app/auth/sign-up/page.tsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_app_auth_update_password_page_updatepasswordpage",
+      "label": "UpdatePasswordPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "updatepasswordpage()",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_page_home",
+      "label": "Home()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "home()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "src_app_page_home_acceptproposal",
+      "label": "acceptProposal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "acceptproposal()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L153"
+    },
+    {
+      "id": "src_app_page_home_archivenote",
+      "label": "archiveNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "archivenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L113"
+    },
+    {
+      "id": "src_app_page_home_createfolder",
+      "label": "createFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createfolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L161"
+    },
+    {
+      "id": "src_app_page_home_createnote",
+      "label": "createNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createnote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L187"
+    },
+    {
+      "id": "src_app_page_home_deletefolder",
+      "label": "deleteFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "deletefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L202"
+    },
+    {
+      "id": "src_app_page_home_deletenote",
+      "label": "deleteNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "deletenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L194"
+    },
+    {
+      "id": "src_app_page_home_loadworkspace",
+      "label": "loadWorkspace()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "loadworkspace()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L39"
+    },
+    {
+      "id": "src_app_page_home_movenote",
+      "label": "moveNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "movenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L146"
+    },
+    {
+      "id": "src_app_page_home_opennotemenu",
+      "label": "openNoteMenu()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "opennotemenu()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L109"
+    },
+    {
+      "id": "src_app_page_home_renamefolder",
+      "label": "renameFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "renamefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L176"
+    },
+    {
+      "id": "src_app_page_home_togglefavorite",
+      "label": "toggleFavorite()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "togglefavorite()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L119"
+    },
+    {
+      "id": "src_app_page_home_updatenote",
+      "label": "updateNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "updatenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L101"
+    },
+    {
+      "id": "src_app_page_home_uploadimage",
+      "label": "uploadImage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "uploadimage()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L208"
+    },
+    {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createclient()",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L7"
+    },
+    {
       "id": "src_lib_ai_credentials_decryptapikey",
       "label": "decryptApiKey()",
       "_callable": true,
@@ -505,26 +627,18 @@
       "source_location": "L7"
     },
     {
-=======
->>>>>>> Stashed changes
       "id": "src_app_ai_settings_aisettings",
       "label": "AiSettings()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
       "community": 12,
       "community_name": "ai-settings.tsx",
-=======
-      "community": 1,
-      "community_name": "app/page.tsx",
->>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "aisettings()",
       "source_file": "src/app/ai-settings.tsx",
       "source_location": "L8"
     },
     {
-<<<<<<< Updated upstream
       "id": "src_app_layout_rootlayout",
       "label": "RootLayout()",
       "_callable": true,
@@ -537,11 +651,35 @@
       "source_location": "L9"
     },
     {
+      "id": "src_app_settings_page_settingspage",
+      "label": "SettingsPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "SettingsPage",
+      "file_type": "code",
+      "norm_label": "settingspage()",
+      "source_file": "src/app/settings/page.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_settings_page_settingspage_changetheme",
+      "label": "changeTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "SettingsPage",
+      "file_type": "code",
+      "norm_label": "changetheme()",
+      "source_file": "src/app/settings/page.tsx",
+      "source_location": "L10"
+    },
+    {
       "id": "src_app_auth_page_authlayout",
       "label": "AuthLayout()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
+      "community": 19,
       "community_name": "auth/page.tsx",
       "file_type": "code",
       "norm_label": "authlayout()",
@@ -553,7 +691,7 @@
       "label": "proxy()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "proxy()",
@@ -565,7 +703,7 @@
       "label": "boundedText()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "boundedtext()",
@@ -577,7 +715,7 @@
       "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "post()",
@@ -589,7 +727,7 @@
       "label": "isPreset()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "ispreset()",
@@ -601,7 +739,7 @@
       "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "post()",
@@ -613,7 +751,7 @@
       "label": "authenticatedClient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "authenticatedclient()",
@@ -625,7 +763,7 @@
       "label": "GET()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "get()",
@@ -637,7 +775,7 @@
       "label": "GET()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "get()",
@@ -649,7 +787,7 @@
       "label": "getSupabaseEnv()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "getsupabaseenv()",
@@ -661,7 +799,7 @@
       "label": "updateSession()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "updatesession()",
@@ -673,7 +811,7 @@
       "label": "createClient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "createclient()",
@@ -685,7 +823,7 @@
       "label": "AgentPanel()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "agentpanel()",
@@ -697,7 +835,7 @@
       "label": "send()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "send()",
@@ -709,7 +847,8 @@
       "label": "DiffText()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "difftext()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -720,7 +859,8 @@
       "label": "MarkdownEditor()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "markdowneditor()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -731,7 +871,8 @@
       "label": "applyProposal()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "applyproposal()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -742,7 +883,8 @@
       "label": "requestEdit()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "requestedit()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -753,7 +895,8 @@
       "label": "runToolbarAction()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "runtoolbaraction()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -764,7 +907,8 @@
       "label": "submitCustomInstruction()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "submitcustominstruction()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -775,7 +919,8 @@
       "label": "ProposalDiff()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "proposaldiff()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -786,7 +931,8 @@
       "label": "ToolbarButton()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "toolbarbutton()",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -797,7 +943,8 @@
       "label": "changedLineCount()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "changedlinecount()",
       "source_file": "src/lib/ai/proposals.ts",
@@ -808,310 +955,43 @@
       "label": "diffSegments()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "diffsegments()",
       "source_file": "src/lib/ai/proposals.ts",
       "source_location": "L12"
     },
     {
-      "id": "src_app_auth_auth_form_authform",
-      "label": "AuthForm()",
+      "id": "src_app_page_notecontextmenu",
+      "label": "NoteContextMenu()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
+      "community": 5,
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "authform()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_auth_auth_form_authform_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_auth_auth_form_signoutbutton",
-      "label": "SignOutButton()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "signoutbutton()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L41"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "label": "ForgotPasswordPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "forgotpasswordpage()",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_auth_sign_in_page_signinpage",
-      "label": "SignInPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "signinpage()",
-      "source_file": "src/app/auth/sign-in/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_auth_sign_up_page_signuppage",
-      "label": "SignUpPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "signuppage()",
-      "source_file": "src/app/auth/sign-up/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_auth_update_password_page_updatepasswordpage",
-      "label": "UpdatePasswordPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "updatepasswordpage()",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_page_home",
-      "label": "Home()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "home()",
+      "norm_label": "notecontextmenu()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L16"
-    },
-    {
-      "id": "src_app_page_home_acceptproposal",
-      "label": "acceptProposal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "acceptproposal()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L103"
-    },
-    {
-      "id": "src_app_page_home_createfolder",
-      "label": "createFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "createfolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L111"
-    },
-    {
-      "id": "src_app_page_home_createnote",
-      "label": "createNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "createnote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L122"
-    },
-    {
-      "id": "src_app_page_home_deletefolder",
-      "label": "deleteFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "deletefolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L137"
-    },
-    {
-      "id": "src_app_page_home_deletenote",
-      "label": "deleteNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "deletenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L129"
-    },
-    {
-      "id": "src_app_page_home_importmarkdown",
-      "label": "importMarkdown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "importmarkdown()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L145"
-    },
-    {
-      "id": "src_app_page_home_loadworkspace",
-      "label": "loadWorkspace()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "loadworkspace()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L34"
-    },
-    {
-      "id": "src_app_page_home_updatenote",
-      "label": "updateNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "updatenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L95"
-    },
-    {
-      "id": "src_app_page_home_uploadimage",
-      "label": "uploadImage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "uploadimage()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L153"
-    },
-    {
-      "id": "src_lib_supabase_client_createclient",
-      "label": "createClient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "createclient()",
-      "source_file": "src/lib/supabase/client.ts",
-      "source_location": "L7"
+      "source_location": "L240"
     },
     {
       "id": "src_app_page_recoverynotice",
       "label": "RecoveryNotice()",
       "_callable": true,
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "recoverynotice()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L181"
-=======
-      "id": "src_app_ai_settings_aisettings_remove",
-      "label": "remove()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "remove()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L25"
-    },
-    {
-      "id": "src_app_ai_settings_aisettings_save",
-      "label": "save()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "save()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_ai_settings_aisettings_test",
-      "label": "test()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "test()",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L22"
->>>>>>> Stashed changes
+      "source_location": "L234"
     },
     {
       "id": "src_lib_notes_autosave_createautosavecontroller",
       "label": "createAutosaveController()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "createautosavecontroller()",
@@ -1123,11 +1003,7 @@
       "label": "attempt()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "attempt()",
@@ -1139,11 +1015,7 @@
       "label": "flush()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "flush()",
@@ -1155,11 +1027,7 @@
       "label": "resultIsComplete()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "resultiscomplete()",
@@ -1171,11 +1039,7 @@
       "label": "readRecoveryCopy()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "readrecoverycopy()",
@@ -1187,11 +1051,7 @@
       "label": "recoveryKey()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "recoverykey()",
@@ -1203,11 +1063,7 @@
       "label": "removeRecoveryCopy()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "removerecoverycopy()",
@@ -1219,11 +1075,7 @@
       "label": "writeRecoveryCopy()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 6,
-=======
-      "community": 1,
->>>>>>> Stashed changes
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "writerecoverycopy()",
@@ -1231,594 +1083,11 @@
       "source_location": "L48"
     },
     {
-<<<<<<< Updated upstream
-      "id": "src_app_page_home_exportnote",
-      "label": "exportNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "portability.ts",
-      "file_type": "code",
-      "norm_label": "exportnote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L143"
-    },
-    {
-      "id": "src_app_page_home_exportworkspace",
-      "label": "exportWorkspace()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "portability.ts",
-      "file_type": "code",
-      "norm_label": "exportworkspace()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L144"
-=======
-      "id": "src_app_agent_panel_agentpanel",
-      "label": "AgentPanel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "agentpanel()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_agent_panel_agentpanel_send",
-      "label": "send()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "send()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L18"
-    },
-    {
-      "id": "src_app_page_recoverynotice",
-      "label": "RecoveryNotice()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "recoverynotice()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L174"
-    },
-    {
-      "id": "src_app_layout_rootlayout",
-      "label": "RootLayout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "layout.tsx",
-      "file_type": "code",
-      "norm_label": "rootlayout()",
-      "source_file": "src/app/layout.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_auth_page_authlayout",
-      "label": "AuthLayout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "auth/page.tsx",
-      "file_type": "code",
-      "norm_label": "authlayout()",
-      "source_file": "src/app/auth/page.tsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_app_auth_auth_form_authform",
-      "label": "AuthForm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "authform()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_auth_auth_form_authform_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_auth_auth_form_signoutbutton",
-      "label": "SignOutButton()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "signoutbutton()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L41"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "label": "ForgotPasswordPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "forgotpasswordpage()",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_auth_sign_in_page_signinpage",
-      "label": "SignInPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "signinpage()",
-      "source_file": "src/app/auth/sign-in/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_auth_sign_up_page_signuppage",
-      "label": "SignUpPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "signuppage()",
-      "source_file": "src/app/auth/sign-up/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_auth_update_password_page_updatepasswordpage",
-      "label": "UpdatePasswordPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "updatepasswordpage()",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_lib_supabase_client_createclient",
-      "label": "createClient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "createclient()",
-      "source_file": "src/lib/supabase/client.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_page_home",
-      "label": "Home()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "home()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L16"
-    },
-    {
-      "id": "src_app_page_home_createfolder",
-      "label": "createFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "createfolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L103"
-    },
-    {
-      "id": "src_app_page_home_createnote",
-      "label": "createNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "createnote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L114"
-    },
-    {
-      "id": "src_app_page_home_deletefolder",
-      "label": "deleteFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "deletefolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L129"
-    },
-    {
-      "id": "src_app_page_home_deletenote",
-      "label": "deleteNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "deletenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L121"
-    },
-    {
-      "id": "src_app_page_home_importmarkdown",
-      "label": "importMarkdown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "importmarkdown()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L137"
-    },
-    {
-      "id": "src_app_page_home_loadworkspace",
-      "label": "loadWorkspace()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "loadworkspace()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L34"
-    },
-    {
-      "id": "src_app_page_home_updatenote",
-      "label": "updateNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "updatenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L95"
-    },
-    {
-      "id": "src_app_page_home_uploadimage",
-      "label": "uploadImage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "file_type": "code",
-      "norm_label": "uploadimage()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L145"
-    },
-    {
-      "id": "src_app_api_ai_settings_route_authenticatedclient",
-      "label": "authenticatedClient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "authenticatedclient()",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_api_ai_settings_route_delete",
-      "label": "DELETE()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "delete()",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L37"
-    },
-    {
-      "id": "src_app_api_ai_settings_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_app_api_ai_settings_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_app_api_ai_settings_route_providerurl",
-      "label": "providerUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "providerurl()",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_app_api_ai_settings_route_put",
-      "label": "PUT()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "put()",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L45"
-    },
-    {
-      "id": "src_lib_ai_credentials_decryptapikey",
-      "label": "decryptApiKey()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "decryptapikey()",
-      "source_file": "src/lib/ai/credentials.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_lib_ai_credentials_encryptapikey",
-      "label": "encryptApiKey()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "encryptapikey()",
-      "source_file": "src/lib/ai/credentials.ts",
-      "source_location": "L15"
-    },
-    {
-      "id": "src_lib_ai_credentials_encryptionkey",
-      "label": "encryptionKey()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "encryptionkey()",
-      "source_file": "src/lib/ai/credentials.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_api_ai_edit_route_ispreset",
-      "label": "isPreset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "ispreset()",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_api_ai_edit_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L21"
-    },
-    {
-      "id": "proxy_proxy",
-      "label": "proxy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "proxy()",
-      "source_file": "proxy.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_app_api_attachments_noteid_filename_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "src/app/api/attachments/[noteId]/[filename]/route.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_lib_supabase_env_getsupabaseenv",
-      "label": "getSupabaseEnv()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "getsupabaseenv()",
-      "source_file": "src/lib/supabase/env.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_middleware_updatesession",
-      "label": "updateSession()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "updatesession()",
-      "source_file": "src/lib/supabase/middleware.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_lib_supabase_server_createclient",
-      "label": "createClient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "createclient()",
-      "source_file": "src/lib/supabase/server.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_app_api_ai_agent_route_boundedtext",
-      "label": "boundedText()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "boundedtext()",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "src_app_api_ai_agent_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L12"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "markdowneditor()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L41"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "label": "applyProposal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "applyproposal()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L157"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "label": "requestEdit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "requestedit()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L124"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "label": "runToolbarAction()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "runtoolbaraction()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L179"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "label": "submitCustomInstruction()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "submitcustominstruction()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L148"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_toolbarbutton",
-      "label": "ToolbarButton()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "toolbarbutton()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L223"
->>>>>>> Stashed changes
-    },
-    {
       "id": "src_lib_notes_portability_downloadblob",
       "label": "downloadBlob()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "downloadblob()",
@@ -1830,11 +1099,7 @@
       "label": "folderPath()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "folderpath()",
@@ -1846,11 +1111,7 @@
       "label": "noteMarkdown()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "notemarkdown()",
@@ -1862,11 +1123,7 @@
       "label": "safeFilename()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "safefilename()",
@@ -1878,11 +1135,7 @@
       "label": "workspaceZip()",
       "_callable": true,
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
       "community": 9,
->>>>>>> Stashed changes
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "workspacezip()",
@@ -1890,31 +1143,6 @@
       "source_location": "L38"
     },
     {
-<<<<<<< Updated upstream
-=======
-      "id": "src_app_page_home_exportnote",
-      "label": "exportNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "file_type": "code",
-      "norm_label": "exportnote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L135"
-    },
-    {
-      "id": "src_app_page_home_exportworkspace",
-      "label": "exportWorkspace()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "file_type": "code",
-      "norm_label": "exportworkspace()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L136"
-    },
-    {
->>>>>>> Stashed changes
       "id": "package_dependencies",
       "label": "dependencies",
       "_origin": "ast",
@@ -2344,302 +1572,70 @@
       "source_location": "L33"
     },
     {
-<<<<<<< Updated upstream
-      "id": "package_devdependencies",
-      "label": "devDependencies",
+      "id": "src_app_auth_auth_form",
+      "label": "auth-form.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "devDependencies",
+      "community_name": "createClient",
       "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "package.json",
-      "source_location": "L35"
+      "norm_label": "auth-form.tsx",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_eslint",
-      "label": "eslint",
+      "id": "src_app_auth_forgot_password_page",
+      "label": "forgot-password/page.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "devDependencies",
+      "community_name": "createClient",
       "file_type": "code",
-      "norm_label": "eslint",
-      "source_file": "package.json",
-      "source_location": "L40"
+      "norm_label": "forgot-password/page.tsx",
+      "source_file": "src/app/auth/forgot-password/page.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_eslint_config_next",
-      "label": "eslint-config-next",
+      "id": "src_app_auth_sign_in_page",
+      "label": "sign-in/page.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "devDependencies",
+      "community_name": "createClient",
       "file_type": "code",
-      "norm_label": "eslint-config-next",
-      "source_file": "package.json",
-      "source_location": "L41"
+      "norm_label": "sign-in/page.tsx",
+      "source_file": "src/app/auth/sign-in/page.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_jsdom",
-      "label": "jsdom",
+      "id": "src_app_auth_sign_up_page",
+      "label": "sign-up/page.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "devDependencies",
+      "community_name": "createClient",
       "file_type": "code",
-      "norm_label": "jsdom",
-      "source_file": "package.json",
-      "source_location": "L42"
+      "norm_label": "sign-up/page.tsx",
+      "source_file": "src/app/auth/sign-up/page.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_postcss",
-      "label": "postcss",
+      "id": "src_app_auth_update_password_page",
+      "label": "update-password/page.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "devDependencies",
+      "community_name": "createClient",
       "file_type": "code",
-      "norm_label": "postcss",
-      "source_file": "package.json",
-      "source_location": "L43"
+      "norm_label": "update-password/page.tsx",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_prettier",
-      "label": "prettier",
+      "id": "src_app_page_test",
+      "label": "page.test.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "devDependencies",
+      "community_name": "createClient",
       "file_type": "code",
-      "norm_label": "prettier",
-      "source_file": "package.json",
-      "source_location": "L44"
-    },
-    {
-      "id": "package_devdependencies_tailwindcss",
-      "label": "tailwindcss",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "tailwindcss",
-      "source_file": "package.json",
-      "source_location": "L45"
-    },
-    {
-      "id": "package_devdependencies_types_node",
-      "label": "@types/node",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@types/node",
-      "source_file": "package.json",
-      "source_location": "L36"
-    },
-    {
-      "id": "package_devdependencies_types_react",
-      "label": "@types/react",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@types/react",
-      "source_file": "package.json",
-      "source_location": "L37"
-    },
-    {
-      "id": "package_devdependencies_types_react_dom",
-      "label": "@types/react-dom",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@types/react-dom",
-      "source_file": "package.json",
-      "source_location": "L38"
-    },
-    {
-      "id": "package_devdependencies_typescript",
-      "label": "typescript",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "typescript",
-      "source_file": "package.json",
-      "source_location": "L46"
-    },
-    {
-      "id": "package_devdependencies_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L47"
-    },
-    {
-      "id": "package_devdependencies_vitejs_plugin_react",
-      "label": "@vitejs/plugin-react",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@vitejs/plugin-react",
-      "source_file": "package.json",
-      "source_location": "L39"
-    },
-    {
-      "id": "package_devdependencies_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "vitest",
-      "source_file": "package.json",
-      "source_location": "L48"
-    },
-    {
-      "id": "eslint",
-      "label": "eslint",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "eslint",
-      "source_file": "package.json",
-      "source_location": "L40"
-    },
-    {
-      "id": "eslint_config_next",
-      "label": "eslint-config-next",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "eslint-config-next",
-      "source_file": "package.json",
-      "source_location": "L41"
-    },
-    {
-      "id": "jsdom",
-      "label": "jsdom",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "jsdom",
-      "source_file": "package.json",
-      "source_location": "L42"
-    },
-    {
-      "id": "postcss",
-      "label": "postcss",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "postcss",
-      "source_file": "package.json",
-      "source_location": "L43"
-    },
-    {
-      "id": "prettier",
-      "label": "prettier",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "prettier",
-      "source_file": "package.json",
-      "source_location": "L44"
-    },
-    {
-      "id": "tailwindcss",
-      "label": "tailwindcss",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "tailwindcss",
-      "source_file": "package.json",
-      "source_location": "L45"
-    },
-    {
-      "id": "types_node",
-      "label": "@types/node",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "@types/node",
-      "source_file": "package.json",
-      "source_location": "L36"
-    },
-    {
-      "id": "types_react",
-      "label": "@types/react",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "@types/react",
-      "source_file": "package.json",
-      "source_location": "L37"
-    },
-    {
-      "id": "types_react_dom",
-      "label": "@types/react-dom",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "@types/react-dom",
-      "source_file": "package.json",
-      "source_location": "L38"
-    },
-    {
-      "id": "typescript",
-      "label": "typescript",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "typescript",
-      "source_file": "package.json",
-      "source_location": "L46"
-    },
-    {
-      "id": "vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L47"
-    },
-    {
-      "id": "vitejs_plugin_react",
-      "label": "@vitejs/plugin-react",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "@vitejs/plugin-react",
-      "source_file": "package.json",
-      "source_location": "L39"
-    },
-    {
-      "id": "vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "devDependencies",
-      "file_type": "concept",
-      "norm_label": "vitest",
-      "source_file": "package.json",
-      "source_location": "L48"
+      "norm_label": "page.test.tsx",
+      "source_file": "src/app/page.test.tsx",
+      "source_location": "L1"
     },
     {
       "id": "src_lib_ai_credentials",
@@ -2664,171 +1660,6 @@
       "source_location": "L1"
     },
     {
-=======
-      "id": "src_app_ai_settings",
-      "label": "ai-settings.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "ai-settings.tsx",
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_autosave",
-      "label": "autosave.ts",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "autosave.ts",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_autosave_test",
-      "label": "autosave.test.ts",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "autosave.test.ts",
-      "source_file": "src/lib/notes/autosave.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_agent_panel",
-      "label": "agent-panel.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "agent-panel.tsx",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page",
-      "label": "app/page.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "app/page.tsx",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "tsconfig",
-      "label": "tsconfig.json",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "code",
-      "norm_label": "tsconfig.json",
-      "source_file": "tsconfig.json",
-      "source_location": "L1"
-    },
-    {
-      "id": "tsconfig_exclude",
-      "label": "exclude",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "code",
-      "norm_label": "exclude",
-      "source_file": "tsconfig.json",
-      "source_location": "L42"
-    },
-    {
-      "id": "tsconfig_include",
-      "label": "include",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "code",
-      "norm_label": "include",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_next_dev_types_ts",
-      "label": ".next/dev/types/**/*.ts",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": ".next/dev/types/**/*.ts",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_next_env_d_ts",
-      "label": "next-env.d.ts",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": "next-env.d.ts",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_next_types_ts",
-      "label": ".next/types/**/*.ts",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": ".next/types/**/*.ts",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_node_modules",
-      "label": "node_modules",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": "node_modules",
-      "source_file": "tsconfig.json",
-      "source_location": "L42"
-    },
-    {
-      "id": "ref_src_ts",
-      "label": "src/**/*.ts",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": "src/**/*.ts",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_src_tsx",
-      "label": "src/**/*.tsx",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": "src/**/*.tsx",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_vitest_config_ts",
-      "label": "vitest.config.ts",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "include",
-      "file_type": "concept",
-      "norm_label": "vitest.config.ts",
-      "source_file": "tsconfig.json",
-      "source_location": "L34"
-    },
-    {
->>>>>>> Stashed changes
       "id": "prettierrc",
       "label": ".prettierrc.json",
       "_origin": "ast",
@@ -2873,7 +1704,6 @@
       "source_location": "L4"
     },
     {
-<<<<<<< Updated upstream
       "id": "src_app_ai_settings",
       "label": "ai-settings.tsx",
       "_origin": "ast",
@@ -2889,12 +1719,6 @@
       "label": "layout.tsx",
       "_origin": "ast",
       "community": 13,
-=======
-      "id": "src_app_layout",
-      "label": "layout.tsx",
-      "_origin": "ast",
-      "community": 12,
->>>>>>> Stashed changes
       "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "layout.tsx",
@@ -2905,11 +1729,7 @@
       "id": "src_app_layout_metadata",
       "label": "metadata",
       "_origin": "ast",
-<<<<<<< Updated upstream
       "community": 13,
-=======
-      "community": 12,
->>>>>>> Stashed changes
       "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "metadata",
@@ -2917,11 +1737,21 @@
       "source_location": "L4"
     },
     {
-<<<<<<< Updated upstream
+      "id": "src_app_settings_page",
+      "label": "settings/page.tsx",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "SettingsPage",
+      "file_type": "code",
+      "norm_label": "settings/page.tsx",
+      "source_file": "src/app/settings/page.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_lib_ai_validation",
       "label": "validation.ts",
       "_origin": "ast",
-      "community": 14,
+      "community": 15,
       "community_name": "validation.ts",
       "file_type": "code",
       "norm_label": "validation.ts",
@@ -2932,7 +1762,7 @@
       "id": "src_lib_ai_validation_credentialschema",
       "label": "credentialSchema",
       "_origin": "ast",
-      "community": 14,
+      "community": 15,
       "community_name": "validation.ts",
       "file_type": "code",
       "norm_label": "credentialschema",
@@ -2943,13 +1773,7 @@
       "id": "next_config",
       "label": "next.config.ts",
       "_origin": "ast",
-      "community": 15,
-=======
-      "id": "next_config",
-      "label": "next.config.ts",
-      "_origin": "ast",
-      "community": 13,
->>>>>>> Stashed changes
+      "community": 16,
       "community_name": "next.config.ts",
       "file_type": "code",
       "norm_label": "next.config.ts",
@@ -2960,11 +1784,7 @@
       "id": "next_config_nextconfig",
       "label": "nextConfig",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 15,
-=======
-      "community": 13,
->>>>>>> Stashed changes
+      "community": 16,
       "community_name": "next.config.ts",
       "file_type": "code",
       "norm_label": "nextconfig",
@@ -2975,11 +1795,7 @@
       "id": "next_env_d",
       "label": "next-env.d.ts",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 16,
-=======
-      "community": 14,
->>>>>>> Stashed changes
+      "community": 17,
       "community_name": "next-env.d.ts",
       "file_type": "code",
       "norm_label": "next-env.d.ts",
@@ -2990,11 +1806,7 @@
       "id": "next_env_d_rationale_6",
       "label": "NOTE: This file should not be edited",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 16,
-=======
-      "community": 14,
->>>>>>> Stashed changes
+      "community": 17,
       "community_name": "next-env.d.ts",
       "file_type": "rationale",
       "norm_label": "note: this file should not be edited",
@@ -3005,11 +1817,7 @@
       "id": "postcss_config",
       "label": "postcss.config.mjs",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 17,
-=======
-      "community": 15,
->>>>>>> Stashed changes
+      "community": 18,
       "community_name": "postcss.config.mjs",
       "file_type": "code",
       "norm_label": "postcss.config.mjs",
@@ -3020,11 +1828,7 @@
       "id": "postcss_config_config",
       "label": "config",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 17,
-=======
-      "community": 15,
->>>>>>> Stashed changes
+      "community": 18,
       "community_name": "postcss.config.mjs",
       "file_type": "code",
       "norm_label": "config",
@@ -3035,11 +1839,7 @@
       "id": "src_app_auth_page",
       "label": "auth/page.tsx",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 18,
-=======
-      "community": 16,
->>>>>>> Stashed changes
+      "community": 19,
       "community_name": "auth/page.tsx",
       "file_type": "code",
       "norm_label": "auth/page.tsx",
@@ -3047,149 +1847,6 @@
       "source_location": "L1"
     },
     {
-<<<<<<< Updated upstream
-      "id": "proxy",
-      "label": "proxy.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "proxy.ts",
-      "source_file": "proxy.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "proxy_config",
-      "label": "config",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "config",
-      "source_file": "proxy.ts",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_api_ai_agent_route",
-      "label": "agent/route.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "agent/route.ts",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ai_agent_route_noteid",
-      "label": "noteId",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "noteid",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_api_ai_edit_route",
-      "label": "edit/route.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "edit/route.ts",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ai_edit_route_presets",
-      "label": "presets",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "presets",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_app_api_ai_settings_route",
-      "label": "settings/route.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "settings/route.ts",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_attachments_noteid_filename_route",
-      "label": "[filename]/route.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "[filename]/route.ts",
-      "source_file": "src/app/api/attachments/[noteId]/[filename]/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_client",
-      "label": "client.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "client.ts",
-      "source_file": "src/lib/supabase/client.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_database_types",
-      "label": "database.types.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "database.types.ts",
-      "source_file": "src/lib/supabase/database.types.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_env",
-      "label": "env.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "env.ts",
-      "source_file": "src/lib/supabase/env.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_middleware",
-      "label": "middleware.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "middleware.ts",
-      "source_file": "src/lib/supabase/middleware.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_server",
-      "label": "server.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "server.ts",
-      "source_file": "src/lib/supabase/server.ts",
-      "source_location": "L1"
-=======
       "id": "package_devdependencies",
       "label": "devDependencies",
       "_origin": "ast",
@@ -3485,17 +2142,12 @@
       "norm_label": "vitest",
       "source_file": "package.json",
       "source_location": "L48"
->>>>>>> Stashed changes
     },
     {
       "id": "eslint_config",
       "label": "eslint.config.mjs",
       "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 23,
-=======
-      "community": 21,
->>>>>>> Stashed changes
+      "community": 20,
       "community_name": "eslint.config.mjs",
       "file_type": "code",
       "norm_label": "eslint.config.mjs",
@@ -3503,11 +2155,259 @@
       "source_location": "L1"
     },
     {
-<<<<<<< Updated upstream
+      "id": "src_test_setup",
+      "label": "test-setup.ts",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "test-setup.ts",
+      "file_type": "code",
+      "norm_label": "test-setup.ts",
+      "source_file": "src/test-setup.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "vitest_config",
+      "label": "vitest.config.ts",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "vitest.config.ts",
+      "file_type": "code",
+      "norm_label": "vitest.config.ts",
+      "source_file": "vitest.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme",
+      "label": "README.md",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Morrow \u2014 AI Markdown Notes",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "readme.md",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_local_setup",
+      "label": "Local setup",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Morrow \u2014 AI Markdown Notes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "local setup",
+      "source_file": "README.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "readme_morrow_ai_markdown_notes",
+      "label": "Morrow \u2014 AI Markdown Notes",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "Morrow \u2014 AI Markdown Notes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "morrow \u2014 ai markdown notes",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "agents",
+      "label": "AGENTS.md",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "agents.md",
+      "source_file": "AGENTS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "agents_this_is_not_the_next_js_you_know",
+      "label": "This is NOT the Next.js you know",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "this is not the next.js you know",
+      "source_file": "AGENTS.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "claude",
+      "label": "CLAUDE.md",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "CLAUDE.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "claude.md",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "mvp_plan",
+      "label": "mvp_plan.md",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "mvp_plan.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "mvp_plan.md",
+      "source_file": "mvp_plan.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "proxy",
+      "label": "proxy.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "proxy.ts",
+      "source_file": "proxy.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "proxy_config",
+      "label": "config",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "config",
+      "source_file": "proxy.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_api_ai_agent_route",
+      "label": "agent/route.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "agent/route.ts",
+      "source_file": "src/app/api/ai/agent/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_agent_route_noteid",
+      "label": "noteId",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "noteid",
+      "source_file": "src/app/api/ai/agent/route.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_api_ai_edit_route",
+      "label": "edit/route.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "edit/route.ts",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_edit_route_presets",
+      "label": "presets",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "presets",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_api_ai_settings_route",
+      "label": "settings/route.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "settings/route.ts",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_attachments_noteid_filename_route",
+      "label": "[filename]/route.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "[filename]/route.ts",
+      "source_file": "src/app/api/attachments/[noteId]/[filename]/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_client",
+      "label": "client.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "client.ts",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_database_types",
+      "label": "database.types.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "database.types.ts",
+      "source_file": "src/lib/supabase/database.types.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_env",
+      "label": "env.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "env.ts",
+      "source_file": "src/lib/supabase/env.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_middleware",
+      "label": "middleware.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "middleware.ts",
+      "source_file": "src/lib/supabase/middleware.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_server",
+      "label": "server.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "server.ts",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_app_agent_panel",
       "label": "agent-panel.tsx",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "agent-panel.tsx",
@@ -3515,21 +2415,11 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_editor_markdown_editor_test",
-      "label": "markdown-editor.test.tsx",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "markdown-editor.test.tsx",
-      "source_file": "src/app/editor/markdown-editor.test.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_app_editor_markdown_editor",
       "label": "markdown-editor.tsx",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "markdown-editor.tsx",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -3539,17 +2429,30 @@
       "id": "src_app_editor_markdown_editor_editactions",
       "label": "editActions",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "editactions",
       "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L24"
     },
     {
+      "id": "src_app_editor_markdown_editor_test",
+      "label": "markdown-editor.test.tsx",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "markdown-editor.test.tsx",
+      "source_file": "src/app/editor/markdown-editor.test.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_app_editor_markdown_editor_toolbaractions",
       "label": "toolbarActions",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "toolbaractions",
       "source_file": "src/app/editor/markdown-editor.tsx",
@@ -3559,7 +2462,8 @@
       "id": "src_lib_ai_proposals",
       "label": "proposals.ts",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "proposals.ts",
       "source_file": "src/lib/ai/proposals.ts",
@@ -3569,484 +2473,18 @@
       "id": "src_lib_ai_proposals_test",
       "label": "proposals.test.ts",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
+      "community_name": "markdown-editor.tsx",
       "file_type": "code",
       "norm_label": "proposals.test.ts",
       "source_file": "src/lib/ai/proposals.test.ts",
       "source_location": "L1"
     },
     {
-      "id": "mvp_plan",
-      "label": "mvp_plan.md",
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "mvp_plan.md",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "mvp_plan.md",
-      "source_file": "mvp_plan.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_test_setup",
-      "label": "test-setup.ts",
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "test-setup.ts",
-      "file_type": "code",
-      "norm_label": "test-setup.ts",
-      "source_file": "src/test-setup.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "vitest_config",
-      "label": "vitest.config.ts",
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "vitest.config.ts",
-      "file_type": "code",
-      "norm_label": "vitest.config.ts",
-      "source_file": "vitest.config.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_auth_auth_form",
-      "label": "auth-form.tsx",
-      "_origin": "ast",
-      "community": 4,
-=======
-      "id": "src_app_auth_auth_form",
-      "label": "auth-form.tsx",
-      "_origin": "ast",
-      "community": 3,
->>>>>>> Stashed changes
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "auth-form.tsx",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page",
-      "label": "forgot-password/page.tsx",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 4,
-=======
-      "community": 3,
->>>>>>> Stashed changes
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "forgot-password/page.tsx",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_auth_sign_in_page",
-      "label": "sign-in/page.tsx",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 4,
-=======
-      "community": 3,
->>>>>>> Stashed changes
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "sign-in/page.tsx",
-      "source_file": "src/app/auth/sign-in/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_auth_sign_up_page",
-      "label": "sign-up/page.tsx",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 4,
-=======
-      "community": 3,
->>>>>>> Stashed changes
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "sign-up/page.tsx",
-      "source_file": "src/app/auth/sign-up/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_auth_update_password_page",
-      "label": "update-password/page.tsx",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 4,
-=======
-      "community": 3,
->>>>>>> Stashed changes
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "update-password/page.tsx",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page_test",
-      "label": "page.test.tsx",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 4,
-=======
-      "community": 3,
->>>>>>> Stashed changes
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "page.test.tsx",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L1"
-    },
-    {
-<<<<<<< Updated upstream
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
-      "_origin": "ast",
-      "community": 5,
-=======
-      "id": "src_test_setup",
-      "label": "test-setup.ts",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "test-setup.ts",
-      "file_type": "code",
-      "norm_label": "test-setup.ts",
-      "source_file": "src/test-setup.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "vitest_config",
-      "label": "vitest.config.ts",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "vitest.config.ts",
-      "file_type": "code",
-      "norm_label": "vitest.config.ts",
-      "source_file": "vitest.config.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
-      "_origin": "ast",
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "compileroptions",
-      "source_file": "tsconfig.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "tsconfig_compileroptions_allowjs",
-      "label": "allowJs",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "allowjs",
-      "source_file": "tsconfig.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "tsconfig_compileroptions_esmoduleinterop",
-      "label": "esModuleInterop",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "esmoduleinterop",
-      "source_file": "tsconfig.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "tsconfig_compileroptions_incremental",
-      "label": "incremental",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "incremental",
-      "source_file": "tsconfig.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "tsconfig_compileroptions_isolatedmodules",
-      "label": "isolatedModules",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "isolatedmodules",
-      "source_file": "tsconfig.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "tsconfig_compileroptions_jsx",
-      "label": "jsx",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "jsx",
-      "source_file": "tsconfig.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "tsconfig_compileroptions_lib",
-      "label": "lib",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "lib",
-      "source_file": "tsconfig.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "tsconfig_compileroptions_module",
-      "label": "module",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "module",
-      "source_file": "tsconfig.json",
-      "source_location": "L14"
-    },
-    {
-      "id": "tsconfig_compileroptions_moduleresolution",
-      "label": "moduleResolution",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "moduleresolution",
-      "source_file": "tsconfig.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "tsconfig_compileroptions_noemit",
-      "label": "noEmit",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "noemit",
-      "source_file": "tsconfig.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "tsconfig_compileroptions_paths",
-      "label": "paths",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "paths",
-      "source_file": "tsconfig.json",
-      "source_location": "L28"
-    },
-    {
-      "id": "tsconfig_compileroptions_plugins",
-      "label": "plugins",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "plugins",
-      "source_file": "tsconfig.json",
-      "source_location": "L23"
-    },
-    {
-      "id": "tsconfig_compileroptions_resolvejsonmodule",
-      "label": "resolveJsonModule",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "resolvejsonmodule",
-      "source_file": "tsconfig.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "tsconfig_compileroptions_skiplibcheck",
-      "label": "skipLibCheck",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "skiplibcheck",
-      "source_file": "tsconfig.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "tsconfig_compileroptions_strict",
-      "label": "strict",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "strict",
-      "source_file": "tsconfig.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "tsconfig_compileroptions_target",
-      "label": "target",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "target",
-      "source_file": "tsconfig.json",
-      "source_location": "L3"
-    },
-    {
-      "id": "tsconfig_compileroptions_types",
-      "label": "types",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "code",
-      "norm_label": "types",
-      "source_file": "tsconfig.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "ref_dom",
-      "label": "dom",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "concept",
-      "norm_label": "dom",
-      "source_file": "tsconfig.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "ref_dom_iterable",
-      "label": "dom.iterable",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "concept",
-      "norm_label": "dom.iterable",
-      "source_file": "tsconfig.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "ref_esnext",
-      "label": "esnext",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "concept",
-      "norm_label": "esnext",
-      "source_file": "tsconfig.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "ref_vitest_globals",
-      "label": "vitest/globals",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 5,
-=======
-      "community": 4,
->>>>>>> Stashed changes
-      "community_name": "compilerOptions",
-      "file_type": "concept",
-      "norm_label": "vitest/globals",
-      "source_file": "tsconfig.json",
-      "source_location": "L19"
-    },
-    {
-<<<<<<< Updated upstream
       "id": "src_app_page",
       "label": "app/page.tsx",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "app/page.tsx",
@@ -4057,7 +2495,7 @@
       "id": "src_lib_notes_autosave",
       "label": "autosave.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "autosave.ts",
@@ -4068,193 +2506,243 @@
       "id": "src_lib_notes_autosave_test",
       "label": "autosave.test.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "autosave.test.ts",
       "source_file": "src/lib/notes/autosave.test.ts",
-=======
-      "id": "src_app_api_ai_settings_route",
-      "label": "settings/route.ts",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "settings/route.ts",
-      "source_file": "src/app/api/ai/settings/route.ts",
       "source_location": "L1"
     },
     {
-      "id": "src_lib_ai_credentials",
-      "label": "credentials.ts",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "credentials.ts",
-      "source_file": "src/lib/ai/credentials.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_ai_credentials_test",
-      "label": "credentials.test.ts",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "credentials.test.ts",
-      "source_file": "src/lib/ai/credentials.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_ai_validation",
-      "label": "validation.ts",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "validation.ts",
-      "source_file": "src/lib/ai/validation.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_ai_validation_credentialschema",
-      "label": "credentialSchema",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "settings/route.ts",
-      "file_type": "code",
-      "norm_label": "credentialschema",
-      "source_file": "src/lib/ai/validation.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_api_ai_edit_route",
-      "label": "edit/route.ts",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "edit/route.ts",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ai_edit_route_presets",
-      "label": "presets",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "presets",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "proxy",
-      "label": "proxy.ts",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "_origin": "ast",
       "community": 6,
-      "community_name": "client.ts",
+      "community_name": "compilerOptions",
       "file_type": "code",
-      "norm_label": "proxy.ts",
-      "source_file": "proxy.ts",
-      "source_location": "L1"
+      "norm_label": "compileroptions",
+      "source_file": "tsconfig.json",
+      "source_location": "L2"
     },
     {
-      "id": "proxy_config",
-      "label": "config",
+      "id": "tsconfig_compileroptions_allowjs",
+      "label": "allowJs",
       "_origin": "ast",
       "community": 6,
-      "community_name": "client.ts",
+      "community_name": "compilerOptions",
       "file_type": "code",
-      "norm_label": "config",
-      "source_file": "proxy.ts",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_api_attachments_noteid_filename_route",
-      "label": "[filename]/route.ts",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "[filename]/route.ts",
-      "source_file": "src/app/api/attachments/[noteId]/[filename]/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_client",
-      "label": "client.ts",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "client.ts",
-      "source_file": "src/lib/supabase/client.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_env",
-      "label": "env.ts",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "env.ts",
-      "source_file": "src/lib/supabase/env.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_middleware",
-      "label": "middleware.ts",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "middleware.ts",
-      "source_file": "src/lib/supabase/middleware.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_supabase_server",
-      "label": "server.ts",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "client.ts",
-      "file_type": "code",
-      "norm_label": "server.ts",
-      "source_file": "src/lib/supabase/server.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ai_agent_route",
-      "label": "agent/route.ts",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "agent/route.ts",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ai_agent_route_noteid",
-      "label": "noteId",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "noteid",
-      "source_file": "src/app/api/ai/agent/route.ts",
+      "norm_label": "allowjs",
+      "source_file": "tsconfig.json",
       "source_location": "L9"
     },
     {
-      "id": "src_lib_supabase_database_types",
-      "label": "database.types.ts",
+      "id": "tsconfig_compileroptions_esmoduleinterop",
+      "label": "esModuleInterop",
       "_origin": "ast",
       "community": 6,
+      "community_name": "compilerOptions",
       "file_type": "code",
-      "norm_label": "database.types.ts",
-      "source_file": "src/lib/supabase/database.types.ts",
->>>>>>> Stashed changes
-      "source_location": "L1"
+      "norm_label": "esmoduleinterop",
+      "source_file": "tsconfig.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "tsconfig_compileroptions_incremental",
+      "label": "incremental",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "incremental",
+      "source_file": "tsconfig.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "tsconfig_compileroptions_isolatedmodules",
+      "label": "isolatedModules",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "isolatedmodules",
+      "source_file": "tsconfig.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "tsconfig_compileroptions_jsx",
+      "label": "jsx",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "jsx",
+      "source_file": "tsconfig.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "lib",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "tsconfig_compileroptions_module",
+      "label": "module",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "module",
+      "source_file": "tsconfig.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "tsconfig_compileroptions_moduleresolution",
+      "label": "moduleResolution",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "moduleresolution",
+      "source_file": "tsconfig.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "tsconfig_compileroptions_noemit",
+      "label": "noEmit",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "noemit",
+      "source_file": "tsconfig.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "tsconfig_compileroptions_paths",
+      "label": "paths",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "paths",
+      "source_file": "tsconfig.json",
+      "source_location": "L28"
+    },
+    {
+      "id": "tsconfig_compileroptions_plugins",
+      "label": "plugins",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "plugins",
+      "source_file": "tsconfig.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "tsconfig_compileroptions_resolvejsonmodule",
+      "label": "resolveJsonModule",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "resolvejsonmodule",
+      "source_file": "tsconfig.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "tsconfig_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "skiplibcheck",
+      "source_file": "tsconfig.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "tsconfig_compileroptions_strict",
+      "label": "strict",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "strict",
+      "source_file": "tsconfig.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "tsconfig_compileroptions_target",
+      "label": "target",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "target",
+      "source_file": "tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "tsconfig_compileroptions_types",
+      "label": "types",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "types",
+      "source_file": "tsconfig.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "ref_dom",
+      "label": "dom",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "dom",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "ref_dom_iterable",
+      "label": "dom.iterable",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "dom.iterable",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "ref_esnext",
+      "label": "esnext",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "esnext",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "ref_vitest_globals",
+      "label": "vitest/globals",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "vitest/globals",
+      "source_file": "tsconfig.json",
+      "source_location": "L19"
     },
     {
       "id": "package",
@@ -4400,85 +2888,10 @@
       "source_location": "L3"
     },
     {
-<<<<<<< Updated upstream
-      "id": "src_lib_notes_portability",
-      "label": "portability.ts",
-      "_origin": "ast",
-      "community": 8,
-=======
-      "id": "src_app_editor_markdown_editor_test",
-      "label": "markdown-editor.test.tsx",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "markdown-editor.test.tsx",
-      "source_file": "src/app/editor/markdown-editor.test.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_editor_markdown_editor",
-      "label": "markdown-editor.tsx",
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "markdown-editor.tsx",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_editactions",
-      "label": "editActions",
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "editactions",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L20"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_toolbaractions",
-      "label": "toolbarActions",
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "toolbaractions",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_lib_notes_portability",
-      "label": "portability.ts",
-      "_origin": "ast",
-      "community": 9,
->>>>>>> Stashed changes
-      "community_name": "portability.ts",
-      "file_type": "code",
-      "norm_label": "portability.ts",
-      "source_file": "src/lib/notes/portability.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_portability_test",
-      "label": "portability.test.ts",
-      "_origin": "ast",
-<<<<<<< Updated upstream
-      "community": 8,
-=======
-      "community": 9,
->>>>>>> Stashed changes
-      "community_name": "portability.ts",
-      "file_type": "code",
-      "norm_label": "portability.test.ts",
-      "source_file": "src/lib/notes/portability.test.ts",
-      "source_location": "L1"
-    },
-    {
-<<<<<<< Updated upstream
       "id": "tsconfig",
       "label": "tsconfig.json",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "code",
       "norm_label": "tsconfig.json",
@@ -4489,7 +2902,7 @@
       "id": "tsconfig_exclude",
       "label": "exclude",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "code",
       "norm_label": "exclude",
@@ -4500,7 +2913,7 @@
       "id": "tsconfig_include",
       "label": "include",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "code",
       "norm_label": "include",
@@ -4511,7 +2924,7 @@
       "id": "ref_next_dev_types_ts",
       "label": ".next/dev/types/**/*.ts",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": ".next/dev/types/**/*.ts",
@@ -4522,7 +2935,7 @@
       "id": "ref_next_env_d_ts",
       "label": "next-env.d.ts",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "next-env.d.ts",
@@ -4533,7 +2946,7 @@
       "id": "ref_next_types_ts",
       "label": ".next/types/**/*.ts",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": ".next/types/**/*.ts",
@@ -4544,7 +2957,7 @@
       "id": "ref_node_modules",
       "label": "node_modules",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "node_modules",
@@ -4555,7 +2968,7 @@
       "id": "ref_src_ts",
       "label": "src/**/*.ts",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "src/**/*.ts",
@@ -4566,7 +2979,7 @@
       "id": "ref_src_tsx",
       "label": "src/**/*.tsx",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "src/**/*.tsx",
@@ -4577,7 +2990,7 @@
       "id": "ref_vitest_config_ts",
       "label": "vitest.config.ts",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "vitest.config.ts",
@@ -4585,329 +2998,26 @@
       "source_location": "L34"
     },
     {
-=======
->>>>>>> Stashed changes
-      "id": "agents_generate_agent_files",
-      "label": "Next.js Agent File Generator",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 19,
-=======
-      "community": 17,
->>>>>>> Stashed changes
-      "community_name": "Next.js Agent File Generator",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "next.js agent file generator",
-      "source_file": "AGENTS.md",
-      "source_location": null,
-      "source_url": null
+      "id": "src_lib_notes_portability",
+      "label": "portability.ts",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "portability.ts",
+      "source_file": "src/lib/notes/portability.ts",
+      "source_location": "L1"
     },
     {
-      "id": "agents_nextjs_agent_rules",
-      "label": "Next.js Agent Rules",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 20,
-=======
-      "community": 18,
->>>>>>> Stashed changes
-      "community_name": "Next.js Agent Rules",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "next.js agent rules",
-      "source_file": "AGENTS.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "agents_node_modules_next_docs",
-      "label": "Next.js Local Documentation",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 21,
-=======
-      "community": 19,
->>>>>>> Stashed changes
-      "community_name": "Next.js Local Documentation",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "next.js local documentation",
-      "source_file": "AGENTS.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "claude_agents_reference",
-      "label": "AGENTS.md Reference",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 22,
-=======
-      "community": 20,
->>>>>>> Stashed changes
-      "community_name": "AGENTS.md Reference",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "agents.md reference",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "github_workflows_ci_ci",
-      "label": "CI Workflow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 24,
-=======
-      "community": 22,
->>>>>>> Stashed changes
-      "community_name": "CI Workflow",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "ci workflow",
-      "source_file": ".github/workflows/ci.yml",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "github_workflows_ci_lint",
-      "label": "Lint Check",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 25,
-=======
-      "community": 23,
->>>>>>> Stashed changes
-      "community_name": "Lint Check",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "lint check",
-      "source_file": ".github/workflows/ci.yml",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "github_workflows_ci_pnpm_install",
-      "label": "Frozen pnpm Installation",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 26,
-=======
-      "community": 24,
->>>>>>> Stashed changes
-      "community_name": "Frozen pnpm Installation",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "frozen pnpm installation",
-      "source_file": ".github/workflows/ci.yml",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "github_workflows_ci_quality",
-      "label": "Quality Job",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 27,
-=======
-      "community": 25,
->>>>>>> Stashed changes
-      "community_name": "Quality Job",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "quality job",
-      "source_file": ".github/workflows/ci.yml",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "github_workflows_ci_test",
-      "label": "Test Check",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 28,
-=======
-      "community": 26,
->>>>>>> Stashed changes
-      "community_name": "Test Check",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test check",
-      "source_file": ".github/workflows/ci.yml",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "github_workflows_ci_typecheck",
-      "label": "Type Check",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 29,
-=======
-      "community": 27,
->>>>>>> Stashed changes
-      "community_name": "Type Check",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "type check",
-      "source_file": ".github/workflows/ci.yml",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_auth_redirect_url",
-      "label": "Supabase Auth Redirect URL",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 31,
-=======
-      "community": 28,
->>>>>>> Stashed changes
-      "community_name": "Supabase Auth Redirect URL",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "supabase auth redirect url",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_email_password_authentication",
-      "label": "Email/Password Authentication",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 32,
-=======
-      "community": 29,
->>>>>>> Stashed changes
-      "community_name": "Email/Password Authentication",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "email/password authentication",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_env_local",
-      "label": ".env.local Configuration",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 33,
-=======
-      "community": 30,
->>>>>>> Stashed changes
-      "community_name": ".env.local Configuration",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": ".env.local configuration",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_initial_schema_migration",
-      "label": "Initial Schema Migration",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 34,
-=======
-      "community": 31,
->>>>>>> Stashed changes
-      "community_name": "Initial Schema Migration",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "initial schema migration",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_morrow",
-      "label": "Morrow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 35,
-=======
-      "community": 32,
->>>>>>> Stashed changes
-      "community_name": "Morrow",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "morrow",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_phase_1",
-      "label": "Phase 1 Authentication Features",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 36,
-=======
-      "community": 33,
->>>>>>> Stashed changes
-      "community_name": "Phase 1 Authentication Features",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "phase 1 authentication features",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "readme_supabase_project",
-      "label": "Supabase Project",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-<<<<<<< Updated upstream
-      "community": 37,
-=======
-      "community": 34,
->>>>>>> Stashed changes
-      "community_name": "Supabase Project",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "supabase project",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null
+      "id": "src_lib_notes_portability_test",
+      "label": "portability.test.ts",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "portability.test.ts",
+      "source_file": "src/lib/notes/portability.test.ts",
+      "source_location": "L1"
     }
   ],
   "links": [
@@ -4937,21 +3047,6 @@
     },
     {
       "source": "src_app_api_ai_agent_route_post",
-<<<<<<< Updated upstream
-=======
-      "target": "src_lib_ai_credentials_decryptapikey",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_agent_route_post",
->>>>>>> Stashed changes
       "target": "src_app_api_ai_agent_route_boundedtext",
       "relation": "calls",
       "_origin": "ast",
@@ -4959,11 +3054,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/ai/agent/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L51",
-=======
-      "source_location": "L42",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -4975,11 +3066,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/ai/edit/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L21",
-=======
-      "source_location": "L22",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -4991,23 +3078,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/ai/edit/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L30",
-=======
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_edit_route_post",
-      "target": "src_lib_ai_credentials_decryptapikey",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L38",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -5019,23 +3090,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/ai/settings/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L4",
-=======
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route_delete",
-      "target": "src_app_api_ai_settings_route_authenticatedclient",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L38",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -5047,71 +3102,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/ai/settings/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L10",
-=======
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route_post",
-      "target": "src_app_api_ai_settings_route_authenticatedclient",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route_post",
-      "target": "src_lib_ai_credentials_encryptapikey",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route_put",
-      "target": "src_app_api_ai_settings_route_authenticatedclient",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L46",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route_put",
-      "target": "src_lib_ai_credentials_decryptapikey",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L53",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route_put",
-      "target": "src_app_api_ai_settings_route_providerurl",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L54",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -5183,7 +3174,6 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L158",
       "weight": 1.0
     },
@@ -5197,9 +3187,6 @@
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L235",
-=======
-      "source_location": "L154",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -5211,7 +3198,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L58",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -5223,11 +3210,10 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L60",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_app_page_home_acceptproposal",
       "target": "src_app_page_home_updatenote",
       "relation": "calls",
@@ -5236,12 +3222,22 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L108",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
+      "source": "src_app_page_home_archivenote",
+      "target": "src_lib_supabase_client_createclient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_page_home_createfolder",
       "target": "src_lib_supabase_client_createclient",
       "relation": "calls",
@@ -5250,11 +3246,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L116",
-=======
-      "source_location": "L108",
->>>>>>> Stashed changes
+      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -5266,11 +3258,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L124",
-=======
-      "source_location": "L116",
->>>>>>> Stashed changes
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -5282,11 +3270,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L139",
-=======
-      "source_location": "L131",
->>>>>>> Stashed changes
+      "source_location": "L204",
       "weight": 1.0
     },
     {
@@ -5298,11 +3282,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L132",
-=======
-      "source_location": "L124",
->>>>>>> Stashed changes
+      "source_location": "L197",
       "weight": 1.0
     },
     {
@@ -5314,95 +3294,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L133",
-=======
-      "source_location": "L125",
->>>>>>> Stashed changes
+      "source_location": "L198",
       "weight": 1.0
     },
     {
-      "source": "src_app_page_home_exportnote",
-      "target": "src_lib_notes_portability_downloadblob",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L143",
-=======
-      "source_location": "L135",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home_exportnote",
-      "target": "src_lib_notes_portability_notemarkdown",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L143",
-=======
-      "source_location": "L135",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home_exportnote",
-      "target": "src_lib_notes_portability_safefilename",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L143",
-=======
-      "source_location": "L135",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home_exportworkspace",
-      "target": "src_lib_notes_portability_downloadblob",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L144",
-=======
-      "source_location": "L136",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home_exportworkspace",
-      "target": "src_lib_notes_portability_workspacezip",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L144",
-=======
-      "source_location": "L136",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home_importmarkdown",
+      "source": "src_app_page_home_movenote",
       "target": "src_lib_supabase_client_createclient",
       "relation": "calls",
       "_origin": "ast",
@@ -5410,11 +3306,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
       "source_location": "L149",
-=======
-      "source_location": "L141",
->>>>>>> Stashed changes
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home_renamefolder",
+      "target": "src_lib_supabase_client_createclient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home_togglefavorite",
+      "target": "src_lib_supabase_client_createclient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -5426,11 +3342,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L156",
-=======
-      "source_location": "L148",
->>>>>>> Stashed changes
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -5442,11 +3354,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L157",
-=======
-      "source_location": "L149",
->>>>>>> Stashed changes
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -5458,11 +3366,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L182",
-=======
-      "source_location": "L175",
->>>>>>> Stashed changes
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -5474,11 +3378,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L184",
-=======
-      "source_location": "L177",
->>>>>>> Stashed changes
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -5670,11 +3570,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/agent-panel.tsx",
-<<<<<<< Updated upstream
       "source_location": "L16",
-=======
-      "source_location": "L18",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -5686,11 +3582,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L128",
-=======
-      "source_location": "L124",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -5702,119 +3594,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L183",
-=======
-      "source_location": "L179",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_createfolder",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L111",
-=======
-      "source_location": "L103",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_deletenote",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L129",
-=======
-      "source_location": "L121",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_deletefolder",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L137",
-=======
-      "source_location": "L129",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_exportnote",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L143",
-=======
-      "source_location": "L135",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_exportworkspace",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L144",
-=======
-      "source_location": "L136",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_importmarkdown",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L145",
-=======
-      "source_location": "L137",
->>>>>>> Stashed changes
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page_home",
-      "target": "src_app_page_home_loadworkspace",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -5826,7 +3606,127 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L95",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_opennotemenu",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_archivenote",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_togglefavorite",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_movenote",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_createfolder",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_renamefolder",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_deletenote",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_deletefolder",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page_home",
+      "target": "src_app_page_home_loadworkspace",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_settings_page_settingspage",
+      "target": "src_app_settings_page_settingspage_changetheme",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/settings/page.tsx",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -6358,7 +4258,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_app_agent_panel",
       "target": "src_lib_ai_proposals_notechangeproposal",
       "relation": "imports",
@@ -6371,8 +4270,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_app_api_ai_agent_route",
       "target": "src_lib_supabase_server_createclient",
       "relation": "imports",
@@ -6385,21 +4282,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_api_ai_agent_route",
-      "target": "src_lib_ai_credentials_decryptapikey",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_ai_edit_route",
       "target": "src_lib_supabase_server_createclient",
       "relation": "imports",
@@ -6412,21 +4294,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_api_ai_edit_route",
-      "target": "src_lib_ai_credentials_decryptapikey",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_ai_settings_route",
       "target": "src_lib_supabase_server_createclient",
       "relation": "imports",
@@ -6439,45 +4306,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_lib_ai_credentials_decryptapikey",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_lib_ai_credentials_encryptapikey",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_lib_ai_validation_credentialschema",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_attachments_noteid_filename_route",
       "target": "src_lib_supabase_server_createclient",
       "relation": "imports",
@@ -6550,7 +4378,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_app_editor_markdown_editor",
       "target": "src_lib_ai_proposals_diffsegment",
       "relation": "imports",
@@ -6587,8 +4414,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_app_editor_markdown_editor_test",
       "target": "src_app_editor_markdown_editor_markdowneditor",
       "relation": "imports",
@@ -6602,11 +4427,7 @@
     },
     {
       "source": "src_app_page",
-<<<<<<< Updated upstream
-      "target": "src_app_agent_panel_agentpanel",
-=======
-      "target": "src_app_ai_settings_aisettings",
->>>>>>> Stashed changes
+      "target": "src_lib_notes_portability_safefilename",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6618,11 +4439,7 @@
     },
     {
       "source": "src_app_page",
-<<<<<<< Updated upstream
-      "target": "src_lib_ai_proposals_notechangeproposal",
-=======
       "target": "src_app_agent_panel_agentpanel",
->>>>>>> Stashed changes
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6634,19 +4451,19 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_lib_supabase_client_createclient",
+      "target": "src_lib_ai_proposals_notechangeproposal",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/page.tsx",
-      "source_location": "L5",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
       "source": "src_app_page",
-      "target": "src_app_auth_auth_form_signoutbutton",
+      "target": "src_lib_supabase_client_createclient",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6658,7 +4475,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_app_editor_markdown_editor_markdowneditor",
+      "target": "src_app_auth_auth_form_signoutbutton",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6670,7 +4487,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_lib_notes_autosave_autosavecontroller",
+      "target": "src_app_editor_markdown_editor_markdowneditor",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6678,6 +4495,18 @@
       "context": "import",
       "source_file": "src/app/page.tsx",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page",
+      "target": "src_lib_notes_autosave_autosavecontroller",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -6689,7 +4518,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/page.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -6701,7 +4530,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/page.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -6713,7 +4542,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/page.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -6725,60 +4554,12 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/page.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
       "source": "src_app_page",
       "target": "src_lib_notes_autosave_saveresult",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page",
-      "target": "src_lib_notes_portability_downloadblob",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page",
-      "target": "src_lib_notes_portability_notemarkdown",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page",
-      "target": "src_lib_notes_portability_safefilename",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_page",
-      "target": "src_lib_notes_portability_workspacezip",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6825,7 +4606,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_lib_ai_proposals_test",
       "target": "src_lib_ai_proposals_diffsegments",
       "relation": "imports",
@@ -6838,8 +4618,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_lib_notes_autosave_test",
       "target": "src_lib_notes_autosave_createautosavecontroller",
       "relation": "imports",
@@ -6972,7 +4750,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_app_agent_panel",
       "target": "src_lib_ai_proposals",
       "relation": "imports_from",
@@ -6985,8 +4762,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_app_api_ai_agent_route",
       "target": "src_lib_supabase_server",
       "relation": "imports_from",
@@ -6999,21 +4774,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_api_ai_agent_route",
-      "target": "src_lib_ai_credentials",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_ai_edit_route",
       "target": "src_lib_supabase_server",
       "relation": "imports_from",
@@ -7026,21 +4786,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_api_ai_edit_route",
-      "target": "src_lib_ai_credentials",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/edit/route.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_ai_settings_route",
       "target": "src_lib_supabase_server",
       "relation": "imports_from",
@@ -7053,33 +4798,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_lib_ai_credentials",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_lib_ai_validation",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_attachments_noteid_filename_route",
       "target": "src_lib_supabase_server",
       "relation": "imports_from",
@@ -7152,7 +4870,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_app_editor_markdown_editor",
       "target": "src_lib_ai_proposals",
       "relation": "imports_from",
@@ -7165,8 +4882,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_app_editor_markdown_editor_test",
       "target": "src_app_editor_markdown_editor",
       "relation": "imports_from",
@@ -7180,11 +4895,7 @@
     },
     {
       "source": "src_app_page",
-<<<<<<< Updated upstream
-      "target": "src_app_agent_panel",
-=======
-      "target": "src_app_ai_settings",
->>>>>>> Stashed changes
+      "target": "src_lib_notes_portability",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7196,11 +4907,7 @@
     },
     {
       "source": "src_app_page",
-<<<<<<< Updated upstream
-      "target": "src_lib_ai_proposals",
-=======
       "target": "src_app_agent_panel",
->>>>>>> Stashed changes
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7212,19 +4919,19 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_lib_supabase_client",
+      "target": "src_lib_ai_proposals",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/page.tsx",
-      "source_location": "L5",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
       "source": "src_app_page",
-      "target": "src_app_auth_auth_form",
+      "target": "src_lib_supabase_client",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7236,7 +4943,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_app_editor_markdown_editor",
+      "target": "src_app_auth_auth_form",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7248,7 +4955,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_lib_notes_autosave",
+      "target": "src_app_editor_markdown_editor",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7260,7 +4967,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_lib_notes_portability",
+      "target": "src_lib_notes_autosave",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7295,7 +5002,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_lib_ai_proposals_test",
       "target": "src_lib_ai_proposals",
       "relation": "imports_from",
@@ -7308,8 +5014,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_lib_notes_autosave_test",
       "target": "src_lib_notes_autosave",
       "relation": "imports_from",
@@ -7403,6 +5107,17 @@
       "context": "import",
       "source_file": "src/lib/supabase/server.ts",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "agents",
+      "target": "agents_this_is_not_the_next_js_you_know",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -7989,8 +5704,29 @@
       "weight": 1.0
     },
     {
+      "source": "readme",
+      "target": "readme_morrow_ai_markdown_notes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_morrow_ai_markdown_notes",
+      "target": "readme_local_setup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_agent_panel",
-<<<<<<< Updated upstream
       "target": "src_app_agent_panel_agentpanel",
       "relation": "contains",
       "_origin": "ast",
@@ -8002,19 +5738,13 @@
     },
     {
       "source": "src_app_agent_panel",
-=======
->>>>>>> Stashed changes
       "target": "src_app_agent_panel_notecontext",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-<<<<<<< Updated upstream
       "source_location": "L7",
-=======
-      "source_location": "L6",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8025,31 +5755,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-<<<<<<< Updated upstream
       "source_location": "L8",
-=======
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_agent_panel",
-      "target": "src_app_agent_panel_agentpanel",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L9",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
       "source": "src_app_ai_settings",
-<<<<<<< Updated upstream
       "target": "src_app_ai_settings_agent",
-=======
-      "target": "src_app_ai_settings_credential",
->>>>>>> Stashed changes
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8070,53 +5781,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
-=======
-      "source": "src_app_ai_settings_aisettings",
-      "target": "src_app_ai_settings_aisettings_save",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_ai_settings_aisettings",
-      "target": "src_app_ai_settings_aisettings_test",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_ai_settings_aisettings",
-      "target": "src_app_ai_settings_aisettings_remove",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/ai-settings.tsx",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_agent_route",
-      "target": "src_app_api_ai_agent_route_boundedtext",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
->>>>>>> Stashed changes
       "source": "src_app_api_ai_agent_route",
       "target": "src_app_api_ai_agent_route_post",
       "relation": "contains",
@@ -8135,7 +5799,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/agent/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L8",
       "weight": 1.0
     },
@@ -8147,8 +5810,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/agent/route.ts",
-=======
->>>>>>> Stashed changes
       "source_location": "L9",
       "weight": 1.0
     },
@@ -8160,11 +5821,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/edit/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L14",
-=======
-      "source_location": "L15",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8175,11 +5832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/edit/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L16",
-=======
-      "source_location": "L17",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8190,11 +5843,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/edit/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L20",
-=======
-      "source_location": "L21",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8205,64 +5854,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/edit/route.ts",
-<<<<<<< Updated upstream
-=======
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_app_api_ai_settings_route_get",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_app_api_ai_settings_route_post",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_app_api_ai_settings_route_delete",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L37",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_app_api_ai_settings_route_put",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/ai/settings/route.ts",
-      "source_location": "L45",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_ai_settings_route",
-      "target": "src_app_api_ai_settings_route_providerurl",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/ai/settings/route.ts",
->>>>>>> Stashed changes
       "source_location": "L6",
       "weight": 1.0
     },
@@ -8274,7 +5865,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/settings/route.ts",
-<<<<<<< Updated upstream
       "source_location": "L3",
       "weight": 1.0
     },
@@ -8287,9 +5877,6 @@
       "confidence_score": 1.0,
       "source_file": "src/app/api/ai/settings/route.ts",
       "source_location": "L9",
-=======
-      "source_location": "L8",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8421,11 +6008,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L13",
-=======
-      "source_location": "L12",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8436,7 +6019,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L22",
       "weight": 1.0
     },
@@ -8471,9 +6053,6 @@
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L239",
-=======
-      "source_location": "L18",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8484,22 +6063,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L24",
-=======
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_toolbarbutton",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L223",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8510,11 +6074,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L32",
-=======
-      "source_location": "L28",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8525,11 +6085,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L34",
-=======
-      "source_location": "L30",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8540,11 +6096,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L45",
-=======
-      "source_location": "L41",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8555,11 +6107,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L152",
-=======
-      "source_location": "L148",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8570,11 +6118,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-<<<<<<< Updated upstream
       "source_location": "L161",
-=======
-      "source_location": "L157",
->>>>>>> Stashed changes
       "weight": 1.0
     },
     {
@@ -8607,7 +6151,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -8618,12 +6162,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
       "source": "src_app_page",
-      "target": "src_app_page_home",
+      "target": "src_app_page_noteaction",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8634,14 +6178,35 @@
     },
     {
       "source": "src_app_page",
+      "target": "src_app_page_home",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page",
       "target": "src_app_page_recoverynotice",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L181",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page",
+      "target": "src_app_page_notecontextmenu",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -8652,10 +6217,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L103",
-=======
-      "source_location": "L174",
->>>>>>> Stashed changes
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -8666,11 +6228,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L122",
-=======
-      "source_location": "L114",
->>>>>>> Stashed changes
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -8681,11 +6239,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-<<<<<<< Updated upstream
-      "source_location": "L153",
-=======
-      "source_location": "L145",
->>>>>>> Stashed changes
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_settings_page",
+      "target": "src_app_settings_page_settingspage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/settings/page.tsx",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -8722,7 +6287,6 @@
       "weight": 1.0
     },
     {
-<<<<<<< Updated upstream
       "source": "src_lib_ai_proposals",
       "target": "src_lib_ai_proposals_notechangeproposal",
       "relation": "contains",
@@ -8767,8 +6331,6 @@
       "weight": 1.0
     },
     {
-=======
->>>>>>> Stashed changes
       "source": "src_lib_ai_validation",
       "target": "src_lib_ai_validation_credentialschema",
       "relation": "contains",
@@ -9310,9 +6872,5 @@
     }
   ],
   "hyperedges": [],
-<<<<<<< Updated upstream
-  "built_at_commit": "d6d68754941f4e285d1bcce4f445224dd1dba6d1"
-=======
-  "built_at_commit": "c062821ccd7116318a62bcb2f25052e26aee937f"
->>>>>>> Stashed changes
+  "built_at_commit": "14c7eab011af970319c2c8fe0c0165ca29224635"
 }
