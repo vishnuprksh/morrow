@@ -100,6 +100,34 @@
       "src_lib_supabase_server_createclient"
     ],
     "3": [
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_difftext",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "4": [
       "src_app_auth_auth_form",
       "src_app_auth_auth_form_authform",
       "src_app_auth_auth_form_authform_submit",
@@ -126,30 +154,6 @@
       "src_app_page_home_uploadimage",
       "src_app_page_test",
       "src_lib_supabase_client_createclient"
-    ],
-    "4": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_extractproposal",
-      "src_app_agent_panel_notecontext",
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_editaction",
-      "src_app_editor_markdown_editor_editactions",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton",
-      "src_lib_ai_proposals",
-      "src_lib_ai_proposals_changedlinecount",
-      "src_lib_ai_proposals_notechangeproposal"
     ],
     "5": [
       "ref_dom",
@@ -348,8 +352,8 @@
     "0": 0.05128205128205128,
     "1": 0.07407407407407407,
     "2": 0.1396011396011396,
-    "3": 0.11692307692307692,
-    "4": 0.11255411255411256,
+    "3": 0.10153846153846154,
+    "4": 0.11692307692307692,
     "5": 0.09523809523809523,
     "6": 0.17894736842105263,
     "7": 0.15384615384615385,
@@ -413,18 +417,13 @@
       "degree": 8
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
-      "degree": 7
-    },
-    {
       "id": "src_lib_supabase_env_getsupabaseenv",
       "label": "getSupabaseEnv()",
       "degree": 7
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
@@ -435,6 +434,11 @@
     {
       "id": "src_lib_notes_portability_workspacezip",
       "label": "workspaceZip()",
+      "degree": 7
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
       "degree": 7
     }
   ],
@@ -449,28 +453,6 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories"
-    },
-    {
-      "source": "Home()",
-      "target": "createAutosaveController()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "deleteNote()",
-      "target": "removeRecoveryCopy()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
     },
     {
       "source": "GET()",
@@ -493,6 +475,28 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "bridges separate communities"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/forgot-password/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {

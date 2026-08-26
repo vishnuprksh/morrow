@@ -4,12 +4,12 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 263 nodes · 323 edges · 40 communities (17 shown, 23 thin omitted)
+- 267 nodes · 330 edges · 40 communities (17 shown, 23 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e781ad7c`
+- Built from commit: `d6d68754`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -17,8 +17,8 @@
 - dependencies
 - devDependencies
 - createClient
-- createClient
 - markdown-editor.tsx
+- createClient
 - compilerOptions
 - app/page.tsx
 - scripts
@@ -91,13 +91,13 @@ Nodes (27): eslint, eslint-config-next, jsdom, devDependencies, eslint, eslint-c
 Cohesion: 0.14
 Nodes (17): config, proxy(), boundedText(), noteId, POST(), isPreset(), POST(), Preset (+9 more)
 
-### Community 3 - "createClient"
+### Community 3 - "markdown-editor.tsx"
+Cohesion: 0.10
+Nodes (15): AgentPanel(), ChatMessage, NoteContext, EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction() (+7 more)
+
+### Community 4 - "createClient"
 Cohesion: 0.12
 Nodes (17): AuthForm(), submit(), SignOutButton(), ForgotPasswordPage(), submit(), UpdatePasswordPage(), submit(), Home() (+9 more)
-
-### Community 4 - "markdown-editor.tsx"
-Cohesion: 0.11
-Nodes (14): AgentPanel(), send(), ChatMessage, extractProposal(), NoteContext, EditAction, editActions, MarkdownEditor() (+6 more)
 
 ### Community 5 - "compilerOptions"
 Cohesion: 0.10
@@ -128,7 +128,7 @@ Cohesion: 0.50
 Nodes (3): semi, singleQuote, trailingComma
 
 ## Knowledge Gaps
-- **112 isolated node(s):** `Agent`, `CredentialInput`, `Preset`, `Json`, `EditAction` (+107 more)
+- **112 isolated node(s):** `Agent`, `CredentialInput`, `Preset`, `Json`, `ChatMessage` (+107 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -136,11 +136,11 @@ Nodes (3): semi, singleQuote, trailingComma
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.064) - this node is a cross-community bridge._
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
 - **Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?**
   _112 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
