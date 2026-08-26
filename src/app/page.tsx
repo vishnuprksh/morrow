@@ -8,6 +8,7 @@ import { MarkdownEditor } from './editor/markdown-editor';
 import { createAutosaveController, readRecoveryCopy, removeRecoveryCopy, type AutosaveController, type NoteDraft, type SaveResult } from '@/lib/notes/autosave';
 import { downloadBlob, noteMarkdown, safeFilename, workspaceZip } from '@/lib/notes/portability';
 import { AgentPanel } from './agent-panel';
+import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
 type FolderRow = { id: string; name: string; parent_id: string | null; position: number };
 type NoteRow = { id: string; title: string; folder_id: string | null; content_markdown: string; version: number; updated_at: string };
@@ -87,6 +88,7 @@ export default function Home() {
     previousNoteRef.current = selectedNote;
   }, [selectedNote]);
   const [chatOpen, setChatOpen] = useState(true);
+  const [pendingProposal, setPendingProposal] = useState<NoteChangeProposal | null>(null);
   const selected = notes.find((note) => note.id === selectedNote) ?? null;
   const visibleNotes = useMemo(() => notes.filter((note) => (!selectedFolder || note.folder_id === selectedFolder) && note.title.toLowerCase().includes(filter.toLowerCase())), [notes, selectedFolder, filter]);
   const folderName = (id: string | null) => id ? folders.find((folder) => folder.id === id)?.name ?? 'Unknown folder' : 'Unfiled';
@@ -97,6 +99,14 @@ export default function Home() {
     setNotes((current) => current.map((item) => item.id === noteId ? { ...item, ...changes } : item));
     setSaveStatus('saving');
     autosaveRef.current?.schedule(noteId, draft, note.version);
+  }
+  function acceptProposal(proposal: NoteChangeProposal) {
+    const note = notes.find((item) => item.id === proposal.noteId);
+    if (!note || note.version !== proposal.expectedVersion || note.content_markdown !== proposal.original) {
+      setPendingProposal(null); setError('This proposal is stale because the active note has changed.'); return;
+    }
+    updateNote(note.id, { content_markdown: proposal.replacement });
+    setPendingProposal(null);
   }
   async function createFolder() {
     if (!user) return;
@@ -162,8 +172,8 @@ export default function Home() {
         <div className="sidebar-footer"><div className="avatar">{(user?.user_metadata?.display_name ?? user?.email ?? 'U').slice(0, 2).toUpperCase()}</div><div className="profile"><strong>{user?.user_metadata?.display_name ?? user?.email}</strong><small>Personal workspace</small></div><SignOutButton /></div>
       </aside>
       <section className="notes-panel"><div className="panel-header"><div><p className="eyebrow">Personal workspace</p><h2>{selectedFolder ? folderName(selectedFolder) : 'All notes'}</h2></div><button className="icon-button"><MoreHorizontal size={18} /></button></div><div className="note-search"><Search size={15} /><input placeholder="Filter notes" value={filter} onChange={(event) => setFilter(event.target.value)} /></div>{error && <p className="workspace-error" role="alert">{error}</p>}{loading ? <p className="workspace-message">Loading your notes…</p> : <div className="note-list">{visibleNotes.map((note) => <button className={`note-card ${note.id === selectedNote ? 'active' : ''}`} key={note.id} onClick={() => setSelectedNote(note.id)}><div className="note-card-icon"><FileText size={16} /></div><div><strong>{note.title}</strong><small>{folderName(note.folder_id)} · {new Date(note.updated_at).toLocaleDateString()}</small></div></button>)}{visibleNotes.length === 0 && <p className="workspace-message">No notes here yet.</p>}</div>}<button className="add-note" onClick={createNote}><Plus size={16} /> Add a note</button></section>
-      <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><RecoveryNotice note={selected} onRecover={(draft) => { setNotes((current) => current.map((item) => item.id === selected.id ? { ...item, ...draft } : item)); autosaveRef.current?.schedule(selected.id, draft, selected.version); setSaveStatus('saving'); }} /><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" /><MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })}  onUploadImage={uploadImage} /></> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
-      {chatOpen && <AgentPanel activeNote={selected} onClose={() => setChatOpen(false)} />}
+      <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><RecoveryNotice note={selected} onRecover={(draft) => { setNotes((current) => current.map((item) => item.id === selected.id ? { ...item, ...draft } : item)); autosaveRef.current?.schedule(selected.id, draft, selected.version); setSaveStatus('saving'); }} /><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" /><MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })} onUploadImage={uploadImage} proposal={pendingProposal?.noteId === selected.id ? pendingProposal : null} onAcceptProposal={acceptProposal} onDiscardProposal={() => setPendingProposal(null)} /></> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
+      {chatOpen && <AgentPanel activeNote={selected} onProposal={(proposal) => { if (!pendingProposal) setPendingProposal(proposal); }} onClose={() => setChatOpen(false)} />}
     </main>
   );
 }

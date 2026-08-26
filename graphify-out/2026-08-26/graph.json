@@ -69,30 +69,17 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_agent_panel_chatmessage",
-      "label": "ChatMessage",
+      "id": "src_lib_ai_proposals_notechangeproposal",
+      "label": "NoteChangeProposal",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "markdown-editor.tsx",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "chatmessage",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_agent_panel_notecontext",
-      "label": "NoteContext",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "notecontext",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L7"
+      "norm_label": "notechangeproposal",
+      "source_file": "src/lib/ai/proposals.ts",
+      "source_location": "L1"
     },
     {
       "id": "src_app_editor_markdown_editor_editaction",
@@ -134,17 +121,28 @@
       "source_location": "L32"
     },
     {
-      "id": "src_lib_ai_proposals_notechangeproposal",
-      "label": "NoteChangeProposal",
+      "id": "src_app_agent_panel_chatmessage",
+      "label": "ChatMessage",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "markdown-editor.tsx",
       "file_type": "code",
-      "norm_label": "notechangeproposal",
-      "source_file": "src/lib/ai/proposals.ts",
-      "source_location": "L1"
+      "norm_label": "chatmessage",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_agent_panel_notecontext",
+      "label": "NoteContext",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "notecontext",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L7"
     },
     {
       "id": "src_app_page_folderrow",
@@ -361,30 +359,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_app_api_ai_agent_route_boundedtext",
-      "label": "boundedText()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "boundedtext()",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_api_ai_agent_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L12"
-    },
-    {
       "id": "src_app_api_ai_edit_route_ispreset",
       "label": "isPreset()",
       "_callable": true,
@@ -479,6 +453,28 @@
       "norm_label": "createclient()",
       "source_file": "src/lib/supabase/server.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "src_app_api_ai_agent_route_boundedtext",
+      "label": "boundedText()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "boundedtext()",
+      "source_file": "src/app/api/ai/agent/route.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_api_ai_agent_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/ai/agent/route.ts",
+      "source_location": "L12"
     },
     {
       "id": "src_app_auth_auth_form_authform",
@@ -721,40 +717,16 @@
       "source_location": "L7"
     },
     {
-      "id": "src_app_agent_panel_agentpanel",
-      "label": "AgentPanel()",
+      "id": "src_lib_ai_proposals_changedlinecount",
+      "label": "changedLineCount()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "markdown-editor.tsx",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "agentpanel()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L24"
-    },
-    {
-      "id": "src_app_agent_panel_agentpanel_send",
-      "label": "send()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "send()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_app_agent_panel_extractproposal",
-      "label": "extractProposal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "extractproposal()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L10"
+      "norm_label": "changedlinecount()",
+      "source_file": "src/lib/ai/proposals.ts",
+      "source_location": "L9"
     },
     {
       "id": "src_app_editor_markdown_editor_markdowneditor",
@@ -829,16 +801,37 @@
       "source_location": "L228"
     },
     {
-      "id": "src_lib_ai_proposals_changedlinecount",
-      "label": "changedLineCount()",
+      "id": "src_app_agent_panel_agentpanel",
+      "label": "AgentPanel()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "markdown-editor.tsx",
       "file_type": "code",
-      "norm_label": "changedlinecount()",
-      "source_file": "src/lib/ai/proposals.ts",
-      "source_location": "L9"
+      "norm_label": "agentpanel()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L24"
+    },
+    {
+      "id": "src_app_agent_panel_agentpanel_send",
+      "label": "send()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "send()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_app_agent_panel_extractproposal",
+      "label": "extractProposal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "extractproposal()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L10"
     },
     {
       "id": "src_app_page_recoverynotice",
@@ -1979,28 +1972,6 @@
       "source_location": "L8"
     },
     {
-      "id": "src_app_api_ai_agent_route",
-      "label": "agent/route.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "agent/route.ts",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_api_ai_agent_route_noteid",
-      "label": "noteId",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "createClient",
-      "file_type": "code",
-      "norm_label": "noteid",
-      "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L8"
-    },
-    {
       "id": "src_app_api_ai_edit_route",
       "label": "edit/route.ts",
       "_origin": "ast",
@@ -2098,6 +2069,26 @@
       "norm_label": "server.ts",
       "source_file": "src/lib/supabase/server.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_agent_route",
+      "label": "agent/route.ts",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "agent/route.ts",
+      "source_file": "src/app/api/ai/agent/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_agent_route_noteid",
+      "label": "noteId",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "noteid",
+      "source_file": "src/app/api/ai/agent/route.ts",
+      "source_location": "L8"
     },
     {
       "id": "eslint_config",
@@ -2211,14 +2202,14 @@
       "source_location": "L1"
     },
     {
-      "id": "src_app_agent_panel",
-      "label": "agent-panel.tsx",
+      "id": "src_lib_ai_proposals",
+      "label": "proposals.ts",
       "_origin": "ast",
       "community": 4,
-      "community_name": "markdown-editor.tsx",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "agent-panel.tsx",
-      "source_file": "src/app/agent-panel.tsx",
+      "norm_label": "proposals.ts",
+      "source_file": "src/lib/ai/proposals.ts",
       "source_location": "L1"
     },
     {
@@ -2266,14 +2257,13 @@
       "source_location": "L34"
     },
     {
-      "id": "src_lib_ai_proposals",
-      "label": "proposals.ts",
+      "id": "src_app_agent_panel",
+      "label": "agent-panel.tsx",
       "_origin": "ast",
       "community": 4,
-      "community_name": "markdown-editor.tsx",
       "file_type": "code",
-      "norm_label": "proposals.ts",
-      "source_file": "src/lib/ai/proposals.ts",
+      "norm_label": "agent-panel.tsx",
+      "source_file": "src/app/agent-panel.tsx",
       "source_location": "L1"
     },
     {

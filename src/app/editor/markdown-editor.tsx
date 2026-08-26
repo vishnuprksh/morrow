@@ -8,11 +8,15 @@ import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
 import type { Command } from '@milkdown/prose/state';
 import { replaceAll } from '@milkdown/utils';
+import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
 export type MarkdownEditorProps = {
   value: string;
   onChange: (markdown: string) => void;
   onUploadImage?: (file: File) => Promise<string | null>;
+  proposal?: NoteChangeProposal | null;
+  onAcceptProposal?: (proposal: NoteChangeProposal) => void;
+  onDiscardProposal?: () => void;
 };
 
 type EditAction = 'improve' | 'simplify' | 'shorten' | 'expand' | 'grammar' | 'custom';
@@ -38,7 +42,7 @@ const toolbarActions: Array<{ action: ToolbarAction; label: string; content: Rea
   { action: 'link', label: 'Link', content: '↗' },
 ];
 
-export function MarkdownEditor({ value, onChange, onUploadImage }: MarkdownEditorProps) {
+export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal }: MarkdownEditorProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Editor | null>(null);
   const currentValueRef = useRef(value);
@@ -212,7 +216,8 @@ export function MarkdownEditor({ value, onChange, onUploadImage }: MarkdownEdito
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
         <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" />
-        {selection && !proposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
+        {noteProposal && <div className="ai-note-proposal" role="dialog" aria-label="AI note change proposal"><div className="ai-note-proposal-header"><strong>Pending note update</strong><span>Editor unchanged</span></div><p>{noteProposal.explanation}</p><div className="diff-block"><div className="diff-removed"><b>− Original</b><pre>{noteProposal.original}</pre></div><div className="diff-added"><b>＋ Proposed</b><pre>{noteProposal.replacement}</pre></div></div><div className="ai-proposal-actions"><button type="button" onClick={() => onAcceptProposal?.(noteProposal)}>Accept update</button><button type="button" onClick={onDiscardProposal}>Discard</button></div></div>}
+        {selection && !proposal && !noteProposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
         {proposal && <div className="ai-proposal" role="dialog" aria-label="AI edit proposal"><strong>Suggested replacement</strong><p>{proposal.replacement}</p><div><button type="button" onClick={applyProposal}>Accept</button><button type="button" onClick={() => setProposal(null)}>Discard</button></div></div>}
         {customDialogOpen && <div className="ai-custom-dialog" role="dialog" aria-modal="true" aria-labelledby="custom-instruction-title"><form onSubmit={submitCustomInstruction}><strong id="custom-instruction-title">Custom AI instruction</strong><label htmlFor="custom-instruction">Describe how to rewrite the selection</label><textarea id="custom-instruction" value={customInstruction} onChange={(event) => setCustomInstruction(event.target.value)} autoFocus maxLength={2_000} rows={4} /><div><button type="submit" disabled={!customInstruction.trim()}>Rewrite selection</button><button type="button" onClick={() => { setCustomDialogOpen(false); setCustomInstruction(''); }}>Cancel</button></div></form></div>}
       </div>

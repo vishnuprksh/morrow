@@ -2,11 +2,12 @@
 
 import { useRef, useState } from 'react';
 import { Send, Square, X } from 'lucide-react';
+import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
 type NoteContext = { id: string; title: string; content_markdown: string; folder_id: string | null; version: number };
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
-export function AgentPanel({ activeNote, onClose }: { activeNote: NoteContext | null; onClose: () => void }) {
+export function AgentPanel({ activeNote, onClose, onProposal }: { activeNote: NoteContext | null; onClose: () => void; onProposal: (proposal: NoteChangeProposal) => void }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
@@ -25,9 +26,13 @@ export function AgentPanel({ activeNote, onClose }: { activeNote: NoteContext | 
       const reader = response.body.getReader(); const decoder = new TextDecoder(); let answer = '';
       setMessages((current) => [...current, { role: 'assistant', content: '' }]);
       while (true) { const chunk = await reader.read(); if (chunk.done) break; answer += decoder.decode(chunk.value, { stream: true }); setMessages((current) => current.map((item, index) => index === current.length - 1 ? { ...item, content: answer } : item)); }
+      const proposalMatch = answer.match(/\{"type":"note_change_proposal"[^\n]*\}/);
+      if (proposalMatch) {
+        try { onProposal(JSON.parse(proposalMatch[0]) as NoteChangeProposal); } catch { /* Keep the prose response when a provider emits malformed JSON. */ }
+      }
     } catch (error) { if ((error as Error).name !== 'AbortError') setMessages((current) => [...current, { role: 'assistant', content: error instanceof Error ? error.message : 'The agent failed safely.' }]); }
     finally { setBusy(false); abortRef.current = null; }
   }
 
-  return <aside className="chat-panel agent-panel"><header className="chat-header"><div><p className="eyebrow">Morrow AI</p><h2>Chat with your agent</h2></div><button className="icon-button" onClick={onClose} aria-label="Close AI agent"><X size={17} /></button></header><div className="agent-context"><strong>Active note</strong><span>{activeNote ? activeNote.title : 'No active note selected'}</span></div><div className="agent-messages">{messages.length === 0 && <div className="agent-empty"><strong>What would you like to write?</strong><p>Your agent can read and update the active note when you ask it to.</p><div className="suggestions"><button onClick={() => void send('Summarize the active note.')}>Summarize this note</button><button onClick={() => void send('Improve the active note while preserving my voice.')}>Improve this note</button></div></div>}{messages.map((message, index) => <div className={`agent-message ${message.role}`} key={`${message.role}-${index}`}><span>{message.content || (busy ? 'Thinking…' : '')}</span></div>)}</div><div className="chat-input"><input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); void send(); } }} placeholder="Ask your note agent…" disabled={busy} /><button onClick={() => busy ? abortRef.current?.abort() : void send()} aria-label={busy ? 'Stop agent' : 'Send message'}>{busy ? <Square size={14} /> : <Send size={14} />}</button></div><p className="chat-hint">The agent can write directly to the active note.</p></aside>;
+  return <aside className="chat-panel agent-panel"><header className="chat-header"><div><p className="eyebrow">Morrow AI</p><h2>Chat with your agent</h2></div><button className="icon-button" onClick={onClose} aria-label="Close AI agent"><X size={17} /></button></header><div className="agent-context"><strong>Active note</strong><span>{activeNote ? activeNote.title : 'No active note selected'}</span></div><div className="agent-messages">{messages.length === 0 && <div className="agent-empty"><strong>What would you like to write?</strong><p>Your agent can read and propose updates to the active note.</p><div className="suggestions"><button onClick={() => void send('Summarize the active note.')}>Summarize this note</button><button onClick={() => void send('Improve the active note while preserving my voice.')}>Improve this note</button></div></div>}{messages.map((message, index) => <div className={`agent-message ${message.role}`} key={`${message.role}-${index}`}><span>{message.content || (busy ? 'Thinking…' : '')}</span></div>)}</div><div className="chat-input"><input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); void send(); } }} placeholder="Ask your note agent…" disabled={busy} /><button onClick={() => busy ? abortRef.current?.abort() : void send()} aria-label={busy ? 'Stop agent' : 'Send message'}>{busy ? <Square size={14} /> : <Send size={14} />}</button></div><p className="chat-hint">Agent edits stay pending until you accept them.</p></aside>;
 }
