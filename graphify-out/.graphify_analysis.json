@@ -148,7 +148,6 @@
       "src_app_page_home_createnote",
       "src_app_page_home_deletefolder",
       "src_app_page_home_deletenote",
-      "src_app_page_home_importmarkdown",
       "src_app_page_home_loadworkspace",
       "src_app_page_home_updatenote",
       "src_app_page_home_uploadimage",
@@ -216,19 +215,6 @@
       "package_version"
     ],
     "8": [
-      "src_app_page_home_exportnote",
-      "src_app_page_home_exportworkspace",
-      "src_lib_notes_portability",
-      "src_lib_notes_portability_downloadblob",
-      "src_lib_notes_portability_folderpath",
-      "src_lib_notes_portability_notemarkdown",
-      "src_lib_notes_portability_portablefolder",
-      "src_lib_notes_portability_portablenote",
-      "src_lib_notes_portability_safefilename",
-      "src_lib_notes_portability_test",
-      "src_lib_notes_portability_workspacezip"
-    ],
-    "9": [
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
       "ref_next_types_ts",
@@ -239,6 +225,17 @@
       "tsconfig",
       "tsconfig_exclude",
       "tsconfig_include"
+    ],
+    "9": [
+      "src_lib_notes_portability",
+      "src_lib_notes_portability_downloadblob",
+      "src_lib_notes_portability_folderpath",
+      "src_lib_notes_portability_notemarkdown",
+      "src_lib_notes_portability_portablefolder",
+      "src_lib_notes_portability_portablenote",
+      "src_lib_notes_portability_safefilename",
+      "src_lib_notes_portability_test",
+      "src_lib_notes_portability_workspacezip"
     ],
     "10": [
       "src_lib_ai_credentials",
@@ -264,115 +261,38 @@
       "src_app_layout_rootlayout"
     ],
     "14": [
+      "src_app_settings_page",
+      "src_app_settings_page_settingspage",
+      "src_app_settings_page_settingspage_changetheme"
+    ],
+    "15": [
       "src_lib_ai_validation",
       "src_lib_ai_validation_credentialinput",
       "src_lib_ai_validation_credentialschema"
     ],
-    "15": [
+    "16": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "16": [
+    "17": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "17": [
+    "18": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "18": [
+    "19": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "19": [
-      "agents_generate_agent_files"
-    ],
     "20": [
-      "agents_nextjs_agent_rules"
-    ],
-    "21": [
-      "agents_node_modules_next_docs"
-    ],
-    "22": [
-      "claude_agents_reference"
-    ],
-    "23": [
       "eslint_config"
     ],
-    "24": [
-      "github_workflows_ci_ci"
-    ],
-    "25": [
-      "github_workflows_ci_lint"
-    ],
-    "26": [
-      "github_workflows_ci_pnpm_install"
-    ],
-    "27": [
-      "github_workflows_ci_quality"
-    ],
-    "28": [
-      "github_workflows_ci_test"
-    ],
-    "29": [
-      "github_workflows_ci_typecheck"
-    ],
-<<<<<<< Updated upstream
-    "30": [
-      "mvp_plan"
-    ],
-    "31": [
-      "readme_auth_redirect_url"
-    ],
-    "32": [
-      "readme_email_password_authentication"
-    ],
-    "33": [
-      "readme_env_local"
-    ],
-    "34": [
-      "readme_initial_schema_migration"
-    ],
-    "35": [
-      "readme_morrow"
-    ],
-    "36": [
-      "readme_phase_1"
-    ],
-    "37": [
-      "readme_supabase_project"
-    ],
-    "38": [
+    "21": [
       "src_test_setup"
     ],
-    "39": [
-=======
-    "28": [
-      "readme_auth_redirect_url"
-    ],
-    "29": [
-      "readme_email_password_authentication"
-    ],
-    "30": [
-      "readme_env_local"
-    ],
-    "31": [
-      "readme_initial_schema_migration"
-    ],
-    "32": [
-      "readme_morrow"
-    ],
-    "33": [
-      "readme_phase_1"
-    ],
-    "34": [
-      "readme_supabase_project"
-    ],
-    "35": [
-      "src_test_setup"
-    ],
-    "36": [
->>>>>>> Stashed changes
+    "22": [
       "vitest_config"
     ]
   },
@@ -381,62 +301,41 @@
     "1": 0.07407407407407407,
     "2": 0.1396011396011396,
     "3": 0.10153846153846154,
-    "4": 0.11692307692307692,
+    "4": 0.12,
     "5": 0.09523809523809523,
     "6": 0.17894736842105263,
     "7": 0.15384615384615385,
-    "8": 0.36363636363636365,
-    "9": 0.2,
+    "8": 0.2,
+    "9": 0.4166666666666667,
     "10": 0.8,
     "11": 0.5,
     "12": 0.6666666666666666,
     "13": 0.6666666666666666,
     "14": 0.6666666666666666,
-    "15": 1.0,
+    "15": 0.6666666666666666,
     "16": 1.0,
     "17": 1.0,
     "18": 1.0,
     "19": 1.0,
     "20": 1.0,
     "21": 1.0,
-    "22": 1.0,
-    "23": 1.0,
-    "24": 1.0,
-    "25": 1.0,
-    "26": 1.0,
-    "27": 1.0,
-    "28": 1.0,
-    "29": 1.0,
-    "30": 1.0,
-    "31": 1.0,
-    "32": 1.0,
-    "33": 1.0,
-    "34": 1.0,
-    "35": 1.0,
-<<<<<<< Updated upstream
-    "36": 1.0,
-    "37": 1.0,
-    "38": 1.0,
-    "39": 1.0
-=======
-    "36": 1.0
->>>>>>> Stashed changes
+    "22": 1.0
   },
   "gods": [
-    {
-      "id": "src_lib_supabase_client_createclient",
-      "label": "createClient()",
-      "degree": 17
-    },
     {
       "id": "tsconfig_compileroptions",
       "label": "compilerOptions",
       "degree": 17
     },
     {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "degree": 16
+    },
+    {
       "id": "src_app_page_home",
       "label": "Home()",
-      "degree": 15
+      "degree": 12
     },
     {
       "id": "src_lib_supabase_server_createclient",
@@ -449,11 +348,6 @@
       "degree": 8
     },
     {
-      "id": "src_lib_supabase_env_getsupabaseenv",
-      "label": "getSupabaseEnv()",
-      "degree": 7
-    },
-    {
       "id": "src_app_editor_markdown_editor_markdowneditor",
       "label": "MarkdownEditor()",
       "degree": 7
@@ -464,14 +358,19 @@
       "degree": 7
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
+      "id": "src_lib_supabase_env_getsupabaseenv",
+      "label": "getSupabaseEnv()",
       "degree": 7
     },
     {
-      "id": "src_lib_notes_portability_safefilename",
-      "label": "safeFilename()",
+      "id": "tsconfig_include",
+      "label": "include",
       "degree": 7
+    },
+    {
+      "id": "src_lib_notes_autosave_removerecoverycopy",
+      "label": "removeRecoveryCopy()",
+      "degree": 6
     }
   ],
   "surprises": [
@@ -498,17 +397,6 @@
       "why": "peripheral node `GET()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "createClient()",
-      "target": "getSupabaseEnv()",
-      "source_files": [
-        "src/lib/supabase/client.ts",
-        "src/lib/supabase/env.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
       "source": "submit()",
       "target": "createClient()",
       "source_files": [
@@ -529,72 +417,21 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/update-password/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "questions": [
-    {
-      "type": "bridge_node",
-      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
-<<<<<<< Updated upstream
-      "why": "High betweenness centrality (0.063) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `devDependencies` connect `devDependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.047) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?",
-      "why": "High betweenness centrality (0.046) - this node is a cross-community bridge."
-    },
-    {
-      "type": "isolated_nodes",
-      "question": "What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?",
-      "why": "112 weakly-connected nodes found - possible documentation gaps or missing edges."
-=======
-      "why": "High betweenness centrality (0.064) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `getSupabaseEnv()` connect `createClient` to `createClient`?",
-      "why": "High betweenness centrality (0.061) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `createClient()` connect `createClient` to `app/page.tsx`, `createClient`?",
-      "why": "High betweenness centrality (0.057) - this node is a cross-community bridge."
-    },
-    {
-      "type": "isolated_nodes",
-      "question": "What connects `Credential`, `AutosaveResult`, `Entry` to the rest of the system?",
-      "why": "111 weakly-connected nodes found - possible documentation gaps or missing edges."
->>>>>>> Stashed changes
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `dependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-<<<<<<< Updated upstream
-      "question": "Should `devDependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `createClient` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.1396011396011396 - nodes in this community are weakly interconnected."
-=======
-      "question": "Should `app/page.tsx` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.1010752688172043 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `devDependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
->>>>>>> Stashed changes
-    }
-  ]
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
 }
