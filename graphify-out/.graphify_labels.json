@@ -1,5 +1,29 @@
-<<<<<<< Updated upstream
-{"0": "dependencies", "1": "devDependencies", "2": "createClient", "3": "markdown-editor.tsx", "4": "createClient", "5": "compilerOptions", "6": "app/page.tsx", "7": "scripts", "8": "portability.ts", "9": "include", "10": "credentials.ts", "11": ".prettierrc.json", "12": "ai-settings.tsx", "13": "layout.tsx", "14": "validation.ts", "15": "next.config.ts", "16": "next-env.d.ts", "17": "postcss.config.mjs", "18": "auth/page.tsx", "19": "Next.js Agent File Generator", "20": "Next.js Agent Rules", "21": "Next.js Local Documentation", "22": "AGENTS.md Reference", "23": "eslint.config.mjs", "24": "CI Workflow", "25": "Lint Check", "26": "Frozen pnpm Installation", "27": "Quality Job", "28": "Test Check", "29": "Type Check", "30": "mvp_plan.md", "31": "Supabase Auth Redirect URL", "32": "Email/Password Authentication", "33": ".env.local Configuration", "34": "Initial Schema Migration", "35": "Morrow", "36": "Phase 1 Authentication Features", "37": "Supabase Project", "38": "test-setup.ts", "39": "vitest.config.ts"}
-=======
-{"0": "dependencies", "1": "app/page.tsx", "2": "devDependencies", "3": "createClient", "4": "compilerOptions", "5": "settings/route.ts", "6": "createClient", "7": "scripts", "8": "markdown-editor.tsx", "9": "portability.ts", "10": "include", "11": ".prettierrc.json", "12": "layout.tsx", "13": "next.config.ts", "14": "next-env.d.ts", "15": "postcss.config.mjs", "16": "auth/page.tsx", "17": "Next.js Agent File Generator", "18": "Next.js Agent Rules", "19": "Next.js Local Documentation", "20": "AGENTS.md Reference", "21": "eslint.config.mjs", "22": "CI Workflow", "23": "Lint Check", "24": "Frozen pnpm Installation", "25": "Quality Job", "26": "Test Check", "27": "Type Check", "28": "Supabase Auth Redirect URL", "29": "Email/Password Authentication", "30": ".env.local Configuration", "31": "Initial Schema Migration", "32": "Morrow", "33": "Phase 1 Authentication Features", "34": "Supabase Project", "35": "test-setup.ts", "36": "vitest.config.ts"}
->>>>>>> Stashed changes
+{
+  "0": "dependencies",
+  "1": "createClient",
+  "2": "devDependencies",
+  "3": "createClient",
+  "4": "markdown-editor.tsx",
+  "5": "app/page.tsx",
+  "6": "compilerOptions",
+  "7": "scripts",
+  "8": "include",
+  "9": "portability.ts",
+  "10": "credentials.ts",
+  "11": ".prettierrc.json",
+  "12": "ai-settings.tsx",
+  "13": "layout.tsx",
+  "14": "SettingsPage",
+  "15": "validation.ts",
+  "16": "next.config.ts",
+  "17": "next-env.d.ts",
+  "18": "postcss.config.mjs",
+  "19": "auth/page.tsx",
+  "20": "eslint.config.mjs",
+  "21": "test-setup.ts",
+  "22": "vitest.config.ts",
+  "23": "Morrow — AI Markdown Notes",
+  "24": "AGENTS.md",
+  "25": "CLAUDE.md",
+  "26": "mvp_plan.md"
+}

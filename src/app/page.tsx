@@ -23,6 +23,7 @@ export default function Home() {
   const [selectedNote, setSelectedNote] = useState<string | null>(null);
   const [filter, setFilter] = useState('');
   const [showArchived, setShowArchived] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false);
   const [contextMenu, setContextMenu] = useState<{ note: NoteRow; x: number; y: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -95,7 +96,7 @@ export default function Home() {
   useEffect(() => { const width = localStorage.getItem('morrow-agent-width'); if (width) document.documentElement.style.setProperty('--agent-width', `${width}px`); }, []);
   const [pendingProposal, setPendingProposal] = useState<NoteChangeProposal | null>(null);
   const selected = notes.find((note) => note.id === selectedNote) ?? null;
-  const visibleNotes = useMemo(() => notes.filter((note) => note.is_archived === showArchived && (!selectedFolder || note.folder_id === selectedFolder) && note.title.toLowerCase().includes(filter.toLowerCase())), [notes, selectedFolder, filter, showArchived]);
+  const visibleNotes = useMemo(() => notes.filter((note) => note.is_archived === showArchived && (!showFavorites || note.is_favorite) && (!selectedFolder || note.folder_id === selectedFolder) && note.title.toLowerCase().includes(filter.toLowerCase())), [notes, selectedFolder, filter, showArchived, showFavorites]);
   const folderName = (id: string | null) => id ? folders.find((folder) => folder.id === id)?.name ?? 'Unknown folder' : 'Unfiled';
   function updateNote(noteId: string, changes: Partial<Pick<NoteRow, 'title' | 'content_markdown'>>) {
     const note = notes.find((item) => item.id === noteId);
@@ -115,6 +116,33 @@ export default function Home() {
     setNotes((current) => current.map((item) => item.id === note.id ? { ...item, is_archived: !item.is_archived } : item));
     setContextMenu(null);
   }
+  async function toggleFavorite(note: NoteRow) {
+    const nextValue = !note.is_favorite;
+    setError(null);
+    setNotes((current) => current.map((item) => item.id === note.id ? { ...item, is_favorite: nextValue } : item));
+    const { error: updateError } = await createClient().from('notes').update({ is_favorite: nextValue }).eq('id', note.id);
+    if (updateError) {
+      setNotes((current) => current.map((item) => item.id === note.id ? { ...item, is_favorite: note.is_favorite } : item));
+      setError(`Could not update favorite: ${updateError.message}`);
+    }
+  }
+  useEffect(() => {
+    const button = document.querySelector<HTMLButtonElement>('.editor-tools .icon-button:nth-of-type(2)');
+    if (!button) return;
+    const updateLabel = () => {
+      const current = notes.find((note) => note.id === selectedNote)?.is_favorite ?? false;
+      button.setAttribute('aria-label', current ? 'Remove from favorites' : 'Add to favorites');
+      button.setAttribute('aria-pressed', String(current));
+      button.classList.toggle('favorite-active', current);
+    };
+    const handleClick = () => {
+      const note = notes.find((item) => item.id === selectedNote);
+      if (note) void toggleFavorite(note);
+    };
+    button.addEventListener('click', handleClick);
+    updateLabel();
+    return () => button.removeEventListener('click', handleClick);
+  }, [notes, selectedNote]);
   async function moveNote(note: NoteRow, folderId: string | null) {
     setContextMenu(null);
     if (folderId === note.folder_id) return;
@@ -191,7 +219,7 @@ export default function Home() {
       <aside className="sidebar">
         <div className="brand"><div className="brand-mark"><Sparkles size={15} /></div><span>Morrow</span></div>
         <div className="sidebar-actions"><button className="new-note" onClick={createNote}><Plus size={16} /> New note</button><button className="icon-button" aria-label="Search"><Search size={17} /></button></div>
-        <nav className="nav-list"><button className={`nav-item ${selectedFolder === null && !showArchived ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(false); }}><FileText size={16} /> All notes <span>{notes.filter((note) => !note.is_archived).length}</span></button><button className="nav-item"><Star size={16} /> Favorites</button><button className={`nav-item ${showArchived ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(true); }}><Archive size={16} /> Archive <span>{notes.filter((note) => note.is_archived).length}</span></button></nav>
+        <nav className="nav-list"><button className={`nav-item ${selectedFolder === null && !showArchived && !showFavorites ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(false); setShowFavorites(false); }}><FileText size={16} /> All notes <span>{notes.filter((note) => !note.is_archived).length}</span></button><button className={`nav-item ${showFavorites ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(false); setShowFavorites(true); }}><Star size={16} /> Favorites <span>{notes.filter((note) => note.is_favorite && !note.is_archived).length}</span></button><button className={`nav-item ${showArchived ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(true); setShowFavorites(false); }}><Archive size={16} /> Archive <span>{notes.filter((note) => note.is_archived).length}</span></button></nav>
         <div className="section-heading"><span>Folders</span><button aria-label="Add folder" onClick={() => void createFolder()} disabled={folderSaving}><FolderPlus size={15} /></button></div>
         <div className="folder-list">{folders.map((folder) => <div className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`} key={folder.id}><button className="folder-toggle" onClick={() => { setSelectedFolder(folder.id); setOpenFolders((current) => ({ ...current, [folder.id]: !current[folder.id] })); }} aria-label={`Toggle ${folder.name}`}><span className="folder-icon">{openFolders[folder.id] ? <ChevronDown size={14} /> : <ChevronRight size={14} />}<Folder size={15} /></span>{renamingFolderId === folder.id ? <input className="folder-rename-input" aria-label={`Rename ${folder.name}`} autoFocus value={folderRenameInput} maxLength={120} onChange={(event) => setFolderRenameInput(event.target.value)} onClick={(event) => event.stopPropagation()} onDoubleClick={(event) => event.stopPropagation()} onBlur={() => void renameFolder(folder)} onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault(); void renameFolder(folder); } if (event.key === 'Escape') { setRenamingFolderId(null); } }} /> : <span onDoubleClick={(event) => { event.stopPropagation(); setRenamingFolderId(folder.id); setFolderRenameInput(folder.name); }}>{folder.name}</span>}</button><span className="muted-count">{notes.filter((note) => note.folder_id === folder.id).length}</span><button className="folder-delete" aria-label={`Delete ${folder.name}`} onClick={() => deleteFolder(folder)}><Trash2 size={13} /></button></div>)}</div>
         <div className="sidebar-footer"><div className="avatar">{(user?.user_metadata?.display_name ?? user?.email ?? 'U').slice(0, 2).toUpperCase()}</div><div className="profile"><strong>{user?.user_metadata?.display_name ?? user?.email}</strong><small>Personal workspace</small></div><Link className="icon-button" href="/settings" aria-label="Open settings"><Settings size={16} /></Link><SignOutButton /></div>

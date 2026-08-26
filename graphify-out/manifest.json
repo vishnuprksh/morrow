@@ -42,10 +42,10 @@
     "semantic_hash": "ee0d395bd01cd83521732dc0d300b8c2"
   },
   "src/app/agent-panel.tsx": {
-    "mtime": 1787736967.1644602,
-    "seen": 1787737298.8735979,
-    "ast_hash": "6a010eba1d4c7a654d164ca59de6c192",
-    "semantic_hash": "6a010eba1d4c7a654d164ca59de6c192"
+    "mtime": 1787740497.588538,
+    "seen": 1787742219.0390363,
+    "ast_hash": "25f82ae3ef44ea1f8d80d47854ab9270",
+    "semantic_hash": ""
   },
   "src/app/ai-settings.tsx": {
     "mtime": 1787732881.8688223,
@@ -138,10 +138,10 @@
     "semantic_hash": "d10f1556a5709644572fc9a84cdfc841"
   },
   "src/app/page.tsx": {
-    "mtime": 1787739792.1495223,
-    "seen": 1787739984.8901548,
-    "ast_hash": "c14b11f7ef50385da88285d336803f3a",
-    "semantic_hash": "c14b11f7ef50385da88285d336803f3a"
+    "mtime": 1787742120.8275735,
+    "seen": 1787742219.0416563,
+    "ast_hash": "41a60e5d7d3c2d6ae9adc89c46963ae2",
+    "semantic_hash": ""
   },
   "src/app/settings/page.tsx": {
     "mtime": 1787738112.4874854,
@@ -250,5 +250,35 @@
     "seen": 1787737298.8736389,
     "ast_hash": "94e2215851c67a679a9ccbf86f424208",
     "semantic_hash": "94e2215851c67a679a9ccbf86f424208"
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1787732906.3928227,
+    "seen": 1787742219.0443525,
+    "ast_hash": "9a6ff94069554d66c0eacc3373f35db1",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1787659674.1328573,
+    "seen": 1787742219.0443583,
+    "ast_hash": "01e8142356e15c3404e0d84c48187cd0",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1787659674.1338573,
+    "seen": 1787742219.0443609,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1787732881.8618224,
+    "seen": 1787742219.044364,
+    "ast_hash": "75dcecb0055308fc94827f933d60c4b4",
+    "semantic_hash": ""
+  },
+  "mvp_plan.md": {
+    "mtime": 1787687866.5251894,
+    "seen": 1787742219.0443666,
+    "ast_hash": "cebfe6a5c77a0ff9f12f96ea694d5987",
+    "semantic_hash": ""
   }
 }
