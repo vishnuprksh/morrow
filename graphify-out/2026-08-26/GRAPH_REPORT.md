@@ -4,7 +4,7 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 267 nodes · 330 edges · 40 communities (17 shown, 23 thin omitted)
+- 267 nodes · 331 edges · 40 communities (17 shown, 23 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -55,9 +55,9 @@
 2. `compilerOptions` - 17 edges
 3. `Home()` - 15 edges
 4. `createClient()` - 10 edges
-5. `scripts` - 8 edges
-6. `getSupabaseEnv()` - 7 edges
-7. `MarkdownEditor()` - 7 edges
+5. `MarkdownEditor()` - 8 edges
+6. `scripts` - 8 edges
+7. `getSupabaseEnv()` - 7 edges
 8. `createAutosaveController()` - 7 edges
 9. `safeFilename()` - 7 edges
 10. `workspaceZip()` - 7 edges

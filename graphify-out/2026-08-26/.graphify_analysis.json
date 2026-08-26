@@ -42,39 +42,6 @@
       "zod"
     ],
     "1": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_notecontext",
-      "src_app_ai_settings",
-      "src_app_ai_settings_aisettings",
-      "src_app_ai_settings_aisettings_remove",
-      "src_app_ai_settings_aisettings_save",
-      "src_app_ai_settings_aisettings_test",
-      "src_app_ai_settings_credential",
-      "src_app_page",
-      "src_app_page_folderrow",
-      "src_app_page_noterow",
-      "src_app_page_recoverynotice",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy"
-    ],
-    "2": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -103,7 +70,64 @@
       "vitejs_plugin_react",
       "vitest"
     ],
+    "2": [
+      "proxy",
+      "proxy_config",
+      "proxy_proxy",
+      "src_app_api_ai_agent_route",
+      "src_app_api_ai_agent_route_boundedtext",
+      "src_app_api_ai_agent_route_noteid",
+      "src_app_api_ai_agent_route_post",
+      "src_app_api_ai_edit_route",
+      "src_app_api_ai_edit_route_ispreset",
+      "src_app_api_ai_edit_route_post",
+      "src_app_api_ai_edit_route_preset",
+      "src_app_api_ai_edit_route_presets",
+      "src_app_api_ai_settings_route",
+      "src_app_api_ai_settings_route_authenticatedclient",
+      "src_app_api_ai_settings_route_get",
+      "src_app_api_attachments_noteid_filename_route",
+      "src_app_api_attachments_noteid_filename_route_get",
+      "src_lib_supabase_client",
+      "src_lib_supabase_database_types",
+      "src_lib_supabase_database_types_database",
+      "src_lib_supabase_database_types_json",
+      "src_lib_supabase_env",
+      "src_lib_supabase_env_getsupabaseenv",
+      "src_lib_supabase_middleware",
+      "src_lib_supabase_middleware_updatesession",
+      "src_lib_supabase_server",
+      "src_lib_supabase_server_createclient"
+    ],
     "3": [
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_difftext",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "4": [
       "src_app_auth_auth_form",
       "src_app_auth_auth_form_authform",
       "src_app_auth_auth_form_authform_submit",
@@ -119,6 +143,7 @@
       "src_app_auth_update_password_page_updatepasswordpage",
       "src_app_auth_update_password_page_updatepasswordpage_submit",
       "src_app_page_home",
+      "src_app_page_home_acceptproposal",
       "src_app_page_home_createfolder",
       "src_app_page_home_createnote",
       "src_app_page_home_deletefolder",
@@ -130,7 +155,7 @@
       "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
-    "4": [
+    "5": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_esnext",
@@ -153,48 +178,27 @@
       "tsconfig_compileroptions_target",
       "tsconfig_compileroptions_types"
     ],
-    "5": [
-      "src_app_api_ai_edit_route",
-      "src_app_api_ai_edit_route_ispreset",
-      "src_app_api_ai_edit_route_post",
-      "src_app_api_ai_edit_route_preset",
-      "src_app_api_ai_edit_route_presets",
-      "src_app_api_ai_settings_route",
-      "src_app_api_ai_settings_route_authenticatedclient",
-      "src_app_api_ai_settings_route_delete",
-      "src_app_api_ai_settings_route_get",
-      "src_app_api_ai_settings_route_post",
-      "src_app_api_ai_settings_route_providerurl",
-      "src_app_api_ai_settings_route_put",
-      "src_lib_ai_credentials",
-      "src_lib_ai_credentials_decryptapikey",
-      "src_lib_ai_credentials_encryptapikey",
-      "src_lib_ai_credentials_encryptionkey",
-      "src_lib_ai_credentials_test",
-      "src_lib_ai_validation",
-      "src_lib_ai_validation_credentialinput",
-      "src_lib_ai_validation_credentialschema"
-    ],
     "6": [
-      "proxy",
-      "proxy_config",
-      "proxy_proxy",
-      "src_app_api_ai_agent_route",
-      "src_app_api_ai_agent_route_boundedtext",
-      "src_app_api_ai_agent_route_noteid",
-      "src_app_api_ai_agent_route_post",
-      "src_app_api_attachments_noteid_filename_route",
-      "src_app_api_attachments_noteid_filename_route_get",
-      "src_lib_supabase_client",
-      "src_lib_supabase_database_types",
-      "src_lib_supabase_database_types_database",
-      "src_lib_supabase_database_types_json",
-      "src_lib_supabase_env",
-      "src_lib_supabase_env_getsupabaseenv",
-      "src_lib_supabase_middleware",
-      "src_lib_supabase_middleware_updatesession",
-      "src_lib_supabase_server",
-      "src_lib_supabase_server_createclient"
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_noterow",
+      "src_app_page_recoverynotice",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy"
     ],
     "7": [
       "package",
@@ -212,21 +216,6 @@
       "package_version"
     ],
     "8": [
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_editaction",
-      "src_app_editor_markdown_editor_editactions",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton"
-    ],
-    "9": [
       "src_app_page_home_exportnote",
       "src_app_page_home_exportworkspace",
       "src_lib_notes_portability",
@@ -239,7 +228,7 @@
       "src_lib_notes_portability_test",
       "src_lib_notes_portability_workspacezip"
     ],
-    "10": [
+    "9": [
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
       "ref_next_types_ts",
@@ -251,6 +240,13 @@
       "tsconfig_exclude",
       "tsconfig_include"
     ],
+    "10": [
+      "src_lib_ai_credentials",
+      "src_lib_ai_credentials_decryptapikey",
+      "src_lib_ai_credentials_encryptapikey",
+      "src_lib_ai_credentials_encryptionkey",
+      "src_lib_ai_credentials_test"
+    ],
     "11": [
       "prettierrc",
       "prettierrc_semi",
@@ -258,157 +254,116 @@
       "prettierrc_trailingcomma"
     ],
     "12": [
+      "src_app_ai_settings",
+      "src_app_ai_settings_agent",
+      "src_app_ai_settings_aisettings"
+    ],
+    "13": [
       "src_app_layout",
       "src_app_layout_metadata",
       "src_app_layout_rootlayout"
     ],
-    "13": [
+    "14": [
+      "src_lib_ai_validation",
+      "src_lib_ai_validation_credentialinput",
+      "src_lib_ai_validation_credentialschema"
+    ],
+    "15": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "14": [
+    "16": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "15": [
+    "17": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "16": [
+    "18": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "17": [
+    "19": [
       "agents_generate_agent_files"
     ],
-    "18": [
+    "20": [
       "agents_nextjs_agent_rules"
     ],
-    "19": [
+    "21": [
       "agents_node_modules_next_docs"
     ],
-    "20": [
+    "22": [
       "claude_agents_reference"
     ],
-    "21": [
+    "23": [
       "eslint_config"
     ],
-    "22": [
+    "24": [
       "github_workflows_ci_ci"
     ],
-    "23": [
+    "25": [
       "github_workflows_ci_lint"
     ],
-    "24": [
+    "26": [
       "github_workflows_ci_pnpm_install"
     ],
-    "25": [
+    "27": [
       "github_workflows_ci_quality"
     ],
-    "26": [
+    "28": [
       "github_workflows_ci_test"
     ],
-    "27": [
+    "29": [
       "github_workflows_ci_typecheck"
     ],
-    "28": [
-      "plan_authentication_phase"
-    ],
-    "29": [
-      "plan_autosave"
-    ],
     "30": [
-      "plan_byok"
+      "mvp_plan"
     ],
     "31": [
-      "plan_editor_phase"
-    ],
-    "32": [
-      "plan_milkdown"
-    ],
-    "33": [
-      "plan_mvp"
-    ],
-    "34": [
-      "plan_nextjs_app_router"
-    ],
-    "35": [
-      "plan_openrouter"
-    ],
-    "36": [
-      "plan_playwright"
-    ],
-    "37": [
-      "plan_prosemirror"
-    ],
-    "38": [
-      "plan_react_tailwind_shadcn_lucide"
-    ],
-    "39": [
-      "plan_row_level_security"
-    ],
-    "40": [
-      "plan_supabase_auth"
-    ],
-    "41": [
-      "plan_supabase_postgresql"
-    ],
-    "42": [
-      "plan_supabase_storage"
-    ],
-    "43": [
-      "plan_vercel_ai_sdk"
-    ],
-    "44": [
-      "plan_vitest"
-    ],
-    "45": [
-      "plan_zod"
-    ],
-    "46": [
       "readme_auth_redirect_url"
     ],
-    "47": [
+    "32": [
       "readme_email_password_authentication"
     ],
-    "48": [
+    "33": [
       "readme_env_local"
     ],
-    "49": [
+    "34": [
       "readme_initial_schema_migration"
     ],
-    "50": [
+    "35": [
       "readme_morrow"
     ],
-    "51": [
+    "36": [
       "readme_phase_1"
     ],
-    "52": [
+    "37": [
       "readme_supabase_project"
     ],
-    "53": [
+    "38": [
       "src_test_setup"
     ],
-    "54": [
+    "39": [
       "vitest_config"
     ]
   },
   "cohesion": {
     "0": 0.05128205128205128,
-    "1": 0.1010752688172043,
-    "2": 0.07407407407407407,
-    "3": 0.12,
-    "4": 0.09523809523809523,
-    "5": 0.18947368421052632,
-    "6": 0.2046783625730994,
+    "1": 0.07407407407407407,
+    "2": 0.1396011396011396,
+    "3": 0.10153846153846154,
+    "4": 0.11692307692307692,
+    "5": 0.09523809523809523,
+    "6": 0.17894736842105263,
     "7": 0.15384615384615385,
-    "8": 0.1794871794871795,
-    "9": 0.36363636363636365,
-    "10": 0.2,
+    "8": 0.36363636363636365,
+    "9": 0.2,
+    "10": 0.8,
     "11": 0.5,
     "12": 0.6666666666666666,
-    "13": 1.0,
-    "14": 1.0,
+    "13": 0.6666666666666666,
+    "14": 0.6666666666666666,
     "15": 1.0,
     "16": 1.0,
     "17": 1.0,
@@ -433,22 +388,7 @@
     "36": 1.0,
     "37": 1.0,
     "38": 1.0,
-    "39": 1.0,
-    "40": 1.0,
-    "41": 1.0,
-    "42": 1.0,
-    "43": 1.0,
-    "44": 1.0,
-    "45": 1.0,
-    "46": 1.0,
-    "47": 1.0,
-    "48": 1.0,
-    "49": 1.0,
-    "50": 1.0,
-    "51": 1.0,
-    "52": 1.0,
-    "53": 1.0,
-    "54": 1.0
+    "39": 1.0
   },
   "gods": [
     {
@@ -464,7 +404,7 @@
     {
       "id": "src_app_page_home",
       "label": "Home()",
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "src_lib_supabase_server_createclient",
@@ -472,23 +412,18 @@
       "degree": 10
     },
     {
-      "id": "src_lib_ai_credentials_decryptapikey",
-      "label": "decryptApiKey()",
-      "degree": 9
-    },
-    {
       "id": "package_scripts",
       "label": "scripts",
       "degree": 8
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
+      "id": "src_lib_supabase_env_getsupabaseenv",
+      "label": "getSupabaseEnv()",
       "degree": 7
     },
     {
-      "id": "src_lib_supabase_env_getsupabaseenv",
-      "label": "getSupabaseEnv()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
@@ -499,6 +434,11 @@
     {
       "id": "src_lib_notes_portability_workspacezip",
       "label": "workspaceZip()",
+      "degree": 7
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
       "degree": 7
     }
   ],
@@ -515,22 +455,22 @@
       "why": "connects across different repos/directories"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "GET()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/app/api/attachments/[noteId]/[filename]/route.ts",
+        "src/lib/supabase/server.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `GET()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "deleteNote()",
-      "target": "removeRecoveryCopy()",
+      "source": "createClient()",
+      "target": "getSupabaseEnv()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/lib/supabase/client.ts",
+        "src/lib/supabase/env.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
