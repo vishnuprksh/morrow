@@ -317,6 +317,7 @@
     "29": [
       "github_workflows_ci_typecheck"
     ],
+<<<<<<< Updated upstream
     "30": [
       "mvp_plan"
     ],
@@ -345,6 +346,33 @@
       "src_test_setup"
     ],
     "39": [
+=======
+    "28": [
+      "readme_auth_redirect_url"
+    ],
+    "29": [
+      "readme_email_password_authentication"
+    ],
+    "30": [
+      "readme_env_local"
+    ],
+    "31": [
+      "readme_initial_schema_migration"
+    ],
+    "32": [
+      "readme_morrow"
+    ],
+    "33": [
+      "readme_phase_1"
+    ],
+    "34": [
+      "readme_supabase_project"
+    ],
+    "35": [
+      "src_test_setup"
+    ],
+    "36": [
+>>>>>>> Stashed changes
       "vitest_config"
     ]
   },
@@ -385,10 +413,14 @@
     "33": 1.0,
     "34": 1.0,
     "35": 1.0,
+<<<<<<< Updated upstream
     "36": 1.0,
     "37": 1.0,
     "38": 1.0,
     "39": 1.0
+=======
+    "36": 1.0
+>>>>>>> Stashed changes
   },
   "gods": [
     {
@@ -432,13 +464,13 @@
       "degree": 7
     },
     {
-      "id": "src_lib_notes_portability_safefilename",
-      "label": "safeFilename()",
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
-      "id": "src_lib_notes_portability_workspacezip",
-      "label": "workspaceZip()",
+      "id": "src_lib_notes_portability_safefilename",
+      "label": "safeFilename()",
       "degree": 7
     }
   ],
@@ -503,6 +535,7 @@
     {
       "type": "bridge_node",
       "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
+<<<<<<< Updated upstream
       "why": "High betweenness centrality (0.063) - this node is a cross-community bridge."
     },
     {
@@ -519,6 +552,24 @@
       "type": "isolated_nodes",
       "question": "What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?",
       "why": "112 weakly-connected nodes found - possible documentation gaps or missing edges."
+=======
+      "why": "High betweenness centrality (0.064) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `getSupabaseEnv()` connect `createClient` to `createClient`?",
+      "why": "High betweenness centrality (0.061) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `createClient()` connect `createClient` to `app/page.tsx`, `createClient`?",
+      "why": "High betweenness centrality (0.057) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Credential`, `AutosaveResult`, `Entry` to the rest of the system?",
+      "why": "111 weakly-connected nodes found - possible documentation gaps or missing edges."
+>>>>>>> Stashed changes
     },
     {
       "type": "low_cohesion",
@@ -527,6 +578,7 @@
     },
     {
       "type": "low_cohesion",
+<<<<<<< Updated upstream
       "question": "Should `devDependencies` be split into smaller, more focused modules?",
       "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
     },
@@ -534,6 +586,15 @@
       "type": "low_cohesion",
       "question": "Should `createClient` be split into smaller, more focused modules?",
       "why": "Cohesion score 0.1396011396011396 - nodes in this community are weakly interconnected."
+=======
+      "question": "Should `app/page.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1010752688172043 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `devDependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
+>>>>>>> Stashed changes
     }
   ]
 }

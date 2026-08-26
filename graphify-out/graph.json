@@ -4,8 +4,39 @@
   "graph": {},
   "nodes": [
     {
+<<<<<<< Updated upstream
       "id": "src_app_ai_settings_agent",
       "label": "Agent",
+=======
+      "id": "src_app_agent_panel_chatmessage",
+      "label": "ChatMessage",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "chatmessage",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_agent_panel_notecontext",
+      "label": "NoteContext",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "notecontext",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_ai_settings_credential",
+      "label": "Credential",
+>>>>>>> Stashed changes
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -17,6 +48,7 @@
       "source_location": "L6"
     },
     {
+<<<<<<< Updated upstream
       "id": "src_lib_ai_validation_credentialinput",
       "label": "CredentialInput",
       "_callable": true,
@@ -160,12 +192,18 @@
       "source_location": "L1"
     },
     {
+=======
+>>>>>>> Stashed changes
       "id": "src_app_page_folderrow",
       "label": "FolderRow",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
+<<<<<<< Updated upstream
       "community": 6,
+=======
+      "community": 1,
+>>>>>>> Stashed changes
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "folderrow",
@@ -178,7 +216,11 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
+<<<<<<< Updated upstream
       "community": 6,
+=======
+      "community": 1,
+>>>>>>> Stashed changes
       "community_name": "app/page.tsx",
       "file_type": "code",
       "norm_label": "noterow",
@@ -264,6 +306,100 @@
       "source_location": "L6"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "id": "src_app_api_ai_edit_route_preset",
+      "label": "Preset",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "preset",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "src_lib_ai_validation_credentialinput",
+      "label": "CredentialInput",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "credentialinput",
+      "source_file": "src/lib/ai/validation.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_lib_supabase_database_types_database",
+      "label": "Database",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "database",
+      "source_file": "src/lib/supabase/database.types.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_lib_supabase_database_types_json",
+      "label": "Json",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "json",
+      "source_file": "src/lib/supabase/database.types.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_editaction",
+      "label": "EditAction",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "editaction",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditorprops",
+      "label": "MarkdownEditorProps",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "markdowneditorprops",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L12"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_toolbaraction",
+      "label": "ToolbarAction",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "toolbaraction",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L28"
+    },
+    {
+>>>>>>> Stashed changes
       "id": "src_lib_notes_portability_portablefolder",
       "label": "PortableFolder",
       "_callable": true,
@@ -290,6 +426,7 @@
       "source_location": "L3"
     },
     {
+<<<<<<< Updated upstream
       "id": "src_lib_ai_credentials_decryptapikey",
       "label": "decryptApiKey()",
       "_callable": true,
@@ -324,6 +461,30 @@
       "norm_label": "encryptionkey()",
       "source_file": "src/lib/ai/credentials.ts",
       "source_location": "L7"
+=======
+      "id": "src_app_agent_panel_agentpanel",
+      "label": "AgentPanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "agentpanel()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_agent_panel_agentpanel_send",
+      "label": "send()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "send()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L18"
+>>>>>>> Stashed changes
     },
     {
       "id": "src_app_ai_settings_aisettings",
@@ -338,6 +499,153 @@
       "source_location": "L8"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "id": "src_app_ai_settings_aisettings_remove",
+      "label": "remove()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "remove()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_app_ai_settings_aisettings_save",
+      "label": "save()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "save()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "src_app_ai_settings_aisettings_test",
+      "label": "test()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "test()",
+      "source_file": "src/app/ai-settings.tsx",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_app_page_recoverynotice",
+      "label": "RecoveryNotice()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "recoverynotice()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L174"
+    },
+    {
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "createautosavecontroller()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "label": "attempt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "attempt()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "src_lib_notes_autosave_createautosavecontroller_flush",
+      "label": "flush()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "flush()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "label": "resultIsComplete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "resultiscomplete()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L109"
+    },
+    {
+      "id": "src_lib_notes_autosave_readrecoverycopy",
+      "label": "readRecoveryCopy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "readrecoverycopy()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "src_lib_notes_autosave_recoverykey",
+      "label": "recoveryKey()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "recoverykey()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_lib_notes_autosave_removerecoverycopy",
+      "label": "removeRecoveryCopy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "removerecoverycopy()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "src_lib_notes_autosave_writerecoverycopy",
+      "label": "writeRecoveryCopy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "writerecoverycopy()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L48"
+    },
+    {
+>>>>>>> Stashed changes
       "id": "src_app_layout_rootlayout",
       "label": "RootLayout()",
       "_callable": true,
@@ -748,9 +1056,15 @@
     {
       "id": "src_app_page_home",
       "label": "Home()",
+<<<<<<< Updated upstream
       "_callable": true,
       "_origin": "ast",
       "community": 4,
+      "community_name": "createClient",
+=======
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "home()",
@@ -758,6 +1072,128 @@
       "source_location": "L16"
     },
     {
+      "id": "src_app_page_home_createfolder",
+      "label": "createFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createfolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L103"
+    },
+    {
+      "id": "src_app_page_home_createnote",
+      "label": "createNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createnote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L114"
+    },
+    {
+      "id": "src_app_page_home_deletefolder",
+      "label": "deleteFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "deletefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L129"
+    },
+    {
+      "id": "src_app_page_home_deletenote",
+      "label": "deleteNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "deletenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L121"
+    },
+    {
+      "id": "src_app_page_home_importmarkdown",
+      "label": "importMarkdown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "importmarkdown()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L137"
+    },
+    {
+      "id": "src_app_page_home_loadworkspace",
+      "label": "loadWorkspace()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "loadworkspace()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L34"
+    },
+    {
+      "id": "src_app_page_home_updatenote",
+      "label": "updateNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "updatenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L95"
+    },
+    {
+      "id": "src_app_page_home_uploadimage",
+      "label": "uploadImage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "uploadimage()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L145"
+    },
+    {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createclient()",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_api_ai_edit_route_ispreset",
+      "label": "isPreset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+>>>>>>> Stashed changes
+      "file_type": "code",
+      "norm_label": "ispreset()",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L17"
+    },
+    {
+<<<<<<< Updated upstream
       "id": "src_app_page_home_acceptproposal",
       "label": "acceptProposal()",
       "_callable": true,
@@ -884,6 +1320,146 @@
       "_origin": "ast",
       "community": 6,
       "community_name": "app/page.tsx",
+=======
+      "id": "src_app_api_ai_edit_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "src_app_api_ai_settings_route_authenticatedclient",
+      "label": "authenticatedClient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "authenticatedclient()",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_api_ai_settings_route_delete",
+      "label": "DELETE()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "delete()",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_app_api_ai_settings_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_app_api_ai_settings_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_app_api_ai_settings_route_providerurl",
+      "label": "providerUrl()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "providerurl()",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_api_ai_settings_route_put",
+      "label": "PUT()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "put()",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "src_lib_ai_credentials_decryptapikey",
+      "label": "decryptApiKey()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "decryptapikey()",
+      "source_file": "src/lib/ai/credentials.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_lib_ai_credentials_encryptapikey",
+      "label": "encryptApiKey()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "encryptapikey()",
+      "source_file": "src/lib/ai/credentials.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "src_lib_ai_credentials_encryptionkey",
+      "label": "encryptionKey()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "encryptionkey()",
+      "source_file": "src/lib/ai/credentials.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "proxy_proxy",
+      "label": "proxy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "proxy()",
+      "source_file": "proxy.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "src_app_api_ai_agent_route_boundedtext",
+      "label": "boundedText()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+>>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "recoverynotice()",
       "source_file": "src/app/page.tsx",
@@ -895,13 +1471,18 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
+<<<<<<< Updated upstream
       "community_name": "app/page.tsx",
+=======
+      "community_name": "createClient",
+>>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "createautosavecontroller()",
       "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L52"
     },
     {
+<<<<<<< Updated upstream
       "id": "src_lib_notes_autosave_createautosavecontroller_attempt",
       "label": "attempt()",
       "_callable": true,
@@ -992,6 +1573,62 @@
       "_origin": "ast",
       "community": 8,
       "community_name": "portability.ts",
+=======
+      "id": "src_app_api_attachments_noteid_filename_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "src/app/api/attachments/[noteId]/[filename]/route.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_lib_supabase_env_getsupabaseenv",
+      "label": "getSupabaseEnv()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "getsupabaseenv()",
+      "source_file": "src/lib/supabase/env.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_middleware_updatesession",
+      "label": "updateSession()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "updatesession()",
+      "source_file": "src/lib/supabase/middleware.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_lib_supabase_server_createclient",
+      "label": "createClient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "createclient()",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+>>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "exportnote()",
       "source_file": "src/app/page.tsx",
@@ -1003,11 +1640,91 @@
       "_callable": true,
       "_origin": "ast",
       "community": 8,
+<<<<<<< Updated upstream
       "community_name": "portability.ts",
       "file_type": "code",
       "norm_label": "exportworkspace()",
       "source_file": "src/app/page.tsx",
       "source_location": "L144"
+=======
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "applyproposal()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L157"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "label": "requestEdit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "requestedit()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L124"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "label": "runToolbarAction()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "runtoolbaraction()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L179"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "label": "submitCustomInstruction()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "submitcustominstruction()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L148"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_toolbarbutton",
+      "label": "ToolbarButton()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "toolbarbutton()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L223"
+>>>>>>> Stashed changes
+    },
+    {
+      "id": "src_app_page_home_exportnote",
+      "label": "exportNote()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "exportnote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L135"
+    },
+    {
+      "id": "src_app_page_home_exportworkspace",
+      "label": "exportWorkspace()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "exportworkspace()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L136"
     },
     {
       "id": "src_lib_notes_portability_downloadblob",
@@ -1499,8 +2216,24 @@
       "source_location": "L33"
     },
     {
+<<<<<<< Updated upstream
       "id": "package_devdependencies",
       "label": "devDependencies",
+=======
+      "id": "src_app_agent_panel",
+      "label": "agent-panel.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "agent-panel.tsx",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_ai_settings",
+      "label": "ai-settings.tsx",
+>>>>>>> Stashed changes
       "_origin": "ast",
       "community": 1,
       "community_name": "devDependencies",
@@ -1510,8 +2243,24 @@
       "source_location": "L35"
     },
     {
+<<<<<<< Updated upstream
       "id": "package_devdependencies_eslint",
       "label": "eslint",
+=======
+      "id": "src_app_page",
+      "label": "app/page.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "app/page.tsx",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_autosave",
+      "label": "autosave.ts",
+>>>>>>> Stashed changes
       "_origin": "ast",
       "community": 1,
       "community_name": "devDependencies",
@@ -1532,6 +2281,7 @@
       "source_location": "L41"
     },
     {
+<<<<<<< Updated upstream
       "id": "package_devdependencies_jsdom",
       "label": "jsdom",
       "_origin": "ast",
@@ -1540,6 +2290,27 @@
       "file_type": "code",
       "norm_label": "jsdom",
       "source_file": "package.json",
+=======
+      "id": "tsconfig",
+      "label": "tsconfig.json",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "include",
+      "file_type": "code",
+      "norm_label": "tsconfig.json",
+      "source_file": "tsconfig.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "tsconfig_exclude",
+      "label": "exclude",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "include",
+      "file_type": "code",
+      "norm_label": "exclude",
+      "source_file": "tsconfig.json",
+>>>>>>> Stashed changes
       "source_location": "L42"
     },
     {
@@ -2033,6 +2804,7 @@
       "community": 2,
       "community_name": "createClient",
       "file_type": "code",
+<<<<<<< Updated upstream
       "norm_label": "noteid",
       "source_file": "src/app/api/ai/agent/route.ts",
       "source_location": "L8"
@@ -2263,6 +3035,369 @@
       "label": "auth-form.tsx",
       "_origin": "ast",
       "community": 4,
+=======
+      "norm_label": "sign-up/page.tsx",
+      "source_file": "src/app/auth/sign-up/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_auth_update_password_page",
+      "label": "update-password/page.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "update-password/page.tsx",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_test",
+      "label": "page.test.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "page.test.tsx",
+      "source_file": "src/app/page.test.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_test_setup",
+      "label": "test-setup.ts",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "test-setup.ts",
+      "file_type": "code",
+      "norm_label": "test-setup.ts",
+      "source_file": "src/test-setup.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "vitest_config",
+      "label": "vitest.config.ts",
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "vitest.config.ts",
+      "file_type": "code",
+      "norm_label": "vitest.config.ts",
+      "source_file": "vitest.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "compileroptions",
+      "source_file": "tsconfig.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "tsconfig_compileroptions_allowjs",
+      "label": "allowJs",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "allowjs",
+      "source_file": "tsconfig.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "tsconfig_compileroptions_esmoduleinterop",
+      "label": "esModuleInterop",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "esmoduleinterop",
+      "source_file": "tsconfig.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "tsconfig_compileroptions_incremental",
+      "label": "incremental",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "incremental",
+      "source_file": "tsconfig.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "tsconfig_compileroptions_isolatedmodules",
+      "label": "isolatedModules",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "isolatedmodules",
+      "source_file": "tsconfig.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "tsconfig_compileroptions_jsx",
+      "label": "jsx",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "jsx",
+      "source_file": "tsconfig.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "lib",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "tsconfig_compileroptions_module",
+      "label": "module",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "module",
+      "source_file": "tsconfig.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "tsconfig_compileroptions_moduleresolution",
+      "label": "moduleResolution",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "moduleresolution",
+      "source_file": "tsconfig.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "tsconfig_compileroptions_noemit",
+      "label": "noEmit",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "noemit",
+      "source_file": "tsconfig.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "tsconfig_compileroptions_paths",
+      "label": "paths",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "paths",
+      "source_file": "tsconfig.json",
+      "source_location": "L28"
+    },
+    {
+      "id": "tsconfig_compileroptions_plugins",
+      "label": "plugins",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "plugins",
+      "source_file": "tsconfig.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "tsconfig_compileroptions_resolvejsonmodule",
+      "label": "resolveJsonModule",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "resolvejsonmodule",
+      "source_file": "tsconfig.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "tsconfig_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "skiplibcheck",
+      "source_file": "tsconfig.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "tsconfig_compileroptions_strict",
+      "label": "strict",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "strict",
+      "source_file": "tsconfig.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "tsconfig_compileroptions_target",
+      "label": "target",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "target",
+      "source_file": "tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "tsconfig_compileroptions_types",
+      "label": "types",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "types",
+      "source_file": "tsconfig.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "ref_dom",
+      "label": "dom",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "dom",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "ref_dom_iterable",
+      "label": "dom.iterable",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "dom.iterable",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "ref_esnext",
+      "label": "esnext",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "esnext",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "ref_vitest_globals",
+      "label": "vitest/globals",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "compilerOptions",
+      "file_type": "concept",
+      "norm_label": "vitest/globals",
+      "source_file": "tsconfig.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "src_app_api_ai_edit_route",
+      "label": "edit/route.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "edit/route.ts",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_api_ai_edit_route_presets",
+      "label": "presets",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "presets",
+      "source_file": "src/app/api/ai/edit/route.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_api_ai_settings_route",
+      "label": "settings/route.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "settings/route.ts",
+      "source_file": "src/app/api/ai/settings/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_ai_credentials",
+      "label": "credentials.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "credentials.ts",
+      "source_file": "src/lib/ai/credentials.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_ai_credentials_test",
+      "label": "credentials.test.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "credentials.test.ts",
+      "source_file": "src/lib/ai/credentials.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_ai_validation",
+      "label": "validation.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "validation.ts",
+      "source_file": "src/lib/ai/validation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_ai_validation_credentialschema",
+      "label": "credentialSchema",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "settings/route.ts",
+      "file_type": "code",
+      "norm_label": "credentialschema",
+      "source_file": "src/lib/ai/validation.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "proxy",
+      "label": "proxy.ts",
+      "_origin": "ast",
+      "community": 6,
+>>>>>>> Stashed changes
       "community_name": "createClient",
       "file_type": "code",
       "norm_label": "auth-form.tsx",
@@ -2273,6 +3408,7 @@
       "id": "src_app_auth_forgot_password_page",
       "label": "forgot-password/page.tsx",
       "_origin": "ast",
+<<<<<<< Updated upstream
       "community": 4,
       "community_name": "createClient",
       "file_type": "code",
@@ -2330,6 +3466,21 @@
       "_origin": "ast",
       "community": 5,
       "community_name": "compilerOptions",
+=======
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "config",
+      "source_file": "proxy.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_api_ai_agent_route",
+      "label": "agent/route.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+>>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "compileroptions",
       "source_file": "tsconfig.json",
@@ -2339,14 +3490,20 @@
       "id": "tsconfig_compileroptions_allowjs",
       "label": "allowJs",
       "_origin": "ast",
+<<<<<<< Updated upstream
       "community": 5,
       "community_name": "compilerOptions",
+=======
+      "community": 6,
+      "community_name": "createClient",
+>>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "allowjs",
       "source_file": "tsconfig.json",
       "source_location": "L9"
     },
     {
+<<<<<<< Updated upstream
       "id": "tsconfig_compileroptions_esmoduleinterop",
       "label": "esModuleInterop",
       "_origin": "ast",
@@ -2561,6 +3718,35 @@
       "_origin": "ast",
       "community": 6,
       "community_name": "app/page.tsx",
+=======
+      "id": "src_app_api_attachments_noteid_filename_route",
+      "label": "[filename]/route.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "[filename]/route.ts",
+      "source_file": "src/app/api/attachments/[noteId]/[filename]/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_client",
+      "label": "client.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "client.ts",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_database_types",
+      "label": "database.types.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+>>>>>>> Stashed changes
       "file_type": "code",
       "norm_label": "app/page.tsx",
       "source_file": "src/app/page.tsx",
@@ -2586,6 +3772,39 @@
       "file_type": "code",
       "norm_label": "autosave.test.ts",
       "source_file": "src/lib/notes/autosave.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_env",
+      "label": "env.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "env.ts",
+      "source_file": "src/lib/supabase/env.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_middleware",
+      "label": "middleware.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "middleware.ts",
+      "source_file": "src/lib/supabase/middleware.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_supabase_server",
+      "label": "server.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "createClient",
+      "file_type": "code",
+      "norm_label": "server.ts",
+      "source_file": "src/lib/supabase/server.ts",
       "source_location": "L1"
     },
     {
@@ -2732,6 +3951,53 @@
       "source_location": "L3"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "id": "src_app_editor_markdown_editor",
+      "label": "markdown-editor.tsx",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "markdown-editor.tsx",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_editactions",
+      "label": "editActions",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "editactions",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_test",
+      "label": "markdown-editor.test.tsx",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "markdown-editor.test.tsx",
+      "source_file": "src/app/editor/markdown-editor.test.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_toolbaractions",
+      "label": "toolbarActions",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "markdown-editor.tsx",
+      "file_type": "code",
+      "norm_label": "toolbaractions",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L30"
+    },
+    {
+>>>>>>> Stashed changes
       "id": "src_lib_notes_portability",
       "label": "portability.ts",
       "_origin": "ast",
@@ -3019,7 +4285,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 31,
+=======
+      "community": 28,
+>>>>>>> Stashed changes
       "community_name": "Supabase Auth Redirect URL",
       "contributor": null,
       "file_type": "concept",
@@ -3034,7 +4304,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 32,
+=======
+      "community": 29,
+>>>>>>> Stashed changes
       "community_name": "Email/Password Authentication",
       "contributor": null,
       "file_type": "concept",
@@ -3049,7 +4323,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 33,
+=======
+      "community": 30,
+>>>>>>> Stashed changes
       "community_name": ".env.local Configuration",
       "contributor": null,
       "file_type": "concept",
@@ -3064,7 +4342,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 34,
+=======
+      "community": 31,
+>>>>>>> Stashed changes
       "community_name": "Initial Schema Migration",
       "contributor": null,
       "file_type": "concept",
@@ -3079,7 +4361,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 35,
+=======
+      "community": 32,
+>>>>>>> Stashed changes
       "community_name": "Morrow",
       "contributor": null,
       "file_type": "concept",
@@ -3094,7 +4380,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 36,
+=======
+      "community": 33,
+>>>>>>> Stashed changes
       "community_name": "Phase 1 Authentication Features",
       "contributor": null,
       "file_type": "concept",
@@ -3109,7 +4399,11 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
+<<<<<<< Updated upstream
       "community": 37,
+=======
+      "community": 34,
+>>>>>>> Stashed changes
       "community_name": "Supabase Project",
       "contributor": null,
       "file_type": "concept",
@@ -6929,5 +8223,9 @@
     }
   ],
   "hyperedges": [],
+<<<<<<< Updated upstream
   "built_at_commit": "d6d68754941f4e285d1bcce4f445224dd1dba6d1"
+=======
+  "built_at_commit": "c062821ccd7116318a62bcb2f25052e26aee937f"
+>>>>>>> Stashed changes
 }

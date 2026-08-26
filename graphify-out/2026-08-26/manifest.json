@@ -84,6 +84,7 @@
     "semantic_hash": "4fb2f63e613225cd67d11b81e355e189"
   },
   "src/app/page.test.tsx": {
+<<<<<<< Updated upstream
     "mtime": 1787690460.1061625,
     "seen": 1787725769.917357,
     "ast_hash": "d10f1556a5709644572fc9a84cdfc841",
@@ -94,6 +95,18 @@
     "seen": 1787727107.091268,
     "ast_hash": "db165102ae3bcf0b4e4a79b184ae6f42",
     "semantic_hash": "db165102ae3bcf0b4e4a79b184ae6f42"
+=======
+    "mtime": 1787731579.0208042,
+    "seen": 1787732569.7736998,
+    "ast_hash": "377d2f29203e05069de54d083c558456",
+    "semantic_hash": "377d2f29203e05069de54d083c558456"
+  },
+  "src/app/page.tsx": {
+    "mtime": 1787731579.0228043,
+    "seen": 1787732569.7737012,
+    "ast_hash": "290c45578b701d0fb6c8028becd34287",
+    "semantic_hash": "290c45578b701d0fb6c8028becd34287"
+>>>>>>> Stashed changes
   },
   "src/lib/supabase/client.ts": {
     "mtime": 1787658935.515868,
@@ -168,22 +181,39 @@
     "semantic_hash": "5c27369b226fcf2be8a6cfe52224e767"
   },
   "README.md": {
+<<<<<<< Updated upstream
     "mtime": 1787690658.1181605,
     "seen": 1787728722.1095917,
     "ast_hash": "75dcecb0055308fc94827f933d60c4b4",
+=======
+    "mtime": 1787683106.6542387,
+    "seen": 1787684712.8690968,
+    "ast_hash": "ffc3010054a74cc89f2504834f69a19f",
+>>>>>>> Stashed changes
     "semantic_hash": ""
   },
   "src/app/editor/markdown-editor.test.tsx": {
     "mtime": 1787728390.1477597,
+<<<<<<< Updated upstream
     "seen": 1787728722.1073833,
+=======
+    "seen": 1787732569.7736118,
+>>>>>>> Stashed changes
     "ast_hash": "8a9142f7f2cd90889584fbd7bfe8974c",
     "semantic_hash": "8a9142f7f2cd90889584fbd7bfe8974c"
   },
   "src/app/editor/markdown-editor.tsx": {
+<<<<<<< Updated upstream
     "mtime": 1787731012.5977962,
     "seen": 1787731170.8603275,
     "ast_hash": "9d2f32b9f0103db0c70f56b0a1fcc6f0",
     "semantic_hash": "9d2f32b9f0103db0c70f56b0a1fcc6f0"
+=======
+    "mtime": 1787731579.0128043,
+    "seen": 1787732569.7736132,
+    "ast_hash": "8263c3dbcf7a2dbc36a940607c2bf7e6",
+    "semantic_hash": "8263c3dbcf7a2dbc36a940607c2bf7e6"
+>>>>>>> Stashed changes
   },
   "src/lib/notes/autosave.test.ts": {
     "mtime": 1787681396.8702564,
@@ -216,6 +246,7 @@
     "semantic_hash": "c33117487f3165c20490c991c7cdb4f8"
   },
   "src/app/ai-settings.tsx": {
+<<<<<<< Updated upstream
     "mtime": 1787690262.1051648,
     "seen": 1787725769.911414,
     "ast_hash": "2c2a67d36b5eaf47b78c280475e10572",
@@ -230,22 +261,47 @@
   "src/lib/ai/credentials.test.ts": {
     "mtime": 1787688989.1391778,
     "seen": 1787690204.1974237,
+=======
+    "mtime": 1787731579.0038042,
+    "seen": 1787732569.7727988,
+    "ast_hash": "6ade330e94b1c6168aabd90dbb2d0c5d",
+    "semantic_hash": "6ade330e94b1c6168aabd90dbb2d0c5d"
+  },
+  "src/app/api/ai/settings/route.ts": {
+    "mtime": 1787731579.0128043,
+    "seen": 1787732569.7728028,
+    "ast_hash": "0f91006fcbd273e91b284b5bc488aebb",
+    "semantic_hash": "0f91006fcbd273e91b284b5bc488aebb"
+  },
+  "src/lib/ai/credentials.test.ts": {
+    "mtime": 1787688989.1391778,
+    "seen": 1787732569.7737021,
+>>>>>>> Stashed changes
     "ast_hash": "d1dd49cfe312c4071e3a6aa2aac2372e",
     "semantic_hash": "d1dd49cfe312c4071e3a6aa2aac2372e"
   },
   "src/lib/ai/credentials.ts": {
     "mtime": 1787688989.1391778,
+<<<<<<< Updated upstream
     "seen": 1787690204.1974256,
+=======
+    "seen": 1787732569.7737033,
+>>>>>>> Stashed changes
     "ast_hash": "f938524e255e8f07c4166a5b708acc9e",
     "semantic_hash": "f938524e255e8f07c4166a5b708acc9e"
   },
   "src/lib/ai/validation.ts": {
     "mtime": 1787688989.1391778,
+<<<<<<< Updated upstream
     "seen": 1787690204.197427,
+=======
+    "seen": 1787732569.7737045,
+>>>>>>> Stashed changes
     "ast_hash": "74e5aafa8ddbf4537240cb89542e0e4c",
     "semantic_hash": "74e5aafa8ddbf4537240cb89542e0e4c"
   },
   "src/app/api/ai/edit/route.ts": {
+<<<<<<< Updated upstream
     "mtime": 1787690658.1131606,
     "seen": 1787725769.9114194,
     "ast_hash": "a35fde6ed1776c2e2de3b6884d147e0c",
@@ -280,5 +336,23 @@
     "seen": 1787731170.861119,
     "ast_hash": "3ecdd2cc64727eed82e751708897d348",
     "semantic_hash": "3ecdd2cc64727eed82e751708897d348"
+=======
+    "mtime": 1787731579.0108042,
+    "seen": 1787732569.7728012,
+    "ast_hash": "9730de60c80e777d1b015f71ebce1ba2",
+    "semantic_hash": "9730de60c80e777d1b015f71ebce1ba2"
+  },
+  "src/app/agent-panel.tsx": {
+    "mtime": 1787732366.3058152,
+    "seen": 1787732569.7727966,
+    "ast_hash": "13ab9ae0ca30361d5209dc78bd573810",
+    "semantic_hash": "13ab9ae0ca30361d5209dc78bd573810"
+  },
+  "src/app/api/ai/agent/route.ts": {
+    "mtime": 1787731579.0098042,
+    "seen": 1787732569.7728,
+    "ast_hash": "7f24480369429ff45feee79ce4b4febc",
+    "semantic_hash": "7f24480369429ff45feee79ce4b4febc"
+>>>>>>> Stashed changes
   }
 }
