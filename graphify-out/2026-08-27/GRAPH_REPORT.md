@@ -4,7 +4,7 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 270 nodes · 340 edges · 28 communities (19 shown, 9 thin omitted)
+- 269 nodes · 339 edges · 28 communities (19 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -16,9 +16,9 @@
 ## Community Hubs (Navigation)
 - dependencies
 - createClient
-- markdown-editor.tsx
 - devDependencies
 - createClient
+- markdown-editor.tsx
 - app/page.tsx
 - compilerOptions
 - scripts
@@ -42,8 +42,8 @@
 3. `compilerOptions` - 17 edges
 4. `createClient()` - 10 edges
 5. `scripts` - 8 edges
-6. `MarkdownEditor()` - 7 edges
-7. `getSupabaseEnv()` - 7 edges
+6. `getSupabaseEnv()` - 7 edges
+7. `MarkdownEditor()` - 7 edges
 8. `createAutosaveController()` - 7 edges
 9. `include` - 7 edges
 10. `removeRecoveryCopy()` - 6 edges
@@ -70,23 +70,23 @@ Cohesion: 0.05
 Nodes (43): ai, @ai-sdk/openai, jszip, katex, lucide-react, @milkdown/core, @milkdown/plugin-listener, @milkdown/plugin-math (+35 more)
 
 ### Community 1 - "createClient"
-Cohesion: 0.10
+Cohesion: 0.11
 Nodes (20): AuthForm(), submit(), SignOutButton(), ForgotPasswordPage(), submit(), UpdatePasswordPage(), submit(), Home() (+12 more)
 
-### Community 2 - "markdown-editor.tsx"
-Cohesion: 0.10
-Nodes (15): AgentPanel(), ChatMessage, NoteContext, EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction() (+7 more)
-
-### Community 3 - "devDependencies"
+### Community 2 - "devDependencies"
 Cohesion: 0.07
 Nodes (27): eslint, eslint-config-next, jsdom, devDependencies, eslint, eslint-config-next, jsdom, postcss (+19 more)
 
-### Community 4 - "createClient"
+### Community 3 - "createClient"
 Cohesion: 0.14
 Nodes (17): config, proxy(), boundedText(), noteId, POST(), isPreset(), POST(), Preset (+9 more)
 
+### Community 4 - "markdown-editor.tsx"
+Cohesion: 0.10
+Nodes (15): AgentPanel(), ChatMessage, NoteContext, EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction() (+7 more)
+
 ### Community 5 - "app/page.tsx"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (17): FolderRow, NoteRow, RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController(), attempt(), flush() (+9 more)
 
 ### Community 6 - "compilerOptions"
@@ -114,7 +114,7 @@ Cohesion: 0.50
 Nodes (3): semi, singleQuote, trailingComma
 
 ## Knowledge Gaps
-- **100 isolated node(s):** `Agent`, `CredentialInput`, `ChatMessage`, `NoteContext`, `EditAction` (+95 more)
+- **100 isolated node(s):** `Agent`, `CredentialInput`, `Preset`, `Json`, `ChatMessage` (+95 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -127,11 +127,11 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **What connects `Agent`, `CredentialInput`, `ChatMessage` to the rest of the system?**
+- **What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?**
   _100 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected._
 - **Should `createClient` be split into smaller, more focused modules?**
-  _Cohesion score 0.10344827586206896 - nodes in this community are weakly interconnected._
-- **Should `markdown-editor.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.09686609686609686 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10837438423645321 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

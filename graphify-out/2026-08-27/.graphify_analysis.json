@@ -74,9 +74,39 @@
       "src_app_page_home_togglefavorite",
       "src_app_page_home_updatenote",
       "src_app_page_home_uploadimage",
+      "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
     "2": [
+      "core",
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_difftext",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "3": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -105,7 +135,7 @@
       "vitejs_plugin_react",
       "vitest"
     ],
-    "3": [
+    "4": [
       "proxy",
       "proxy_config",
       "proxy_proxy",
@@ -134,41 +164,12 @@
       "src_lib_supabase_server",
       "src_lib_supabase_server_createclient"
     ],
-    "4": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_notecontext",
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_difftext",
-      "src_app_editor_markdown_editor_editaction",
-      "src_app_editor_markdown_editor_editactions",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_proposaldiff",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton",
-      "src_lib_ai_proposals",
-      "src_lib_ai_proposals_changedlinecount",
-      "src_lib_ai_proposals_diffsegment",
-      "src_lib_ai_proposals_diffsegments",
-      "src_lib_ai_proposals_notechangeproposal",
-      "src_lib_ai_proposals_test"
-    ],
     "5": [
       "src_app_page",
       "src_app_page_folderrow",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
       "src_app_page_recoverynotice",
-      "src_app_page_test",
       "src_app_page_workspaceloadingscreen",
       "src_lib_notes_autosave",
       "src_lib_notes_autosave_autosavecontroller",
@@ -328,11 +329,11 @@
   },
   "cohesion": {
     "0": 0.046511627906976744,
-    "1": 0.10837438423645321,
-    "2": 0.07407407407407407,
-    "3": 0.1396011396011396,
-    "4": 0.10153846153846154,
-    "5": 0.14624505928853754,
+    "1": 0.10344827586206896,
+    "2": 0.09686609686609686,
+    "3": 0.07407407407407407,
+    "4": 0.1396011396011396,
+    "5": 0.15584415584415584,
     "6": 0.09523809523809523,
     "7": 0.15384615384615385,
     "8": 0.2,
@@ -363,13 +364,13 @@
       "degree": 20
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "degree": 17
     },
     {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
+      "id": "src_app_page_home",
+      "label": "Home()",
       "degree": 17
     },
     {
@@ -454,15 +455,15 @@
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "archiveNote()",
+      "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {

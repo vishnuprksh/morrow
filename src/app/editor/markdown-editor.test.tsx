@@ -37,4 +37,10 @@ describe('MarkdownEditor', () => {
     expect(screen.getByRole('button', { name: 'Bold' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bulleted list' })).toBeInTheDocument();
   });
+
+  it('does not render the raw view inside the WYSIWYG editor', () => {
+    render(<MarkdownEditor value={'# Notes'} onChange={vi.fn()} />);
+
+    expect(screen.queryByLabelText('Raw Markdown note content')).not.toBeInTheDocument();
+  });
 });
