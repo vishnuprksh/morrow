@@ -30,32 +30,6 @@
       "source_location": "L9"
     },
     {
-      "id": "src_app_agent_panel_chatmessage",
-      "label": "ChatMessage",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "chatmessage",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L8"
-    },
-    {
-      "id": "src_app_agent_panel_notecontext",
-      "label": "NoteContext",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "notecontext",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L7"
-    },
-    {
       "id": "src_lib_ai_proposals_diffsegment",
       "label": "DiffSegment",
       "_callable": true,
@@ -80,6 +54,30 @@
       "norm_label": "notechangeproposal",
       "source_file": "src/lib/ai/proposals.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "src_app_agent_panel_chatmessage",
+      "label": "ChatMessage",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "chatmessage",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "src_app_agent_panel_notecontext",
+      "label": "NoteContext",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "notecontext",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L7"
     },
     {
       "id": "src_app_editor_markdown_editor_editaction",
@@ -643,30 +641,6 @@
       "source_location": "L10"
     },
     {
-      "id": "src_app_agent_panel_agentpanel",
-      "label": "AgentPanel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "agentpanel()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L10"
-    },
-    {
-      "id": "src_app_agent_panel_agentpanel_send",
-      "label": "send()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "send()",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L16"
-    },
-    {
       "id": "src_lib_ai_proposals_changedlinecount",
       "label": "changedLineCount()",
       "_callable": true,
@@ -689,6 +663,39 @@
       "norm_label": "diffsegments()",
       "source_file": "src/lib/ai/proposals.ts",
       "source_location": "L12"
+    },
+    {
+      "id": "src_app_agent_panel_agentpanel",
+      "label": "AgentPanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "agentpanel()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_app_agent_panel_agentpanel_send",
+      "label": "send()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "send()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_app_agent_panel_workingindicator",
+      "label": "WorkingIndicator()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "workingindicator()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L10"
     },
     {
       "id": "src_app_editor_markdown_editor_difftext",
@@ -1899,17 +1906,6 @@
       "source_location": "L6"
     },
     {
-      "id": "src_app_agent_panel",
-      "label": "agent-panel.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "markdown-editor.tsx",
-      "file_type": "code",
-      "norm_label": "agent-panel.tsx",
-      "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_lib_ai_proposals",
       "label": "proposals.ts",
       "_origin": "ast",
@@ -1932,14 +1928,14 @@
       "source_location": "L1"
     },
     {
-      "id": "core",
-      "label": "@milkdown/core",
+      "id": "src_app_agent_panel",
+      "label": "agent-panel.tsx",
       "_origin": "ast",
       "community": 2,
-      "confidence": "EXTRACTED",
       "file_type": "code",
-      "norm_label": "@milkdown/core",
-      "source_file": "@milkdown/core"
+      "norm_label": "agent-panel.tsx",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L1"
     },
     {
       "id": "src_app_editor_markdown_editor",
@@ -3632,7 +3628,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L16",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -5835,13 +5831,24 @@
     },
     {
       "source": "src_app_agent_panel",
-      "target": "src_app_agent_panel_agentpanel",
+      "target": "src_app_agent_panel_workingindicator",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_agent_panel",
+      "target": "src_app_agent_panel_agentpanel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -6989,15 +6996,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_app_editor_markdown_editor_test",
-      "target": "core",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/editor/markdown-editor.test.tsx"
-    },
-    {
       "source": "next_env_d_rationale_6",
       "target": "next_env_d",
       "relation": "rationale_for",
@@ -7022,5 +7020,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e65b55e08f7aff0c6f02e6574c8c746dde7879dc"
+  "built_at_commit": "2f140b72ab4c7aa5eeffe5440d89e41a469e50e5"
 }

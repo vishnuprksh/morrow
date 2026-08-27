@@ -77,12 +77,12 @@
       "src_lib_supabase_client_createclient"
     ],
     "2": [
-      "core",
       "src_app_agent_panel",
       "src_app_agent_panel_agentpanel",
       "src_app_agent_panel_agentpanel_send",
       "src_app_agent_panel_chatmessage",
       "src_app_agent_panel_notecontext",
+      "src_app_agent_panel_workingindicator",
       "src_app_editor_markdown_editor",
       "src_app_editor_markdown_editor_difftext",
       "src_app_editor_markdown_editor_editaction",
@@ -366,13 +366,13 @@
       "degree": 20
     },
     {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
+      "id": "src_app_page_home",
+      "label": "Home()",
       "degree": 17
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "degree": 17
     },
     {
@@ -384,6 +384,11 @@
       "id": "package_scripts",
       "label": "scripts",
       "degree": 8
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "degree": 7
     },
     {
       "id": "src_lib_supabase_env_getsupabaseenv",
@@ -398,11 +403,6 @@
     {
       "id": "tsconfig_include",
       "label": "include",
-      "degree": 7
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
