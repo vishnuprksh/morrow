@@ -354,13 +354,13 @@
       "degree": 20
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "degree": 17
     },
     {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
+      "id": "src_app_page_home",
+      "label": "Home()",
       "degree": 17
     },
     {
@@ -379,11 +379,6 @@
       "degree": 7
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
-      "degree": 7
-    },
-    {
       "id": "src_lib_notes_autosave_createautosavecontroller",
       "label": "createAutosaveController()",
       "degree": 7
@@ -391,6 +386,11 @@
     {
       "id": "tsconfig_include",
       "label": "include",
+      "degree": 7
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
