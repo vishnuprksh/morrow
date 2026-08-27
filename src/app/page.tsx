@@ -15,6 +15,10 @@ import type { NoteChangeProposal } from '@/lib/ai/proposals';
 type FolderRow = { id: string; name: string; parent_id: string | null; position: number };
 type NoteRow = { id: string; title: string; folder_id: string | null; content_markdown: string; version: number; updated_at: string; is_favorite: boolean; is_archived: boolean };
 
+function WorkspaceLoadingScreen() {
+  return <main className="workspace-loading" role="status" aria-live="polite"><div className="workspace-loading-card"><div className="workspace-loading-mark"><Sparkles size={18} /></div><p className="workspace-loading-brand">Morrow</p><div className="loading-spinner" aria-hidden="true" /><p>Preparing your workspace…</p></div></main>;
+}
+
 export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState<{ id: string; email?: string; user_metadata?: { display_name?: string } } | null>(null);
@@ -214,6 +218,8 @@ export default function Home() {
     if (uploadError) { setError(`Could not upload image: ${uploadError.message}`); return null; }
     return `/api/attachments/${selected.id}/${encodeURIComponent(filename)}`;
   }
+
+  if (loading && !error) return <WorkspaceLoadingScreen />;
 
   return (
     <main className="app-shell">

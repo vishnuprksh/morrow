@@ -165,6 +165,7 @@
       "src_app_page_noterow",
       "src_app_page_recoverynotice",
       "src_app_page_test",
+      "src_app_page_workspaceloadingscreen",
       "src_lib_notes_autosave",
       "src_lib_notes_autosave_autosavecontroller",
       "src_lib_notes_autosave_autosaveresult",
@@ -323,7 +324,7 @@
     "2": 0.07407407407407407,
     "3": 0.1396011396011396,
     "4": 0.10153846153846154,
-    "5": 0.15584415584415584,
+    "5": 0.14624505928853754,
     "6": 0.09523809523809523,
     "7": 0.15384615384615385,
     "8": 0.2,
@@ -353,13 +354,13 @@
       "degree": 20
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "degree": 17
     },
     {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
+      "id": "src_app_page_home",
+      "label": "Home()",
       "degree": 17
     },
     {
@@ -455,41 +456,8 @@
       "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "questions": [
-    {
-      "type": "bridge_node",
-      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.065) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?",
-      "why": "High betweenness centrality (0.053) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `devDependencies` connect `devDependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.049) - this node is a cross-community bridge."
-    },
-    {
-      "type": "isolated_nodes",
-      "question": "What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?",
-      "why": "98 weakly-connected nodes found - possible documentation gaps or missing edges."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `dependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `createClient` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.10837438423645321 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `devDependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
-    }
-  ]
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
 }
