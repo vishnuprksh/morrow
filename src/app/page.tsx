@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
 import { Archive, ArchiveRestore, ChevronDown, ChevronRight, FileText, Folder, FolderPlus, GripVertical, MoreHorizontal, PanelRight, Pencil, Plus, Search, Settings, Sparkles, Star, Trash2 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { SignOutButton } from './auth/auth-form';
 import { MarkdownEditor } from './editor/markdown-editor';
@@ -13,9 +14,9 @@ import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
 type FolderRow = { id: string; name: string; parent_id: string | null; position: number };
 type NoteRow = { id: string; title: string; folder_id: string | null; content_markdown: string; version: number; updated_at: string; is_favorite: boolean; is_archived: boolean };
-type NoteAction = 'rename' | 'move' | 'archive' | 'delete';
 
 export default function Home() {
+  const router = useRouter();
   const [user, setUser] = useState<{ id: string; email?: string; user_metadata?: { display_name?: string } } | null>(null);
   const [folders, setFolders] = useState<FolderRow[]>([]);
   const [notes, setNotes] = useState<NoteRow[]>([]);
@@ -39,9 +40,9 @@ export default function Home() {
   async function loadWorkspace(supabase: ReturnType<typeof createClient>) {
     setLoading(true); setError(null);
     const { data: authData, error: authError } = await supabase.auth.getUser();
-    if (authError) { setError(`Could not restore your session: ${authError.message}`); setLoading(false); return; }
+    if (authError) { router.replace('/auth/sign-in'); return; }
     setUser(authData.user);
-    if (!authData.user) { setFolders([]); setNotes([]); setSelectedNote(null); setLoading(false); return; }
+    if (!authData.user) { router.replace('/auth/sign-in'); return; }
     const [folderResult, noteResult] = await Promise.all([
       supabase.from('folders').select('id, name, parent_id, position').order('position', { ascending: true }),
       supabase.from('notes').select('id, title, content_markdown, folder_id, version, updated_at, is_favorite, is_archived').order('updated_at', { ascending: false }),
@@ -60,7 +61,7 @@ export default function Home() {
 
   useEffect(() => {
     let supabase;
-    try { supabase = createClient(); } catch { return; }
+    try { supabase = createClient(); } catch { window.setTimeout(() => { setError('Could not connect to authentication. Check your Supabase configuration.'); setLoading(false); }, 0); return; }
     supabaseRef.current = supabase;
     autosaveRef.current = createAutosaveController(async (noteId, draft, expectedVersion): Promise<SaveResult> => {
       const { data, error: updateError } = await supabase.from('notes').update({ ...draft, version: expectedVersion + 1 }).eq('id', noteId).eq('version', expectedVersion).select('version, updated_at').maybeSingle();
@@ -83,7 +84,7 @@ export default function Home() {
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       if (session?.user) void loadWorkspace(supabase);
-      else { setFolders([]); setNotes([]); setSelectedNote(null); }
+      else { setFolders([]); setNotes([]); setSelectedNote(null); router.replace('/auth/sign-in'); }
     });
     return () => { listener.subscription.unsubscribe(); autosaveRef.current?.dispose(); autosaveRef.current = null; supabaseRef.current = null; };
   }, []);

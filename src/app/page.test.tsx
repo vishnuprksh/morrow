@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import Home from './page';
 
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({ replace: vi.fn() }),
+}));
+
 vi.mock('./editor/markdown-editor', () => ({
   MarkdownEditor: () => <div aria-label="Markdown note content" />,
 }));

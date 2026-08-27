@@ -78,10 +78,10 @@
     "semantic_hash": "9e34be8a8c65684a35acd6d0903888e9"
   },
   "src/app/auth/auth-form.tsx": {
-    "mtime": 1787661068.2968373,
-    "seen": 1787737298.8736062,
-    "ast_hash": "d33a8d60f6017f2024b2f476709a6711",
-    "semantic_hash": "d33a8d60f6017f2024b2f476709a6711"
+    "mtime": 1787817412.3017814,
+    "seen": 1787817661.4497712,
+    "ast_hash": "bbb127fd9e269e2d56f2b8a1653631a4",
+    "semantic_hash": "bbb127fd9e269e2d56f2b8a1653631a4"
   },
   "src/app/auth/forgot-password/page.tsx": {
     "mtime": 1787658935.517868,
@@ -138,10 +138,10 @@
     "semantic_hash": "d10f1556a5709644572fc9a84cdfc841"
   },
   "src/app/page.tsx": {
-    "mtime": 1787751879.2957883,
-    "seen": 1787753824.296377,
-    "ast_hash": "41a60e5d7d3c2d6ae9adc89c46963ae2",
-    "semantic_hash": "41a60e5d7d3c2d6ae9adc89c46963ae2"
+    "mtime": 1787817479.0267792,
+    "seen": 1787817661.456704,
+    "ast_hash": "633c4e322ef4d0468714562d125022af",
+    "semantic_hash": "633c4e322ef4d0468714562d125022af"
   },
   "src/app/settings/page.tsx": {
     "mtime": 1787751879.2957883,

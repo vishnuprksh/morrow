@@ -17,10 +17,17 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true); setError(null); setMessage(null);
-    const supabase = createClient();
-    const result = mode === 'sign-in'
-      ? await supabase.auth.signInWithPassword({ email, password })
-      : await supabase.auth.signUp({ email, password, options: { data: { display_name: displayName } } });
+    let result;
+    try {
+      const supabase = createClient();
+      result = mode === 'sign-in'
+        ? await supabase.auth.signInWithPassword({ email, password })
+        : await supabase.auth.signUp({ email, password, options: { data: { display_name: displayName } } });
+    } catch (authError) {
+      setError(authError instanceof Error ? authError.message : 'Authentication is unavailable.');
+      setLoading(false);
+      return;
+    }
     if (result.error) setError(result.error.message);
     else if (mode === 'sign-up' && !result.data.session) setMessage('Check your email to confirm your account.');
     else router.push('/');

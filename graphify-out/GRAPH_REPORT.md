@@ -1,16 +1,15 @@
-# Graph Report - haha  (2026-08-26)
+# Graph Report - haha  (2026-08-27)
 
 ## Corpus Check
-- 51 files · ~13,789 words
-- Verdict: corpus is large enough that graph structure adds value.
+- cluster-only mode — file stats not available
 
 ## Summary
-- 263 nodes · 334 edges · 27 communities (18 shown, 9 thin omitted)
+- 262 nodes · 333 edges · 27 communities (18 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9b006369`
+- Built from commit: `bd2181ec`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,15 +26,15 @@
 - portability.ts
 - credentials.ts
 - .prettierrc.json
+- Morrow — AI Markdown Notes
 - ai-settings.tsx
 - layout.tsx
 - SettingsPage
 - validation.ts
+- AGENTS.md
 - next.config.ts
 - next-env.d.ts
 - postcss.config.mjs
-- Morrow — AI Markdown Notes
-- AGENTS.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `createClient()` - 20 edges
@@ -43,23 +42,23 @@
 3. `compilerOptions` - 17 edges
 4. `createClient()` - 10 edges
 5. `scripts` - 8 edges
-6. `MarkdownEditor()` - 7 edges
-7. `createAutosaveController()` - 7 edges
-8. `getSupabaseEnv()` - 7 edges
+6. `getSupabaseEnv()` - 7 edges
+7. `MarkdownEditor()` - 7 edges
+8. `createAutosaveController()` - 7 edges
 9. `include` - 7 edges
 10. `removeRecoveryCopy()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `proxy()` --calls--> `updateSession()`  [EXTRACTED]
   proxy.ts → src/lib/supabase/middleware.ts
-- `GET()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/api/attachments/[noteId]/[filename]/route.ts → src/lib/supabase/server.ts
-- `submit()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/auth/auth-form.tsx → src/lib/supabase/client.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/forgot-password/page.tsx → src/lib/supabase/client.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/update-password/page.tsx → src/lib/supabase/client.ts
+- `submit()` --calls--> `createClient()`  [EXTRACTED]
+  src/app/auth/auth-form.tsx → src/lib/supabase/client.ts
+- `archiveNote()` --calls--> `createClient()`  [EXTRACTED]
+  src/app/page.tsx → src/lib/supabase/client.ts
 
 ## Import Cycles
 - None detected.
@@ -71,7 +70,7 @@ Cohesion: 0.05
 Nodes (39): ai, @ai-sdk/openai, jszip, lucide-react, @milkdown/core, @milkdown/plugin-listener, @milkdown/preset-commonmark, @milkdown/preset-gfm (+31 more)
 
 ### Community 1 - "createClient"
-Cohesion: 0.10
+Cohesion: 0.11
 Nodes (20): AuthForm(), submit(), SignOutButton(), ForgotPasswordPage(), submit(), UpdatePasswordPage(), submit(), Home() (+12 more)
 
 ### Community 2 - "devDependencies"
@@ -88,7 +87,7 @@ Nodes (15): AgentPanel(), ChatMessage, NoteContext, EditAction, editActions, Mar
 
 ### Community 5 - "app/page.tsx"
 Cohesion: 0.16
-Nodes (18): FolderRow, NoteAction, NoteRow, RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController(), attempt() (+10 more)
+Nodes (17): FolderRow, NoteRow, RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController(), attempt(), flush() (+9 more)
 
 ### Community 6 - "compilerOptions"
 Cohesion: 0.10
@@ -115,7 +114,7 @@ Cohesion: 0.50
 Nodes (3): semi, singleQuote, trailingComma
 
 ## Knowledge Gaps
-- **99 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `nextConfig`, `name` (+94 more)
+- **98 isolated node(s):** `Agent`, `CredentialInput`, `Preset`, `Json`, `ChatMessage` (+93 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -123,16 +122,16 @@ Nodes (3): semi, singleQuote, trailingComma
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.064) - this node is a cross-community bridge._
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
 - **Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?**
   _High betweenness centrality (0.053) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
-  _99 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?**
+  _98 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._
 - **Should `createClient` be split into smaller, more focused modules?**
-  _Cohesion score 0.10344827586206896 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10837438423645321 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

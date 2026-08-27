@@ -70,7 +70,6 @@
       "src_app_page_home_togglefavorite",
       "src_app_page_home_updatenote",
       "src_app_page_home_uploadimage",
-      "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
     "2": [
@@ -162,10 +161,10 @@
     "5": [
       "src_app_page",
       "src_app_page_folderrow",
-      "src_app_page_noteaction",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
       "src_app_page_recoverynotice",
+      "src_app_page_test",
       "src_lib_notes_autosave",
       "src_lib_notes_autosave_autosavecontroller",
       "src_lib_notes_autosave_autosaveresult",
@@ -320,7 +319,7 @@
   },
   "cohesion": {
     "0": 0.05128205128205128,
-    "1": 0.10344827586206896,
+    "1": 0.10837438423645321,
     "2": 0.07407407407407407,
     "3": 0.1396011396011396,
     "4": 0.10153846153846154,
@@ -415,17 +414,6 @@
       "source": "submit()",
       "target": "createClient()",
       "source_files": [
-        "src/app/auth/auth-form.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
         "src/app/auth/forgot-password/page.tsx",
         "src/lib/supabase/client.ts"
       ],
@@ -445,6 +433,17 @@
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
       "source": "archiveNote()",
       "target": "createClient()",
       "source_files": [
@@ -456,8 +455,41 @@
       "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "tokens": {
-    "input": 0,
-    "output": 0
-  }
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
+      "why": "High betweenness centrality (0.065) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?",
+      "why": "High betweenness centrality (0.053) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `scripts`?",
+      "why": "High betweenness centrality (0.049) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?",
+      "why": "98 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `dependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `createClient` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10837438423645321 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `devDependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
+    }
+  ]
 }

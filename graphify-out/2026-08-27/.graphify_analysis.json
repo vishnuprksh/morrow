@@ -70,7 +70,6 @@
       "src_app_page_home_togglefavorite",
       "src_app_page_home_updatenote",
       "src_app_page_home_uploadimage",
-      "src_app_page_test",
       "src_lib_supabase_client_createclient"
     ],
     "2": [
@@ -162,10 +161,10 @@
     "5": [
       "src_app_page",
       "src_app_page_folderrow",
-      "src_app_page_noteaction",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
       "src_app_page_recoverynotice",
+      "src_app_page_test",
       "src_lib_notes_autosave",
       "src_lib_notes_autosave_autosavecontroller",
       "src_lib_notes_autosave_autosaveresult",
@@ -320,7 +319,7 @@
   },
   "cohesion": {
     "0": 0.05128205128205128,
-    "1": 0.10344827586206896,
+    "1": 0.10837438423645321,
     "2": 0.07407407407407407,
     "3": 0.1396011396011396,
     "4": 0.10153846153846154,
@@ -379,6 +378,11 @@
       "degree": 7
     },
     {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "degree": 7
+    },
+    {
       "id": "src_lib_notes_autosave_createautosavecontroller",
       "label": "createAutosaveController()",
       "degree": 7
@@ -386,11 +390,6 @@
     {
       "id": "tsconfig_include",
       "label": "include",
-      "degree": 7
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
@@ -415,17 +414,6 @@
       "source": "submit()",
       "target": "createClient()",
       "source_files": [
-        "src/app/auth/auth-form.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
         "src/app/auth/forgot-password/page.tsx",
         "src/lib/supabase/client.ts"
       ],
@@ -438,6 +426,17 @@
       "target": "createClient()",
       "source_files": [
         "src/app/auth/update-password/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/auth-form.tsx",
         "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
