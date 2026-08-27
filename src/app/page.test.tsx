@@ -10,10 +10,10 @@ vi.mock('./editor/markdown-editor', () => ({
 }));
 
 describe('workspace shell', () => {
-  it('renders the note workspace regions', () => {
+  it('shows a loading screen while authentication is checked', () => {
     render(<Home />);
     expect(screen.getByText('Morrow')).toBeInTheDocument();
-    expect(screen.getByLabelText('Markdown note content')).toBeInTheDocument();
-    expect(screen.getByText('Chat with your agent')).toBeInTheDocument();
+    expect(screen.getByText('Preparing your workspace…')).toBeInTheDocument();
+    expect(screen.getByRole('status')).toBeInTheDocument();
   });
 });
