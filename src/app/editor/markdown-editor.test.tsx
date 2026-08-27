@@ -4,12 +4,12 @@ import { MarkdownEditor } from './markdown-editor';
 
 vi.mock('@milkdown/core', () => ({
   Editor: {
-    make: () => ({
+    make: vi.fn(() => ({
       config: () => {
         const chain = { use: () => chain, create: vi.fn().mockResolvedValue(undefined), destroy: vi.fn(), action: vi.fn() };
         return chain;
       },
-    }),
+    })),
   },
   editorViewCtx: {},
   rootCtx: {},
@@ -17,11 +17,18 @@ vi.mock('@milkdown/core', () => ({
 }));
 vi.mock('@milkdown/preset-commonmark', () => ({ commonmark: {} }));
 vi.mock('@milkdown/preset-gfm', () => ({ gfm: {} }));
+vi.mock('@milkdown/plugin-math', () => ({ math: {}, katexOptionsCtx: { key: {} } }));
 vi.mock('@milkdown/plugin-listener', () => ({ listener: {}, listenerCtx: {} }));
 vi.mock('@milkdown/prose/commands', () => ({ setBlockType: vi.fn(), toggleMark: vi.fn(), wrapIn: vi.fn() }));
 vi.mock('@milkdown/utils', () => ({ replaceAll: vi.fn() }));
 
 describe('MarkdownEditor', () => {
+  it('configures KaTeX to keep invalid equations from crashing the editor', async () => {
+    render(<MarkdownEditor value={'$\\[x$'} onChange={vi.fn()} />);
+
+    expect((await import('@milkdown/core')).Editor.make).toHaveBeenCalled();
+  });
+
   it('renders a labeled WYSIWYG editor and Markdown toolbar', () => {
     render(<MarkdownEditor value={'# Notes\n\n**Important**'} onChange={vi.fn()} />);
 

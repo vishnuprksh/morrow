@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Editor, editorViewCtx, rootCtx, defaultValueCtx } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
 import { gfm } from '@milkdown/preset-gfm';
+import { katexOptionsCtx, math } from '@milkdown/plugin-math';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
 import type { Command } from '@milkdown/prose/state';
@@ -70,6 +71,9 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       .config((ctx) => {
         ctx.set(rootCtx, rootRef.current!);
         ctx.set(defaultValueCtx, currentValueRef.current);
+        // Keep malformed or unsupported LaTeX from crashing the whole editor.
+        // KaTeX will render unsupported commands as text when throwOnError is false.
+        ctx.set(katexOptionsCtx.key, { throwOnError: false, strict: 'ignore', errorColor: '#c45f51' });
         ctx.get(listenerCtx).markdownUpdated((_, markdown) => {
           currentValueRef.current = markdown;
           onChangeRef.current(markdown);
@@ -77,6 +81,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       })
       .use(commonmark)
       .use(gfm)
+      .use(math)
       .use(listener);
 
     editorRef.current = editor;
