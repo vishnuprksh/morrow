@@ -4,12 +4,12 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 262 nodes · 333 edges · 27 communities (18 shown, 9 thin omitted)
+- 269 nodes · 339 edges · 28 communities (19 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd2181ec`
+- Built from commit: `c045406d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -52,22 +52,22 @@
 - `proxy()` --calls--> `updateSession()`  [EXTRACTED]
   proxy.ts → src/lib/supabase/middleware.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
+  src/app/auth/auth-form.tsx → src/lib/supabase/client.ts
+- `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/forgot-password/page.tsx → src/lib/supabase/client.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/update-password/page.tsx → src/lib/supabase/client.ts
-- `submit()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/auth/auth-form.tsx → src/lib/supabase/client.ts
-- `archiveNote()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/page.tsx → src/lib/supabase/client.ts
+- `Home()` --calls--> `createAutosaveController()`  [EXTRACTED]
+  src/app/page.tsx → src/lib/notes/autosave.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (27 total, 9 thin omitted)
+## Communities (28 total, 9 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.05
-Nodes (39): ai, @ai-sdk/openai, jszip, lucide-react, @milkdown/core, @milkdown/plugin-listener, @milkdown/preset-commonmark, @milkdown/preset-gfm (+31 more)
+Nodes (43): ai, @ai-sdk/openai, jszip, katex, lucide-react, @milkdown/core, @milkdown/plugin-listener, @milkdown/plugin-math (+35 more)
 
 ### Community 1 - "createClient"
 Cohesion: 0.11
@@ -86,7 +86,7 @@ Cohesion: 0.10
 Nodes (15): AgentPanel(), ChatMessage, NoteContext, EditAction, editActions, MarkdownEditor(), requestEdit(), submitCustomInstruction() (+7 more)
 
 ### Community 5 - "app/page.tsx"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (17): FolderRow, NoteRow, RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController(), attempt(), flush() (+9 more)
 
 ### Community 6 - "compilerOptions"
@@ -114,7 +114,7 @@ Cohesion: 0.50
 Nodes (3): semi, singleQuote, trailingComma
 
 ## Knowledge Gaps
-- **98 isolated node(s):** `Agent`, `CredentialInput`, `Preset`, `Json`, `ChatMessage` (+93 more)
+- **100 isolated node(s):** `Agent`, `CredentialInput`, `Preset`, `Json`, `ChatMessage` (+95 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -122,15 +122,15 @@ Nodes (3): semi, singleQuote, trailingComma
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
 - **Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?**
-  _High betweenness centrality (0.053) - this node is a cross-community bridge._
+  _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?**
-  _98 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _100 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected._
 - **Should `createClient` be split into smaller, more focused modules?**
   _Cohesion score 0.10837438423645321 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**

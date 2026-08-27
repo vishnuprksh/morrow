@@ -72,6 +72,7 @@ button { border:0; cursor:pointer; color:inherit; background:transparent; }
 .milkdown-editor code { padding:2px 4px; color:#8c4d38; background:#f1e8df; border-radius:4px; font-family:ui-monospace,monospace; font-size:.9em; }
 .milkdown-editor pre code { padding:0; color:inherit; background:transparent; }.milkdown-editor a { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
 .milkdown-editor table { display:block; width:100%; margin:1.4em 0; overflow-x:auto; border:1px solid #d4ccc0; border-radius:8px; border-spacing:0; font-size:14px; box-shadow:0 4px 12px #6b5b4810; }.milkdown-editor thead { background:#e8e2d9; }.milkdown-editor th,.milkdown-editor td { min-width:120px; padding:10px 12px; border-right:1px solid #ddd5ca; border-bottom:1px solid #ddd5ca; text-align:left; vertical-align:top; }.milkdown-editor th { color:var(--ink); background:#e8e2d9; font-size:12px; font-weight:700; letter-spacing:.2px; }.milkdown-editor tbody tr:nth-child(even) td { background:#faf8f4; }.milkdown-editor tbody tr:hover td { background:#f2ede5; }.milkdown-editor tr:last-child td { border-bottom:0; }.milkdown-editor th:last-child,.milkdown-editor td:last-child { border-right:0; }.milkdown-editor hr { border:0; border-top:1px solid var(--line); }
+[data-theme='dark'] .milkdown-editor [data-type='math_inline'],[data-theme='dark'] .milkdown-editor [data-type='math_block'] { color:var(--ink); }
 [data-theme='dark'] .milkdown-editor li::marker { color:#f0a27d; }
 [data-theme='dark'] .milkdown-editor li { color:#d1ccc2; }
 
