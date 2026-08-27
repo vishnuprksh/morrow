@@ -114,8 +114,8 @@
     "semantic_hash": "71cbf219291a51822d72894ee1380dc2"
   },
   "src/app/editor/markdown-editor.test.tsx": {
-    "mtime": 1787830863.7742033,
-    "seen": 1787830948.7913046,
+    "mtime": 1787831040.4671931,
+    "seen": 1787831453.4076486,
     "ast_hash": "2c736b2007a2f0de407a529768a5e9c5",
     "semantic_hash": "2c736b2007a2f0de407a529768a5e9c5"
   },
@@ -138,10 +138,10 @@
     "semantic_hash": "3314e9a8de23cf4958bd53ff4c7ff330"
   },
   "src/app/page.tsx": {
-    "mtime": 1787830626.8732173,
-    "seen": 1787830948.7914293,
-    "ast_hash": "6f42e84305d5d7507a4f6d7053cce654",
-    "semantic_hash": "6f42e84305d5d7507a4f6d7053cce654"
+    "mtime": 1787831355.2961745,
+    "seen": 1787831453.4080105,
+    "ast_hash": "22674645a54fc739ea006623b5c2efb7",
+    "semantic_hash": "22674645a54fc739ea006623b5c2efb7"
   },
   "src/app/settings/page.tsx": {
     "mtime": 1787751879.2957883,

@@ -77,6 +77,36 @@
       "src_lib_supabase_client_createclient"
     ],
     "2": [
+      "core",
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_difftext",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton",
+      "src_app_editor_markdown_editor_undoredo",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "3": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -105,7 +135,7 @@
       "vitejs_plugin_react",
       "vitest"
     ],
-    "3": [
+    "4": [
       "proxy",
       "proxy_config",
       "proxy_proxy",
@@ -133,34 +163,6 @@
       "src_lib_supabase_middleware_updatesession",
       "src_lib_supabase_server",
       "src_lib_supabase_server_createclient"
-    ],
-    "4": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_notecontext",
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_difftext",
-      "src_app_editor_markdown_editor_editaction",
-      "src_app_editor_markdown_editor_editactions",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_proposaldiff",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton",
-      "src_lib_ai_proposals",
-      "src_lib_ai_proposals_changedlinecount",
-      "src_lib_ai_proposals_diffsegment",
-      "src_lib_ai_proposals_diffsegments",
-      "src_lib_ai_proposals_notechangeproposal",
-      "src_lib_ai_proposals_test"
     ],
     "5": [
       "src_app_page",
@@ -330,9 +332,9 @@
   "cohesion": {
     "0": 0.046511627906976744,
     "1": 0.10837438423645321,
-    "2": 0.07407407407407407,
-    "3": 0.1396011396011396,
-    "4": 0.10153846153846154,
+    "2": 0.09259259259259259,
+    "3": 0.07407407407407407,
+    "4": 0.1396011396011396,
     "5": 0.13768115942028986,
     "6": 0.09523809523809523,
     "7": 0.15384615384615385,
@@ -384,11 +386,6 @@
       "degree": 8
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
-      "degree": 7
-    },
-    {
       "id": "src_lib_supabase_env_getsupabaseenv",
       "label": "getSupabaseEnv()",
       "degree": 7
@@ -401,6 +398,11 @@
     {
       "id": "tsconfig_include",
       "label": "include",
+      "degree": 7
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
