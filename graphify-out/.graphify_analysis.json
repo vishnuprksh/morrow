@@ -77,6 +77,36 @@
       "src_lib_supabase_client_createclient"
     ],
     "2": [
+      "core",
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_difftext",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton",
+      "src_app_editor_markdown_editor_undoredo",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "3": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -105,7 +135,7 @@
       "vitejs_plugin_react",
       "vitest"
     ],
-    "3": [
+    "4": [
       "proxy",
       "proxy_config",
       "proxy_proxy",
@@ -134,39 +164,12 @@
       "src_lib_supabase_server",
       "src_lib_supabase_server_createclient"
     ],
-    "4": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_notecontext",
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_difftext",
-      "src_app_editor_markdown_editor_editaction",
-      "src_app_editor_markdown_editor_editactions",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_proposaldiff",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton",
-      "src_lib_ai_proposals",
-      "src_lib_ai_proposals_changedlinecount",
-      "src_lib_ai_proposals_diffsegment",
-      "src_lib_ai_proposals_diffsegments",
-      "src_lib_ai_proposals_notechangeproposal",
-      "src_lib_ai_proposals_test"
-    ],
     "5": [
       "src_app_page",
       "src_app_page_folderrow",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
+      "src_app_page_rawmarkdowneditor",
       "src_app_page_recoverynotice",
       "src_app_page_test",
       "src_app_page_workspaceloadingscreen",
@@ -329,10 +332,10 @@
   "cohesion": {
     "0": 0.046511627906976744,
     "1": 0.10837438423645321,
-    "2": 0.07407407407407407,
-    "3": 0.1396011396011396,
-    "4": 0.10153846153846154,
-    "5": 0.14624505928853754,
+    "2": 0.09259259259259259,
+    "3": 0.07407407407407407,
+    "4": 0.1396011396011396,
+    "5": 0.13768115942028986,
     "6": 0.09523809523809523,
     "7": 0.15384615384615385,
     "8": 0.2,
@@ -363,13 +366,13 @@
       "degree": 20
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "degree": 17
     },
     {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
+      "id": "src_app_page_home",
+      "label": "Home()",
       "degree": 17
     },
     {
@@ -388,11 +391,6 @@
       "degree": 7
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
-      "degree": 7
-    },
-    {
       "id": "src_lib_notes_autosave_createautosavecontroller",
       "label": "createAutosaveController()",
       "degree": 7
@@ -400,6 +398,11 @@
     {
       "id": "tsconfig_include",
       "label": "include",
+      "degree": 7
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
@@ -454,52 +457,19 @@
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "archiveNote()",
+      "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "questions": [
-    {
-      "type": "bridge_node",
-      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.070) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`?",
-      "why": "High betweenness centrality (0.051) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `devDependencies` connect `devDependencies` to `scripts`?",
-      "why": "High betweenness centrality (0.049) - this node is a cross-community bridge."
-    },
-    {
-      "type": "isolated_nodes",
-      "question": "What connects `Agent`, `CredentialInput`, `Preset` to the rest of the system?",
-      "why": "100 weakly-connected nodes found - possible documentation gaps or missing edges."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `dependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `createClient` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.10837438423645321 - nodes in this community are weakly interconnected."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `devDependencies` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected."
-    }
-  ]
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
 }

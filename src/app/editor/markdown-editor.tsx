@@ -1,15 +1,19 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Editor, editorViewCtx, rootCtx, defaultValueCtx } from '@milkdown/core';
+import { Editor, editorViewCtx, rootCtx, defaultValueCtx, parserCtx, prosePluginsCtx } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
 import { gfm } from '@milkdown/preset-gfm';
 import { katexOptionsCtx, math } from '@milkdown/plugin-math';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
+import { history, redo, undo } from '@milkdown/prose/history';
+import { keymap } from '@milkdown/prose/keymap';
+import { Slice } from '@milkdown/prose/model';
 import type { Command } from '@milkdown/prose/state';
-import { replaceAll } from '@milkdown/utils';
 import { diffSegments, type DiffSegment, type NoteChangeProposal } from '@/lib/ai/proposals';
+
+const undoRedo = keymap({ 'Mod-z': undo, 'Mod-y': redo, 'Shift-Mod-z': redo });
 
 export type MarkdownEditorProps = {
   value: string;
@@ -71,6 +75,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       .config((ctx) => {
         ctx.set(rootCtx, rootRef.current!);
         ctx.set(defaultValueCtx, currentValueRef.current);
+        ctx.update(prosePluginsCtx, (plugins) => [...plugins, history(), undoRedo]);
         // Keep malformed or unsupported LaTeX from crashing the whole editor.
         // KaTeX will render unsupported commands as text when throwOnError is false.
         ctx.set(katexOptionsCtx.key, { throwOnError: false, strict: 'ignore', errorColor: '#c45f51' });
@@ -102,7 +107,11 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
 
     editor.action((ctx) => {
       if (value === currentValueRef.current) return;
-      replaceAll(value)(ctx);
+      const view = ctx.get(editorViewCtx);
+      const parser = ctx.get(parserCtx);
+      const doc = parser(value);
+      if (!doc) return;
+      view.dispatch(view.state.tr.replace(0, view.state.doc.content.size, new Slice(doc.content, 0, 0)).setMeta('addToHistory', false));
       currentValueRef.current = value;
     });
   }, [value]);

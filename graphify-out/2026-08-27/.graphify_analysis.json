@@ -167,6 +167,7 @@
       "src_app_page_folderrow",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
+      "src_app_page_rawmarkdowneditor",
       "src_app_page_recoverynotice",
       "src_app_page_test",
       "src_app_page_workspaceloadingscreen",
@@ -332,7 +333,7 @@
     "2": 0.07407407407407407,
     "3": 0.1396011396011396,
     "4": 0.10153846153846154,
-    "5": 0.14624505928853754,
+    "5": 0.13768115942028986,
     "6": 0.09523809523809523,
     "7": 0.15384615384615385,
     "8": 0.2,
@@ -363,13 +364,13 @@
       "degree": 20
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
       "degree": 17
     },
     {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
+      "id": "src_app_page_home",
+      "label": "Home()",
       "degree": 17
     },
     {
@@ -381,6 +382,11 @@
       "id": "package_scripts",
       "label": "scripts",
       "degree": 8
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "degree": 7
     },
     {
       "id": "src_lib_supabase_env_getsupabaseenv",
@@ -395,11 +401,6 @@
     {
       "id": "tsconfig_include",
       "label": "include",
-      "degree": 7
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
@@ -454,15 +455,15 @@
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "archiveNote()",
+      "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {
