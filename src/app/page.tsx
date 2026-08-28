@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
-import { Archive, ArchiveRestore, ChevronDown, ChevronRight, Code2, FileText, Folder, FolderPlus, GripVertical, MoreHorizontal, PanelRight, Pencil, PenLine, Plus, Search, Settings, Sparkles, Star, Trash2 } from 'lucide-react';
+import { Archive, ArchiveRestore, ChevronDown, ChevronRight, Code2, FileText, Folder, FolderPlus, GripVertical, ImagePlus, MoreHorizontal, PanelRight, Pencil, PenLine, Plus, Search, Settings, Sparkles, Star, Trash2, Upload, X } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
@@ -9,6 +9,7 @@ import { SignOutButton } from './auth/auth-form';
 import { MarkdownEditor } from './editor/markdown-editor';
 import { createAutosaveController, readRecoveryCopy, removeRecoveryCopy, type AutosaveController, type NoteDraft, type SaveResult } from '@/lib/notes/autosave';
 import { safeFilename } from '@/lib/notes/portability';
+import { imageLookup, imageReferences, parseVaultFiles, rewriteImageLinks, type VaultImage, type VaultNote } from '@/lib/notes/vault-import';
 import { AgentPanel } from './agent-panel';
 import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
@@ -38,6 +39,9 @@ export default function Home() {
   const [folderRenameInput, setFolderRenameInput] = useState('');
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'error'>('saved');
   const [rawMarkdown, setRawMarkdown] = useState(false);
+  const [vaultPreview, setVaultPreview] = useState<{ notes: VaultNote[]; images: VaultImage[]; ignored: string[] } | null>(null);
+  const [importingVault, setImportingVault] = useState(false);
+  const [vaultProgress, setVaultProgress] = useState<{ completed: number; total: number; current: string } | null>(null);
   const autosaveRef = useRef<AutosaveController | null>(null);
   const supabaseRef = useRef<ReturnType<typeof createClient> | null>(null);
   const previousNoteRef = useRef<string | null>(null);
@@ -220,13 +224,60 @@ export default function Home() {
     return `/api/attachments/${selected.id}/${encodeURIComponent(filename)}`;
   }
 
+  function selectVault(event: React.ChangeEvent<HTMLInputElement>) {
+    const files = event.target.files;
+    if (files) setVaultPreview(parseVaultFiles(files));
+    event.target.value = '';
+  }
+
+  async function importVault() {
+    if (!vaultPreview || !user) return;
+    setImportingVault(true); setError(null);
+    setVaultProgress({ completed: 0, total: vaultPreview.notes.length + vaultPreview.images.length, current: 'Preparing your vault…' });
+    try {
+      const supabase = createClient();
+      const folderIds = new Map<string, string>();
+      const orderedFolders = [...new Set(vaultPreview.notes.flatMap((note) => note.folderPath.map((_, index) => note.folderPath.slice(0, index + 1).join('/'))))].sort((a, b) => a.split('/').length - b.split('/').length);
+      for (const path of orderedFolders) {
+        const parts = path.split('/');
+        const parentPath = parts.slice(0, -1).join('/') || null;
+        const { data, error: folderError } = await supabase.from('folders').insert({ user_id: user.id, name: `${parts.at(-1) ?? 'Folder'} (v2)`, parent_id: parentPath ? folderIds.get(parentPath) ?? null : null, position: folders.length + folderIds.size }).select('id').single();
+        if (folderError || !data) throw new Error(folderError?.message ?? 'Could not create import folder');
+        folderIds.set(path, data.id);
+      }
+      const images = imageLookup(vaultPreview.images);
+      for (const note of vaultPreview.notes) {
+        const { data: importedNote, error: createError } = await supabase.from('notes').insert({ user_id: user.id, title: `${note.title} (v2)`, folder_id: folderIds.get(note.folderPath.join('/')) ?? null, content_markdown: '' }).select('id').single();
+        if (createError || !importedNote) throw new Error(createError?.message ?? 'Could not create imported note');
+        const uploaded = new Map<string, string>();
+        const markdown = await note.file.text();
+        for (const reference of imageReferences(markdown)) {
+          const image = images.get(reference) ?? images.get(reference.split('/').pop() ?? reference);
+          if (!image) continue;
+          const filename = `${crypto.randomUUID()}-${safeFilename(image.file.name, 'image')}`;
+          const { error: uploadError } = await supabase.storage.from('attachments').upload(`${user.id}/${importedNote.id}/${filename}`, image.file, { contentType: image.file.type || 'application/octet-stream' });
+          if (!uploadError) uploaded.set(reference, `/api/attachments/${importedNote.id}/${encodeURIComponent(filename)}`);
+          setVaultProgress((current) => current ? { ...current, completed: current.completed + 1, current: image.file.name } : current);
+        }
+        const content = rewriteImageLinks(markdown, (reference) => uploaded.get(reference) ?? uploaded.get(reference.split('/').pop() ?? reference));
+        const { data, error: noteError } = await supabase.from('notes').update({ content_markdown: content }).eq('id', importedNote.id).select('id, title, folder_id, content_markdown, version, updated_at, is_favorite, is_archived').single();
+        if (noteError || !data) throw new Error(noteError?.message ?? 'Could not import note');
+        setNotes((current) => [data, ...current]);
+        setVaultProgress((current) => current ? { ...current, completed: current.completed + 1, current: note.file.name } : current);
+      }
+      await loadWorkspace(supabase);
+      setVaultPreview(null);
+    } catch (importError) { setError(importError instanceof Error ? importError.message : 'Could not import vault.'); }
+    finally { setImportingVault(false); setVaultProgress(null); }
+  }
+
   if (loading && !error) return <WorkspaceLoadingScreen />;
 
   return (
     <main className="app-shell">
       <aside className="sidebar">
         <div className="brand"><div className="brand-mark"><Sparkles size={15} /></div><span>Morrow</span></div>
-        <div className="sidebar-actions"><button className="new-note" onClick={createNote}><Plus size={16} /> New note</button><button className="icon-button" aria-label="Search"><Search size={17} /></button></div>
+        <div className="sidebar-actions"><button className="new-note" onClick={createNote}><Plus size={16} /> New note</button><button className="icon-button" aria-label="Search"><Search size={17} /></button></div><label className="import-vault-button"><Upload size={14} /> Import vault<input type="file" hidden multiple {...{ webkitdirectory: '', directory: '' }} onChange={selectVault} /></label>
         <nav className="nav-list"><button className={`nav-item ${selectedFolder === null && !showArchived && !showFavorites ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(false); setShowFavorites(false); }}><FileText size={16} /> All notes <span>{notes.filter((note) => !note.is_archived).length}</span></button><button className={`nav-item ${showFavorites ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(false); setShowFavorites(true); }}><Star size={16} /> Favorites <span>{notes.filter((note) => note.is_favorite && !note.is_archived).length}</span></button><button className={`nav-item ${showArchived ? 'selected' : ''}`} onClick={() => { setSelectedFolder(null); setShowArchived(true); setShowFavorites(false); }}><Archive size={16} /> Archive <span>{notes.filter((note) => note.is_archived).length}</span></button></nav>
         <div className="section-heading"><span>Folders</span><button aria-label="Add folder" onClick={() => void createFolder()} disabled={folderSaving}><FolderPlus size={15} /></button></div>
         <div className="folder-list">{folders.map((folder) => <div className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`} key={folder.id}><button className="folder-toggle" onClick={() => { setSelectedFolder(folder.id); setOpenFolders((current) => ({ ...current, [folder.id]: !current[folder.id] })); }} aria-label={`Toggle ${folder.name}`}><span className="folder-icon">{openFolders[folder.id] ? <ChevronDown size={14} /> : <ChevronRight size={14} />}<Folder size={15} /></span>{renamingFolderId === folder.id ? <input className="folder-rename-input" aria-label={`Rename ${folder.name}`} autoFocus value={folderRenameInput} maxLength={120} onChange={(event) => setFolderRenameInput(event.target.value)} onClick={(event) => event.stopPropagation()} onDoubleClick={(event) => event.stopPropagation()} onBlur={() => void renameFolder(folder)} onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault(); void renameFolder(folder); } if (event.key === 'Escape') { setRenamingFolderId(null); } }} /> : <span onDoubleClick={(event) => { event.stopPropagation(); setRenamingFolderId(folder.id); setFolderRenameInput(folder.name); }}>{folder.name}</span>}</button><span className="muted-count">{notes.filter((note) => note.folder_id === folder.id).length}</span><button className="folder-delete" aria-label={`Delete ${folder.name}`} onClick={() => deleteFolder(folder)}><Trash2 size={13} /></button></div>)}</div>
@@ -234,7 +285,7 @@ export default function Home() {
       </aside>
       <section className="notes-panel"><div className="panel-header"><div><p className="eyebrow">Personal workspace</p><h2>{showArchived ? 'Archive' : selectedFolder ? folderName(selectedFolder) : 'All notes'}</h2></div><button className="icon-button"><MoreHorizontal size={18} /></button></div><div className="note-search"><Search size={15} /><input placeholder="Filter notes" value={filter} onChange={(event) => setFilter(event.target.value)} /></div>{error && <p className="workspace-error" role="alert">{error}</p>}{loading ? <p className="workspace-message">Loading your notes…</p> : <div className="note-list">{visibleNotes.map((note) => <button className={`note-card ${note.id === selectedNote ? 'active' : ''}`} key={note.id} onClick={() => setSelectedNote(note.id)} onContextMenu={(event) => openNoteMenu(event, note)}><div className="note-card-icon"><FileText size={16} /></div><div><strong>{note.title}</strong><small>{folderName(note.folder_id)} · {new Date(note.updated_at).toLocaleDateString()}</small></div></button>)}{visibleNotes.length === 0 && <p className="workspace-message">No notes here yet.</p>}</div>}<button className="add-note" onClick={createNote}><Plus size={16} /> Add a note</button>{contextMenu && <NoteContextMenu menu={contextMenu} folders={folders} onRename={() => { setSelectedNote(contextMenu.note.id); setContextMenu(null); requestAnimationFrame(() => document.querySelector<HTMLInputElement>('.title-input')?.focus()); }} onArchive={() => void archiveNote(contextMenu.note)} onDelete={() => void deleteNote(contextMenu.note)} onMove={(folderId) => void moveNote(contextMenu.note, folderId)} onClose={() => setContextMenu(null)} />}</section>
       <section className="editor"><header className="editor-header"><div className="breadcrumbs"><span>{folderName(selected?.folder_id ?? null)}</span><span>/</span><span>{selected?.title ?? 'No note selected'}</span></div><div className="editor-tools"><span className="save-status"><span className={saveStatus === 'error' ? 'save-error-dot' : saveStatus === 'saving' ? 'saving-dot' : 'saved-dot'} /> {saveStatus === 'error' ? 'Save failed' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</span><div className="view-toggle" role="group" aria-label="Editor view"><button type="button" className={!rawMarkdown ? 'selected' : ''} aria-pressed={!rawMarkdown} onClick={() => setRawMarkdown(false)} disabled={!selected}><PenLine size={14} /> Editor</button><button type="button" className={rawMarkdown ? 'selected' : ''} aria-pressed={rawMarkdown} onClick={() => setRawMarkdown(true)} disabled={!selected}><Code2 size={14} /> Raw</button></div><button className="icon-button" disabled={!selected} onClick={() => selected && deleteNote(selected)} aria-label="Delete note"><Trash2 size={16} /></button><button className="icon-button"><Star size={17} /></button><button className="icon-button" onClick={() => setChatOpen(!chatOpen)} aria-label="Toggle AI chat"><PanelRight size={17} /></button></div></header><div className="editor-content">{selected ? <><RecoveryNotice note={selected} onRecover={(draft) => { setNotes((current) => current.map((item) => item.id === selected.id ? { ...item, ...draft } : item)); autosaveRef.current?.schedule(selected.id, draft, selected.version); setSaveStatus('saving'); }} /><input className="title-input" value={selected.title} onChange={(event) => updateNote(selected.id, { title: event.target.value })} aria-label="Note title" />{rawMarkdown ? <RawMarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })} /> : <MarkdownEditor value={selected.content_markdown} onChange={(content_markdown) => updateNote(selected.id, { content_markdown })} onUploadImage={uploadImage} proposal={pendingProposal?.noteId === selected.id ? pendingProposal : null} onAcceptProposal={acceptProposal} onDiscardProposal={() => setPendingProposal(null)} />}</> : <div className="workspace-message" aria-label="Markdown note content">Create a note to start writing.</div>}</div></section>
-      {chatOpen && <><div className="agent-resize-handle" role="separator" aria-label="Resize agent sidebar" onMouseDown={(event) => { const startX = event.clientX; const startWidth = Number.parseInt(localStorage.getItem('morrow-agent-width') ?? '315', 10); const move = (moveEvent: MouseEvent) => { const width = Math.min(520, Math.max(260, startWidth - (moveEvent.clientX - startX))); document.documentElement.style.setProperty('--agent-width', `${width}px`); localStorage.setItem('morrow-agent-width', String(width)); }; const stop = () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', stop); }; window.addEventListener('mousemove', move); window.addEventListener('mouseup', stop); }}><GripVertical size={14} /></div><AgentPanel activeNote={selected} onProposal={(proposal) => { if (!pendingProposal) setPendingProposal(proposal); }} onClose={() => setChatOpen(false)} /></>}
+      {vaultPreview && <VaultPreview preview={vaultPreview} progress={vaultProgress} busy={importingVault} onClose={() => setVaultPreview(null)} onImport={() => void importVault()} />}{chatOpen && <><div className="agent-resize-handle" role="separator" aria-label="Resize agent sidebar" onMouseDown={(event) => { const startX = event.clientX; const startWidth = Number.parseInt(localStorage.getItem('morrow-agent-width') ?? '315', 10); const move = (moveEvent: MouseEvent) => { const width = Math.min(520, Math.max(260, startWidth - (moveEvent.clientX - startX))); document.documentElement.style.setProperty('--agent-width', `${width}px`); localStorage.setItem('morrow-agent-width', String(width)); }; const stop = () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', stop); }; window.addEventListener('mousemove', move); window.addEventListener('mouseup', stop); }}><GripVertical size={14} /></div><AgentPanel activeNote={selected} onProposal={(proposal) => { if (!pendingProposal) setPendingProposal(proposal); }} onClose={() => setChatOpen(false)} /></>}
     </main>
   );
 }
@@ -260,4 +311,9 @@ function RecoveryNotice({ note, onRecover }: { note: NoteRow; onRecover: (draft:
 
 function NoteContextMenu({ menu, folders, onRename, onArchive, onDelete, onMove, onClose }: { menu: { note: NoteRow; x: number; y: number }; folders: FolderRow[]; onRename: () => void; onArchive: () => void; onDelete: () => void; onMove: (folderId: string | null) => void; onClose: () => void }) {
   return <><div className="context-menu-dismiss" onClick={onClose} aria-hidden="true" /><div className="note-context-menu" style={{ left: menu.x, top: menu.y }} role="menu" aria-label={`Actions for ${menu.note.title}`}><button role="menuitem" onClick={onRename}><Pencil size={14} /> Rename</button><label className="move-note-item"><Folder size={14} /> Move to <select aria-label={`Move ${menu.note.title} to`} value={menu.note.folder_id ?? ''} onChange={(event) => onMove(event.target.value || null)}><option value="">Unfiled</option>{folders.map((folder) => <option key={folder.id} value={folder.id}>{folder.name}</option>)}</select></label><button role="menuitem" onClick={onArchive}>{menu.note.is_archived ? <ArchiveRestore size={14} /> : <Archive size={14} />} {menu.note.is_archived ? 'Unarchive' : 'Archive'}</button><button className="danger-action" role="menuitem" onClick={onDelete}><Trash2 size={14} /> Delete</button></div></>;
+}
+
+function VaultPreview({ preview, progress, busy, onClose, onImport }: { preview: { notes: VaultNote[]; images: VaultImage[]; ignored: string[] }; progress: { completed: number; total: number; current: string } | null; busy: boolean; onClose: () => void; onImport: () => void }) {
+  const percentage = progress && progress.total > 0 ? Math.round((progress.completed / progress.total) * 100) : 0;
+  return <div className="vault-backdrop" role="dialog" aria-modal="true" aria-labelledby="vault-preview-title"><section className={`vault-card ${busy ? 'vault-card-busy' : ''}`}><header className="vault-header"><div><p className="eyebrow">Import preview</p><h2 id="vault-preview-title">Review vault import</h2><p>{preview.notes.length} notes · {preview.images.length} images{preview.ignored.length ? ` · ${preview.ignored.length} ignored` : ''}</p></div><button className="icon-button" onClick={onClose} disabled={busy} aria-label="Close import preview"><X size={18} /></button></header>{busy && progress && <div className="vault-progress" role="status" aria-live="polite"><div className="vault-progress-heading"><span><span className="vault-spinner" aria-hidden="true" /> Uploading your vault…</span><strong>{progress.completed} / {progress.total}</strong></div><div className="vault-progress-track"><div className="vault-progress-bar" style={{ width: `${percentage}%` }} /></div><small>Currently processing {progress.current}</small></div>}<div className="vault-summary"><div><FileText size={15} /><strong>Notes</strong><span>{preview.notes.length} Markdown files</span></div><div><ImagePlus size={15} /><strong>Images</strong><span>{preview.images.length} image files uploaded to cloud storage</span></div></div><div className="vault-file-list"><h3>{busy ? 'Importing files' : 'Files to import'}</h3>{[...preview.notes.map((note) => `/${note.path} · note`), ...preview.images.map((image) => `/${image.path} · image`)].slice(0, 100).map((path) => <code key={path}>{path}</code>)}{preview.notes.length + preview.images.length > 100 && <small>Showing the first 100 files.</small>}</div>{preview.ignored.length > 0 && <p className="vault-ignored">Other file types will be ignored ({preview.ignored.length}).</p>}<footer className="vault-actions"><button onClick={onClose} disabled={busy}>Cancel</button><button className="auth-submit" onClick={onImport} disabled={busy || preview.notes.length === 0}>{busy ? 'Uploading…' : 'Import vault'}</button></footer></section></div>;
 }
