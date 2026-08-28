@@ -410,6 +410,11 @@
       "degree": 7
     },
     {
+      "id": "src_lib_notes_portability_safefilename",
+      "label": "safeFilename()",
+      "degree": 7
+    },
+    {
       "id": "src_lib_supabase_env_getsupabaseenv",
       "label": "getSupabaseEnv()",
       "degree": 7
@@ -420,13 +425,8 @@
       "degree": 7
     },
     {
-      "id": "src_lib_notes_portability_safefilename",
-      "label": "safeFilename()",
-      "degree": 7
-    },
-    {
-      "id": "tsconfig_include",
-      "label": "include",
+      "id": "src_app_page_home_importvault",
+      "label": "importVault()",
       "degree": 7
     }
   ],
@@ -441,6 +441,28 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories"
+    },
+    {
+      "source": "importVault()",
+      "target": "safeFilename()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/notes/portability.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "uploadImage()",
+      "target": "safeFilename()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/notes/portability.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
     },
     {
       "source": "submit()",
@@ -463,32 +485,43 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/auth/update-password/page.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "archiveNote()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "tokens": {
-    "input": 0,
-    "output": 0
-  }
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
+      "why": "High betweenness centrality (0.061) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `createClient()` connect `createClient` to `createClient`, `app/page.tsx`, `vault-import.ts`?",
+      "why": "High betweenness centrality (0.054) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `getSupabaseEnv()` connect `createClient` to `createClient`?",
+      "why": "High betweenness centrality (0.044) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `ChatMessage`, `NoteContext`, `EditAction` to the rest of the system?",
+      "why": "103 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `dependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `markdown-editor.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09259259259259259 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `createClient` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11375661375661375 - nodes in this community are weakly interconnected."
+    }
+  ]
 }
