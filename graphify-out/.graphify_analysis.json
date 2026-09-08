@@ -46,6 +46,72 @@
       "zod"
     ],
     "1": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "ref_next_dev_types_ts",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_src_ts",
+      "ref_src_tsx",
+      "ref_vitest_config_ts",
+      "ref_vitest_globals",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_types",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "2": [
+      "src_app_auth_auth_form",
+      "src_app_auth_auth_form_authform",
+      "src_app_auth_auth_form_authform_submit",
+      "src_app_auth_auth_form_signoutbutton",
+      "src_app_auth_forgot_password_page",
+      "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "src_app_auth_sign_in_page",
+      "src_app_auth_sign_in_page_signinpage",
+      "src_app_auth_sign_up_page",
+      "src_app_auth_sign_up_page_signuppage",
+      "src_app_auth_update_password_page",
+      "src_app_auth_update_password_page_updatepasswordpage",
+      "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "src_app_page_home",
+      "src_app_page_home_acceptproposal",
+      "src_app_page_home_archivenote",
+      "src_app_page_home_bulkmovetotrash",
+      "src_app_page_home_createfolder",
+      "src_app_page_home_createnote",
+      "src_app_page_home_deletefolder",
+      "src_app_page_home_movenote",
+      "src_app_page_home_movetotrash",
+      "src_app_page_home_opennotemenu",
+      "src_app_page_home_permanentlydeletenote",
+      "src_app_page_home_renamefolder",
+      "src_app_page_home_restorenote",
+      "src_app_page_home_togglefavorite",
+      "src_app_page_home_updatenote",
+      "src_app_page_home_uploadimage",
+      "src_lib_supabase_client_createclient"
+    ],
+    "3": [
       "src_app_agent_panel",
       "src_app_agent_panel_agentpanel",
       "src_app_agent_panel_agentpanel_send",
@@ -75,37 +141,7 @@
       "src_lib_ai_proposals_notechangeproposal",
       "src_lib_ai_proposals_test"
     ],
-    "2": [
-      "src_app_auth_auth_form",
-      "src_app_auth_auth_form_authform",
-      "src_app_auth_auth_form_authform_submit",
-      "src_app_auth_auth_form_signoutbutton",
-      "src_app_auth_forgot_password_page",
-      "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "src_app_auth_sign_in_page",
-      "src_app_auth_sign_in_page_signinpage",
-      "src_app_auth_sign_up_page",
-      "src_app_auth_sign_up_page_signuppage",
-      "src_app_auth_update_password_page",
-      "src_app_auth_update_password_page_updatepasswordpage",
-      "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "src_app_page_home",
-      "src_app_page_home_acceptproposal",
-      "src_app_page_home_archivenote",
-      "src_app_page_home_createfolder",
-      "src_app_page_home_createnote",
-      "src_app_page_home_deletefolder",
-      "src_app_page_home_deletenote",
-      "src_app_page_home_movenote",
-      "src_app_page_home_opennotemenu",
-      "src_app_page_home_renamefolder",
-      "src_app_page_home_togglefavorite",
-      "src_app_page_home_updatenote",
-      "src_app_page_home_uploadimage",
-      "src_lib_supabase_client_createclient"
-    ],
-    "3": [
+    "4": [
       "eslint",
       "eslint_config_next",
       "jsdom",
@@ -134,7 +170,7 @@
       "vitejs_plugin_react",
       "vitest"
     ],
-    "4": [
+    "5": [
       "proxy",
       "proxy_config",
       "proxy_proxy",
@@ -163,11 +199,12 @@
       "src_lib_supabase_server",
       "src_lib_supabase_server_createclient"
     ],
-    "5": [
+    "6": [
       "src_app_page",
       "src_app_page_folderrow",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
+      "src_app_page_noteview",
       "src_app_page_rawmarkdowneditor",
       "src_app_page_recoverynotice",
       "src_app_page_test",
@@ -189,29 +226,6 @@
       "src_lib_notes_autosave_saveresult",
       "src_lib_notes_autosave_test",
       "src_lib_notes_autosave_writerecoverycopy"
-    ],
-    "6": [
-      "ref_dom",
-      "ref_dom_iterable",
-      "ref_esnext",
-      "ref_vitest_globals",
-      "tsconfig_compileroptions",
-      "tsconfig_compileroptions_allowjs",
-      "tsconfig_compileroptions_esmoduleinterop",
-      "tsconfig_compileroptions_incremental",
-      "tsconfig_compileroptions_isolatedmodules",
-      "tsconfig_compileroptions_jsx",
-      "tsconfig_compileroptions_lib",
-      "tsconfig_compileroptions_module",
-      "tsconfig_compileroptions_moduleresolution",
-      "tsconfig_compileroptions_noemit",
-      "tsconfig_compileroptions_paths",
-      "tsconfig_compileroptions_plugins",
-      "tsconfig_compileroptions_resolvejsonmodule",
-      "tsconfig_compileroptions_skiplibcheck",
-      "tsconfig_compileroptions_strict",
-      "tsconfig_compileroptions_target",
-      "tsconfig_compileroptions_types"
     ],
     "7": [
       "src_app_page_home_importvault",
@@ -247,18 +261,6 @@
       "package_version"
     ],
     "9": [
-      "ref_next_dev_types_ts",
-      "ref_next_env_d_ts",
-      "ref_next_types_ts",
-      "ref_node_modules",
-      "ref_src_ts",
-      "ref_src_tsx",
-      "ref_vitest_config_ts",
-      "tsconfig",
-      "tsconfig_exclude",
-      "tsconfig_include"
-    ],
-    "10": [
       "src_lib_notes_portability",
       "src_lib_notes_portability_downloadblob",
       "src_lib_notes_portability_folderpath",
@@ -269,12 +271,19 @@
       "src_lib_notes_portability_test",
       "src_lib_notes_portability_workspacezip"
     ],
-    "11": [
+    "10": [
       "src_lib_ai_credentials",
       "src_lib_ai_credentials_decryptapikey",
       "src_lib_ai_credentials_encryptapikey",
       "src_lib_ai_credentials_encryptionkey",
       "src_lib_ai_credentials_test"
+    ],
+    "11": [
+      "src_lib_notes_trash",
+      "src_lib_notes_trash_isexpiredtrash",
+      "src_lib_notes_trash_test",
+      "src_lib_notes_trash_trash_retention_days",
+      "src_lib_notes_trash_trashexpirycutoff"
     ],
     "12": [
       "prettierrc",
@@ -349,17 +358,17 @@
   },
   "cohesion": {
     "0": 0.046511627906976744,
-    "1": 0.09259259259259259,
-    "2": 0.11375661375661375,
-    "3": 0.07407407407407407,
-    "4": 0.1396011396011396,
-    "5": 0.13,
-    "6": 0.09523809523809523,
+    "1": 0.06451612903225806,
+    "2": 0.1053763440860215,
+    "3": 0.09259259259259259,
+    "4": 0.07407407407407407,
+    "5": 0.1396011396011396,
+    "6": 0.12307692307692308,
     "7": 0.18333333333333332,
     "8": 0.15384615384615385,
-    "9": 0.2,
-    "10": 0.4166666666666667,
-    "11": 0.8,
+    "9": 0.4166666666666667,
+    "10": 0.8,
+    "11": 0.7,
     "12": 0.5,
     "13": 0.6666666666666666,
     "14": 0.6666666666666666,
@@ -382,12 +391,12 @@
     {
       "id": "src_lib_supabase_client_createclient",
       "label": "createClient()",
-      "degree": 21
+      "degree": 24
     },
     {
       "id": "src_app_page_home",
       "label": "Home()",
-      "degree": 19
+      "degree": 22
     },
     {
       "id": "tsconfig_compileroptions",
