@@ -19,13 +19,15 @@ export function relativeVaultPath(file: File) {
   return (file as File & { webkitRelativePath?: string }).webkitRelativePath || file.name;
 }
 
-export function parseVaultFiles(files: FileList | File[]): { notes: VaultNote[]; images: VaultImage[]; ignored: string[] } {
+export function parseVaultFiles(files: FileList | File[]): { notes: VaultNote[]; images: VaultImage[]; ignored: string[]; vaultName: string } {
   const notes: VaultNote[] = [];
   const images: VaultImage[] = [];
   const ignored: string[] = [];
+  let vaultName = 'Imported vault';
   for (const file of Array.from(files)) {
     const path = relativeVaultPath(file);
     const parts = path.split('/').filter(Boolean);
+    if (parts.length > 1 && vaultName === 'Imported vault') vaultName = parts[0];
     const name = parts.pop() ?? file.name;
     const ext = extension(name);
     const folderPath = parts.slice(1);
@@ -33,7 +35,7 @@ export function parseVaultFiles(files: FileList | File[]): { notes: VaultNote[];
     else if (imageExtensions.has(ext) || file.type.startsWith('image/')) images.push({ file, path, kind: 'image' });
     else ignored.push(path);
   }
-  return { notes, images, ignored };
+  return { notes, images, ignored, vaultName };
 }
 
 export function imageLookup(images: VaultImage[]) {

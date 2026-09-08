@@ -12,6 +12,7 @@ describe('vault import', () => {
     const nested = file('Projects/Plan.md');
     nested.webkitRelativePath = 'My Vault/Projects/Plan.md';
     const result = parseVaultFiles([nested, file('images/photo.png', 'image/png'), file('data.pdf', 'application/pdf')]);
+    expect(result.vaultName).toBe('My Vault');
     expect(result.notes[0]).toMatchObject({ title: 'Plan', folderPath: ['Projects'] });
     expect(result.images).toHaveLength(1);
     expect(result.ignored).toEqual(['My Vault/data.pdf']);

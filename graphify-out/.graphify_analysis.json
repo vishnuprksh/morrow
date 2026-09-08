@@ -46,37 +46,47 @@
       "zod"
     ],
     "1": [
-      "ref_dom",
-      "ref_dom_iterable",
-      "ref_esnext",
-      "ref_next_dev_types_ts",
-      "ref_next_env_d_ts",
-      "ref_next_types_ts",
-      "ref_node_modules",
-      "ref_src_ts",
-      "ref_src_tsx",
-      "ref_vitest_config_ts",
-      "ref_vitest_globals",
-      "tsconfig",
-      "tsconfig_compileroptions",
-      "tsconfig_compileroptions_allowjs",
-      "tsconfig_compileroptions_esmoduleinterop",
-      "tsconfig_compileroptions_incremental",
-      "tsconfig_compileroptions_isolatedmodules",
-      "tsconfig_compileroptions_jsx",
-      "tsconfig_compileroptions_lib",
-      "tsconfig_compileroptions_module",
-      "tsconfig_compileroptions_moduleresolution",
-      "tsconfig_compileroptions_noemit",
-      "tsconfig_compileroptions_paths",
-      "tsconfig_compileroptions_plugins",
-      "tsconfig_compileroptions_resolvejsonmodule",
-      "tsconfig_compileroptions_skiplibcheck",
-      "tsconfig_compileroptions_strict",
-      "tsconfig_compileroptions_target",
-      "tsconfig_compileroptions_types",
-      "tsconfig_exclude",
-      "tsconfig_include"
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_home_importvault",
+      "src_app_page_home_selectvault",
+      "src_app_page_notecontextmenu",
+      "src_app_page_noterow",
+      "src_app_page_noteview",
+      "src_app_page_rawmarkdowneditor",
+      "src_app_page_recoverynotice",
+      "src_app_page_test",
+      "src_app_page_vaultpreview",
+      "src_app_page_workspaceloadingscreen",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy",
+      "src_lib_notes_vault_import",
+      "src_lib_notes_vault_import_extension",
+      "src_lib_notes_vault_import_imageextensions",
+      "src_lib_notes_vault_import_imagelookup",
+      "src_lib_notes_vault_import_imagereferences",
+      "src_lib_notes_vault_import_parsevaultfiles",
+      "src_lib_notes_vault_import_relativevaultpath",
+      "src_lib_notes_vault_import_rewriteimagelinks",
+      "src_lib_notes_vault_import_test",
+      "src_lib_notes_vault_import_test_file",
+      "src_lib_notes_vault_import_vaultfile",
+      "src_lib_notes_vault_import_vaultimage",
+      "src_lib_notes_vault_import_vaultnote"
     ],
     "2": [
       "src_app_auth_auth_form",
@@ -100,6 +110,7 @@
       "src_app_page_home_createfolder",
       "src_app_page_home_createnote",
       "src_app_page_home_deletefolder",
+      "src_app_page_home_loadworkspace",
       "src_app_page_home_movenote",
       "src_app_page_home_movetotrash",
       "src_app_page_home_opennotemenu",
@@ -200,52 +211,29 @@
       "src_lib_supabase_server_createclient"
     ],
     "6": [
-      "src_app_page",
-      "src_app_page_folderrow",
-      "src_app_page_notecontextmenu",
-      "src_app_page_noterow",
-      "src_app_page_noteview",
-      "src_app_page_rawmarkdowneditor",
-      "src_app_page_recoverynotice",
-      "src_app_page_test",
-      "src_app_page_vaultpreview",
-      "src_app_page_workspaceloadingscreen",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy"
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "ref_vitest_globals",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_types"
     ],
     "7": [
-      "src_app_page_home_importvault",
-      "src_app_page_home_loadworkspace",
-      "src_app_page_home_selectvault",
-      "src_lib_notes_vault_import",
-      "src_lib_notes_vault_import_extension",
-      "src_lib_notes_vault_import_imageextensions",
-      "src_lib_notes_vault_import_imagelookup",
-      "src_lib_notes_vault_import_imagereferences",
-      "src_lib_notes_vault_import_parsevaultfiles",
-      "src_lib_notes_vault_import_relativevaultpath",
-      "src_lib_notes_vault_import_rewriteimagelinks",
-      "src_lib_notes_vault_import_test",
-      "src_lib_notes_vault_import_test_file",
-      "src_lib_notes_vault_import_vaultfile",
-      "src_lib_notes_vault_import_vaultimage",
-      "src_lib_notes_vault_import_vaultnote"
-    ],
-    "8": [
       "package",
       "package_name",
       "package_packagemanager",
@@ -259,6 +247,18 @@
       "package_scripts_test_watch",
       "package_scripts_typecheck",
       "package_version"
+    ],
+    "8": [
+      "ref_next_dev_types_ts",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_src_ts",
+      "ref_src_tsx",
+      "ref_vitest_config_ts",
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_include"
     ],
     "9": [
       "src_lib_notes_portability",
@@ -358,14 +358,14 @@
   },
   "cohesion": {
     "0": 0.046511627906976744,
-    "1": 0.06451612903225806,
-    "2": 0.1053763440860215,
+    "1": 0.08292682926829269,
+    "2": 0.10080645161290322,
     "3": 0.09259259259259259,
     "4": 0.07407407407407407,
     "5": 0.1396011396011396,
-    "6": 0.12307692307692308,
-    "7": 0.18333333333333332,
-    "8": 0.15384615384615385,
+    "6": 0.09523809523809523,
+    "7": 0.15384615384615385,
+    "8": 0.2,
     "9": 0.4166666666666667,
     "10": 0.8,
     "11": 0.7,
@@ -414,13 +414,13 @@
       "degree": 8
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
-      "id": "src_lib_notes_portability_safefilename",
-      "label": "safeFilename()",
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
       "degree": 7
     },
     {
@@ -429,8 +429,8 @@
       "degree": 7
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
+      "id": "src_lib_notes_portability_safefilename",
+      "label": "safeFilename()",
       "degree": 7
     },
     {
@@ -452,6 +452,28 @@
       "why": "connects across different repos/directories"
     },
     {
+      "source": "Home()",
+      "target": "createAutosaveController()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/notes/autosave.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "moveToTrash()",
+      "target": "removeRecoveryCopy()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/notes/autosave.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
       "source": "importVault()",
       "target": "safeFilename()",
       "source_files": [
@@ -463,37 +485,15 @@
       "why": "bridges separate communities"
     },
     {
-      "source": "uploadImage()",
-      "target": "safeFilename()",
+      "source": "importVault()",
+      "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/notes/portability.ts"
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "bridges separate communities"
-    },
-    {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/auth/auth-form.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/auth/forgot-password/page.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {
