@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
   const requestedIds = (body.attachedNoteIds ?? []).filter((id): id is string => typeof id === 'string' && noteId.safeParse(id).success).slice(0, 10);
   const requestedFolderIds = (body.attachedFolderIds ?? []).filter((id): id is string => typeof id === 'string' && noteId.safeParse(id).success).slice(0, 10);
-  const { data: attached } = requestedIds.length ? await supabase.from('notes').select('id,title,content_markdown,folder_id,version').in('id', requestedIds) : { data: [] };
+  const { data: attached } = requestedIds.length ? await supabase.from('notes').select('id,title,content_markdown,folder_id,version').in('id', requestedIds).is('deleted_at', null) : { data: [] };
   const runResult = await supabase.from('agent_runs').insert({ user_id: user.id, active_note_id: activeId, status: 'running', messages: body.messages.slice(-12) }).select('id').maybeSingle();
   const runId = typeof body.runId === 'string' ? body.runId : runResult.data?.id;
   try {
@@ -46,8 +46,8 @@ export async function POST(request: Request) {
       model, system, messages: body.messages as never,
       stopWhen: stepCountIs(6), maxOutputTokens: 3000, abortSignal: AbortSignal.timeout(45_000),
       tools: {
-        get_active_note: tool({ description: 'Read the active note.', inputSchema: z.object({}), execute: async () => activeId ? (await supabase.from('notes').select('id,title,content_markdown,folder_id,version').eq('id', activeId).maybeSingle()).data ?? { error: 'Active note not found' } : { error: 'No active note.' } }),
-        read_note: tool({ description: 'Read one note by ID from this user workspace.', inputSchema: z.object({ id: noteId }), execute: async ({ id }) => (await supabase.from('notes').select('id,title,content_markdown,folder_id,version').eq('id', id).maybeSingle()).data ?? { error: 'Note not found.' } }),
+        get_active_note: tool({ description: 'Read the active note.', inputSchema: z.object({}), execute: async () => activeId ? (await supabase.from('notes').select('id,title,content_markdown,folder_id,version').eq('id', activeId).is('deleted_at', null).maybeSingle()).data ?? { error: 'Active note not found' } : { error: 'No active note.' } }),
+        read_note: tool({ description: 'Read one note by ID from this user workspace.', inputSchema: z.object({ id: noteId }), execute: async ({ id }) => (await supabase.from('notes').select('id,title,content_markdown,folder_id,version').eq('id', id).is('deleted_at', null).maybeSingle()).data ?? { error: 'Note not found.' } }),
         search_notes: tool({ description: 'Search this user workspace using PostgreSQL full-text search.', inputSchema: z.object({ query: boundedText(300) }), execute: async ({ query }) => (await supabase.rpc('search_user_notes', { query_text: query, result_limit: 8 })).data ?? [] }),
         create_note: tool({ description: 'Propose creating a note. Does not mutate until approved.', inputSchema: z.object({ title: boundedText(200), content_markdown: z.string().max(MAX_NOTE_CHARS), folder_id: z.string().uuid().nullable().optional() }), execute: async (input) => ({ type: 'proposal', tool: 'create_note', input, requiresConfirmation: true }) }),
         replace_selection: tool({ description: 'Propose replacing the current selection.', inputSchema: z.object({ text: z.string().max(12000), expectedVersion: z.number().int().positive() }), execute: async (input) => {

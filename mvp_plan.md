@@ -112,7 +112,7 @@ Create a stable development foundation before implementing product features.
 
 - [ ] Create a Next.js TypeScript project using the App Router.
 
-- [ ] Configure `pnpm` and commit the lockfile.
+- [x] Configure `pnpm` and commit the lockfile.
 
 - [ ] Add Tailwind CSS, shadcn/ui and Lucide icons.
 
