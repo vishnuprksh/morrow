@@ -138,10 +138,10 @@
     "semantic_hash": "3314e9a8de23cf4958bd53ff4c7ff330"
   },
   "src/app/page.tsx": {
-    "mtime": 1788874036.4863245,
-    "seen": 1788874661.4159687,
-    "ast_hash": "bc9fa7a76cda2e1d725a7266545c7eec",
-    "semantic_hash": ""
+    "mtime": 1788872742.6362593,
+    "seen": 1788872790.0514624,
+    "ast_hash": "4d57dc1382da47f0da95b797643cf7f4",
+    "semantic_hash": "4d57dc1382da47f0da95b797643cf7f4"
   },
   "src/app/settings/page.tsx": {
     "mtime": 1787751879.2957883,
@@ -288,16 +288,16 @@
     "semantic_hash": "efa4289e03e9a5b430ef295b9485c35a"
   },
   "src/lib/notes/vault-import.test.ts": {
-    "mtime": 1788874036.4473245,
-    "seen": 1788874661.416611,
-    "ast_hash": "5eba7dbd957e5b6fcceea147d164e30d",
-    "semantic_hash": ""
+    "mtime": 1788871109.179177,
+    "seen": 1788871473.4130127,
+    "ast_hash": "67fc5bfceeb0e6d83d1f99bccde6280d",
+    "semantic_hash": "67fc5bfceeb0e6d83d1f99bccde6280d"
   },
   "src/lib/notes/vault-import.ts": {
-    "mtime": 1788874036.4473245,
-    "seen": 1788874661.4166129,
-    "ast_hash": "7eabe85319e92601dfd2bbe45043962b",
-    "semantic_hash": ""
+    "mtime": 1788871109.179177,
+    "seen": 1788871473.4130158,
+    "ast_hash": "855575ab8847c1acbf7dfec9ef601550",
+    "semantic_hash": "855575ab8847c1acbf7dfec9ef601550"
   },
   "src/lib/notes/trash.test.ts": {
     "mtime": 1788869126.6690772,

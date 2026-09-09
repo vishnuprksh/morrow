@@ -414,11 +414,6 @@
       "degree": 8
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
-      "degree": 7
-    },
-    {
       "id": "src_app_editor_markdown_editor_markdowneditor",
       "label": "MarkdownEditor()",
       "degree": 7
@@ -426,6 +421,11 @@
     {
       "id": "src_lib_supabase_env_getsupabaseenv",
       "label": "getSupabaseEnv()",
+      "degree": 7
+    },
+    {
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
@@ -452,40 +452,40 @@
       "why": "connects across different repos/directories"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "submit()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "moveToTrash()",
-      "target": "removeRecoveryCopy()",
+      "source": "submit()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/app/auth/forgot-password/page.tsx",
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "importVault()",
-      "target": "safeFilename()",
+      "source": "submit()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/portability.ts"
+        "src/app/auth/update-password/page.tsx",
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "importVault()",
+      "source": "archiveNote()",
       "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
@@ -493,7 +493,7 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {

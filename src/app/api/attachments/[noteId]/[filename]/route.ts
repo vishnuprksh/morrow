@@ -5,7 +5,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ not
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
   if (!userData.user) return new Response('Unauthorized', { status: 401 });
-  const { data: note } = await supabase.from('notes').select('id').eq('id', noteId).maybeSingle();
+  const { data: note } = await supabase.from('notes').select('id').eq('id', noteId).is('deleted_at', null).maybeSingle();
   if (!note) return new Response('Not found', { status: 404 });
   const { data, error } = await supabase.storage.from('attachments').download(`${userData.user.id}/${noteId}/${filename}`);
   if (error || !data) return new Response('Not found', { status: 404 });
