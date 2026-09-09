@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/client';
 import { SignOutButton } from './auth/auth-form';
 import { MarkdownEditor } from './editor/markdown-editor';
 import { createAutosaveController, readRecoveryCopy, removeRecoveryCopy, type AutosaveController, type NoteDraft, type SaveResult } from '@/lib/notes/autosave';
+import { collectFolderIds } from '@/lib/notes/folders';
 import { safeFilename } from '@/lib/notes/portability';
 import { imageContentType, imageLookup, imageReferences, parseVaultFiles, rewriteImageLinks, type VaultImage, type VaultNote } from '@/lib/notes/vault-import';
 import { AgentPanel } from './agent-panel';
@@ -249,10 +250,19 @@ export default function Home() {
     if (selectedNote && ids.includes(selectedNote)) setSelectedNote(notes.find((note) => !ids.includes(note.id) && note.deleted_at === null)?.id ?? null);
   }
   async function deleteFolder(folder: FolderRow) {
-    if (!window.confirm(`Delete “${folder.name}”? Notes will become unfiled.`)) return;
-    const { error: deleteError } = await createClient().from('folders').delete().eq('id', folder.id);
-    if (deleteError) return setError(deleteError.message);
-    setFolders((current) => current.filter((item) => item.id !== folder.id)); setNotes((current) => current.map((note) => note.folder_id === folder.id ? { ...note, folder_id: null } : note)); if (selectedFolder === folder.id) setSelectedFolder(null);
+    const folderIds = collectFolderIds(folder.id, folders);
+    const noteCount = notes.filter((note) => note.folder_id && folderIds.includes(note.folder_id)).length;
+    if (!window.confirm(`Delete “${folder.name}”? This deletes ${noteCount} note${noteCount === 1 ? '' : 's'} in this folder and any subfolders.`)) return;
+    const supabase = createClient();
+    const { error: deleteNotesError } = await supabase.from('notes').delete().in('folder_id', folderIds);
+    if (deleteNotesError) return setError(deleteNotesError.message);
+    const { error: deleteFolderError } = await supabase.from('folders').delete().in('id', folderIds);
+    if (deleteFolderError) return setError(deleteFolderError.message);
+    setFolders((current) => current.filter((item) => !folderIds.includes(item.id)));
+    setNotes((current) => current.filter((note) => !note.folder_id || !folderIds.includes(note.folder_id)));
+    if (selectedFolder && folderIds.includes(selectedFolder)) setSelectedFolder(null);
+    setSelectedNote((current) => current && notes.some((note) => note.id === current && note.folder_id && folderIds.includes(note.folder_id)) ? null : current);
+    setContextMenu(null);
   }
   async function uploadImage(file: File) {
     if (!selected || selected.deleted_at || !user) return null;
