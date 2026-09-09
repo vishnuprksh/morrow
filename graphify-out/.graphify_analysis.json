@@ -46,6 +46,82 @@
       "zod"
     ],
     "1": [
+      "core",
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_notecontext",
+      "src_app_agent_panel_workingindicator",
+      "src_app_editor_markdown_editor",
+      "src_app_editor_markdown_editor_difftext",
+      "src_app_editor_markdown_editor_editaction",
+      "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_imagesize",
+      "src_app_editor_markdown_editor_imagewidths",
+      "src_app_editor_markdown_editor_markdowneditor",
+      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_handleimagecontextmenu",
+      "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "src_app_editor_markdown_editor_markdowneditor_resizeimageto",
+      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditor_submitresize",
+      "src_app_editor_markdown_editor_markdowneditor_submittable",
+      "src_app_editor_markdown_editor_markdowneditorprops",
+      "src_app_editor_markdown_editor_normalizesvgdataurls",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_renderinlinesvgs",
+      "src_app_editor_markdown_editor_resizableimageschema",
+      "src_app_editor_markdown_editor_svgattributes",
+      "src_app_editor_markdown_editor_svgtags",
+      "src_app_editor_markdown_editor_test",
+      "src_app_editor_markdown_editor_toolbaraction",
+      "src_app_editor_markdown_editor_toolbaractions",
+      "src_app_editor_markdown_editor_toolbarbutton",
+      "src_app_editor_markdown_editor_undoredo",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "2": [
+      "src_app_auth_auth_form",
+      "src_app_auth_auth_form_authform",
+      "src_app_auth_auth_form_authform_submit",
+      "src_app_auth_auth_form_signoutbutton",
+      "src_app_auth_forgot_password_page",
+      "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "src_app_auth_sign_in_page",
+      "src_app_auth_sign_in_page_signinpage",
+      "src_app_auth_sign_up_page",
+      "src_app_auth_sign_up_page_signuppage",
+      "src_app_auth_update_password_page",
+      "src_app_auth_update_password_page_updatepasswordpage",
+      "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "src_app_page_home",
+      "src_app_page_home_acceptproposal",
+      "src_app_page_home_archivenote",
+      "src_app_page_home_bulkmovetotrash",
+      "src_app_page_home_createfolder",
+      "src_app_page_home_createnote",
+      "src_app_page_home_movenote",
+      "src_app_page_home_opennotemenu",
+      "src_app_page_home_permanentlydeletenote",
+      "src_app_page_home_renamefolder",
+      "src_app_page_home_restorenote",
+      "src_app_page_home_togglefavorite",
+      "src_app_page_home_toggleselectall",
+      "src_app_page_home_toggleselectnotes",
+      "src_app_page_home_updatenote",
+      "src_app_page_test",
+      "src_app_page_test_chainselect",
+      "src_lib_supabase_client_createclient"
+    ],
+    "3": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_esnext",
@@ -78,71 +154,11 @@
       "tsconfig_exclude",
       "tsconfig_include"
     ],
-    "2": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_notecontext",
-      "src_app_agent_panel_workingindicator",
-      "src_app_editor_markdown_editor",
-      "src_app_editor_markdown_editor_difftext",
-      "src_app_editor_markdown_editor_editaction",
-      "src_app_editor_markdown_editor_editactions",
-      "src_app_editor_markdown_editor_markdowneditor",
-      "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "src_app_editor_markdown_editor_markdowneditor_submittable",
-      "src_app_editor_markdown_editor_markdowneditorprops",
-      "src_app_editor_markdown_editor_proposaldiff",
-      "src_app_editor_markdown_editor_test",
-      "src_app_editor_markdown_editor_toolbaraction",
-      "src_app_editor_markdown_editor_toolbaractions",
-      "src_app_editor_markdown_editor_toolbarbutton",
-      "src_app_editor_markdown_editor_undoredo",
-      "src_lib_ai_proposals",
-      "src_lib_ai_proposals_changedlinecount",
-      "src_lib_ai_proposals_diffsegment",
-      "src_lib_ai_proposals_diffsegments",
-      "src_lib_ai_proposals_notechangeproposal",
-      "src_lib_ai_proposals_test"
-    ],
-    "3": [
-      "src_app_auth_forgot_password_page",
-      "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "src_app_auth_update_password_page",
-      "src_app_auth_update_password_page_updatepasswordpage",
-      "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "src_app_page_home",
-      "src_app_page_home_acceptproposal",
-      "src_app_page_home_archivenote",
-      "src_app_page_home_bulkmovetotrash",
-      "src_app_page_home_createfolder",
-      "src_app_page_home_createnote",
-      "src_app_page_home_deletefolder",
-      "src_app_page_home_importvault",
-      "src_app_page_home_loadworkspace",
-      "src_app_page_home_movenote",
-      "src_app_page_home_movetotrash",
-      "src_app_page_home_opennotemenu",
-      "src_app_page_home_permanentlydeletenote",
-      "src_app_page_home_renamefolder",
-      "src_app_page_home_restorenote",
-      "src_app_page_home_togglefavorite",
-      "src_app_page_home_toggleselectall",
-      "src_app_page_home_toggleselectnotes",
-      "src_app_page_home_updatenote",
-      "src_app_page_home_uploadimage",
-      "src_app_page_test",
-      "src_app_page_test_chainselect",
-      "src_lib_supabase_client_createclient"
-    ],
     "4": [
       "src_app_page",
       "src_app_page_folderrow",
+      "src_app_page_home_deletefolder",
+      "src_app_page_home_movetotrash",
       "src_app_page_notecontextmenu",
       "src_app_page_noterow",
       "src_app_page_noteview",
@@ -230,6 +246,8 @@
       "src_lib_supabase_server_createclient"
     ],
     "7": [
+      "src_app_page_home_importvault",
+      "src_app_page_home_loadworkspace",
       "src_app_page_home_selectvault",
       "src_lib_notes_vault_import",
       "src_lib_notes_vault_import_extension",
@@ -263,6 +281,7 @@
       "package_version"
     ],
     "9": [
+      "src_app_page_home_uploadimage",
       "src_lib_notes_portability",
       "src_lib_notes_portability_downloadblob",
       "src_lib_notes_portability_folderpath",
@@ -274,121 +293,111 @@
       "src_lib_notes_portability_workspacezip"
     ],
     "10": [
-      "src_app_auth_auth_form",
-      "src_app_auth_auth_form_authform",
-      "src_app_auth_auth_form_authform_submit",
-      "src_app_auth_auth_form_signoutbutton",
-      "src_app_auth_sign_in_page",
-      "src_app_auth_sign_in_page_signinpage",
-      "src_app_auth_sign_up_page",
-      "src_app_auth_sign_up_page_signuppage"
-    ],
-    "11": [
       "src_lib_ai_credentials",
       "src_lib_ai_credentials_decryptapikey",
       "src_lib_ai_credentials_encryptapikey",
       "src_lib_ai_credentials_encryptionkey",
       "src_lib_ai_credentials_test"
     ],
-    "12": [
+    "11": [
       "src_lib_notes_trash",
       "src_lib_notes_trash_isexpiredtrash",
       "src_lib_notes_trash_test",
       "src_lib_notes_trash_trash_retention_days",
       "src_lib_notes_trash_trashexpirycutoff"
     ],
-    "13": [
+    "12": [
       "prettierrc",
       "prettierrc_semi",
       "prettierrc_singlequote",
       "prettierrc_trailingcomma"
     ],
-    "14": [
+    "13": [
       "src_app_settings_page",
       "src_app_settings_page_settingspage",
       "src_app_settings_page_settingspage_changetheme",
       "src_app_settings_page_test"
     ],
-    "15": [
+    "14": [
       "readme",
       "readme_local_setup",
       "readme_morrow_ai_markdown_notes"
     ],
-    "16": [
+    "15": [
       "src_app_ai_settings",
       "src_app_ai_settings_agent",
       "src_app_ai_settings_aisettings"
     ],
-    "17": [
+    "16": [
       "src_app_layout",
       "src_app_layout_metadata",
       "src_app_layout_rootlayout"
     ],
-    "18": [
+    "17": [
       "src_lib_ai_validation",
       "src_lib_ai_validation_credentialinput",
       "src_lib_ai_validation_credentialschema"
     ],
-    "19": [
+    "18": [
       "agents",
       "agents_this_is_not_the_next_js_you_know"
     ],
-    "20": [
+    "19": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "21": [
+    "20": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "22": [
+    "21": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "23": [
+    "22": [
       "src_app_auth_layout",
       "src_app_auth_layout_authlayout"
     ],
-    "24": [
+    "23": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "25": [
+    "24": [
       "claude"
     ],
-    "26": [
+    "25": [
       "eslint_config"
     ],
-    "27": [
+    "26": [
       "mvp_plan"
     ],
-    "28": [
+    "27": [
       "src_test_setup"
     ],
-    "29": [
+    "28": [
       "vitest_config"
     ]
   },
   "cohesion": {
     "0": 0.046511627906976744,
-    "1": 0.06451612903225806,
-    "2": 0.08866995073891626,
-    "3": 0.11083743842364532,
-    "4": 0.11083743842364532,
+    "1": 0.06538461538461539,
+    "2": 0.09475806451612903,
+    "3": 0.06451612903225806,
+    "4": 0.1010752688172043,
     "5": 0.07407407407407407,
     "6": 0.1396011396011396,
-    "7": 0.2,
+    "7": 0.1895424836601307,
     "8": 0.15384615384615385,
-    "9": 0.4166666666666667,
-    "10": 0.32142857142857145,
-    "11": 0.8,
-    "12": 0.7,
-    "13": 0.5,
+    "9": 0.35555555555555557,
+    "10": 0.8,
+    "11": 0.7,
+    "12": 0.5,
+    "13": 0.6666666666666666,
     "14": 0.6666666666666666,
     "15": 0.6666666666666666,
     "16": 0.6666666666666666,
     "17": 0.6666666666666666,
-    "18": 0.6666666666666666,
+    "18": 1.0,
     "19": 1.0,
     "20": 1.0,
     "21": 1.0,
@@ -398,8 +407,7 @@
     "25": 1.0,
     "26": 1.0,
     "27": 1.0,
-    "28": 1.0,
-    "29": 1.0
+    "28": 1.0
   },
   "gods": [
     {
@@ -418,23 +426,23 @@
       "degree": 17
     },
     {
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "degree": 13
+    },
+    {
       "id": "src_lib_supabase_server_createclient",
       "label": "createClient()",
       "degree": 10
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
+      "id": "src_app_page_home_importvault",
+      "label": "importVault()",
       "degree": 8
     },
     {
       "id": "package_scripts",
       "label": "scripts",
-      "degree": 8
-    },
-    {
-      "id": "src_app_page_home_importvault",
-      "label": "importVault()",
       "degree": 8
     },
     {
@@ -455,17 +463,6 @@
   ],
   "surprises": [
     {
-      "source": "submit()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/auth/auth-form.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities; peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
       "source": "proxy()",
       "target": "updateSession()",
       "source_files": [
@@ -475,17 +472,6 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories"
-    },
-    {
-      "source": "SignOutButton()",
-      "target": "createClient()",
-      "source_files": [
-        "src/app/auth/auth-form.tsx",
-        "src/lib/supabase/client.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
     },
     {
       "source": "submit()",
@@ -508,10 +494,65 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "archiveNote()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
-  "tokens": {
-    "input": 0,
-    "output": 0
-  }
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `createClient()` connect `Home` to `portability.ts`, `app/page.tsx`, `createClient`, `vault-import.ts`?",
+      "why": "High betweenness centrality (0.058) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `scripts`?",
+      "why": "High betweenness centrality (0.050) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `getSupabaseEnv()` connect `createClient` to `Home`?",
+      "why": "High betweenness centrality (0.044) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `ChatMessage`, `NoteContext`, `EditAction` to the rest of the system?",
+      "why": "111 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `dependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `markdown-editor.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06538461538461539 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Home` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09475806451612903 - nodes in this community are weakly interconnected."
+    }
+  ]
 }
