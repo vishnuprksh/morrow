@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
-:root { --ink:#252422; --muted:#8b8881; --line:#e8e4dc; --paper:#fbfaf7; --cream:#f4f0e8; --accent:#c76f4d; --sage:#788a75; --agent-width:315px; }
+:root { --ink:#2e2f36; --muted:#777983; --line:#dfe0e5; --paper:#ffffff; --cream:#f5f5f7; --accent:#7157d9; --sage:#6f927c; --agent-width:315px; }
 * { box-sizing:border-box; }
 body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans', sans-serif; }
 button, input, textarea { font:inherit; }
@@ -9,7 +9,7 @@ button { border:0; cursor:pointer; color:inherit; background:transparent; }
 .app-shell { display:grid; grid-template-columns:230px 270px minmax(420px,1fr) var(--agent-width); height:100vh; min-height:0; overflow:hidden; background:var(--paper); }
 .portability-actions { position:fixed; z-index:5; right:330px; bottom:18px; display:flex; gap:6px; padding:6px; background:#fffdfa; border:1px solid var(--line); border-radius:9px; box-shadow:0 8px 20px #6b5b4812; }.portability-button { display:flex; align-items:center; gap:5px; padding:7px 9px; color:#6f6a62; border-radius:6px; font-size:11px; cursor:pointer; }.portability-button:hover { background:#eeeae3; }
 .sidebar { display:flex; flex-direction:column; min-height:0; overflow-y:auto; overflow-x:hidden; padding:28px 16px 18px; background:#f3f0e9; border-right:1px solid var(--line); }
-.brand { display:flex; align-items:center; gap:10px; padding:0 10px 29px; font-family:'Playfair Display',serif; font-size:21px; font-weight:600; letter-spacing:-.3px; }
+.brand { display:flex; align-items:center; gap:10px; padding:0 10px 29px; font-size:21px; font-weight:700; letter-spacing:0; }
 .brand-mark { display:grid; place-items:center; width:27px; height:27px; color:white; background:var(--accent); border-radius:8px; }
 .sidebar-actions { display:flex; gap:8px; margin-bottom:25px; }.new-note { display:flex; align-items:center; justify-content:center; gap:8px; flex:1; padding:10px; color:white; background:var(--ink); border-radius:8px; font-size:13px; font-weight:600; }.icon-button { display:grid; place-items:center; width:32px; height:32px; border-radius:7px; }.icon-button:hover,.more-button:hover { background:#e6e1d7; }.icon-button.favorite-active { color:#d58a52; background:#f9e9df; }.icon-button.favorite-active svg { fill:currentColor; }
 .import-vault-button { display:flex; align-items:center; justify-content:center; gap:7px; margin:-12px 0 22px; padding:8px; color:#777269; border:1px dashed #cfc8bc; border-radius:7px; font-size:11px; cursor:pointer; }.import-vault-button:hover { color:var(--ink); background:#e9e5dc; }
@@ -95,3 +95,40 @@ button { border:0; cursor:pointer; color:inherit; background:transparent; }
 .auth-eyebrow { margin:0 0 10px; color:var(--accent); font-size:11px; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; }
 .auth-card h1 { margin:0; font-family:'Playfair Display',serif; font-size:28px; letter-spacing:-.6px; }.auth-intro { margin:7px 0 22px; color:var(--muted); font-size:12px; }
 .auth-form { display:grid; gap:13px; }.auth-form label { display:grid; gap:6px; color:#68645d; font-size:11px; font-weight:600; }.auth-form input { width:100%; padding:10px 11px; color:var(--ink); background:#fffdfa; border:1px solid var(--line); border-radius:7px; outline:0; font-size:12px; transition:border-color .2s,box-shadow .2s; }.auth-form input::placeholder { color:#b2ada4; }.auth-form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px #c76f4d18; }.auth-submit { display:flex; align-items:center; justify-content:center; gap:8px; padding:10px; color:white; background:var(--ink); border-radius:7px; font-size:12px; font-weight:600; transition:transform .2s,background .2s; }.auth-submit:hover:not(:disabled) { background:#403d39; transform:translateY(-1px); }.auth-submit:disabled { opacity:.6; cursor:wait; }.auth-security { display:flex; align-items:center; justify-content:center; gap:6px; margin:0; color:#aaa59c; font-size:9px; }.auth-switch,.auth-link { color:var(--muted); font-size:11px; text-align:center; }.auth-switch a,.auth-link { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }.auth-error,.auth-message { margin:0; padding:9px; border-radius:6px; font-size:11px; }.auth-error { color:#9b4438; background:#fae9e5; }.auth-message { color:#567052; background:#e8f0e5; }.auth-footer { position:absolute; bottom:24px; margin:0; color:#aaa59c; font-size:10px; letter-spacing:.3px; }.sign-out { color:#8e5a47; font-size:11px; text-decoration:underline; }
+
+html:not([data-theme='dark']) .sidebar { background:#f2f2f5; }
+html:not([data-theme='dark']) .notes-panel { background:#fafafd; }
+html:not([data-theme='dark']) .chat-panel { background:#f5f5f8; }
+html:not([data-theme='dark']) .nav-item.selected,
+html:not([data-theme='dark']) .folder-row.selected,
+html:not([data-theme='dark']) .note-card.active,
+html:not([data-theme='dark']) .agent-tabs button.selected { background:#e8e7f1; }
+html:not([data-theme='dark']) .note-search,
+html:not([data-theme='dark']) .view-toggle,
+html:not([data-theme='dark']) .bulk-toolbar { background:#eeeeF3; }
+html:not([data-theme='dark']) .brand,
+html:not([data-theme='dark']) .panel-header h2,
+html:not([data-theme='dark']) .chat-header h2,
+html:not([data-theme='dark']) .title-input,
+html:not([data-theme='dark']) .settings-card h2,
+html:not([data-theme='dark']) .settings-page-card h1,
+html:not([data-theme='dark']) .vault-header h2,
+html:not([data-theme='dark']) .workspace-loading-brand,
+html:not([data-theme='dark']) .auth-brand,
+html:not([data-theme='dark']) .auth-card h1,
+html:not([data-theme='dark']) .milkdown-editor h1,
+html:not([data-theme='dark']) .milkdown-editor h2,
+html:not([data-theme='dark']) .milkdown-editor h3 { font-family:'DM Sans',sans-serif; letter-spacing:0; }
+html:not([data-theme='dark']) .portability-actions,
+html:not([data-theme='dark']) .folder-dialog,
+html:not([data-theme='dark']) .notes-panel-menu,
+html:not([data-theme='dark']) .note-options-menu,
+html:not([data-theme='dark']) .note-context-menu,
+html:not([data-theme='dark']) .ai-selection-menu,
+html:not([data-theme='dark']) .ai-proposal,
+html:not([data-theme='dark']) .ai-custom-dialog,
+html:not([data-theme='dark']) .chat-input,
+html:not([data-theme='dark']) .settings-card,
+html:not([data-theme='dark']) .vault-card,
+html:not([data-theme='dark']) .ai-note-proposal,
+html:not([data-theme='dark']) .auth-card { background:#ffffff; }
