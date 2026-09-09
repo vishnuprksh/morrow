@@ -11,6 +11,7 @@ import { history, redo, undo } from '@milkdown/prose/history';
 import { keymap } from '@milkdown/prose/keymap';
 import { Slice } from '@milkdown/prose/model';
 import type { Command } from '@milkdown/prose/state';
+import { Bold, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
 import { diffSegments, type DiffSegment, type NoteChangeProposal } from '@/lib/ai/proposals';
 
 const undoRedo = keymap({ 'Mod-z': undo, 'Mod-y': redo, 'Shift-Mod-z': redo });
@@ -34,17 +35,18 @@ const editActions: Array<{ action: EditAction; label: string }> = [
   { action: 'grammar', label: 'Fix grammar' },
 ];
 
-type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link';
+type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link' | 'table';
 
 const toolbarActions: Array<{ action: ToolbarAction; label: string; content: React.ReactNode }> = [
-  { action: 'bold', label: 'Bold', content: <strong>B</strong> },
-  { action: 'italic', label: 'Italic', content: <em>I</em> },
-  { action: 'strike', label: 'Strikethrough', content: <s>S</s> },
-  { action: 'heading', label: 'Heading 1', content: 'H1' },
-  { action: 'bulletList', label: 'Bulleted list', content: '☷' },
-  { action: 'quote', label: 'Blockquote', content: '❝' },
-  { action: 'code', label: 'Inline code', content: '</>' },
-  { action: 'link', label: 'Link', content: '↗' },
+  { action: 'bold', label: 'Bold', content: <Bold aria-hidden="true" size={15} /> },
+  { action: 'italic', label: 'Italic', content: <Italic aria-hidden="true" size={15} /> },
+  { action: 'strike', label: 'Strikethrough', content: <Minus aria-hidden="true" size={15} /> },
+  { action: 'heading', label: 'Heading 1', content: <Type aria-hidden="true" size={15} /> },
+  { action: 'bulletList', label: 'Bulleted list', content: <List aria-hidden="true" size={15} /> },
+  { action: 'quote', label: 'Blockquote', content: <Quote aria-hidden="true" size={15} /> },
+  { action: 'code', label: 'Inline code', content: <Code2 aria-hidden="true" size={15} /> },
+  { action: 'link', label: 'Link', content: <Link aria-hidden="true" size={15} /> },
+  { action: 'table', label: 'Insert table', content: <Table2 aria-hidden="true" size={15} /> },
 ];
 
 export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal }: MarkdownEditorProps) {
@@ -213,6 +215,19 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (action === 'bulletList' && schema.nodes.bullet_list) dispatch(wrapIn(schema.nodes.bullet_list));
       if (action === 'quote' && schema.nodes.blockquote) dispatch(wrapIn(schema.nodes.blockquote));
       if (action === 'code' && schema.marks.inlineCode) dispatch(toggleMark(schema.marks.inlineCode));
+      if (action === 'table' && schema.nodes.table && schema.nodes.table_row && schema.nodes.table_header && schema.nodes.table_cell && schema.nodes.paragraph) {
+        const dimensions = window.prompt('Table size', '3x3')?.trim().toLowerCase().match(/^(\d+)x(\d+)$/);
+        if (!dimensions) return;
+        const rows = Math.min(20, Number(dimensions[1]));
+        const columns = Math.min(12, Number(dimensions[2]));
+        if (!rows || !columns) return;
+        const createCell = (cellType: typeof schema.nodes.table_header) => cellType.create(null, schema.nodes.paragraph.create());
+        const header = schema.nodes.table_row.create(null, Array.from({ length: columns }, () => createCell(schema.nodes.table_header)));
+        const body = Array.from({ length: rows - 1 }, () => schema.nodes.table_row.create(null, Array.from({ length: columns }, () => createCell(schema.nodes.table_cell))));
+        const table = schema.nodes.table.create(null, [header, ...body]);
+        view.dispatch(view.state.tr.replaceSelectionWith(table).scrollIntoView());
+        view.focus();
+      }
       if (action === 'link') {
         if (selection.empty) return;
         const href = window.prompt('Link URL');
@@ -224,8 +239,8 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
   return (
     <>
       <div className="formatting" role="toolbar" aria-label="Formatting toolbar">
-        {toolbarActions.map(({ action, label, content }, index) => <span key={action} className={index === 3 ? 'toolbar-group' : undefined}><ToolbarButton label={label} onClick={() => runToolbarAction(action)}>{content}</ToolbarButton></span>)}
-        {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}>▧</ToolbarButton>}
+        {toolbarActions.map(({ action, label, content }, index) => <span key={action} className={index === 3 || index === 8 ? 'toolbar-group' : undefined}><ToolbarButton label={label} onClick={() => runToolbarAction(action)}>{content}</ToolbarButton></span>)}
+        {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>}
       </div>
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
@@ -285,5 +300,5 @@ function ProposalDiff({ proposal, onAccept, onDiscard }: { proposal: NoteChangeP
 }
 
 function ToolbarButton({ label, onClick, children }: { label: string; onClick: () => void; children: React.ReactNode }) {
-  return <button type="button" aria-label={label} onMouseDown={(event) => event.preventDefault()} onClick={onClick}>{children}</button>;
+  return <button type="button" aria-label={label} title={label} onMouseDown={(event) => event.preventDefault()} onClick={onClick}>{children}</button>;
 }
