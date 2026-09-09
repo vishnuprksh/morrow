@@ -75,6 +75,10 @@ export const resizableImageSchema = imageSchema.extendSchema((previous) => (ctx)
   };
 });
 
+export function normalizeSvgDataUrls(markdown: string) {
+  return markdown.replace(/(data:image\/svg\+xml,)([^\r\n]*)/gi, (_, prefix: string, payload: string) => `${prefix}${payload.replace(/\s/g, '%20')}`);
+}
+
 const toolbarActions: Array<{ action: ToolbarAction; label: string; content: React.ReactNode }> = [
   { action: 'bold', label: 'Bold', content: <Bold aria-hidden="true" size={15} /> },
   { action: 'italic', label: 'Italic', content: <Italic aria-hidden="true" size={15} /> },
@@ -136,7 +140,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, rootRef.current!);
-        ctx.set(defaultValueCtx, currentValueRef.current);
+        ctx.set(defaultValueCtx, normalizeSvgDataUrls(currentValueRef.current));
         ctx.update(prosePluginsCtx, (plugins) => [...plugins, history(), undoRedo]);
         // Keep malformed or unsupported LaTeX from crashing the whole editor.
         // KaTeX will render unsupported commands as text when throwOnError is false.
@@ -174,7 +178,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (value === currentValueRef.current) return;
       const view = ctx.get(editorViewCtx);
       const parser = ctx.get(parserCtx);
-      const doc = parser(value);
+      const doc = parser(normalizeSvgDataUrls(value));
       if (!doc) return;
       view.dispatch(view.state.tr.replace(0, view.state.doc.content.size, new Slice(doc.content, 0, 0)).setMeta('addToHistory', false));
       currentValueRef.current = value;

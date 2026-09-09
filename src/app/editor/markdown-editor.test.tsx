@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import { MarkdownEditor, renderInlineSvgs } from './markdown-editor';
+import { MarkdownEditor, normalizeSvgDataUrls, renderInlineSvgs } from './markdown-editor';
 
 vi.mock('@milkdown/core', () => ({
   Editor: {
@@ -25,6 +25,12 @@ vi.mock('@milkdown/prose/keymap', () => ({ keymap: vi.fn(() => ({})) }));
 vi.mock('@milkdown/prose/model', () => ({ Slice: vi.fn() }));
 
 describe('MarkdownEditor', () => {
+  it('encodes whitespace in SVG data URLs before Markdown parsing', () => {
+    const markdown = "![lantern](data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E)";
+
+    expect(normalizeSvgDataUrls(markdown)).toBe("![lantern](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E)");
+  });
+
   it('renders safe inline SVG animation nodes from Markdown HTML', () => {
     const root = document.createElement('div');
     const host = document.createElement('span');
