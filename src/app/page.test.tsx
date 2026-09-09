@@ -61,4 +61,18 @@ describe('workspace shell', () => {
       expect(screen.getByRole('button', { name: 'Remove from favorites' })).toHaveAttribute('aria-pressed', 'true');
     });
   });
+
+  it('only reveals note selection controls after choosing select notes from the notes panel menu', async () => {
+    render(<Home />);
+
+    await screen.findByRole('button', { name: /My note/i });
+    expect(screen.queryByRole('checkbox', { name: 'Select My note' })).not.toBeInTheDocument();
+
+    fireEvent.click(await screen.findByRole('button', { name: 'Open notes actions' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Select notes' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('checkbox', { name: 'Select My note' })).toBeVisible();
+    });
+  });
 });
