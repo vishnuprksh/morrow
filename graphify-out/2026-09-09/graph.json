@@ -1119,7 +1119,7 @@
       "file_type": "code",
       "norm_label": "notecontextmenu()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L1427"
+      "source_location": "L1426"
     },
     {
       "id": "src_app_page_rawmarkdowneditor",
@@ -1130,7 +1130,7 @@
       "file_type": "code",
       "norm_label": "rawmarkdowneditor()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L1369"
+      "source_location": "L1368"
     },
     {
       "id": "src_app_page_recoverynotice",
@@ -1141,7 +1141,7 @@
       "file_type": "code",
       "norm_label": "recoverynotice()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L1397"
+      "source_location": "L1396"
     },
     {
       "id": "src_app_page_vaultpreview",
@@ -1152,7 +1152,7 @@
       "file_type": "code",
       "norm_label": "vaultpreview()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L1516"
+      "source_location": "L1515"
     },
     {
       "id": "src_app_page_workspaceloadingscreen",
@@ -4005,7 +4005,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L1404",
+      "source_location": "L1403",
       "weight": 1.0
     },
     {
@@ -4017,7 +4017,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/page.tsx",
-      "source_location": "L1418",
+      "source_location": "L1417",
       "weight": 1.0
     },
     {
@@ -7264,7 +7264,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L1369",
+      "source_location": "L1368",
       "weight": 1.0
     },
     {
@@ -7275,7 +7275,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L1397",
+      "source_location": "L1396",
       "weight": 1.0
     },
     {
@@ -7286,7 +7286,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L1427",
+      "source_location": "L1426",
       "weight": 1.0
     },
     {
@@ -7297,7 +7297,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
-      "source_location": "L1516",
+      "source_location": "L1515",
       "weight": 1.0
     },
     {
