@@ -75,4 +75,20 @@ describe('workspace shell', () => {
       expect(screen.getByRole('checkbox', { name: 'Select My note' })).toBeVisible();
     });
   });
+
+  it('selects and clears all visible notes from the bulk toolbar', async () => {
+    render(<Home />);
+
+    await screen.findByRole('button', { name: /My note/i });
+    fireEvent.click(await screen.findByRole('button', { name: 'Open notes actions' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Select notes' }));
+
+    fireEvent.click(await screen.findByRole('button', { name: 'Select all notes' }));
+    expect(screen.getByRole('checkbox', { name: 'Select My note' })).toBeChecked();
+    expect(screen.getByText('1 selected')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Move selected notes to Trash' })).toHaveAttribute('title', 'Move selected notes to Trash');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Clear all' }));
+    expect(screen.getByRole('checkbox', { name: 'Select My note' })).not.toBeChecked();
+  });
 });

@@ -9,7 +9,8 @@ import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
 import { history, redo, undo } from '@milkdown/prose/history';
 import { keymap } from '@milkdown/prose/keymap';
-import { Slice } from '@milkdown/prose/model';
+import { Fragment, Slice } from '@milkdown/prose/model';
+import { TextSelection } from '@milkdown/prose/state';
 import type { Command } from '@milkdown/prose/state';
 import { Bold, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
 import { diffSegments, type DiffSegment, type NoteChangeProposal } from '@/lib/ai/proposals';
@@ -59,6 +60,9 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
   const [busy, setBusy] = useState(false);
   const [customDialogOpen, setCustomDialogOpen] = useState(false);
   const [customInstruction, setCustomInstruction] = useState('');
+  const [tableDialogOpen, setTableDialogOpen] = useState(false);
+  const [tableRows, setTableRows] = useState('3');
+  const [tableColumns, setTableColumns] = useState('3');
   const requestRef = useRef(0);
   const selectionRef = useRef(selection);
 
@@ -174,6 +178,30 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     void requestEdit('custom', instruction);
   }
 
+  function submitTable(event: React.FormEvent) {
+    event.preventDefault();
+    const editor = editorRef.current;
+    const rows = Math.min(20, Number(tableRows));
+    const columns = Math.min(12, Number(tableColumns));
+    if (!editor || !Number.isInteger(rows) || !Number.isInteger(columns) || rows < 1 || columns < 1) return;
+
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const { schema } = view.state;
+      const { from } = view.state.selection;
+      if (!schema.nodes.table || !schema.nodes.table_row || !schema.nodes.table_header || !schema.nodes.table_cell || !schema.nodes.paragraph) return;
+      const createCell = (cellType: typeof schema.nodes.table_header) => cellType.create(null, schema.nodes.paragraph.create());
+      const header = schema.nodes.table_row.create(null, Array.from({ length: columns }, () => createCell(schema.nodes.table_header)));
+      const body = Array.from({ length: rows - 1 }, () => schema.nodes.table_row.create(null, Array.from({ length: columns }, () => createCell(schema.nodes.table_cell))));
+      const table = schema.nodes.table.create(null, [header, ...body]);
+      const transaction = view.state.tr.replaceSelection(new Slice(Fragment.fromArray([table, schema.nodes.paragraph.create()]), 0, 0));
+      transaction.setSelection(TextSelection.near(transaction.doc.resolve(from + table.nodeSize + 1)));
+      view.dispatch(transaction.scrollIntoView());
+      view.focus();
+    });
+    setTableDialogOpen(false);
+  }
+
   function applyProposal() {
     const current = proposal;
     const editor = editorRef.current;
@@ -216,17 +244,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (action === 'quote' && schema.nodes.blockquote) dispatch(wrapIn(schema.nodes.blockquote));
       if (action === 'code' && schema.marks.inlineCode) dispatch(toggleMark(schema.marks.inlineCode));
       if (action === 'table' && schema.nodes.table && schema.nodes.table_row && schema.nodes.table_header && schema.nodes.table_cell && schema.nodes.paragraph) {
-        const dimensions = window.prompt('Table size', '3x3')?.trim().toLowerCase().match(/^(\d+)x(\d+)$/);
-        if (!dimensions) return;
-        const rows = Math.min(20, Number(dimensions[1]));
-        const columns = Math.min(12, Number(dimensions[2]));
-        if (!rows || !columns) return;
-        const createCell = (cellType: typeof schema.nodes.table_header) => cellType.create(null, schema.nodes.paragraph.create());
-        const header = schema.nodes.table_row.create(null, Array.from({ length: columns }, () => createCell(schema.nodes.table_header)));
-        const body = Array.from({ length: rows - 1 }, () => schema.nodes.table_row.create(null, Array.from({ length: columns }, () => createCell(schema.nodes.table_cell))));
-        const table = schema.nodes.table.create(null, [header, ...body]);
-        view.dispatch(view.state.tr.replaceSelectionWith(table).scrollIntoView());
-        view.focus();
+        setTableDialogOpen(true);
       }
       if (action === 'link') {
         if (selection.empty) return;
@@ -242,6 +260,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
         {toolbarActions.map(({ action, label, content }, index) => <span key={action} className={index === 3 || index === 8 ? 'toolbar-group' : undefined}><ToolbarButton label={label} onClick={() => runToolbarAction(action)}>{content}</ToolbarButton></span>)}
         {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>}
       </div>
+      {tableDialogOpen && <div className="table-dialog" role="dialog" aria-modal="true" aria-labelledby="table-dialog-title"><form onSubmit={submitTable}><strong id="table-dialog-title">Insert table</strong><label htmlFor="table-rows">Rows<input id="table-rows" type="number" min="1" max="20" value={tableRows} onChange={(event) => setTableRows(event.target.value)} autoFocus /></label><label htmlFor="table-columns">Columns<input id="table-columns" type="number" min="1" max="12" value={tableColumns} onChange={(event) => setTableColumns(event.target.value)} /></label><div><button type="submit">Insert table</button><button type="button" onClick={() => setTableDialogOpen(false)}>Cancel</button></div></form></div>}
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
         <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" />
