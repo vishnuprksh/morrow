@@ -9,7 +9,7 @@ import { SignOutButton } from './auth/auth-form';
 import { MarkdownEditor } from './editor/markdown-editor';
 import { createAutosaveController, readRecoveryCopy, removeRecoveryCopy, type AutosaveController, type NoteDraft, type SaveResult } from '@/lib/notes/autosave';
 import { safeFilename } from '@/lib/notes/portability';
-import { imageLookup, imageReferences, parseVaultFiles, rewriteImageLinks, type VaultImage, type VaultNote } from '@/lib/notes/vault-import';
+import { imageContentType, imageLookup, imageReferences, parseVaultFiles, rewriteImageLinks, type VaultImage, type VaultNote } from '@/lib/notes/vault-import';
 import { AgentPanel } from './agent-panel';
 import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
@@ -295,8 +295,11 @@ export default function Home() {
           const image = images.get(reference) ?? images.get(reference.split('/').pop() ?? reference);
           if (!image) continue;
           const filename = `${crypto.randomUUID()}-${safeFilename(image.file.name, 'image')}`;
-          const { error: uploadError } = await supabase.storage.from('attachments').upload(`${user.id}/${importedNote.id}/${filename}`, image.file, { contentType: image.file.type || 'application/octet-stream' });
-          if (!uploadError) uploaded.set(reference, `/api/attachments/${importedNote.id}/${encodeURIComponent(filename)}`);
+          const contentType = imageContentType(image.file);
+          if (!contentType) throw new Error(`Unsupported image type for ${image.path}`);
+          const { error: uploadError } = await supabase.storage.from('attachments').upload(`${user.id}/${importedNote.id}/${filename}`, image.file, { contentType });
+          if (uploadError) throw new Error(`Could not upload ${image.path}: ${uploadError.message}`);
+          uploaded.set(reference, `/api/attachments/${importedNote.id}/${encodeURIComponent(filename)}`);
           setVaultProgress((current) => current ? { ...current, completed: current.completed + 1, current: image.file.name } : current);
         }
         const content = rewriteImageLinks(markdown, (reference) => uploaded.get(reference) ?? uploaded.get(reference.split('/').pop() ?? reference));

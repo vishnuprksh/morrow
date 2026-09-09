@@ -11,6 +11,12 @@ export type VaultImage = VaultFile & { kind: 'image' };
 
 const imageExtensions = new Set(['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg']);
 
+export function imageContentType(file: File) {
+  if (file.type.startsWith('image/')) return file.type === 'image/jpg' ? 'image/jpeg' : file.type;
+  const types: Record<string, string> = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp', svg: 'image/svg+xml' };
+  return types[extension(file.name)];
+}
+
 function extension(path: string) {
   return path.split('.').pop()?.toLowerCase() ?? '';
 }
@@ -46,6 +52,14 @@ export function imageLookup(images: VaultImage[]) {
   }));
 }
 
+function normalizeVaultReference(reference: string) {
+  return decodeURIComponent(reference)
+    .replace(/^<|>$/g, '')
+    .replace(/^\.\//, '')
+    .replaceAll('\\', '/')
+    .trim();
+}
+
 export function imageReferences(markdown: string) {
   const references = new Set<string>();
   const pattern = /!\[\[[^\]]+\]\]|!?(?:\[[^\]]*\])\(([^)]+)\)/g;
@@ -53,7 +67,7 @@ export function imageReferences(markdown: string) {
     const wiki = match[0].match(/^!\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/)?.[1];
     const markdownPath = match[1]?.split(/[?#]/)[0];
     const value = (wiki ?? markdownPath)?.trim();
-    if (value) references.add(value.replace(/^\.\//, '').replaceAll('\\', '/'));
+    if (value) references.add(normalizeVaultReference(value));
   }
   return [...references];
 }
@@ -61,11 +75,11 @@ export function imageReferences(markdown: string) {
 export function rewriteImageLinks(markdown: string, urlFor: (reference: string) => string | undefined) {
   return markdown
     .replace(/!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (full, reference: string, alt?: string) => {
-      const url = urlFor(reference.trim());
+      const url = urlFor(normalizeVaultReference(reference));
       return url ? `![${alt?.trim() || reference.trim()}](${url})` : full;
     })
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (full, alt: string, reference: string) => {
-      const cleanReference = reference.split(/[?#]/)[0].trim();
+      const cleanReference = normalizeVaultReference(reference.split(/[?#]/)[0]);
       const url = urlFor(cleanReference);
       return url ? `![${alt}](${url})` : full;
     });
