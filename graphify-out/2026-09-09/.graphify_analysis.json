@@ -427,6 +427,11 @@
       "degree": 8
     },
     {
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
+      "degree": 7
+    },
+    {
       "id": "src_app_editor_markdown_editor_markdowneditor",
       "label": "MarkdownEditor()",
       "degree": 7
@@ -434,11 +439,6 @@
     {
       "id": "src_lib_supabase_env_getsupabaseenv",
       "label": "getSupabaseEnv()",
-      "degree": 7
-    },
-    {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
       "degree": 7
     },
     {

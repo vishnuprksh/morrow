@@ -417,13 +417,13 @@
       "degree": 10
     },
     {
-      "id": "src_app_page_home_importvault",
-      "label": "importVault()",
+      "id": "package_scripts",
+      "label": "scripts",
       "degree": 8
     },
     {
-      "id": "package_scripts",
-      "label": "scripts",
+      "id": "src_app_page_home_importvault",
+      "label": "importVault()",
       "degree": 8
     },
     {
