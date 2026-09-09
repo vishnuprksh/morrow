@@ -760,18 +760,6 @@
       "source_location": "L9"
     },
     {
-      "id": "src_app_page_test_chainselect",
-      "label": "chainSelect()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "chainselect()",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L12"
-    },
-    {
       "id": "src_lib_supabase_client_createclient",
       "label": "createClient()",
       "_callable": true,
@@ -1002,6 +990,17 @@
       "norm_label": "uploadimage()",
       "source_file": "src/app/page.tsx",
       "source_location": "L614"
+    },
+    {
+      "id": "src_app_page_test_chainselect",
+      "label": "chainSelect()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "chainselect()",
+      "source_file": "src/app/page.test.tsx",
+      "source_location": "L12"
     },
     {
       "id": "src_lib_notes_autosave_createautosavecontroller",
@@ -2818,7 +2817,6 @@
       "label": "app/page.test.tsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "Home",
       "file_type": "code",
       "norm_label": "app/page.test.tsx",
       "source_file": "src/app/page.test.tsx",
@@ -8262,5 +8260,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "751ab493595af6013e801e63d021f8119f07c19f"
+  "built_at_commit": "91dbca8941b1683de367237bfc918d949d13e1e6"
 }

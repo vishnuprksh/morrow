@@ -1055,7 +1055,7 @@ export default function Home() {
                 ? 'Clear all'
                 : 'Select all notes'}
             </button>
-            {noteView !== 'trash' && selectedNoteIds.size > 0 && (
+            {selectedNoteIds.size > 0 && (
               <button
                 type="button"
                 title="Move selected notes to Trash"
