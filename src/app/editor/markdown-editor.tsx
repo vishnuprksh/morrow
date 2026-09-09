@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Editor, editorViewCtx, rootCtx, defaultValueCtx, parserCtx, prosePluginsCtx } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { commonmark, imageAttr, imageSchema } from '@milkdown/preset-commonmark';
 import { gfm } from '@milkdown/preset-gfm';
 import { katexOptionsCtx, math } from '@milkdown/plugin-math';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
@@ -10,8 +10,7 @@ import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
 import { history, redo, undo } from '@milkdown/prose/history';
 import { keymap } from '@milkdown/prose/keymap';
 import { Fragment, Slice } from '@milkdown/prose/model';
-import { TextSelection } from '@milkdown/prose/state';
-import type { Command } from '@milkdown/prose/state';
+import { NodeSelection, TextSelection, type Command } from '@milkdown/prose/state';
 import { Bold, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
 import { diffSegments, type DiffSegment, type NoteChangeProposal } from '@/lib/ai/proposals';
 
@@ -36,7 +35,45 @@ const editActions: Array<{ action: EditAction; label: string }> = [
   { action: 'grammar', label: 'Fix grammar' },
 ];
 
-type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link' | 'table';
+type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link' | 'table' | 'resizeImage';
+type ImageSize = 'small' | 'medium' | 'large';
+
+const imageWidths: Record<ImageSize, string> = { small: '240', medium: '480', large: '720' };
+
+export const resizableImageSchema = imageSchema.extendSchema((previous) => (ctx) => {
+  const schema = previous(ctx);
+  return {
+    ...schema,
+    attrs: { ...schema.attrs, width: { default: null, validate: 'string' } },
+    parseDOM: [{
+      tag: 'img[src]',
+      getAttrs: (dom) => {
+        const element = dom as HTMLImageElement;
+        return { src: element.getAttribute('src') || '', alt: element.getAttribute('alt') || '', title: element.getAttribute('title') || element.getAttribute('alt') || '', width: element.getAttribute('width') || null };
+      },
+    }],
+    toDOM: (node) => {
+      const attrs = { ...ctx.get(imageAttr.key)(node), ...node.attrs } as Record<string, string | null>;
+      if (!node.attrs.width) delete attrs.width;
+      return ['img', attrs];
+    },
+    parseMarkdown: {
+      match: ({ type }) => type === 'image',
+      runner: (state, node, type) => {
+        const alt = String(node.alt ?? '');
+        const width = alt.match(/\|width=(\d+)$/)?.[1] ?? null;
+        state.addNode(type, { src: String(node.url ?? ''), alt: alt.replace(/\|width=\d+$/, ''), title: String(node.title ?? ''), width });
+      },
+    },
+    toMarkdown: {
+      match: (node) => node.type.name === 'image',
+      runner: (state, node) => {
+        const width = node.attrs.width ? `|width=${node.attrs.width}` : '';
+        state.addNode('image', undefined, undefined, { title: node.attrs.title, url: node.attrs.src, alt: `${node.attrs.alt}${width}` });
+      },
+    },
+  };
+});
 
 const toolbarActions: Array<{ action: ToolbarAction; label: string; content: React.ReactNode }> = [
   { action: 'bold', label: 'Bold', content: <Bold aria-hidden="true" size={15} /> },
@@ -52,6 +89,7 @@ const toolbarActions: Array<{ action: ToolbarAction; label: string; content: Rea
 
 export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal }: MarkdownEditorProps) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const imageMenuRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Editor | null>(null);
   const currentValueRef = useRef(value);
   const onChangeRef = useRef(onChange);
@@ -63,12 +101,30 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
   const [tableDialogOpen, setTableDialogOpen] = useState(false);
   const [tableRows, setTableRows] = useState('3');
   const [tableColumns, setTableColumns] = useState('3');
+  const [resizeDialog, setResizeDialog] = useState<{ position: number; width: string } | null>(null);
+  const [imageMenu, setImageMenu] = useState<{ position: number; top: number; left: number } | null>(null);
   const requestRef = useRef(0);
   const selectionRef = useRef(selection);
 
   useEffect(() => {
     onChangeRef.current = onChange;
   }, [onChange]);
+
+  useEffect(() => {
+    if (!imageMenu) return;
+    const closeMenu = (event: PointerEvent) => {
+      if (imageMenuRef.current && !imageMenuRef.current.contains(event.target as Node)) setImageMenu(null);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setImageMenu(null);
+    };
+    document.addEventListener('pointerdown', closeMenu);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeMenu);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [imageMenu]);
 
   useEffect(() => {
     selectionRef.current = selection;
@@ -88,15 +144,18 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
         ctx.get(listenerCtx).markdownUpdated((_, markdown) => {
           currentValueRef.current = markdown;
           onChangeRef.current(markdown);
+          renderInlineSvgs(rootRef.current);
         });
       })
       .use(commonmark)
+      .use(resizableImageSchema)
       .use(gfm)
       .use(math)
       .use(listener);
 
     editorRef.current = editor;
     void editor.create().then(() => {
+      renderInlineSvgs(rootRef.current);
       if (disposed) void editor.destroy();
     });
 
@@ -202,6 +261,60 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     setTableDialogOpen(false);
   }
 
+  function submitResize(event: React.FormEvent) {
+    event.preventDefault();
+    const target = resizeDialog;
+    const editor = editorRef.current;
+    const requestedWidth = target?.width.trim().toLowerCase();
+    if (!target || !editor || !requestedWidth) return;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const node = view.state.doc.nodeAt(target.position);
+      if (!node || node.type !== view.state.schema.nodes.image) return;
+      const width = requestedWidth === 'auto'
+        ? null
+        : /^\d+$/.test(requestedWidth)
+          ? String(Math.max(40, Math.min(2_000, Number(requestedWidth))))
+          : undefined;
+      if (width !== undefined) {
+        view.dispatch(view.state.tr.setNodeMarkup(target.position, undefined, { ...node.attrs, width }).scrollIntoView());
+        view.focus();
+      }
+    });
+    setResizeDialog(null);
+  }
+
+  function resizeImageTo(size: ImageSize) {
+    const target = imageMenu;
+    const editor = editorRef.current;
+    if (!target || !editor) return;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const node = view.state.doc.nodeAt(target.position);
+      if (!node || node.type !== view.state.schema.nodes.image) return;
+      view.dispatch(view.state.tr.setNodeMarkup(target.position, undefined, { ...node.attrs, width: imageWidths[size] }).scrollIntoView());
+      view.focus();
+    });
+    setImageMenu(null);
+  }
+
+  function handleImageContextMenu(event: React.MouseEvent<HTMLDivElement>) {
+    const target = event.target as HTMLElement;
+    const image = target.closest('img[draggable="true"]');
+    const editor = editorRef.current;
+    if (!image || !editor || !rootRef.current) return;
+    event.preventDefault();
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const position = view.posAtDOM(image, 0);
+      const node = view.state.doc.nodeAt(position);
+      if (!node || node.type !== view.state.schema.nodes.image) return;
+      view.dispatch(view.state.tr.setSelection(NodeSelection.create(view.state.doc, position)));
+      const bounds = rootRef.current!.getBoundingClientRect();
+      setImageMenu({ position, top: event.clientY - bounds.top, left: event.clientX - bounds.left });
+    });
+  }
+
   function applyProposal() {
     const current = proposal;
     const editor = editorRef.current;
@@ -251,6 +364,10 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
         const href = window.prompt('Link URL');
         if (href && schema.marks.link) dispatch(toggleMark(schema.marks.link, { href }));
       }
+      if (action === 'resizeImage' && schema.nodes.image && selection instanceof NodeSelection && selection.node.type === schema.nodes.image) {
+        const currentWidth = selection.node.attrs.width ?? 'auto';
+        setResizeDialog({ position: selection.from, width: currentWidth });
+      }
     });
   }
 
@@ -259,18 +376,59 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       <div className="formatting" role="toolbar" aria-label="Formatting toolbar">
         {toolbarActions.map(({ action, label, content }, index) => <span key={action} className={index === 3 || index === 8 ? 'toolbar-group' : undefined}><ToolbarButton label={label} onClick={() => runToolbarAction(action)}>{content}</ToolbarButton></span>)}
         {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>}
+        <ToolbarButton label="Resize image" onClick={() => runToolbarAction('resizeImage')}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>
       </div>
       {tableDialogOpen && <div className="table-dialog" role="dialog" aria-modal="true" aria-labelledby="table-dialog-title"><form onSubmit={submitTable}><strong id="table-dialog-title">Insert table</strong><label htmlFor="table-rows">Rows<input id="table-rows" type="number" min="1" max="20" value={tableRows} onChange={(event) => setTableRows(event.target.value)} autoFocus /></label><label htmlFor="table-columns">Columns<input id="table-columns" type="number" min="1" max="12" value={tableColumns} onChange={(event) => setTableColumns(event.target.value)} /></label><div><button type="submit">Insert table</button><button type="button" onClick={() => setTableDialogOpen(false)}>Cancel</button></div></form></div>}
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
-        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" />
+        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" onContextMenu={handleImageContextMenu} />
+        {imageMenu && <div ref={imageMenuRef} className="image-size-menu" role="menu" aria-label="Image size" style={{ top: imageMenu.top, left: imageMenu.left }} onContextMenu={(event) => event.preventDefault()}><strong>Image size</strong><button type="button" role="menuitem" onClick={() => resizeImageTo('small')}>Small</button><button type="button" role="menuitem" onClick={() => resizeImageTo('medium')}>Medium</button><button type="button" role="menuitem" onClick={() => resizeImageTo('large')}>Large</button></div>}
         {noteProposal && <ProposalDiff key={`${noteProposal.noteId}-${noteProposal.expectedVersion}`} proposal={noteProposal} onAccept={onAcceptProposal} onDiscard={onDiscardProposal} />}
         {selection && !proposal && !noteProposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
         {proposal && <div className="ai-proposal" role="dialog" aria-label="AI edit proposal"><strong>Suggested replacement</strong><p>{proposal.replacement}</p><div><button type="button" onClick={applyProposal}>Accept</button><button type="button" onClick={() => setProposal(null)}>Discard</button></div></div>}
         {customDialogOpen && <div className="ai-custom-dialog" role="dialog" aria-modal="true" aria-labelledby="custom-instruction-title"><form onSubmit={submitCustomInstruction}><strong id="custom-instruction-title">Custom AI instruction</strong><label htmlFor="custom-instruction">Describe how to rewrite the selection</label><textarea id="custom-instruction" value={customInstruction} onChange={(event) => setCustomInstruction(event.target.value)} autoFocus maxLength={2_000} rows={4} /><div><button type="submit" disabled={!customInstruction.trim()}>Rewrite selection</button><button type="button" onClick={() => { setCustomDialogOpen(false); setCustomInstruction(''); }}>Cancel</button></div></form></div>}
+        {resizeDialog && <div className="ai-custom-dialog" role="dialog" aria-modal="true" aria-labelledby="resize-image-title"><form onSubmit={submitResize}><strong id="resize-image-title">Resize image</strong><label htmlFor="image-width">Width in pixels, or auto</label><input id="image-width" value={resizeDialog.width} onChange={(event) => setResizeDialog({ ...resizeDialog, width: event.target.value })} autoFocus inputMode="numeric" /><div><button type="submit">Apply width</button><button type="button" onClick={() => setResizeDialog(null)}>Cancel</button></div></form></div>}
       </div>
     </>
   );
+}
+
+const svgTags = new Set(['svg', 'g', 'path', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'rect', 'text', 'defs', 'linearGradient', 'radialGradient', 'stop', 'clipPath', 'mask', 'use', 'animate', 'animateTransform', 'set']);
+const svgAttributes = new Set(['id', 'class', 'x', 'y', 'x1', 'x2', 'y1', 'y2', 'cx', 'cy', 'r', 'rx', 'ry', 'd', 'points', 'width', 'height', 'viewBox', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity', 'opacity', 'transform', 'preserveAspectRatio', 'attributeName', 'attributeType', 'from', 'to', 'values', 'dur', 'begin', 'end', 'repeatCount', 'repeatDur', 'keyTimes', 'keySplines', 'calcMode', 'keyPoints', 'path', 'offset', 'stop-color', 'stop-opacity', 'clip-path', 'mask', 'href']);
+
+export function renderInlineSvgs(root: HTMLElement | null) {
+  if (!root) return;
+  for (const host of Array.from(root.querySelectorAll<HTMLElement>('span[data-type="html"]'))) {
+    const parts = [host];
+    let sibling = host.nextElementSibling;
+    while (sibling?.matches('span[data-type="html"]')) {
+      parts.push(sibling as HTMLElement);
+      sibling = sibling.nextElementSibling;
+    }
+    if (host.dataset.svgSource) {
+      for (const part of parts.slice(1)) part.remove();
+      continue;
+    }
+    const source = parts.map((part) => part.dataset.value ?? '').join('');
+    if (!/^\s*<svg(?:\s|>)/i.test(source) || !/<\/svg>\s*$/i.test(source)) continue;
+
+    const parsed = new DOMParser().parseFromString(source, 'image/svg+xml');
+    const svg = parsed.documentElement;
+    if (svg.tagName.toLowerCase() !== 'svg' || parsed.querySelector('parsererror')) continue;
+
+    for (const element of [svg, ...Array.from(svg.querySelectorAll('*'))]) {
+      if (!svgTags.has(element.tagName)) {
+        element.remove();
+        continue;
+      }
+      for (const attribute of Array.from(element.attributes)) {
+        if (!svgAttributes.has(attribute.name) || (attribute.name === 'href' && !attribute.value.startsWith('#'))) element.removeAttribute(attribute.name);
+      }
+    }
+    host.replaceChildren(document.importNode(svg, true));
+    host.dataset.svgSource = source;
+    for (const part of parts.slice(1)) part.remove();
+  }
 }
 
 function DiffText({ segments }: { segments: DiffSegment[] }) {

@@ -88,6 +88,10 @@ button { border:0; cursor:pointer; color:inherit; background:transparent; }
 .table-dialog form > div { display:flex; justify-content:flex-end; gap:5px; }
 .table-dialog button { padding:6px 8px; color:#68645d; border-radius:6px; font-size:11px; }
 .table-dialog button:first-child { color:white; background:var(--ink); }
+.image-size-menu { position:absolute; z-index:6; display:grid; min-width:128px; padding:6px; background:#fffdfa; border:1px solid var(--line); border-radius:7px; box-shadow:0 10px 28px #6b5b4820; }
+.image-size-menu strong { padding:4px 7px 6px; color:var(--accent); font-size:10px; letter-spacing:.6px; text-transform:uppercase; }
+.image-size-menu button { padding:6px 7px; color:var(--ink); background:transparent; border:0; border-radius:4px; text-align:left; font-size:12px; }
+.image-size-menu button:hover, .image-size-menu button:focus-visible { background:var(--paper); outline:0; }
 .milkdown-editor .editor { min-height:430px; outline:0; }
 .milkdown-editor p { margin:0 0 1em; }
 .milkdown-editor h1,.milkdown-editor h2,.milkdown-editor h3 { color:var(--ink); font-family:'Playfair Display',serif; line-height:1.25; }
