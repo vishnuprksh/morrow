@@ -1,6 +1,52 @@
 {
   "communities": {
     "0": [
+      "src_app_page",
+      "src_app_page_folderrow",
+      "src_app_page_home_importvault",
+      "src_app_page_home_loadworkspace",
+      "src_app_page_home_movetotrash",
+      "src_app_page_home_selectvault",
+      "src_app_page_notecontextmenu",
+      "src_app_page_noterow",
+      "src_app_page_noteview",
+      "src_app_page_rawmarkdowneditor",
+      "src_app_page_recoverynotice",
+      "src_app_page_vaultpreview",
+      "src_app_page_workspaceloadingscreen",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy",
+      "src_lib_notes_vault_import",
+      "src_lib_notes_vault_import_extension",
+      "src_lib_notes_vault_import_imagecontenttype",
+      "src_lib_notes_vault_import_imageextensions",
+      "src_lib_notes_vault_import_imagelookup",
+      "src_lib_notes_vault_import_imagereferences",
+      "src_lib_notes_vault_import_normalizevaultreference",
+      "src_lib_notes_vault_import_parsevaultfiles",
+      "src_lib_notes_vault_import_relativevaultpath",
+      "src_lib_notes_vault_import_rewriteimagelinks",
+      "src_lib_notes_vault_import_test",
+      "src_lib_notes_vault_import_test_file",
+      "src_lib_notes_vault_import_vaultfile",
+      "src_lib_notes_vault_import_vaultimage",
+      "src_lib_notes_vault_import_vaultnote"
+    ],
+    "1": [
       "ai",
       "ai_sdk_openai",
       "jszip",
@@ -45,42 +91,6 @@
       "testing_library_react",
       "zod"
     ],
-    "1": [
-      "src_app_auth_auth_form",
-      "src_app_auth_auth_form_authform",
-      "src_app_auth_auth_form_authform_submit",
-      "src_app_auth_auth_form_signoutbutton",
-      "src_app_auth_forgot_password_page",
-      "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "src_app_auth_sign_in_page",
-      "src_app_auth_sign_in_page_signinpage",
-      "src_app_auth_sign_up_page",
-      "src_app_auth_sign_up_page_signuppage",
-      "src_app_auth_update_password_page",
-      "src_app_auth_update_password_page_updatepasswordpage",
-      "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "src_app_page_home",
-      "src_app_page_home_acceptproposal",
-      "src_app_page_home_archivenote",
-      "src_app_page_home_bulkmovetotrash",
-      "src_app_page_home_createfolder",
-      "src_app_page_home_createnote",
-      "src_app_page_home_deletefolder",
-      "src_app_page_home_movenote",
-      "src_app_page_home_movetotrash",
-      "src_app_page_home_opennotemenu",
-      "src_app_page_home_permanentlydeletenote",
-      "src_app_page_home_renamefolder",
-      "src_app_page_home_restorenote",
-      "src_app_page_home_togglefavorite",
-      "src_app_page_home_toggleselectnotes",
-      "src_app_page_home_updatenote",
-      "src_app_page_home_uploadimage",
-      "src_app_page_test",
-      "src_app_page_test_chainselect",
-      "src_lib_supabase_client_createclient"
-    ],
     "2": [
       "ref_dom",
       "ref_dom_iterable",
@@ -115,37 +125,6 @@
       "tsconfig_include"
     ],
     "3": [
-      "src_app_page",
-      "src_app_page_folderrow",
-      "src_app_page_notecontextmenu",
-      "src_app_page_noterow",
-      "src_app_page_noteview",
-      "src_app_page_rawmarkdowneditor",
-      "src_app_page_recoverynotice",
-      "src_app_page_vaultpreview",
-      "src_app_page_workspaceloadingscreen",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy",
-      "src_lib_notes_folders",
-      "src_lib_notes_folders_collectfolderids",
-      "src_lib_notes_folders_folderlike",
-      "src_lib_notes_folders_test"
-    ],
-    "4": [
       "src_app_agent_panel",
       "src_app_agent_panel_agentpanel",
       "src_app_agent_panel_agentpanel_send",
@@ -161,6 +140,7 @@
       "src_app_editor_markdown_editor_markdowneditor_requestedit",
       "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
       "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "src_app_editor_markdown_editor_markdowneditor_submittable",
       "src_app_editor_markdown_editor_markdowneditorprops",
       "src_app_editor_markdown_editor_proposaldiff",
       "src_app_editor_markdown_editor_test",
@@ -174,6 +154,37 @@
       "src_lib_ai_proposals_diffsegments",
       "src_lib_ai_proposals_notechangeproposal",
       "src_lib_ai_proposals_test"
+    ],
+    "4": [
+      "src_app_auth_forgot_password_page",
+      "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "src_app_auth_update_password_page",
+      "src_app_auth_update_password_page_updatepasswordpage",
+      "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "src_app_page_home",
+      "src_app_page_home_acceptproposal",
+      "src_app_page_home_archivenote",
+      "src_app_page_home_bulkmovetotrash",
+      "src_app_page_home_createfolder",
+      "src_app_page_home_createnote",
+      "src_app_page_home_deletefolder",
+      "src_app_page_home_movenote",
+      "src_app_page_home_opennotemenu",
+      "src_app_page_home_permanentlydeletenote",
+      "src_app_page_home_renamefolder",
+      "src_app_page_home_restorenote",
+      "src_app_page_home_togglefavorite",
+      "src_app_page_home_toggleselectall",
+      "src_app_page_home_toggleselectnotes",
+      "src_app_page_home_updatenote",
+      "src_app_page_test",
+      "src_app_page_test_chainselect",
+      "src_lib_notes_folders",
+      "src_lib_notes_folders_collectfolderids",
+      "src_lib_notes_folders_folderlike",
+      "src_lib_notes_folders_test",
+      "src_lib_supabase_client_createclient"
     ],
     "5": [
       "eslint",
@@ -234,26 +245,6 @@
       "src_lib_supabase_server_createclient"
     ],
     "7": [
-      "src_app_page_home_importvault",
-      "src_app_page_home_loadworkspace",
-      "src_app_page_home_selectvault",
-      "src_lib_notes_vault_import",
-      "src_lib_notes_vault_import_extension",
-      "src_lib_notes_vault_import_imagecontenttype",
-      "src_lib_notes_vault_import_imageextensions",
-      "src_lib_notes_vault_import_imagelookup",
-      "src_lib_notes_vault_import_imagereferences",
-      "src_lib_notes_vault_import_normalizevaultreference",
-      "src_lib_notes_vault_import_parsevaultfiles",
-      "src_lib_notes_vault_import_relativevaultpath",
-      "src_lib_notes_vault_import_rewriteimagelinks",
-      "src_lib_notes_vault_import_test",
-      "src_lib_notes_vault_import_test_file",
-      "src_lib_notes_vault_import_vaultfile",
-      "src_lib_notes_vault_import_vaultimage",
-      "src_lib_notes_vault_import_vaultnote"
-    ],
-    "8": [
       "package",
       "package_name",
       "package_packagemanager",
@@ -268,7 +259,8 @@
       "package_scripts_typecheck",
       "package_version"
     ],
-    "9": [
+    "8": [
+      "src_app_page_home_uploadimage",
       "src_lib_notes_portability",
       "src_lib_notes_portability_downloadblob",
       "src_lib_notes_portability_folderpath",
@@ -278,6 +270,16 @@
       "src_lib_notes_portability_safefilename",
       "src_lib_notes_portability_test",
       "src_lib_notes_portability_workspacezip"
+    ],
+    "9": [
+      "src_app_auth_auth_form",
+      "src_app_auth_auth_form_authform",
+      "src_app_auth_auth_form_authform_submit",
+      "src_app_auth_auth_form_signoutbutton",
+      "src_app_auth_sign_in_page",
+      "src_app_auth_sign_in_page_signinpage",
+      "src_app_auth_sign_up_page",
+      "src_app_auth_sign_up_page_signuppage"
     ],
     "10": [
       "src_lib_ai_credentials",
@@ -365,16 +367,16 @@
     ]
   },
   "cohesion": {
-    "0": 0.046511627906976744,
-    "1": 0.09269162210338681,
+    "0": 0.08139534883720931,
+    "1": 0.046511627906976744,
     "2": 0.06451612903225806,
-    "3": 0.11083743842364532,
-    "4": 0.09259259259259259,
+    "3": 0.08866995073891626,
+    "4": 0.10344827586206896,
     "5": 0.07407407407407407,
     "6": 0.1396011396011396,
-    "7": 0.1895424836601307,
-    "8": 0.15384615384615385,
-    "9": 0.4166666666666667,
+    "7": 0.15384615384615385,
+    "8": 0.35555555555555557,
+    "9": 0.32142857142857145,
     "10": 0.8,
     "11": 0.7,
     "12": 0.5,
@@ -404,7 +406,7 @@
     {
       "id": "src_app_page_home",
       "label": "Home()",
-      "degree": 23
+      "degree": 24
     },
     {
       "id": "tsconfig_compileroptions",
@@ -417,13 +419,18 @@
       "degree": 10
     },
     {
-      "id": "src_app_page_home_importvault",
-      "label": "importVault()",
+      "id": "package_scripts",
+      "label": "scripts",
       "degree": 8
     },
     {
-      "id": "package_scripts",
-      "label": "scripts",
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
+      "degree": 8
+    },
+    {
+      "id": "src_app_page_home_importvault",
+      "label": "importVault()",
       "degree": 8
     },
     {
@@ -440,14 +447,20 @@
       "id": "src_lib_notes_portability_safefilename",
       "label": "safeFilename()",
       "degree": 7
-    },
-    {
-      "id": "tsconfig_include",
-      "label": "include",
-      "degree": 7
     }
   ],
   "surprises": [
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities; peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
     {
       "source": "proxy()",
       "target": "updateSession()",
@@ -460,7 +473,7 @@
       "why": "connects across different repos/directories"
     },
     {
-      "source": "submit()",
+      "source": "SignOutButton()",
       "target": "createClient()",
       "source_files": [
         "src/app/auth/auth-form.tsx",
@@ -468,7 +481,7 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+      "why": "bridges separate communities"
     },
     {
       "source": "submit()",
@@ -491,17 +504,6 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
-    },
-    {
-      "source": "Home()",
-      "target": "createAutosaveController()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
     }
   ],
   "tokens": {
