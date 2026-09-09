@@ -417,23 +417,18 @@
       "degree": 10
     },
     {
-      "id": "package_scripts",
-      "label": "scripts",
-      "degree": 8
-    },
-    {
       "id": "src_app_page_home_importvault",
       "label": "importVault()",
       "degree": 8
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
-      "degree": 7
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 8
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
@@ -444,6 +439,11 @@
     {
       "id": "src_lib_notes_portability_safefilename",
       "label": "safeFilename()",
+      "degree": 7
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
       "degree": 7
     }
   ],
@@ -493,15 +493,15 @@
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "archiveNote()",
-      "target": "createClient()",
+      "source": "Home()",
+      "target": "createAutosaveController()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/supabase/client.ts"
+        "src/lib/notes/autosave.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
+      "why": "bridges separate communities"
     }
   ],
   "tokens": {

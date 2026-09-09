@@ -1,16 +1,15 @@
 # Graph Report - haha  (2026-09-09)
 
 ## Corpus Check
-- 59 files · ~16,640 words
-- Verdict: corpus is large enough that graph structure adds value.
+- cluster-only mode — file stats not available
 
 ## Summary
-- 306 nodes · 408 edges · 29 communities (20 shown, 9 thin omitted)
+- 305 nodes · 407 edges · 29 communities (20 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `60de90c5`
+- Built from commit: `2006eddf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,7 +21,7 @@
 - markdown-editor.tsx
 - devDependencies
 - createClient
-- autosave.ts
+- vault-import.ts
 - scripts
 - portability.ts
 - credentials.ts
@@ -43,24 +42,24 @@
 2. `Home()` - 23 edges
 3. `compilerOptions` - 17 edges
 4. `createClient()` - 10 edges
-5. `scripts` - 8 edges
-6. `importVault()` - 8 edges
-7. `MarkdownEditor()` - 7 edges
-8. `createAutosaveController()` - 7 edges
-9. `safeFilename()` - 7 edges
-10. `getSupabaseEnv()` - 7 edges
+5. `importVault()` - 8 edges
+6. `scripts` - 8 edges
+7. `createAutosaveController()` - 7 edges
+8. `MarkdownEditor()` - 7 edges
+9. `getSupabaseEnv()` - 7 edges
+10. `safeFilename()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `proxy()` --calls--> `updateSession()`  [EXTRACTED]
   proxy.ts → src/lib/supabase/middleware.ts
-- `GET()` --calls--> `createClient()`  [EXTRACTED]
-  src/app/api/attachments/[noteId]/[filename]/route.ts → src/lib/supabase/server.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/auth-form.tsx → src/lib/supabase/client.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/forgot-password/page.tsx → src/lib/supabase/client.ts
 - `submit()` --calls--> `createClient()`  [EXTRACTED]
   src/app/auth/update-password/page.tsx → src/lib/supabase/client.ts
+- `archiveNote()` --calls--> `createClient()`  [EXTRACTED]
+  src/app/page.tsx → src/lib/supabase/client.ts
 
 ## Import Cycles
 - None detected.
@@ -81,7 +80,7 @@ Nodes (30): dom, dom.iterable, esnext, .next/dev/types/**/*.ts, next-env.d.ts, .
 
 ### Community 3 - "app/page.tsx"
 Cohesion: 0.11
-Nodes (20): FolderRow, importVault(), loadWorkspace(), selectVault(), NoteRow, NoteView, collectFolderIds(), FolderLike (+12 more)
+Nodes (20): FolderRow, NoteRow, NoteView, RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController(), attempt() (+12 more)
 
 ### Community 4 - "markdown-editor.tsx"
 Cohesion: 0.09
@@ -95,9 +94,9 @@ Nodes (27): eslint, eslint-config-next, jsdom, devDependencies, eslint, eslint-c
 Cohesion: 0.14
 Nodes (17): config, proxy(), boundedText(), noteId, POST(), isPreset(), POST(), Preset (+9 more)
 
-### Community 7 - "autosave.ts"
-Cohesion: 0.18
-Nodes (15): RecoveryNotice(), AutosaveController, AutosaveResult, createAutosaveController(), attempt(), flush(), resultIsComplete(), Entry (+7 more)
+### Community 7 - "vault-import.ts"
+Cohesion: 0.19
+Nodes (15): importVault(), loadWorkspace(), selectVault(), extension(), imageContentType(), imageExtensions, imageLookup(), imageReferences() (+7 more)
 
 ### Community 8 - "scripts"
 Cohesion: 0.15
@@ -120,20 +119,20 @@ Cohesion: 0.50
 Nodes (3): semi, singleQuote, trailingComma
 
 ## Knowledge Gaps
-- **106 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `nextConfig`, `name` (+101 more)
+- **106 isolated node(s):** `Agent`, `CredentialInput`, `AutosaveResult`, `Entry`, `SaveNote` (+101 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `createClient()` connect `createClient` to `app/page.tsx`, `createClient`?**
+- **Why does `createClient()` connect `createClient` to `app/page.tsx`, `createClient`, `vault-import.ts`?**
   _High betweenness centrality (0.058) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.054) - this node is a cross-community bridge._
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Why does `getSupabaseEnv()` connect `createClient` to `createClient`?**
   _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
+- **What connects `Agent`, `CredentialInput`, `AutosaveResult` to the rest of the system?**
   _106 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected._

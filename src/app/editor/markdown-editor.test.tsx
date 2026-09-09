@@ -38,6 +38,7 @@ describe('MarkdownEditor', () => {
     expect(screen.getByLabelText('Markdown note content')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bold' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bulleted list' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Insert table' })).toBeInTheDocument();
   });
 
   it('does not render the raw view inside the WYSIWYG editor', () => {
