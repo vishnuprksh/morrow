@@ -134,19 +134,6 @@
       "source_location": "L9"
     },
     {
-      "id": "src_lib_notes_folders_folderlike",
-      "label": "FolderLike",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "folderlike",
-      "source_file": "src/lib/notes/folders.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "src_app_page_folderrow",
       "label": "FolderRow",
       "_callable": true,
@@ -262,6 +249,19 @@
       "norm_label": "saveresult",
       "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "src_lib_notes_folders_folderlike",
+      "label": "FolderLike",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "folderlike",
+      "source_file": "src/lib/notes/folders.ts",
+      "source_location": "L1"
     },
     {
       "id": "src_app_api_ai_edit_route_preset",
@@ -884,18 +884,6 @@
       "source_location": "L464"
     },
     {
-      "id": "src_app_page_home_deletefolder",
-      "label": "deleteFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "deletefolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L569"
-    },
-    {
       "id": "src_app_page_home_movenote",
       "label": "moveNote()",
       "_callable": true,
@@ -1016,18 +1004,6 @@
       "source_location": "L12"
     },
     {
-      "id": "src_lib_notes_folders_collectfolderids",
-      "label": "collectFolderIds()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "collectfolderids()",
-      "source_file": "src/lib/notes/folders.ts",
-      "source_location": "L3"
-    },
-    {
       "id": "src_lib_supabase_client_createclient",
       "label": "createClient()",
       "_callable": true,
@@ -1062,6 +1038,18 @@
       "norm_label": "authlayout()",
       "source_file": "src/app/auth/page.tsx",
       "source_location": "L4"
+    },
+    {
+      "id": "src_app_page_home_deletefolder",
+      "label": "deleteFolder()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "deletefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L569"
     },
     {
       "id": "src_app_page_home_movetotrash",
@@ -1230,6 +1218,18 @@
       "norm_label": "writerecoverycopy()",
       "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L48"
+    },
+    {
+      "id": "src_lib_notes_folders_collectfolderids",
+      "label": "collectFolderIds()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "collectfolderids()",
+      "source_file": "src/lib/notes/folders.ts",
+      "source_location": "L3"
     },
     {
       "id": "proxy_proxy",
@@ -2321,7 +2321,7 @@
       "label": "README.md",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Morrow",
+      "community_name": "Morrow \u2014 AI Markdown Notes",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "readme.md",
@@ -2329,136 +2329,28 @@
       "source_location": "L1"
     },
     {
-      "id": "readme_1_create_supabase_resources",
-      "label": "1. Create Supabase resources",
+      "id": "readme_local_setup",
+      "label": "Local setup",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Morrow",
+      "community_name": "Morrow \u2014 AI Markdown Notes",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "1. create supabase resources",
+      "norm_label": "local setup",
       "source_file": "README.md",
-      "source_location": "L36"
+      "source_location": "L3"
     },
     {
-      "id": "readme_2_configure_the_environment",
-      "label": "2. Configure the environment",
+      "id": "readme_morrow_ai_markdown_notes",
+      "label": "Morrow \u2014 AI Markdown Notes",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Morrow",
+      "community_name": "Morrow \u2014 AI Markdown Notes",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. configure the environment",
-      "source_file": "README.md",
-      "source_location": "L49"
-    },
-    {
-      "id": "readme_3_configure_auth_redirects",
-      "label": "3. Configure Auth redirects",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. configure auth redirects",
-      "source_file": "README.md",
-      "source_location": "L75"
-    },
-    {
-      "id": "readme_4_install_and_run",
-      "label": "4. Install and run",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. install and run",
-      "source_file": "README.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "readme_development_commands",
-      "label": "Development commands",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "development commands",
-      "source_file": "README.md",
-      "source_location": "L92"
-    },
-    {
-      "id": "readme_getting_started",
-      "label": "Getting started",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "getting started",
-      "source_file": "README.md",
-      "source_location": "L34"
-    },
-    {
-      "id": "readme_morrow",
-      "label": "Morrow",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "morrow",
+      "norm_label": "morrow \u2014 ai markdown notes",
       "source_file": "README.md",
       "source_location": "L1"
-    },
-    {
-      "id": "readme_preview",
-      "label": "Preview",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "preview",
-      "source_file": "README.md",
-      "source_location": "L5"
-    },
-    {
-      "id": "readme_security_notes",
-      "label": "Security notes",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "security notes",
-      "source_file": "README.md",
-      "source_location": "L106"
-    },
-    {
-      "id": "readme_stack",
-      "label": "Stack",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "stack",
-      "source_file": "README.md",
-      "source_location": "L25"
-    },
-    {
-      "id": "readme_what_is_included",
-      "label": "What is included",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Morrow",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "what is included",
-      "source_file": "README.md",
-      "source_location": "L13"
     },
     {
       "id": "src_app_ai_settings",
@@ -2625,28 +2517,6 @@
       "file_type": "code",
       "norm_label": "app/page.test.tsx",
       "source_file": "src/app/page.test.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_folders",
-      "label": "folders.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "folders.ts",
-      "source_file": "src/lib/notes/folders.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_folders_test",
-      "label": "folders.test.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "folders.test.ts",
-      "source_file": "src/lib/notes/folders.test.ts",
       "source_location": "L1"
     },
     {
@@ -3144,6 +3014,28 @@
       "file_type": "code",
       "norm_label": "autosave.test.ts",
       "source_file": "src/lib/notes/autosave.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_folders",
+      "label": "folders.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "folders.ts",
+      "source_file": "src/lib/notes/folders.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_folders_test",
+      "label": "folders.test.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "folders.test.ts",
+      "source_file": "src/lib/notes/folders.test.ts",
       "source_location": "L1"
     },
     {
@@ -3819,7 +3711,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/ai/agent/route.ts",
-      "source_location": "L54",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -7104,7 +6996,7 @@
     },
     {
       "source": "readme",
-      "target": "readme_morrow",
+      "target": "readme_morrow_ai_markdown_notes",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7114,113 +7006,14 @@
       "weight": 1.0
     },
     {
-      "source": "readme_getting_started",
-      "target": "readme_1_create_supabase_resources",
+      "source": "readme_morrow_ai_markdown_notes",
+      "target": "readme_local_setup",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L36",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_getting_started",
-      "target": "readme_2_configure_the_environment",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L49",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_getting_started",
-      "target": "readme_3_configure_auth_redirects",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L75",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_getting_started",
-      "target": "readme_4_install_and_run",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L83",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_morrow",
-      "target": "readme_security_notes",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L106",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_morrow",
-      "target": "readme_what_is_included",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_morrow",
-      "target": "readme_stack",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_morrow",
-      "target": "readme_getting_started",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L34",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_morrow",
-      "target": "readme_preview",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_morrow",
-      "target": "readme_development_commands",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L92",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -8797,5 +8590,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1834048543c35d6a9b2e28475775ff05ce418244"
+  "built_at_commit": "c626734caa6782fd3ed4c587a23eb1514de7c4e6"
 }
