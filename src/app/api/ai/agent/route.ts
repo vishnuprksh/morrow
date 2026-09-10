@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 const MAX_NOTE_CHARS = 24_000;
 const noteId = z.string().uuid();
 const boundedText = (max: number) => z.string().trim().min(1).max(max);
-const AGENT_MODEL = 'nex-agi/nex-n2.5-pro:free';
+const AGENT_MODEL = 'z-ai/glm-5.3-flash';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
       // for UI messages whose content is an array of parts; converting these
       // plain messages makes the request fail before it reaches OpenRouter.
       model, system, messages: body.messages as never,
-      stopWhen: stepCountIs(6), maxOutputTokens: 10000, abortSignal: AbortSignal.timeout(45_000),
+      stopWhen: stepCountIs(6), maxOutputTokens: 25000, abortSignal: AbortSignal.timeout(45_000),
       tools: {
         get_active_note: tool({ description: 'Read the active note.', inputSchema: z.object({}), execute: async () => activeId ? (await supabase.from('notes').select('id,title,content_markdown,folder_id,version').eq('id', activeId).is('deleted_at', null).maybeSingle()).data ?? { error: 'Active note not found' } : { error: 'No active note.' } }),
         read_note: tool({ description: 'Read one note by ID from this user workspace.', inputSchema: z.object({ id: noteId }), execute: async ({ id }) => (await supabase.from('notes').select('id,title,content_markdown,folder_id,version').eq('id', id).is('deleted_at', null).maybeSingle()).data ?? { error: 'Note not found.' } }),

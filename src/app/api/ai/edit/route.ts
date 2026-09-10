@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       const contextBefore = typeof body?.contextBefore === 'string' ? body.contextBefore.slice(-2_000) : '';
       const contextAfter = typeof body?.contextAfter === 'string' ? body.contextAfter.slice(0, 2_000) : '';
     const result = await generateText({
-      model: openrouter('nex-agi/nex-n2.5-pro:free'),
+      model: openrouter('z-ai/glm-5.3-flash'),
       system: 'You edit selected Markdown in a note. Return only the replacement text, with no explanation, labels, quotation marks, or Markdown code fences. Preserve Markdown syntax when it is part of the selection.',
       prompt: `Task: ${task}\n\nLimited surrounding context (do not rewrite it):\nBefore: ${contextBefore}\nAfter: ${contextAfter}\n\nSelected text to replace:\n${selectedText}`,
       maxOutputTokens: 4_000,
