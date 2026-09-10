@@ -12,7 +12,7 @@ export async function GET() {
   return NextResponse.json({
     agent: {
       provider: 'openrouter',
-      model: 'openai/gpt-5.6-luna',
+      model: 'nex-agi/nex-n2.5-pro:free',
       configured: Boolean(process.env.OPENROUTER_API_KEY),
     },
   });

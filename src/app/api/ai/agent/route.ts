@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 const MAX_NOTE_CHARS = 24_000;
 const noteId = z.string().uuid();
 const boundedText = (max: number) => z.string().trim().min(1).max(max);
-const AGENT_MODEL = 'openai/gpt-5.6-luna';
+const AGENT_MODEL = 'nex-agi/nex-n2.5-pro:free';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
