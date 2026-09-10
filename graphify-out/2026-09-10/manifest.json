@@ -12,8 +12,8 @@
     "semantic_hash": "54d99b2e0f30c2a2859404fa4c7b24ca"
   },
   "next-env.d.ts": {
-    "mtime": 1788965851.6155868,
-    "seen": 1788966750.8428564,
+    "mtime": 1788968005.9746256,
+    "seen": 1789021348.5641482,
     "ast_hash": "aa94238a90e7d04b7a47ecc3145ba6a0",
     "semantic_hash": "aa94238a90e7d04b7a47ecc3145ba6a0"
   },
@@ -54,10 +54,10 @@
     "semantic_hash": "2c2a67d36b5eaf47b78c280475e10572"
   },
   "src/app/api/ai/agent/route.ts": {
-    "mtime": 1788966696.1796021,
-    "seen": 1788966750.84372,
-    "ast_hash": "94322facdfff7cd44f4493cfb5115ee9",
-    "semantic_hash": "94322facdfff7cd44f4493cfb5115ee9"
+    "mtime": 1789021970.3160236,
+    "seen": 1789022021.7476163,
+    "ast_hash": "224a327858c5de65e16d3e4dad4f7c9f",
+    "semantic_hash": "224a327858c5de65e16d3e4dad4f7c9f"
   },
   "src/app/api/ai/edit/route.ts": {
     "mtime": 1787732881.8698225,
@@ -114,14 +114,14 @@
     "semantic_hash": "71cbf219291a51822d72894ee1380dc2"
   },
   "src/app/editor/markdown-editor.test.tsx": {
-    "mtime": 1788966565.4825997,
-    "seen": 1788966750.850857,
+    "mtime": 1788968005.9746256,
+    "seen": 1789021348.5665805,
     "ast_hash": "dd37ede74fccff80b6536847a2ce1b1a",
     "semantic_hash": "dd37ede74fccff80b6536847a2ce1b1a"
   },
   "src/app/editor/markdown-editor.tsx": {
-    "mtime": 1788966565.5055997,
-    "seen": 1788966750.85086,
+    "mtime": 1788968005.9756255,
+    "seen": 1789021348.5665834,
     "ast_hash": "9e4958079c179afb9779af1884ac2413",
     "semantic_hash": "9e4958079c179afb9779af1884ac2413"
   },
@@ -270,9 +270,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787732881.8618224,
-    "seen": 1787742219.044364,
-    "ast_hash": "75dcecb0055308fc94827f933d60c4b4",
+    "mtime": 1788968005.9656255,
+    "seen": 1789021348.5756192,
+    "ast_hash": "fbc142a64b5022847a04417c374efac6",
     "semantic_hash": ""
   },
   "mvp_plan.md": {
@@ -328,5 +328,17 @@
     "seen": 1788965543.0926197,
     "ast_hash": "8caff2716abfc8f1d5ff61d00183331b",
     "semantic_hash": "8caff2716abfc8f1d5ff61d00183331b"
+  },
+  "docs/screenshots/morrow-workspace-desktop.png": {
+    "mtime": 1788968005.9686255,
+    "seen": 1789021348.5756905,
+    "ast_hash": "cfc940781081f0ddfa935fb396133454",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/morrow-workspace-mobile.png": {
+    "mtime": 1788968005.9696257,
+    "seen": 1789021348.5756936,
+    "ast_hash": "16063b30829577add5073bddbf89667c",
+    "semantic_hash": ""
   }
 }
