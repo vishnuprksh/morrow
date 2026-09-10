@@ -188,6 +188,30 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+    const toggleChecklistItem = (event: MouseEvent) => {
+      const taskItem = (event.target as HTMLElement).closest('li[data-item-type="task"]');
+      const editor = editorRef.current;
+      if (!taskItem || !editor) return;
+      editor.action((ctx) => {
+        const view = ctx.get(editorViewCtx);
+        const domPosition = view.posAtDOM(taskItem, 0);
+        const resolved = view.state.doc.resolve(domPosition);
+        let position = domPosition;
+        let node = view.state.doc.nodeAt(position);
+        for (let depth = resolved.depth; depth > 0; depth -= 1) {
+          const candidate = resolved.node(depth);
+          if (candidate.type === view.state.schema.nodes.list_item) {
+            position = resolved.before(depth);
+            node = candidate;
+            break;
+          }
+        }
+        if (!node || node.type !== view.state.schema.nodes.list_item || node.attrs.checked == null) return;
+        event.preventDefault();
+        view.dispatch(view.state.tr.setNodeMarkup(position, undefined, { ...node.attrs, checked: !node.attrs.checked }).scrollIntoView());
+        view.focus();
+      });
+    };
     const updateSelection = () => {
       const editor = editorRef.current;
       if (!editor) return;
@@ -203,9 +227,10 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
         setSelection({ from, to, text, top: Math.max(4, end.bottom - bounds.top + 8), left: Math.max(4, start.left - bounds.left) });
       });
     };
+    root.addEventListener('click', toggleChecklistItem);
     root.addEventListener('mouseup', updateSelection);
     root.addEventListener('keyup', updateSelection);
-    return () => { root.removeEventListener('mouseup', updateSelection); root.removeEventListener('keyup', updateSelection); };
+    return () => { root.removeEventListener('click', toggleChecklistItem); root.removeEventListener('mouseup', updateSelection); root.removeEventListener('keyup', updateSelection); };
   }, []);
 
   async function requestEdit(action: EditAction, requestedInstruction = '') {
