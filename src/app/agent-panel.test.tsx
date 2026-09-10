@@ -76,4 +76,29 @@ describe('AgentPanel', () => {
     expect(screen.queryByText('Hello there.')).not.toBeInTheDocument();
     expect(input).toHaveValue('');
   });
+
+  it('keeps partial output and replaces the empty placeholder on a terminal stream error', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(
+      'Partial answer\n__MORROW_STATUS__{"type":"agent_error","message":"The AI provider could not complete this run."}\n',
+      { headers: { 'Content-Type': 'text/plain' } },
+    )));
+
+    render(<AgentPanel activeNote={activeNote} onClose={vi.fn()} onProposal={vi.fn()} />);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Chat message' }), { target: { value: 'Create something complex' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Send message' }));
+
+    expect(await screen.findByText(/Partial answer/)).toBeInTheDocument();
+    expect(screen.getByText(/The AI provider could not complete this run/)).toBeInTheDocument();
+    expect(screen.getAllByRole('button', { name: 'Send message' })).toHaveLength(1);
+  });
+
+  it('shows a fallback when a completed stream has no visible response', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('__MORROW_STATUS__{"type":"agent_status","message":"Putting the answer together..."}\n')));
+
+    render(<AgentPanel activeNote={activeNote} onClose={vi.fn()} onProposal={vi.fn()} />);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Chat message' }), { target: { value: 'Do the thing' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Send message' }));
+
+    expect(await screen.findByText('The agent completed without a response.')).toBeInTheDocument();
+  });
 });

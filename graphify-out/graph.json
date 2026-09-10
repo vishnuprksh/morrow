@@ -4,6 +4,19 @@
   "graph": {},
   "nodes": [
     {
+      "id": "src_lib_notes_folders_folderlike",
+      "label": "FolderLike",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "folderlike",
+      "source_file": "src/lib/notes/folders.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_app_agent_panel_chatmessage",
       "label": "ChatMessage",
       "_callable": true,
@@ -275,19 +288,6 @@
       "norm_label": "saveresult",
       "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L6"
-    },
-    {
-      "id": "src_lib_notes_folders_folderlike",
-      "label": "FolderLike",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "folderlike",
-      "source_file": "src/lib/notes/folders.ts",
-      "source_location": "L1"
     },
     {
       "id": "src_app_api_ai_edit_route_preset",
@@ -572,18 +572,6 @@
       "source_location": "L372"
     },
     {
-      "id": "src_app_page_home_movetotrash",
-      "label": "moveToTrash()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "movetotrash()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L485"
-    },
-    {
       "id": "src_app_page_home_opennotemenu",
       "label": "openNoteMenu()",
       "_callable": true,
@@ -680,18 +668,6 @@
       "source_location": "L308"
     },
     {
-      "id": "src_app_page_home_uploadimage",
-      "label": "uploadImage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "uploadimage()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L614"
-    },
-    {
       "id": "src_app_page_test_chainselect",
       "label": "chainSelect()",
       "_callable": true,
@@ -702,6 +678,18 @@
       "norm_label": "chainselect()",
       "source_file": "src/app/page.test.tsx",
       "source_location": "L12"
+    },
+    {
+      "id": "src_lib_notes_folders_collectfolderids",
+      "label": "collectFolderIds()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "collectfolderids()",
+      "source_file": "src/lib/notes/folders.ts",
+      "source_location": "L3"
     },
     {
       "id": "src_lib_supabase_client_createclient",
@@ -725,7 +713,7 @@
       "file_type": "code",
       "norm_label": "agentpanel()",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L48"
+      "source_location": "L75"
     },
     {
       "id": "src_app_agent_panel_agentpanel_clearchat",
@@ -737,7 +725,7 @@
       "file_type": "code",
       "norm_label": "clearchat()",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L81"
+      "source_location": "L110"
     },
     {
       "id": "src_app_agent_panel_agentpanel_send",
@@ -749,7 +737,7 @@
       "file_type": "code",
       "norm_label": "send()",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L62"
+      "source_location": "L90"
     },
     {
       "id": "src_app_agent_panel_extractnotechangeproposal",
@@ -761,7 +749,31 @@
       "file_type": "code",
       "norm_label": "extractnotechangeproposal()",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L10"
+      "source_location": "L11"
+    },
+    {
+      "id": "src_app_agent_panel_latestagenterror",
+      "label": "latestAgentError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "agent-panel.tsx",
+      "file_type": "code",
+      "norm_label": "latestagenterror()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L58"
+    },
+    {
+      "id": "src_app_agent_panel_latestagentstatus",
+      "label": "latestAgentStatus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "agent-panel.tsx",
+      "file_type": "code",
+      "norm_label": "latestagentstatus()",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L46"
     },
     {
       "id": "src_app_agent_panel_visibleassistanttext",
@@ -773,7 +785,7 @@
       "file_type": "code",
       "norm_label": "visibleassistanttext()",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L39"
+      "source_location": "L40"
     },
     {
       "id": "src_app_agent_panel_workingindicator",
@@ -785,7 +797,19 @@
       "file_type": "code",
       "norm_label": "workingindicator()",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L44"
+      "source_location": "L71"
+    },
+    {
+      "id": "src_app_page_home_uploadimage",
+      "label": "uploadImage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "portability.ts",
+      "file_type": "code",
+      "norm_label": "uploadimage()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L614"
     },
     {
       "id": "src_lib_notes_portability_downloadblob",
@@ -1172,6 +1196,18 @@
       "source_location": "L4"
     },
     {
+      "id": "src_app_page_home_movetotrash",
+      "label": "moveToTrash()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "movetotrash()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L485"
+    },
+    {
       "id": "src_app_page_notecontextmenu",
       "label": "NoteContextMenu()",
       "_callable": true,
@@ -1326,18 +1362,6 @@
       "norm_label": "writerecoverycopy()",
       "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L48"
-    },
-    {
-      "id": "src_lib_notes_folders_collectfolderids",
-      "label": "collectFolderIds()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "collectfolderids()",
-      "source_file": "src/lib/notes/folders.ts",
-      "source_location": "L3"
     },
     {
       "id": "proxy_proxy",
@@ -2155,6 +2179,28 @@
       "source_location": "L1"
     },
     {
+      "id": "src_lib_notes_folders",
+      "label": "folders.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "folders.ts",
+      "source_file": "src/lib/notes/folders.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_folders_test",
+      "label": "folders.test.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "folders.test.ts",
+      "source_file": "src/lib/notes/folders.test.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_app_agent_panel",
       "label": "agent-panel.tsx",
       "_origin": "ast",
@@ -2408,6 +2454,17 @@
       "norm_label": "this is not the next.js you know",
       "source_file": "AGENTS.md",
       "source_location": "L3"
+    },
+    {
+      "id": "core",
+      "label": "@milkdown/core",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "markdown-editor.tsx",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "@milkdown/core",
+      "source_file": "@milkdown/core"
     },
     {
       "id": "src_app_editor_markdown_editor",
@@ -3047,28 +3104,6 @@
       "file_type": "code",
       "norm_label": "autosave.test.ts",
       "source_file": "src/lib/notes/autosave.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_folders",
-      "label": "folders.ts",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "folders.ts",
-      "source_file": "src/lib/notes/folders.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_folders_test",
-      "label": "folders.test.ts",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "folders.test.ts",
-      "source_file": "src/lib/notes/folders.test.ts",
       "source_location": "L1"
     },
     {
@@ -3847,6 +3882,30 @@
     },
     {
       "source": "src_app_agent_panel_agentpanel_send",
+      "target": "src_app_agent_panel_latestagenterror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_agent_panel_agentpanel_send",
+      "target": "src_app_agent_panel_latestagentstatus",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_agent_panel_agentpanel_send",
       "target": "src_app_agent_panel_visibleassistanttext",
       "relation": "calls",
       "_origin": "ast",
@@ -3854,7 +3913,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L74",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -3866,7 +3925,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L75",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -4646,7 +4705,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L62",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -7338,7 +7397,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -7349,29 +7408,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
       "source": "src_app_agent_panel",
-      "target": "src_app_agent_panel_workingindicator",
+      "target": "src_app_agent_panel_latestagentstatus",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
       "source": "src_app_agent_panel",
-      "target": "src_app_agent_panel_agentpanel",
+      "target": "src_app_agent_panel_latestagenterror",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L48",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -7383,6 +7442,28 @@
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_agent_panel",
+      "target": "src_app_agent_panel_workingindicator",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_agent_panel",
+      "target": "src_app_agent_panel_agentpanel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/agent-panel.tsx",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -7404,7 +7485,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/agent-panel.tsx",
-      "source_location": "L81",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -8915,6 +8996,15 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_editor_markdown_editor_test",
+      "target": "core",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.test.tsx"
+    },
+    {
       "source": "next_env_d_rationale_6",
       "target": "next_env_d",
       "relation": "rationale_for",
@@ -8939,5 +9029,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "de932a45c9c152b13e85cb387b88e7b05e2d3416"
+  "built_at_commit": "45c66dec2a8b7c8180745bedd3eb891052aac1b0"
 }

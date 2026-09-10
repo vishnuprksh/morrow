@@ -55,6 +55,17 @@ function latestAgentStatus(text: string) {
   }
 }
 
+function latestAgentError(text: string) {
+  const events = [...text.matchAll(new RegExp(`${STATUS_PREFIX}(\\{[^\\n]*\\})`, 'g'))];
+  for (let index = events.length - 1; index >= 0; index -= 1) {
+    try {
+      const event = JSON.parse(events[index][1]) as { type?: string; message?: string };
+      if (event.type === 'agent_error' && event.message) return event.message;
+    } catch {}
+  }
+  return null;
+}
+
 function WorkingIndicator({ message = 'Agent is working' }: { message?: string }) {
   return <div className="agent-working" role="status" aria-live="polite"><span>{message}</span><span className="typing-indicator" aria-hidden="true"><i /><i /><i /></span></div>;
 }
@@ -86,10 +97,11 @@ export function AgentPanel({ activeNote, onClose, onProposal }: { activeNote: No
       if (!response.ok || !response.body) { const body = await response.json().catch(() => null) as { error?: string } | null; throw new Error(body?.error ?? 'The agent could not respond.'); }
       const reader = response.body.getReader(); const decoder = new TextDecoder(); let answer = '';
       setMessages((current) => [...current, { role: 'assistant', content: '' }]);
-      while (true) { const chunk = await reader.read(); if (chunk.done) break; answer += decoder.decode(chunk.value, { stream: true }); const status = latestAgentStatus(answer); if (status) setActivity(status); setMessages((current) => current.map((item, index) => index === current.length - 1 ? { ...item, content: visibleAssistantText(answer) } : item)); }
+      while (true) { const chunk = await reader.read(); if (chunk.done) break; answer += decoder.decode(chunk.value, { stream: true }); const status = latestAgentStatus(answer); if (status) setActivity(status); const errorMessage = latestAgentError(answer); const visibleText = visibleAssistantText(answer); setMessages((current) => current.map((item, index) => index === current.length - 1 ? { ...item, content: errorMessage ? `${visibleText}${visibleText ? '\n\n' : ''}${errorMessage}` : visibleText } : item)); }
       const proposal = extractNoteChangeProposal(answer);
       if (proposal) { onProposal(proposal); setMessages((current) => current.map((item, index) => index === current.length - 1 && item.role === 'assistant' && !item.content ? { ...item, content: 'Note update proposal ready for review.' } : item)); }
-    } catch (error) { if ((error as Error).name !== 'AbortError') setMessages((current) => [...current, { role: 'assistant', content: error instanceof Error ? error.message : 'The agent failed safely.' }]); }
+      if (!visibleAssistantText(answer) && !proposal && !latestAgentError(answer)) setMessages((current) => current.map((item, index) => index === current.length - 1 ? { ...item, content: 'The agent completed without a response.' } : item));
+    } catch (error) { if ((error as Error).name !== 'AbortError') setMessages((current) => current.map((item, index) => index === current.length - 1 && item.role === 'assistant' ? { ...item, content: item.content || (error instanceof Error ? error.message : 'The agent failed safely.') } : item)); }
     finally { setBusy(false); setActivity(''); abortRef.current = null; }
   }
 

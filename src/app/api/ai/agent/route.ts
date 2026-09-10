@@ -98,8 +98,10 @@ export async function POST(request: Request) {
           }
           if (pendingProposal) controller.enqueue(encoder.encode(`\n${JSON.stringify(pendingProposal)}\n`));
           controller.close();
-        } catch (error) {
-          controller.error(error);
+        } catch {
+          if (runId) await supabase.from('agent_runs').update({ status: 'failed' }).eq('id', runId).eq('user_id', user.id);
+          controller.enqueue(encoder.encode(`\n__MORROW_STATUS__${JSON.stringify({ type: 'agent_error', message: 'The AI provider could not complete this run.' })}\n`));
+          controller.close();
         }
       },
     });
