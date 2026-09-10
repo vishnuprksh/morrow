@@ -12,7 +12,7 @@ export async function GET() {
   return NextResponse.json({
     agent: {
       provider: 'openrouter',
-      model: 'z-ai/glm-5.3-flash',
+      model: 'inclusionai/ling-3.0-flash-fin:free',
       configured: Boolean(process.env.OPENROUTER_API_KEY),
     },
   });

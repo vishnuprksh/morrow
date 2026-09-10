@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 const MAX_NOTE_CHARS = 24_000;
 const noteId = z.string().uuid();
 const boundedText = (max: number) => z.string().trim().min(1).max(max);
-const AGENT_MODEL = 'z-ai/glm-5.3-flash';
+const AGENT_MODEL = 'inclusionai/ling-3.0-flash-fin:free';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
