@@ -79,11 +79,16 @@ export async function POST(request: Request) {
       onFinish: async ({ text }) => { if (runId) await supabase.from('agent_runs').update({ status: 'completed', messages: [{ role: 'assistant', content: text }] }).eq('id', runId).eq('user_id', user.id); },
     });
     const encoder = new TextEncoder();
+    const status = (message: string) => encoder.encode(`\n__MORROW_STATUS__${JSON.stringify({ type: 'agent_status', message })}\n`);
     const stream = new ReadableStream<Uint8Array>({
       async start(controller) {
         try {
+          controller.enqueue(status('Thinking through your request...'));
           for await (const part of result.fullStream) {
             if (part.type === 'text-delta') controller.enqueue(encoder.encode(part.text));
+            if (part.type === 'tool-call') controller.enqueue(status(`Checking ${part.toolName.replaceAll('_', ' ')}...`));
+            if (part.type === 'tool-result') controller.enqueue(status(`Finished ${part.toolName.replaceAll('_', ' ')}.`));
+            if (part.type === 'finish-step') controller.enqueue(status('Putting the answer together...'));
             if (part.type === 'tool-result' && part.toolName === 'update_active_note') {
               const output = part.output;
               if (output && typeof output === 'object' && 'type' in output && output.type === 'note_change_proposal') {
