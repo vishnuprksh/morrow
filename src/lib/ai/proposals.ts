@@ -4,6 +4,7 @@ export type NoteChangeProposal = {
   original: string;
   replacement: string;
   explanation: string;
+  title?: { original: string; replacement: string };
 };
 
 export type DiffSegment = { value: string; changed: boolean };

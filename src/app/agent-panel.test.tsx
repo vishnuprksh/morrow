@@ -25,6 +25,20 @@ describe('AgentPanel', () => {
     expect(proposal?.replacement).toContain('<animate attributeName="r" />');
   });
 
+  it('extracts title changes from a note proposal', () => {
+    const proposal = extractNoteChangeProposal(JSON.stringify({
+      type: 'note_change_proposal',
+      noteId: activeNote.id,
+      expectedVersion: activeNote.version,
+      original: activeNote.content_markdown,
+      replacement: activeNote.content_markdown,
+      title: { original: activeNote.title, replacement: 'Lantern notes' },
+      explanation: 'Clarify the note title',
+    }));
+
+    expect(proposal?.title).toEqual({ original: 'Lantern', replacement: 'Lantern notes' });
+  });
+
   it('keeps note change proposal metadata out of the chat message', async () => {
     const onProposal = vi.fn();
     vi.stubGlobal(

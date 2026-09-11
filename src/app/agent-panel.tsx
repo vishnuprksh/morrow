@@ -27,7 +27,8 @@ export function extractNoteChangeProposal(text: string): NoteChangeProposal | nu
     else if (character === '}' && --depth === 0) {
       try {
         const proposal = JSON.parse(text.slice(start, index + 1)) as Partial<NoteChangeProposal>;
-        if (typeof proposal.noteId === 'string' && typeof proposal.expectedVersion === 'number' && typeof proposal.original === 'string' && typeof proposal.replacement === 'string' && typeof proposal.explanation === 'string') return proposal as NoteChangeProposal;
+        const title = proposal.title as { original?: unknown; replacement?: unknown } | undefined;
+        if (typeof proposal.noteId === 'string' && typeof proposal.expectedVersion === 'number' && typeof proposal.original === 'string' && typeof proposal.replacement === 'string' && typeof proposal.explanation === 'string' && (title === undefined || (typeof title.original === 'string' && typeof title.replacement === 'string'))) return proposal as NoteChangeProposal;
       } catch {
         return null;
       }

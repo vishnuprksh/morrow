@@ -443,13 +443,19 @@ export default function Home() {
     if (
       !note ||
       note.version !== proposal.expectedVersion ||
-      note.content_markdown !== proposal.original
+      note.content_markdown !== proposal.original ||
+      (proposal.title !== undefined && note.title !== proposal.title.original)
     ) {
       setPendingProposal(null);
       setError('This proposal is stale because the active note has changed.');
       return;
     }
-    updateNote(note.id, { content_markdown: proposal.replacement });
+    updateNote(note.id, {
+      ...(proposal.title !== undefined
+        ? { title: proposal.title.replacement }
+        : {}),
+      content_markdown: proposal.replacement,
+    });
     setPendingProposal(null);
   }
   function toggleSelectNotes() {

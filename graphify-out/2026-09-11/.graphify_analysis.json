@@ -471,13 +471,13 @@
       "degree": 7
     },
     {
-      "id": "src_lib_supabase_env_getsupabaseenv",
-      "label": "getSupabaseEnv()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
+      "id": "src_lib_supabase_env_getsupabaseenv",
+      "label": "getSupabaseEnv()",
       "degree": 7
     }
   ],
@@ -492,28 +492,6 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories"
-    },
-    {
-      "source": "importVault()",
-      "target": "safeFilename()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/portability.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "uploadImage()",
-      "target": "safeFilename()",
-      "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/portability.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
     },
     {
       "source": "submit()",
@@ -536,6 +514,28 @@
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "submit()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/auth/update-password/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
+    },
+    {
+      "source": "archiveNote()",
+      "target": "createClient()",
+      "source_files": [
+        "src/app/page.tsx",
+        "src/lib/supabase/client.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {
