@@ -80,6 +80,11 @@ type NoteRow = {
 };
 type NoteView = 'all' | 'favorites' | 'archive' | 'trash' | 'folder';
 
+const DEFAULT_NOTE = {
+  title: 'Morrow — an AI first Note Application',
+  content_markdown: '',
+} as const;
+
 function WorkspaceLoadingScreen() {
   return (
     <main className="workspace-loading" role="status" aria-live="polite">
@@ -106,6 +111,8 @@ export default function Home() {
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
   const [selectedNote, setSelectedNote] = useState<string | null>(null);
   const [filter, setFilter] = useState('');
+  const [globalSearchOpen, setGlobalSearchOpen] = useState(false);
+  const [globalSearch, setGlobalSearch] = useState('');
   const [noteView, setNoteView] = useState<NoteView>('all');
   const [contextMenu, setContextMenu] = useState<{
     note: NoteRow;
@@ -143,6 +150,8 @@ export default function Home() {
   const autosaveRef = useRef<AutosaveController | null>(null);
   const supabaseRef = useRef<ReturnType<typeof createClient> | null>(null);
   const previousNoteRef = useRef<string | null>(null);
+  const globalSearchRef = useRef<HTMLInputElement>(null);
+  const noteSearchRef = useRef<HTMLInputElement>(null);
 
   async function loadWorkspace(supabase: ReturnType<typeof createClient>) {
     setLoading(true);
@@ -177,7 +186,27 @@ export default function Home() {
       return;
     }
     const nextFolders = folderResult.data ?? [];
-    const nextNotes = noteResult.data ?? [];
+    let nextNotes = noteResult.data ?? [];
+    if (nextNotes.length === 0) {
+      const { data: defaultNote, error: defaultNoteError } = await supabase
+        .from('notes')
+        .insert({
+          user_id: authData.user.id,
+          ...DEFAULT_NOTE,
+        })
+        .select(
+          'id, title, content_markdown, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
+        )
+        .single();
+      if (defaultNoteError || !defaultNote) {
+        setError(
+          `Could not create your default note: ${defaultNoteError?.message ?? 'Unknown error'}`,
+        );
+        setLoading(false);
+        return;
+      }
+      nextNotes = [defaultNote];
+    }
     setFolders(nextFolders);
     setNotes(nextNotes);
     setOpenFolders(
@@ -274,6 +303,23 @@ export default function Home() {
       void autosaveRef.current?.flush(previousNote);
     previousNoteRef.current = selectedNote;
   }, [selectedNote]);
+  useEffect(() => {
+    const handleSearchShortcut = (event: KeyboardEvent) => {
+      if (!(event.metaKey || event.ctrlKey)) return;
+      if (event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        setGlobalSearchOpen(true);
+      } else if (event.shiftKey && event.key.toLowerCase() === 'f') {
+        event.preventDefault();
+        noteSearchRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', handleSearchShortcut);
+    return () => document.removeEventListener('keydown', handleSearchShortcut);
+  }, []);
+  useEffect(() => {
+    if (globalSearchOpen) globalSearchRef.current?.focus();
+  }, [globalSearchOpen]);
   const [chatOpen, setChatOpen] = useState(true);
   useEffect(() => {
     const width = localStorage.getItem('morrow-agent-width');
@@ -301,6 +347,15 @@ export default function Home() {
         ),
     [notes, selectedFolder, filter, noteView],
   );
+  const globalResults = useMemo(() => {
+    const query = globalSearch.trim().toLowerCase();
+    if (!query) return [];
+    return notes
+      .filter((note) =>
+        `${note.title}\n${note.content_markdown}`.toLowerCase().includes(query),
+      )
+      .slice(0, 12);
+  }, [globalSearch, notes]);
   const folderName = (id: string | null) =>
     id
       ? (folders.find((folder) => folder.id === id)?.name ?? 'Unknown folder')
@@ -799,7 +854,13 @@ export default function Home() {
           <button className="new-note" onClick={createNote}>
             <Plus size={16} /> New note
           </button>
-          <button className="icon-button" aria-label="Search">
+          <button
+            className="icon-button"
+            aria-label="Search all notes"
+            aria-keyshortcuts="Control+K Meta+K"
+            title="Search all notes"
+            onClick={() => setGlobalSearchOpen(true)}
+          >
             <Search size={17} />
           </button>
         </div>
@@ -1029,9 +1090,11 @@ export default function Home() {
         <div className="note-search">
           <Search size={15} />
           <input
+            ref={noteSearchRef}
             placeholder="Filter notes"
             value={filter}
             onChange={(event) => setFilter(event.target.value)}
+            aria-keyshortcuts="Control+Shift+F Meta+Shift+F"
           />
         </div>
         {error && (
@@ -1312,6 +1375,76 @@ export default function Home() {
           }}
           onImport={() => void importVault()}
         />
+      )}
+      {globalSearchOpen && (
+        <div
+          className="search-backdrop"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setGlobalSearchOpen(false);
+          }}
+        >
+          <section
+            className="global-search"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="global-search-title"
+          >
+            <header>
+              <div>
+                <p className="eyebrow">Workspace search</p>
+                <h2 id="global-search-title">Search all notes</h2>
+              </div>
+              <button
+                className="icon-button"
+                aria-label="Close search"
+                title="Close search"
+                onClick={() => setGlobalSearchOpen(false)}
+              >
+                <X size={17} />
+              </button>
+            </header>
+            <div className="global-search-input">
+              <Search size={16} />
+              <input
+                ref={globalSearchRef}
+                value={globalSearch}
+                onChange={(event) => setGlobalSearch(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape') setGlobalSearchOpen(false);
+                }}
+                placeholder="Search titles and note content"
+                aria-label="Search titles and note content"
+              />
+            </div>
+            <div className="global-search-results" role="listbox" aria-label="Search results">
+              {globalSearch.trim() && globalResults.length === 0 && (
+                <p className="workspace-message">No matching notes.</p>
+              )}
+              {globalResults.map((note) => (
+                <button
+                  key={note.id}
+                  className="global-search-result"
+                  role="option"
+                  aria-selected={note.id === selectedNote}
+                  onClick={() => {
+                    setSelectedNote(note.id);
+                    setGlobalSearchOpen(false);
+                  }}
+                >
+                  <FileText size={16} />
+                  <span>
+                    <strong>{note.title}</strong>
+                    <small>{note.content_markdown.replace(/\s+/g, ' ').trim().slice(0, 120) || 'No content'}</small>
+                  </span>
+                </button>
+              ))}
+              {!globalSearch.trim() && (
+                <p className="workspace-message">Search note titles and content.</p>
+              )}
+            </div>
+          </section>
+        </div>
       )}
       <div
         className="agent-resize-handle"
