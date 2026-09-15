@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import { MarkdownEditor, normalizeSvgDataUrls, renderInlineSvgs } from './markdown-editor';
+import { MarkdownEditor, normalizeSvgDataUrls, normalizeTableBlockBreaks, parseTableListItems, prepareMarkdownForEditor, renderInlineSvgs, restoreTableBlockBreaks, stripTableBreakSentinels } from './markdown-editor';
 
 vi.mock('@milkdown/core', () => ({
   Editor: {
@@ -16,15 +16,38 @@ vi.mock('@milkdown/core', () => ({
   defaultValueCtx: {},
 }));
 vi.mock('@milkdown/preset-commonmark', () => ({ commonmark: {}, imageSchema: { extendSchema: vi.fn(() => ({})) } }));
-vi.mock('@milkdown/preset-gfm', () => ({ gfm: {} }));
+vi.mock('@milkdown/preset-gfm', () => ({ gfm: {}, tableCellSchema: { extendSchema: vi.fn(() => ({})) }, tableHeaderSchema: { extendSchema: vi.fn(() => ({})) } }));
 vi.mock('@milkdown/plugin-math', () => ({ math: {}, katexOptionsCtx: { key: {} } }));
 vi.mock('@milkdown/plugin-listener', () => ({ listener: {}, listenerCtx: {} }));
-vi.mock('@milkdown/prose/commands', () => ({ setBlockType: vi.fn(), toggleMark: vi.fn(), wrapIn: vi.fn() }));
+vi.mock('@milkdown/prose/commands', () => ({ setBlockType: vi.fn(), setHardBreak: vi.fn(), toggleMark: vi.fn(), wrapIn: vi.fn() }));
 vi.mock('@milkdown/prose/history', () => ({ history: vi.fn(() => ({})), redo: vi.fn(), undo: vi.fn() }));
 vi.mock('@milkdown/prose/keymap', () => ({ keymap: vi.fn(() => ({})) }));
 vi.mock('@milkdown/prose/model', () => ({ Slice: vi.fn() }));
 
 describe('MarkdownEditor', () => {
+  it('parses compact bullet and checklist markers inside table cells', () => {
+    expect(parseTableListItems('- [ ] Draft\n- [x] Review')).toEqual([
+      { checked: false, text: 'Draft' },
+      { checked: true, text: 'Review' },
+    ]);
+    expect(parseTableListItems('- First__MORROW_TABLE_BREAK__- Second')).toEqual([
+      { checked: null, text: 'First' },
+      { checked: null, text: 'Second' },
+    ]);
+  });
+
+  it('preserves table cell breaks before Markdown parsing', () => {
+    expect(normalizeTableBlockBreaks('| Tasks |\n| --- |\n| - One<br>- Two |')).toContain('| - One\n- Two |');
+    expect(restoreTableBlockBreaks('| Tasks |\n| --- |\n| One __MORROW_TABLE_BREAK__ Two |')).toContain('One <br> Two');
+  });
+
+  it('does not expose the table break sentinel as rendered content', () => {
+    expect(restoreTableBlockBreaks(normalizeTableBlockBreaks('| Notes |\n| --- |\n| One<br>Two |'))).toBe('| Notes |\n| --- |\n| One\nTwo |');
+    expect(prepareMarkdownForEditor('One __MORROW_TABLE_BREAK__ Two')).toBe('One \n Two');
+    expect(prepareMarkdownForEditor('One MORROW_TABLE_BREAK Two')).toBe('One \n Two');
+    expect(stripTableBreakSentinels('One __MORROW_TABLE_BREAK__ Two')).toBe('One \n Two');
+  });
+
   it('encodes whitespace in SVG data URLs before Markdown parsing', () => {
     const markdown = "![lantern](data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E)";
 
@@ -58,6 +81,7 @@ describe('MarkdownEditor', () => {
     expect(screen.getByLabelText('Markdown note content')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bold' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bulleted list' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Checklist' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Insert table' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Resize image' })).toBeInTheDocument();
   });

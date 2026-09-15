@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Editor, editorViewCtx, rootCtx, defaultValueCtx, parserCtx, prosePluginsCtx } from '@milkdown/core';
 import { commonmark, imageAttr, imageSchema } from '@milkdown/preset-commonmark';
-import { gfm } from '@milkdown/preset-gfm';
+import { gfm, tableCellSchema, tableHeaderSchema } from '@milkdown/preset-gfm';
 import { katexOptionsCtx, math } from '@milkdown/plugin-math';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
@@ -11,7 +11,7 @@ import { history, redo, undo } from '@milkdown/prose/history';
 import { keymap } from '@milkdown/prose/keymap';
 import { Fragment, Slice } from '@milkdown/prose/model';
 import { NodeSelection, TextSelection, type Command } from '@milkdown/prose/state';
-import { Bold, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
+import { Bold, CheckSquare, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
 import { diffSegments, type DiffSegment, type NoteChangeProposal } from '@/lib/ai/proposals';
 
 const undoRedo = keymap({ 'Mod-z': undo, 'Mod-y': redo, 'Shift-Mod-z': redo });
@@ -35,7 +35,7 @@ const editActions: Array<{ action: EditAction; label: string }> = [
   { action: 'grammar', label: 'Fix grammar' },
 ];
 
-type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link' | 'table' | 'resizeImage';
+type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'checkList' | 'quote' | 'code' | 'link' | 'table' | 'resizeImage';
 type ImageSize = 'small' | 'medium' | 'large';
 
 const imageWidths: Record<ImageSize, string> = { small: '240', medium: '480', large: '720' };
@@ -79,12 +79,83 @@ export function normalizeSvgDataUrls(markdown: string) {
   return markdown.replace(/(data:image\/svg\+xml,)([^\r\n]*)/gi, (_, prefix: string, payload: string) => `${prefix}${payload.replace(/\s/g, '%20')}`);
 }
 
+const tableBlockBreak = '__MORROW_TABLE_BREAK__';
+
+export function normalizeTableBlockBreaks(markdown: string) {
+  return markdown.replace(/<br\s*\/?>/gi, '\n');
+}
+
+export function stripTableBreakSentinels(markdown: string) {
+  return markdown.replace(/(?:__)?MORROW_TABLE_BREAK(?:__)?/g, '\n');
+}
+
+export function prepareMarkdownForEditor(markdown: string) {
+  return normalizeTableBlockBreaks(stripTableBreakSentinels(markdown));
+}
+
+export function restoreTableBlockBreaks(markdown: string) {
+  return markdown.replace(new RegExp(tableBlockBreak, 'g'), '<br>');
+}
+
+export function parseTableListItems(value: string) {
+  const normalized = value.replace(new RegExp(tableBlockBreak, 'g'), '\n').trim();
+  const items = normalized.split(/\n|(?=-\s+\[[ xX]\]\s+)|\s+(?=-\s+(?!\[[ xX]\]\s+))/).map((item) => item.trim()).filter(Boolean);
+  if (items.length < 1 || items.some((item) => !item.startsWith('- '))) return null;
+  return items.map((item) => {
+    const match = item.match(/^-\s+(?:\[([ xX])\]\s+)?([\s\S]*)$/);
+    return match ? { checked: match[1] ? match[1].toLowerCase() === 'x' : null, text: match[2] } : null;
+  }).filter((item): item is { checked: boolean | null; text: string } => item !== null && item.text.length > 0);
+}
+
+function extendTableCellSchema(previous: typeof tableCellSchema) {
+  return previous.extendSchema((base) => (ctx) => {
+    const schema = base(ctx);
+    const parseMarkdown = schema.parseMarkdown;
+    return {
+      ...schema,
+      content: 'block+',
+      parseMarkdown: {
+        match: parseMarkdown.match,
+        runner: (state, node, type) => {
+          const value = node.children?.every((child) => child.type === 'text' || (child.type === 'html' && /^<br\s*\/?>(?:<\/br>)?$/i.test(String(child.value))))
+            ? node.children.map((child) => child.type === 'text' ? String(child.value) : '\n').join('')
+            : '';
+          const items = parseTableListItems(value);
+          if (!items) {
+            parseMarkdown.runner(state, {
+              ...node,
+              children: node.children?.map((child) => child.type === 'text'
+                ? { ...child, value: String(child.value).replace(new RegExp(tableBlockBreak, 'g'), '\n') }
+                : child),
+            }, type);
+            return;
+          }
+          const listType = state.schema.nodes.bullet_list;
+          const listItemType = state.schema.nodes.list_item;
+          const paragraphType = state.schema.nodes.paragraph;
+          state.openNode(type, { alignment: node.align });
+          state.openNode(listType, { spread: false });
+          for (const item of items) {
+            state.openNode(listItemType, { label: '•', listType: 'bullet', spread: true, checked: item.checked });
+            state.openNode(paragraphType).addText(item.text).closeNode().closeNode();
+          }
+          state.closeNode().closeNode();
+        },
+      },
+    };
+  });
+}
+
+const tableCellWithBlocks = extendTableCellSchema(tableCellSchema);
+const tableHeaderWithBlocks = extendTableCellSchema(tableHeaderSchema as unknown as typeof tableCellSchema);
+
 const toolbarActions: Array<{ action: ToolbarAction; label: string; content: React.ReactNode }> = [
   { action: 'bold', label: 'Bold', content: <Bold aria-hidden="true" size={15} /> },
   { action: 'italic', label: 'Italic', content: <Italic aria-hidden="true" size={15} /> },
   { action: 'strike', label: 'Strikethrough', content: <Minus aria-hidden="true" size={15} /> },
   { action: 'heading', label: 'Heading 1', content: <Type aria-hidden="true" size={15} /> },
   { action: 'bulletList', label: 'Bulleted list', content: <List aria-hidden="true" size={15} /> },
+  { action: 'checkList', label: 'Checklist', content: <CheckSquare aria-hidden="true" size={15} /> },
   { action: 'quote', label: 'Blockquote', content: <Quote aria-hidden="true" size={15} /> },
   { action: 'code', label: 'Inline code', content: <Code2 aria-hidden="true" size={15} /> },
   { action: 'link', label: 'Link', content: <Link aria-hidden="true" size={15} /> },
@@ -140,20 +211,23 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, rootRef.current!);
-        ctx.set(defaultValueCtx, normalizeSvgDataUrls(currentValueRef.current));
+        ctx.set(defaultValueCtx, prepareMarkdownForEditor(normalizeSvgDataUrls(currentValueRef.current)));
         ctx.update(prosePluginsCtx, (plugins) => [...plugins, history(), undoRedo]);
         // Keep malformed or unsupported LaTeX from crashing the whole editor.
         // KaTeX will render unsupported commands as text when throwOnError is false.
         ctx.set(katexOptionsCtx.key, { throwOnError: false, strict: 'ignore', errorColor: '#c45f51' });
         ctx.get(listenerCtx).markdownUpdated((_, markdown) => {
-          currentValueRef.current = markdown;
-          onChangeRef.current(markdown);
+          const restoredMarkdown = stripTableBreakSentinels(restoreTableBlockBreaks(markdown));
+          currentValueRef.current = restoredMarkdown;
+          onChangeRef.current(restoredMarkdown);
           renderInlineSvgs(rootRef.current);
         });
       })
       .use(commonmark)
       .use(resizableImageSchema)
       .use(gfm)
+      .use(tableCellWithBlocks)
+      .use(tableHeaderWithBlocks)
       .use(math)
       .use(listener);
 
@@ -178,7 +252,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (value === currentValueRef.current) return;
       const view = ctx.get(editorViewCtx);
       const parser = ctx.get(parserCtx);
-      const doc = parser(normalizeSvgDataUrls(value));
+      const doc = parser(prepareMarkdownForEditor(normalizeSvgDataUrls(value)));
       if (!doc) return;
       view.dispatch(view.state.tr.replace(0, view.state.doc.content.size, new Slice(doc.content, 0, 0)).setMeta('addToHistory', false));
       currentValueRef.current = value;
@@ -344,6 +418,20 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     });
   }
 
+  function handleEditorKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'Enter' || !event.shiftKey) return;
+    const editor = editorRef.current;
+    if (!editor) return;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const hardbreak = view.state.schema.nodes.hardbreak;
+      if (!hardbreak) return;
+      event.preventDefault();
+      view.dispatch(view.state.tr.replaceSelectionWith(hardbreak.create()).scrollIntoView());
+      view.focus();
+    });
+  }
+
   function applyProposal() {
     const current = proposal;
     const editor = editorRef.current;
@@ -383,6 +471,19 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (action === 'strike' && schema.marks.strikethrough) dispatch(toggleMark(schema.marks.strikethrough));
       if (action === 'heading' && schema.nodes.heading) dispatch(setBlockType(schema.nodes.heading, { level: 1 }));
       if (action === 'bulletList' && schema.nodes.bullet_list) dispatch(wrapIn(schema.nodes.bullet_list));
+      if (action === 'checkList' && schema.nodes.bullet_list && schema.nodes.list_item) {
+        const wrapped = wrapIn(schema.nodes.bullet_list);
+        if (!wrapped(view.state, view.dispatch)) return;
+        const { from, to } = view.state.selection;
+        const transaction = view.state.tr;
+        view.state.doc.nodesBetween(0, view.state.doc.content.size, (node, position) => {
+          if (node.type === schema.nodes.list_item && position < to && position + node.nodeSize > from) {
+            transaction.setNodeMarkup(position, undefined, { ...node.attrs, label: '☐', listType: 'task', checked: false });
+          }
+        });
+        if (transaction.docChanged) view.dispatch(transaction);
+        view.focus();
+      }
       if (action === 'quote' && schema.nodes.blockquote) dispatch(wrapIn(schema.nodes.blockquote));
       if (action === 'code' && schema.marks.inlineCode) dispatch(toggleMark(schema.marks.inlineCode));
       if (action === 'table' && schema.nodes.table && schema.nodes.table_row && schema.nodes.table_header && schema.nodes.table_cell && schema.nodes.paragraph) {
@@ -410,7 +511,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       {tableDialogOpen && <div className="table-dialog" role="dialog" aria-modal="true" aria-labelledby="table-dialog-title"><form onSubmit={submitTable}><strong id="table-dialog-title">Insert table</strong><label htmlFor="table-rows">Rows<input id="table-rows" type="number" min="1" max="20" value={tableRows} onChange={(event) => setTableRows(event.target.value)} autoFocus /></label><label htmlFor="table-columns">Columns<input id="table-columns" type="number" min="1" max="12" value={tableColumns} onChange={(event) => setTableColumns(event.target.value)} /></label><div><button type="submit">Insert table</button><button type="button" onClick={() => setTableDialogOpen(false)}>Cancel</button></div></form></div>}
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
-        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" onContextMenu={handleImageContextMenu} />
+        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" onContextMenu={handleImageContextMenu} onKeyDown={handleEditorKeyDown} />
         {imageMenu && <div ref={imageMenuRef} className="image-size-menu" role="menu" aria-label="Image size" style={{ top: imageMenu.top, left: imageMenu.left }} onContextMenu={(event) => event.preventDefault()}><strong>Image size</strong><button type="button" role="menuitem" onClick={() => resizeImageTo('small')}>Small</button><button type="button" role="menuitem" onClick={() => resizeImageTo('medium')}>Medium</button><button type="button" role="menuitem" onClick={() => resizeImageTo('large')}>Large</button></div>}
         {noteProposal && <ProposalDiff key={`${noteProposal.noteId}-${noteProposal.expectedVersion}`} proposal={noteProposal} onAccept={onAcceptProposal} onDiscard={onDiscardProposal} />}
         {selection && !proposal && !noteProposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
