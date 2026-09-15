@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Editor, editorViewCtx, rootCtx, defaultValueCtx, parserCtx, prosePluginsCtx } from '@milkdown/core';
 import { commonmark, imageAttr, imageSchema } from '@milkdown/preset-commonmark';
-import { gfm } from '@milkdown/preset-gfm';
+import { gfm, tableCellSchema, tableHeaderSchema } from '@milkdown/preset-gfm';
 import { katexOptionsCtx, math } from '@milkdown/plugin-math';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { setBlockType, toggleMark, wrapIn } from '@milkdown/prose/commands';
@@ -79,6 +79,63 @@ export function normalizeSvgDataUrls(markdown: string) {
   return markdown.replace(/(data:image\/svg\+xml,)([^\r\n]*)/gi, (_, prefix: string, payload: string) => `${prefix}${payload.replace(/\s/g, '%20')}`);
 }
 
+const tableBlockBreak = '__MORROW_TABLE_BREAK__';
+
+export function normalizeTableBlockBreaks(markdown: string) {
+  return markdown.replace(/<br\s*\/?>/gi, tableBlockBreak);
+}
+
+export function restoreTableBlockBreaks(markdown: string) {
+  return markdown.replace(new RegExp(tableBlockBreak, 'g'), '<br>');
+}
+
+export function parseTableListItems(value: string) {
+  const normalized = value.replace(new RegExp(tableBlockBreak, 'g'), '\n').trim();
+  const items = normalized.split(/\n|(?=-\s+\[[ xX]\]\s+)|\s+(?=-\s+(?!\[[ xX]\]\s+))/).map((item) => item.trim()).filter(Boolean);
+  if (items.length < 1 || items.some((item) => !item.startsWith('- '))) return null;
+  return items.map((item) => {
+    const match = item.match(/^-\s+(?:\[([ xX])\]\s+)?([\s\S]*)$/);
+    return match ? { checked: match[1] ? match[1].toLowerCase() === 'x' : null, text: match[2] } : null;
+  }).filter((item): item is { checked: boolean | null; text: string } => item !== null && item.text.length > 0);
+}
+
+function extendTableCellSchema(previous: typeof tableCellSchema) {
+  return previous.extendSchema((base) => (ctx) => {
+    const schema = base(ctx);
+    const parseMarkdown = schema.parseMarkdown;
+    return {
+      ...schema,
+      content: 'block+',
+      parseMarkdown: {
+        match: parseMarkdown.match,
+        runner: (state, node, type) => {
+          const value = node.children?.every((child) => child.type === 'text' || (child.type === 'html' && /^<br\s*\/?>(?:<\/br>)?$/i.test(String(child.value))))
+            ? node.children.map((child) => child.type === 'text' ? String(child.value) : '\n').join('')
+            : '';
+          const items = parseTableListItems(value);
+          if (!items) {
+            parseMarkdown.runner(state, node, type);
+            return;
+          }
+          const listType = state.schema.nodes.bullet_list;
+          const listItemType = state.schema.nodes.list_item;
+          const paragraphType = state.schema.nodes.paragraph;
+          state.openNode(type, { alignment: node.align });
+          state.openNode(listType, { spread: false });
+          for (const item of items) {
+            state.openNode(listItemType, { label: '•', listType: 'bullet', spread: true, checked: item.checked });
+            state.openNode(paragraphType).addText(item.text).closeNode().closeNode();
+          }
+          state.closeNode().closeNode();
+        },
+      },
+    };
+  });
+}
+
+const tableCellWithBlocks = extendTableCellSchema(tableCellSchema);
+const tableHeaderWithBlocks = extendTableCellSchema(tableHeaderSchema as unknown as typeof tableCellSchema);
+
 const toolbarActions: Array<{ action: ToolbarAction; label: string; content: React.ReactNode }> = [
   { action: 'bold', label: 'Bold', content: <Bold aria-hidden="true" size={15} /> },
   { action: 'italic', label: 'Italic', content: <Italic aria-hidden="true" size={15} /> },
@@ -140,20 +197,23 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, rootRef.current!);
-        ctx.set(defaultValueCtx, normalizeSvgDataUrls(currentValueRef.current));
+        ctx.set(defaultValueCtx, normalizeTableBlockBreaks(normalizeSvgDataUrls(currentValueRef.current)));
         ctx.update(prosePluginsCtx, (plugins) => [...plugins, history(), undoRedo]);
         // Keep malformed or unsupported LaTeX from crashing the whole editor.
         // KaTeX will render unsupported commands as text when throwOnError is false.
         ctx.set(katexOptionsCtx.key, { throwOnError: false, strict: 'ignore', errorColor: '#c45f51' });
         ctx.get(listenerCtx).markdownUpdated((_, markdown) => {
-          currentValueRef.current = markdown;
-          onChangeRef.current(markdown);
+          const restoredMarkdown = restoreTableBlockBreaks(markdown);
+          currentValueRef.current = restoredMarkdown;
+          onChangeRef.current(restoredMarkdown);
           renderInlineSvgs(rootRef.current);
         });
       })
       .use(commonmark)
       .use(resizableImageSchema)
       .use(gfm)
+      .use(tableCellWithBlocks)
+      .use(tableHeaderWithBlocks)
       .use(math)
       .use(listener);
 
@@ -178,7 +238,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (value === currentValueRef.current) return;
       const view = ctx.get(editorViewCtx);
       const parser = ctx.get(parserCtx);
-      const doc = parser(normalizeSvgDataUrls(value));
+      const doc = parser(normalizeTableBlockBreaks(normalizeSvgDataUrls(value)));
       if (!doc) return;
       view.dispatch(view.state.tr.replace(0, view.state.doc.content.size, new Slice(doc.content, 0, 0)).setMeta('addToHistory', false));
       currentValueRef.current = value;
@@ -344,6 +404,20 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     });
   }
 
+  function handleEditorKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'Enter' || !event.shiftKey) return;
+    const editor = editorRef.current;
+    if (!editor) return;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const hardbreak = view.state.schema.nodes.hardbreak;
+      if (!hardbreak) return;
+      event.preventDefault();
+      view.dispatch(view.state.tr.replaceSelectionWith(hardbreak.create()).scrollIntoView());
+      view.focus();
+    });
+  }
+
   function applyProposal() {
     const current = proposal;
     const editor = editorRef.current;
@@ -410,7 +484,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       {tableDialogOpen && <div className="table-dialog" role="dialog" aria-modal="true" aria-labelledby="table-dialog-title"><form onSubmit={submitTable}><strong id="table-dialog-title">Insert table</strong><label htmlFor="table-rows">Rows<input id="table-rows" type="number" min="1" max="20" value={tableRows} onChange={(event) => setTableRows(event.target.value)} autoFocus /></label><label htmlFor="table-columns">Columns<input id="table-columns" type="number" min="1" max="12" value={tableColumns} onChange={(event) => setTableColumns(event.target.value)} /></label><div><button type="submit">Insert table</button><button type="button" onClick={() => setTableDialogOpen(false)}>Cancel</button></div></form></div>}
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
-        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" onContextMenu={handleImageContextMenu} />
+        <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" onContextMenu={handleImageContextMenu} onKeyDown={handleEditorKeyDown} />
         {imageMenu && <div ref={imageMenuRef} className="image-size-menu" role="menu" aria-label="Image size" style={{ top: imageMenu.top, left: imageMenu.left }} onContextMenu={(event) => event.preventDefault()}><strong>Image size</strong><button type="button" role="menuitem" onClick={() => resizeImageTo('small')}>Small</button><button type="button" role="menuitem" onClick={() => resizeImageTo('medium')}>Medium</button><button type="button" role="menuitem" onClick={() => resizeImageTo('large')}>Large</button></div>}
         {noteProposal && <ProposalDiff key={`${noteProposal.noteId}-${noteProposal.expectedVersion}`} proposal={noteProposal} onAccept={onAcceptProposal} onDiscard={onDiscardProposal} />}
         {selection && !proposal && !noteProposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
