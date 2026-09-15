@@ -151,4 +151,16 @@ describe('workspace shell', () => {
     fireEvent.keyDown(document, { key: 'f', ctrlKey: true, shiftKey: true });
     expect(screen.getByPlaceholderText('Filter notes')).toHaveFocus();
   });
+
+  it('keeps the agent open after resizing the panel', async () => {
+    render(<Home />);
+    const resizeHandle = await screen.findByRole('separator', { name: 'Resize or toggle AI agent' });
+
+    fireEvent.mouseDown(resizeHandle, { clientX: 900 });
+    fireEvent.mouseMove(document, { clientX: 850 });
+    fireEvent.mouseUp(document);
+    fireEvent.click(resizeHandle);
+
+    expect(screen.getByRole('heading', { name: 'Chat with your agent' })).toBeInTheDocument();
+  });
 });

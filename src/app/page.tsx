@@ -152,6 +152,7 @@ export default function Home() {
   const previousNoteRef = useRef<string | null>(null);
   const globalSearchRef = useRef<HTMLInputElement>(null);
   const noteSearchRef = useRef<HTMLInputElement>(null);
+  const agentResizeMovedRef = useRef(false);
 
   async function loadWorkspace(supabase: ReturnType<typeof createClient>) {
     setLoading(true);
@@ -1457,7 +1458,14 @@ export default function Home() {
         role="separator"
         tabIndex={0}
         aria-label="Resize or toggle AI agent"
-        onClick={() => setChatOpen((current) => !current)}
+        onClick={(event) => {
+          if (agentResizeMovedRef.current) {
+            event.preventDefault();
+            agentResizeMovedRef.current = false;
+            return;
+          }
+          setChatOpen((current) => !current);
+        }}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
@@ -1465,12 +1473,14 @@ export default function Home() {
           }
         }}
         onMouseDown={(event) => {
+          agentResizeMovedRef.current = false;
           const startX = event.clientX;
           const startWidth = Number.parseInt(
             localStorage.getItem('morrow-agent-width') ?? '315',
             10,
           );
           const move = (moveEvent: MouseEvent) => {
+            agentResizeMovedRef.current = true;
             const width = Math.min(
               520,
               Math.max(260, startWidth - (moveEvent.clientX - startX)),
