@@ -48,5 +48,14 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
 }
 
 export function SignOutButton() {
-  return <button className="sign-out" onClick={async () => { await createClient().auth.signOut(); window.history.pushState({}, '', '/auth/sign-in'); window.location.reload(); }}>Sign out</button>;
+  return <button className="sign-out" onClick={async () => {
+    try {
+      await createClient().auth.signOut();
+      window.history.pushState({}, '', '/auth/sign-in');
+      window.location.reload();
+    } catch {
+      window.history.pushState({}, '', '/auth/sign-in');
+      window.location.reload();
+    }
+  }}>Sign out</button>;
 }
