@@ -82,7 +82,15 @@ export function normalizeSvgDataUrls(markdown: string) {
 const tableBlockBreak = '__MORROW_TABLE_BREAK__';
 
 export function normalizeTableBlockBreaks(markdown: string) {
-  return markdown.replace(/<br\s*\/?>/gi, tableBlockBreak);
+  return markdown.replace(/<br\s*\/?>/gi, '\n');
+}
+
+export function stripTableBreakSentinels(markdown: string) {
+  return markdown.replace(/(?:__)?MORROW_TABLE_BREAK(?:__)?/g, '\n');
+}
+
+export function prepareMarkdownForEditor(markdown: string) {
+  return normalizeTableBlockBreaks(stripTableBreakSentinels(markdown));
 }
 
 export function restoreTableBlockBreaks(markdown: string) {
@@ -114,7 +122,12 @@ function extendTableCellSchema(previous: typeof tableCellSchema) {
             : '';
           const items = parseTableListItems(value);
           if (!items) {
-            parseMarkdown.runner(state, node, type);
+            parseMarkdown.runner(state, {
+              ...node,
+              children: node.children?.map((child) => child.type === 'text'
+                ? { ...child, value: String(child.value).replace(new RegExp(tableBlockBreak, 'g'), '\n') }
+                : child),
+            }, type);
             return;
           }
           const listType = state.schema.nodes.bullet_list;
@@ -198,13 +211,13 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, rootRef.current!);
-        ctx.set(defaultValueCtx, normalizeTableBlockBreaks(normalizeSvgDataUrls(currentValueRef.current)));
+        ctx.set(defaultValueCtx, prepareMarkdownForEditor(normalizeSvgDataUrls(currentValueRef.current)));
         ctx.update(prosePluginsCtx, (plugins) => [...plugins, history(), undoRedo]);
         // Keep malformed or unsupported LaTeX from crashing the whole editor.
         // KaTeX will render unsupported commands as text when throwOnError is false.
         ctx.set(katexOptionsCtx.key, { throwOnError: false, strict: 'ignore', errorColor: '#c45f51' });
         ctx.get(listenerCtx).markdownUpdated((_, markdown) => {
-          const restoredMarkdown = restoreTableBlockBreaks(markdown);
+          const restoredMarkdown = stripTableBreakSentinels(restoreTableBlockBreaks(markdown));
           currentValueRef.current = restoredMarkdown;
           onChangeRef.current(restoredMarkdown);
           renderInlineSvgs(rootRef.current);
@@ -239,7 +252,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (value === currentValueRef.current) return;
       const view = ctx.get(editorViewCtx);
       const parser = ctx.get(parserCtx);
-      const doc = parser(normalizeTableBlockBreaks(normalizeSvgDataUrls(value)));
+      const doc = parser(prepareMarkdownForEditor(normalizeSvgDataUrls(value)));
       if (!doc) return;
       view.dispatch(view.state.tr.replace(0, view.state.doc.content.size, new Slice(doc.content, 0, 0)).setMeta('addToHistory', false));
       currentValueRef.current = value;

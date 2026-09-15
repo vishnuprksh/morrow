@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import { MarkdownEditor, normalizeSvgDataUrls, normalizeTableBlockBreaks, parseTableListItems, renderInlineSvgs, restoreTableBlockBreaks } from './markdown-editor';
+import { MarkdownEditor, normalizeSvgDataUrls, normalizeTableBlockBreaks, parseTableListItems, prepareMarkdownForEditor, renderInlineSvgs, restoreTableBlockBreaks, stripTableBreakSentinels } from './markdown-editor';
 
 vi.mock('@milkdown/core', () => ({
   Editor: {
@@ -37,8 +37,15 @@ describe('MarkdownEditor', () => {
   });
 
   it('preserves table cell breaks before Markdown parsing', () => {
-    expect(normalizeTableBlockBreaks('| Tasks |\n| --- |\n| - One<br>- Two |')).toContain('__MORROW_TABLE_BREAK__');
+    expect(normalizeTableBlockBreaks('| Tasks |\n| --- |\n| - One<br>- Two |')).toContain('| - One\n- Two |');
     expect(restoreTableBlockBreaks('| Tasks |\n| --- |\n| One __MORROW_TABLE_BREAK__ Two |')).toContain('One <br> Two');
+  });
+
+  it('does not expose the table break sentinel as rendered content', () => {
+    expect(restoreTableBlockBreaks(normalizeTableBlockBreaks('| Notes |\n| --- |\n| One<br>Two |'))).toBe('| Notes |\n| --- |\n| One\nTwo |');
+    expect(prepareMarkdownForEditor('One __MORROW_TABLE_BREAK__ Two')).toBe('One \n Two');
+    expect(prepareMarkdownForEditor('One MORROW_TABLE_BREAK Two')).toBe('One \n Two');
+    expect(stripTableBreakSentinels('One __MORROW_TABLE_BREAK__ Two')).toBe('One \n Two');
   });
 
   it('encodes whitespace in SVG data URLs before Markdown parsing', () => {

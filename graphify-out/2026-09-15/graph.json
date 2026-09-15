@@ -4,6 +4,54 @@
   "graph": {},
   "nodes": [
     {
+      "id": "src_app_editor_markdown_editor_editaction",
+      "label": "EditAction",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "editaction",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_imagesize",
+      "label": "ImageSize",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "imagesize",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L39"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditorprops",
+      "label": "MarkdownEditorProps",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "markdowneditorprops",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_toolbaraction",
+      "label": "ToolbarAction",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "toolbaraction",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L38"
+    },
+    {
       "id": "src_lib_notes_portability_portablefolder",
       "label": "PortableFolder",
       "_callable": true,
@@ -56,132 +104,6 @@
       "source_location": "L9"
     },
     {
-      "id": "src_app_editor_markdown_editor_editaction",
-      "label": "EditAction",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "editaction",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L28"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_imagesize",
-      "label": "ImageSize",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "imagesize",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L39"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_markdowneditorprops",
-      "label": "MarkdownEditorProps",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "markdowneditorprops",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L19"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_toolbaraction",
-      "label": "ToolbarAction",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "toolbaraction",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L38"
-    },
-    {
-      "id": "src_lib_notes_autosave_autosavecontroller",
-      "label": "AutosaveController",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "autosavecontroller",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L140"
-    },
-    {
-      "id": "src_lib_notes_autosave_autosaveresult",
-      "label": "AutosaveResult",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "autosaveresult",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L12"
-    },
-    {
-      "id": "src_lib_notes_autosave_entry",
-      "label": "Entry",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "entry",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_lib_notes_autosave_notedraft",
-      "label": "NoteDraft",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "notedraft",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_autosave_savenote",
-      "label": "SaveNote",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "savenote",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_lib_notes_autosave_saveresult",
-      "label": "SaveResult",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "saveresult",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L6"
-    },
-    {
       "id": "src_lib_notes_folders_folderlike",
       "label": "FolderLike",
       "_callable": true,
@@ -193,6 +115,45 @@
       "norm_label": "folderlike",
       "source_file": "src/lib/notes/folders.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_vault_import_vaultfile",
+      "label": "VaultFile",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "vaultfile",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_vault_import_vaultimage",
+      "label": "VaultImage",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "vaultimage",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "src_lib_notes_vault_import_vaultnote",
+      "label": "VaultNote",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "vaultnote",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L9"
     },
     {
       "id": "src_app_page_folderrow",
@@ -318,373 +279,302 @@
       "source_location": "L1"
     },
     {
-      "id": "src_lib_notes_vault_import_vaultfile",
-      "label": "VaultFile",
+      "id": "src_lib_notes_autosave_autosavecontroller",
+      "label": "AutosaveController",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "vaultfile",
-      "source_file": "src/lib/notes/vault-import.ts",
+      "norm_label": "autosavecontroller",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L140"
+    },
+    {
+      "id": "src_lib_notes_autosave_autosaveresult",
+      "label": "AutosaveResult",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "autosaveresult",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "src_lib_notes_autosave_entry",
+      "label": "Entry",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "entry",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_lib_notes_autosave_notedraft",
+      "label": "NoteDraft",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "notedraft",
+      "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L1"
     },
     {
-      "id": "src_lib_notes_vault_import_vaultimage",
-      "label": "VaultImage",
+      "id": "src_lib_notes_autosave_savenote",
+      "label": "SaveNote",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "vaultimage",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L10"
+      "norm_label": "savenote",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L11"
     },
     {
-      "id": "src_lib_notes_vault_import_vaultnote",
-      "label": "VaultNote",
+      "id": "src_lib_notes_autosave_saveresult",
+      "label": "SaveResult",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "vaultnote",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L9"
+      "norm_label": "saveresult",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L6"
     },
     {
-      "id": "src_app_auth_auth_form_authform",
-      "label": "AuthForm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "authform()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_auth_auth_form_authform_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L18"
-    },
-    {
-      "id": "src_app_auth_auth_form_signoutbutton",
-      "label": "SignOutButton()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "signoutbutton()",
-      "source_file": "src/app/auth/auth-form.tsx",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page_forgotpasswordpage",
-      "label": "ForgotPasswordPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "forgotpasswordpage()",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_auth_sign_in_page_signinpage",
-      "label": "SignInPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "signinpage()",
-      "source_file": "src/app/auth/sign-in/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_auth_sign_up_page_signuppage",
-      "label": "SignUpPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "signuppage()",
-      "source_file": "src/app/auth/sign-up/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_auth_update_password_page_updatepasswordpage",
-      "label": "UpdatePasswordPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "updatepasswordpage()",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_auth_update_password_page_updatepasswordpage_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_app_page_test_chainselect",
-      "label": "chainSelect()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "chainselect()",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_lib_supabase_client_createclient",
-      "label": "createClient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "createclient()",
-      "source_file": "src/lib/supabase/client.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "src_app_page_home",
-      "label": "Home()",
+      "id": "src_app_editor_markdown_editor_difftext",
+      "label": "DiffText()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "home()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L102"
+      "norm_label": "difftext()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L564"
     },
     {
-      "id": "src_app_page_home_acceptproposal",
-      "label": "acceptProposal()",
+      "id": "src_app_editor_markdown_editor_extendtablecellschema",
+      "label": "extendTableCellSchema()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "acceptproposal()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L441"
+      "norm_label": "extendtablecellschema()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L110"
     },
     {
-      "id": "src_app_page_home_archivenote",
-      "label": "archiveNote()",
+      "id": "src_app_editor_markdown_editor_markdowneditor",
+      "label": "MarkdownEditor()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "archivenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L389"
+      "norm_label": "markdowneditor()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L165"
     },
     {
-      "id": "src_app_page_home_bulkmovetotrash",
-      "label": "bulkMoveToTrash()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "label": "applyProposal()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "bulkmovetotrash()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L604"
+      "norm_label": "applyproposal()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L435"
     },
     {
-      "id": "src_app_page_home_createfolder",
-      "label": "createFolder()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_handleeditorkeydown",
+      "label": "handleEditorKeyDown()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "createfolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L477"
+      "norm_label": "handleeditorkeydown()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L421"
     },
     {
-      "id": "src_app_page_home_createnote",
-      "label": "createNote()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_handleimagecontextmenu",
+      "label": "handleImageContextMenu()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "createnote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L525"
-    },
-    {
-      "id": "src_app_page_home_deletefolder",
-      "label": "deleteFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "deletefolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L630"
-    },
-    {
-      "id": "src_app_page_home_movenote",
-      "label": "moveNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "movenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L427"
-    },
-    {
-      "id": "src_app_page_home_movetotrash",
-      "label": "moveToTrash()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "movetotrash()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L546"
-    },
-    {
-      "id": "src_app_page_home_opennotemenu",
-      "label": "openNoteMenu()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "opennotemenu()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L381"
-    },
-    {
-      "id": "src_app_page_home_permanentlydeletenote",
-      "label": "permanentlyDeleteNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "permanentlydeletenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L588"
-    },
-    {
-      "id": "src_app_page_home_renamefolder",
-      "label": "renameFolder()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "renamefolder()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L502"
-    },
-    {
-      "id": "src_app_page_home_restorenote",
-      "label": "restoreNote()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "restorenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L575"
-    },
-    {
-      "id": "src_app_page_home_togglefavorite",
-      "label": "toggleFavorite()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "file_type": "code",
-      "norm_label": "togglefavorite()",
-      "source_file": "src/app/page.tsx",
+      "norm_label": "handleimagecontextmenu()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L404"
     },
     {
-      "id": "src_app_page_home_toggleselectall",
-      "label": "toggleSelectAll()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_requestedit",
+      "label": "requestEdit()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "toggleselectall()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L469"
+      "norm_label": "requestedit()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L310"
     },
     {
-      "id": "src_app_page_home_toggleselectnotes",
-      "label": "toggleSelectNotes()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_resizeimageto",
+      "label": "resizeImageTo()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "toggleselectnotes()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L461"
+      "norm_label": "resizeimageto()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L390"
     },
     {
-      "id": "src_app_page_home_updatenote",
-      "label": "updateNote()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
+      "label": "runToolbarAction()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "updatenote()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L363"
+      "norm_label": "runtoolbaraction()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L457"
     },
     {
-      "id": "src_app_page_home_uploadimage",
-      "label": "uploadImage()",
+      "id": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
+      "label": "submitCustomInstruction()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "file_type": "code",
-      "norm_label": "uploadimage()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L675"
+      "norm_label": "submitcustominstruction()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L334"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_submitresize",
+      "label": "submitResize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "submitresize()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L367"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_markdowneditor_submittable",
+      "label": "submitTable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "submittable()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L343"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_normalizesvgdataurls",
+      "label": "normalizeSvgDataUrls()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "normalizesvgdataurls()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L78"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_normalizetableblockbreaks",
+      "label": "normalizeTableBlockBreaks()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "normalizetableblockbreaks()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L84"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_parsetablelistitems",
+      "label": "parseTableListItems()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "parsetablelistitems()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L100"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_preparemarkdownforeditor",
+      "label": "prepareMarkdownForEditor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "preparemarkdownforeditor()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L92"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_renderinlinesvgs",
+      "label": "renderInlineSvgs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "renderinlinesvgs()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L529"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_restoretableblockbreaks",
+      "label": "restoreTableBlockBreaks()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "restoretableblockbreaks()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L96"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_striptablebreaksentinels",
+      "label": "stripTableBreakSentinels()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "striptablebreaksentinels()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L88"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_toolbarbutton",
+      "label": "ToolbarButton()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "toolbarbutton()",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L609"
     },
     {
       "id": "src_lib_notes_portability_downloadblob",
@@ -855,202 +745,334 @@
       "source_location": "L10"
     },
     {
-      "id": "src_app_editor_markdown_editor_difftext",
-      "label": "DiffText()",
+      "id": "src_app_auth_auth_form_authform",
+      "label": "AuthForm()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
+      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "difftext()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L551"
+      "norm_label": "authform()",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L9"
     },
     {
-      "id": "src_app_editor_markdown_editor_extendtablecellschema",
-      "label": "extendTableCellSchema()",
+      "id": "src_app_auth_auth_form_authform_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "src_app_auth_auth_form_signoutbutton",
+      "label": "SignOutButton()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "signoutbutton()",
+      "source_file": "src/app/auth/auth-form.tsx",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_app_auth_forgot_password_page_forgotpasswordpage",
+      "label": "ForgotPasswordPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "forgotpasswordpage()",
+      "source_file": "src/app/auth/forgot-password/page.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_auth_forgot_password_page_forgotpasswordpage_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "src/app/auth/forgot-password/page.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_auth_sign_in_page_signinpage",
+      "label": "SignInPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "signinpage()",
+      "source_file": "src/app/auth/sign-in/page.tsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_app_auth_sign_up_page_signuppage",
+      "label": "SignUpPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "signuppage()",
+      "source_file": "src/app/auth/sign-up/page.tsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_app_auth_update_password_page_updatepasswordpage",
+      "label": "UpdatePasswordPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "updatepasswordpage()",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_auth_update_password_page_updatepasswordpage_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "src_app_page_test_chainselect",
+      "label": "chainSelect()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "chainselect()",
+      "source_file": "src/app/page.test.tsx",
+      "source_location": "L21"
+    },
+    {
+      "id": "src_lib_supabase_client_createclient",
+      "label": "createClient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "createclient()",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_app_page_home",
+      "label": "Home()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "extendtablecellschema()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
+      "norm_label": "home()",
+      "source_file": "src/app/page.tsx",
       "source_location": "L102"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor",
-      "label": "MarkdownEditor()",
+      "id": "src_app_page_home_acceptproposal",
+      "label": "acceptProposal()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "markdowneditor()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L152"
+      "norm_label": "acceptproposal()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L441"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_applyproposal",
-      "label": "applyProposal()",
+      "id": "src_app_page_home_archivenote",
+      "label": "archiveNote()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "applyproposal()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L422"
+      "norm_label": "archivenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L389"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_handleeditorkeydown",
-      "label": "handleEditorKeyDown()",
+      "id": "src_app_page_home_bulkmovetotrash",
+      "label": "bulkMoveToTrash()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "handleeditorkeydown()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L408"
+      "norm_label": "bulkmovetotrash()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L604"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_handleimagecontextmenu",
-      "label": "handleImageContextMenu()",
+      "id": "src_app_page_home_createfolder",
+      "label": "createFolder()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "handleimagecontextmenu()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L391"
+      "norm_label": "createfolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L477"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_requestedit",
-      "label": "requestEdit()",
+      "id": "src_app_page_home_createnote",
+      "label": "createNote()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "requestedit()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L297"
+      "norm_label": "createnote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L525"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_resizeimageto",
-      "label": "resizeImageTo()",
+      "id": "src_app_page_home_deletefolder",
+      "label": "deleteFolder()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "resizeimageto()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L377"
+      "norm_label": "deletefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L630"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_runtoolbaraction",
-      "label": "runToolbarAction()",
+      "id": "src_app_page_home_movenote",
+      "label": "moveNote()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "runtoolbaraction()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L444"
+      "norm_label": "movenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L427"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_submitcustominstruction",
-      "label": "submitCustomInstruction()",
+      "id": "src_app_page_home_movetotrash",
+      "label": "moveToTrash()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "submitcustominstruction()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L321"
+      "norm_label": "movetotrash()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L546"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_submitresize",
-      "label": "submitResize()",
+      "id": "src_app_page_home_opennotemenu",
+      "label": "openNoteMenu()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "submitresize()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L354"
+      "norm_label": "opennotemenu()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L381"
     },
     {
-      "id": "src_app_editor_markdown_editor_markdowneditor_submittable",
-      "label": "submitTable()",
+      "id": "src_app_page_home_permanentlydeletenote",
+      "label": "permanentlyDeleteNote()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "submittable()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L330"
+      "norm_label": "permanentlydeletenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L588"
     },
     {
-      "id": "src_app_editor_markdown_editor_normalizesvgdataurls",
-      "label": "normalizeSvgDataUrls()",
+      "id": "src_app_page_home_renamefolder",
+      "label": "renameFolder()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "normalizesvgdataurls()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L78"
+      "norm_label": "renamefolder()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L502"
     },
     {
-      "id": "src_app_editor_markdown_editor_normalizetableblockbreaks",
-      "label": "normalizeTableBlockBreaks()",
+      "id": "src_app_page_home_restorenote",
+      "label": "restoreNote()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "normalizetableblockbreaks()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L84"
+      "norm_label": "restorenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L575"
     },
     {
-      "id": "src_app_editor_markdown_editor_parsetablelistitems",
-      "label": "parseTableListItems()",
+      "id": "src_app_page_home_togglefavorite",
+      "label": "toggleFavorite()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "parsetablelistitems()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L92"
+      "norm_label": "togglefavorite()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L404"
     },
     {
-      "id": "src_app_editor_markdown_editor_renderinlinesvgs",
-      "label": "renderInlineSvgs()",
+      "id": "src_app_page_home_toggleselectall",
+      "label": "toggleSelectAll()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "renderinlinesvgs()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L516"
+      "norm_label": "toggleselectall()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L469"
     },
     {
-      "id": "src_app_editor_markdown_editor_restoretableblockbreaks",
-      "label": "restoreTableBlockBreaks()",
+      "id": "src_app_page_home_toggleselectnotes",
+      "label": "toggleSelectNotes()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "restoretableblockbreaks()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L88"
+      "norm_label": "toggleselectnotes()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L461"
     },
     {
-      "id": "src_app_editor_markdown_editor_toolbarbutton",
-      "label": "ToolbarButton()",
+      "id": "src_app_page_home_updatenote",
+      "label": "updateNote()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
       "file_type": "code",
-      "norm_label": "toolbarbutton()",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L596"
+      "norm_label": "updatenote()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L363"
+    },
+    {
+      "id": "src_app_page_home_uploadimage",
+      "label": "uploadImage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "uploadimage()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L675"
     },
     {
       "id": "src_app_auth_layout_authlayout",
@@ -1077,102 +1099,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "createautosavecontroller()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L52"
-    },
-    {
-      "id": "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "label": "attempt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "attempt()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L56"
-    },
-    {
-      "id": "src_lib_notes_autosave_createautosavecontroller_flush",
-      "label": "flush()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "flush()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L73"
-    },
-    {
-      "id": "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "label": "resultIsComplete()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "resultiscomplete()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L109"
-    },
-    {
-      "id": "src_lib_notes_autosave_readrecoverycopy",
-      "label": "readRecoveryCopy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "readrecoverycopy()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L31"
-    },
-    {
-      "id": "src_lib_notes_autosave_recoverykey",
-      "label": "recoveryKey()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "recoverykey()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_lib_notes_autosave_removerecoverycopy",
-      "label": "removeRecoveryCopy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "removerecoverycopy()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L44"
-    },
-    {
-      "id": "src_lib_notes_autosave_writerecoverycopy",
-      "label": "writeRecoveryCopy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "writerecoverycopy()",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L48"
-    },
-    {
       "id": "src_lib_notes_folders_collectfolderids",
       "label": "collectFolderIds()",
       "_callable": true,
@@ -1183,6 +1109,147 @@
       "norm_label": "collectfolderids()",
       "source_file": "src/lib/notes/folders.ts",
       "source_location": "L3"
+    },
+    {
+      "id": "src_lib_notes_vault_import_extension",
+      "label": "extension()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "extension()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_lib_notes_vault_import_imagecontenttype",
+      "label": "imageContentType()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "imagecontenttype()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_lib_notes_vault_import_imagelookup",
+      "label": "imageLookup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "imagelookup()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_lib_notes_vault_import_imagereferences",
+      "label": "imageReferences()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "imagereferences()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L63"
+    },
+    {
+      "id": "src_lib_notes_vault_import_normalizevaultreference",
+      "label": "normalizeVaultReference()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "normalizevaultreference()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L55"
+    },
+    {
+      "id": "src_lib_notes_vault_import_parsevaultfiles",
+      "label": "parseVaultFiles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "parsevaultfiles()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_lib_notes_vault_import_relativevaultpath",
+      "label": "relativeVaultPath()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "relativevaultpath()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "src_lib_notes_vault_import_rewriteimagelinks",
+      "label": "rewriteImageLinks()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "rewriteimagelinks()",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "src_lib_notes_vault_import_test_file",
+      "label": "file()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "file()",
+      "source_file": "src/lib/notes/vault-import.test.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "src_app_page_home_importvault",
+      "label": "importVault()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "importvault()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L714"
+    },
+    {
+      "id": "src_app_page_home_loadworkspace",
+      "label": "loadWorkspace()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "loadworkspace()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L156"
+    },
+    {
+      "id": "src_app_page_home_selectvault",
+      "label": "selectVault()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "selectvault()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L705"
     },
     {
       "id": "src_app_page_notecontextmenu",
@@ -1205,17 +1272,6 @@
       "norm_label": "rawmarkdowneditor()",
       "source_file": "src/app/page.tsx",
       "source_location": "L1507"
-    },
-    {
-      "id": "src_app_page_recoverynotice",
-      "label": "RecoveryNotice()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "file_type": "code",
-      "norm_label": "recoverynotice()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L1535"
     },
     {
       "id": "src_app_page_vaultpreview",
@@ -1466,7 +1522,7 @@
       "file_type": "code",
       "norm_label": "proposaldiff()",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L555"
+      "source_location": "L568"
     },
     {
       "id": "src_lib_ai_proposals_changedlinecount",
@@ -1491,145 +1547,111 @@
       "source_location": "L13"
     },
     {
-      "id": "src_lib_notes_vault_import_extension",
-      "label": "extension()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "extension()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L20"
+      "norm_label": "createautosavecontroller()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L52"
     },
     {
-      "id": "src_lib_notes_vault_import_imagecontenttype",
-      "label": "imageContentType()",
+      "id": "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "label": "attempt()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "imagecontenttype()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L14"
+      "norm_label": "attempt()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L56"
     },
     {
-      "id": "src_lib_notes_vault_import_imagelookup",
-      "label": "imageLookup()",
+      "id": "src_lib_notes_autosave_createautosavecontroller_flush",
+      "label": "flush()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "imagelookup()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L47"
+      "norm_label": "flush()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L73"
     },
     {
-      "id": "src_lib_notes_vault_import_imagereferences",
-      "label": "imageReferences()",
+      "id": "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "label": "resultIsComplete()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "imagereferences()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L63"
+      "norm_label": "resultiscomplete()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L109"
     },
     {
-      "id": "src_lib_notes_vault_import_normalizevaultreference",
-      "label": "normalizeVaultReference()",
+      "id": "src_lib_notes_autosave_readrecoverycopy",
+      "label": "readRecoveryCopy()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "normalizevaultreference()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L55"
+      "norm_label": "readrecoverycopy()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L31"
     },
     {
-      "id": "src_lib_notes_vault_import_parsevaultfiles",
-      "label": "parseVaultFiles()",
+      "id": "src_lib_notes_autosave_recoverykey",
+      "label": "recoveryKey()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "parsevaultfiles()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L28"
+      "norm_label": "recoverykey()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L27"
     },
     {
-      "id": "src_lib_notes_vault_import_relativevaultpath",
-      "label": "relativeVaultPath()",
+      "id": "src_lib_notes_autosave_removerecoverycopy",
+      "label": "removeRecoveryCopy()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "relativevaultpath()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L24"
+      "norm_label": "removerecoverycopy()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L44"
     },
     {
-      "id": "src_lib_notes_vault_import_rewriteimagelinks",
-      "label": "rewriteImageLinks()",
+      "id": "src_lib_notes_autosave_writerecoverycopy",
+      "label": "writeRecoveryCopy()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "rewriteimagelinks()",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L75"
+      "norm_label": "writerecoverycopy()",
+      "source_file": "src/lib/notes/autosave.ts",
+      "source_location": "L48"
     },
     {
-      "id": "src_lib_notes_vault_import_test_file",
-      "label": "file()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "vault-import.ts",
-      "file_type": "code",
-      "norm_label": "file()",
-      "source_file": "src/lib/notes/vault-import.test.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_app_page_home_importvault",
-      "label": "importVault()",
+      "id": "src_app_page_recoverynotice",
+      "label": "RecoveryNotice()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
       "file_type": "code",
-      "norm_label": "importvault()",
+      "norm_label": "recoverynotice()",
       "source_file": "src/app/page.tsx",
-      "source_location": "L714"
-    },
-    {
-      "id": "src_app_page_home_loadworkspace",
-      "label": "loadWorkspace()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "loadworkspace()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L156"
-    },
-    {
-      "id": "src_app_page_home_selectvault",
-      "label": "selectVault()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "selectvault()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L705"
+      "source_location": "L1535"
     },
     {
       "id": "package_dependencies",
@@ -2105,81 +2127,124 @@
       "source_location": "L35"
     },
     {
-      "id": "src_app_auth_auth_form",
-      "label": "auth-form.tsx",
+      "id": "core",
+      "label": "@milkdown/core",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Home",
+      "confidence": "EXTRACTED",
       "file_type": "code",
-      "norm_label": "auth-form.tsx",
-      "source_file": "src/app/auth/auth-form.tsx",
+      "norm_label": "@milkdown/core",
+      "source_file": "@milkdown/core"
+    },
+    {
+      "id": "src_app_editor_markdown_editor",
+      "label": "markdown-editor.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "markdown-editor.tsx",
+      "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_auth_forgot_password_page",
-      "label": "forgot-password/page.tsx",
+      "id": "src_app_editor_markdown_editor_editactions",
+      "label": "editActions",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "forgot-password/page.tsx",
-      "source_file": "src/app/auth/forgot-password/page.tsx",
+      "norm_label": "editactions",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_imagewidths",
+      "label": "imageWidths",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "imagewidths",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L41"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_resizableimageschema",
+      "label": "resizableImageSchema",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "resizableimageschema",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L43"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_svgattributes",
+      "label": "svgAttributes",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "svgattributes",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L527"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_svgtags",
+      "label": "svgTags",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "svgtags",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L526"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_tablecellwithblocks",
+      "label": "tableCellWithBlocks",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "tablecellwithblocks",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L149"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_tableheaderwithblocks",
+      "label": "tableHeaderWithBlocks",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "tableheaderwithblocks",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L150"
+    },
+    {
+      "id": "src_app_editor_markdown_editor_test",
+      "label": "markdown-editor.test.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "markdown-editor.test.tsx",
+      "source_file": "src/app/editor/markdown-editor.test.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_auth_sign_in_page",
-      "label": "sign-in/page.tsx",
+      "id": "src_app_editor_markdown_editor_toolbaractions",
+      "label": "toolbarActions",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "sign-in/page.tsx",
-      "source_file": "src/app/auth/sign-in/page.tsx",
-      "source_location": "L1"
+      "norm_label": "toolbaractions",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L152"
     },
     {
-      "id": "src_app_auth_sign_up_page",
-      "label": "sign-up/page.tsx",
+      "id": "src_app_editor_markdown_editor_undoredo",
+      "label": "undoRedo",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "sign-up/page.tsx",
-      "source_file": "src/app/auth/sign-up/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_auth_update_password_page",
-      "label": "update-password/page.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "update-password/page.tsx",
-      "source_file": "src/app/auth/update-password/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page_test",
-      "label": "app/page.test.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "app/page.test.tsx",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page_test_mocknotes",
-      "label": "mockNotes",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Home",
-      "file_type": "code",
-      "norm_label": "mocknotes",
-      "source_file": "src/app/page.test.tsx",
-      "source_location": "L8"
+      "norm_label": "undoredo",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L17"
     },
     {
       "id": "readme",
@@ -2548,124 +2613,81 @@
       "source_location": "L3"
     },
     {
-      "id": "core",
-      "label": "@milkdown/core",
+      "id": "src_app_auth_auth_form",
+      "label": "auth-form.tsx",
       "_origin": "ast",
       "community": 2,
-      "confidence": "EXTRACTED",
+      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "@milkdown/core",
-      "source_file": "@milkdown/core"
-    },
-    {
-      "id": "src_app_editor_markdown_editor",
-      "label": "markdown-editor.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "markdown-editor.tsx",
-      "source_file": "src/app/editor/markdown-editor.tsx",
+      "norm_label": "auth-form.tsx",
+      "source_file": "src/app/auth/auth-form.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_editor_markdown_editor_editactions",
-      "label": "editActions",
+      "id": "src_app_auth_forgot_password_page",
+      "label": "forgot-password/page.tsx",
       "_origin": "ast",
       "community": 2,
+      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "editactions",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_imagewidths",
-      "label": "imageWidths",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "imagewidths",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L41"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_resizableimageschema",
-      "label": "resizableImageSchema",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "resizableimageschema",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L43"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_svgattributes",
-      "label": "svgAttributes",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "svgattributes",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L514"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_svgtags",
-      "label": "svgTags",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "svgtags",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L513"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_tablecellwithblocks",
-      "label": "tableCellWithBlocks",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "tablecellwithblocks",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L136"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_tableheaderwithblocks",
-      "label": "tableHeaderWithBlocks",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "tableheaderwithblocks",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L137"
-    },
-    {
-      "id": "src_app_editor_markdown_editor_test",
-      "label": "markdown-editor.test.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "file_type": "code",
-      "norm_label": "markdown-editor.test.tsx",
-      "source_file": "src/app/editor/markdown-editor.test.tsx",
+      "norm_label": "forgot-password/page.tsx",
+      "source_file": "src/app/auth/forgot-password/page.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_editor_markdown_editor_toolbaractions",
-      "label": "toolbarActions",
+      "id": "src_app_auth_sign_in_page",
+      "label": "sign-in/page.tsx",
       "_origin": "ast",
       "community": 2,
+      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "toolbaractions",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L139"
+      "norm_label": "sign-in/page.tsx",
+      "source_file": "src/app/auth/sign-in/page.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "src_app_editor_markdown_editor_undoredo",
-      "label": "undoRedo",
+      "id": "src_app_auth_sign_up_page",
+      "label": "sign-up/page.tsx",
       "_origin": "ast",
       "community": 2,
+      "community_name": "Home",
       "file_type": "code",
-      "norm_label": "undoredo",
-      "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L17"
+      "norm_label": "sign-up/page.tsx",
+      "source_file": "src/app/auth/sign-up/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_auth_update_password_page",
+      "label": "update-password/page.tsx",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "update-password/page.tsx",
+      "source_file": "src/app/auth/update-password/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_test",
+      "label": "app/page.test.tsx",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "app/page.test.tsx",
+      "source_file": "src/app/page.test.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_test_mocknotes",
+      "label": "mockNotes",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Home",
+      "file_type": "code",
+      "norm_label": "mocknotes",
+      "source_file": "src/app/page.test.tsx",
+      "source_location": "L8"
     },
     {
       "id": "next_config",
@@ -3154,28 +3176,6 @@
       "source_location": "L19"
     },
     {
-      "id": "src_lib_notes_autosave",
-      "label": "autosave.ts",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "autosave.ts",
-      "source_file": "src/lib/notes/autosave.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_lib_notes_autosave_test",
-      "label": "autosave.test.ts",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "autosave.test.ts",
-      "source_file": "src/lib/notes/autosave.test.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "src_lib_notes_folders",
       "label": "folders.ts",
       "_origin": "ast",
@@ -3195,6 +3195,39 @@
       "file_type": "code",
       "norm_label": "folders.test.ts",
       "source_file": "src/lib/notes/folders.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_vault_import",
+      "label": "vault-import.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "vault-import.ts",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_notes_vault_import_imageextensions",
+      "label": "imageExtensions",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "imageextensions",
+      "source_file": "src/lib/notes/vault-import.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "src_lib_notes_vault_import_test",
+      "label": "vault-import.test.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "vault-import.ts",
+      "file_type": "code",
+      "norm_label": "vault-import.test.ts",
+      "source_file": "src/lib/notes/vault-import.test.ts",
       "source_location": "L1"
     },
     {
@@ -3707,36 +3740,25 @@
       "source_location": "L1"
     },
     {
-      "id": "src_lib_notes_vault_import",
-      "label": "vault-import.ts",
+      "id": "src_lib_notes_autosave",
+      "label": "autosave.ts",
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "vault-import.ts",
-      "source_file": "src/lib/notes/vault-import.ts",
+      "norm_label": "autosave.ts",
+      "source_file": "src/lib/notes/autosave.ts",
       "source_location": "L1"
     },
     {
-      "id": "src_lib_notes_vault_import_imageextensions",
-      "label": "imageExtensions",
+      "id": "src_lib_notes_autosave_test",
+      "label": "autosave.test.ts",
       "_origin": "ast",
       "community": 8,
-      "community_name": "vault-import.ts",
+      "community_name": "app/page.tsx",
       "file_type": "code",
-      "norm_label": "imageextensions",
-      "source_file": "src/lib/notes/vault-import.ts",
-      "source_location": "L12"
-    },
-    {
-      "id": "src_lib_notes_vault_import_test",
-      "label": "vault-import.test.ts",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "vault-import.ts",
-      "file_type": "code",
-      "norm_label": "vault-import.test.ts",
-      "source_file": "src/lib/notes/vault-import.test.ts",
+      "norm_label": "autosave.test.ts",
+      "source_file": "src/lib/notes/autosave.test.ts",
       "source_location": "L1"
     },
     {
@@ -4085,7 +4107,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L115",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -4097,19 +4119,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L201",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
       "source": "src_app_editor_markdown_editor_markdowneditor",
-      "target": "src_app_editor_markdown_editor_normalizetableblockbreaks",
+      "target": "src_app_editor_markdown_editor_preparemarkdownforeditor",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L201",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -4121,7 +4143,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L207",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_markdowneditor",
+      "target": "src_app_editor_markdown_editor_striptablebreaksentinels",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -4133,7 +4167,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L210",
+      "source_location": "L223",
       "weight": 1.0
     },
     {
@@ -4145,7 +4179,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L327",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_preparemarkdownforeditor",
+      "target": "src_app_editor_markdown_editor_normalizetableblockbreaks",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_preparemarkdownforeditor",
+      "target": "src_app_editor_markdown_editor_striptablebreaksentinels",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -4157,7 +4215,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L560",
+      "source_location": "L573",
       "weight": 1.0
     },
     {
@@ -4769,7 +4827,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L297",
+      "source_location": "L310",
       "weight": 1.0
     },
     {
@@ -4781,7 +4839,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L377",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -4793,7 +4851,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L444",
+      "source_location": "L457",
       "weight": 1.0
     },
     {
@@ -5758,6 +5816,18 @@
     },
     {
       "source": "src_app_editor_markdown_editor_test",
+      "target": "src_app_editor_markdown_editor_preparemarkdownforeditor",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/editor/markdown-editor.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_test",
       "target": "src_app_editor_markdown_editor_renderinlinesvgs",
       "relation": "imports",
       "_origin": "ast",
@@ -5771,6 +5841,18 @@
     {
       "source": "src_app_editor_markdown_editor_test",
       "target": "src_app_editor_markdown_editor_restoretableblockbreaks",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/editor/markdown-editor.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor_test",
+      "target": "src_app_editor_markdown_editor_striptablebreaksentinels",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7842,13 +7924,24 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
+      "target": "src_app_editor_markdown_editor_parsetablelistitems",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor",
       "target": "src_app_editor_markdown_editor_extendtablecellschema",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L102",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -7859,7 +7952,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L136",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -7870,7 +7963,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L137",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -7881,7 +7974,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L139",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -7892,7 +7985,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L152",
+      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -7991,7 +8084,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L513",
+      "source_location": "L526",
       "weight": 1.0
     },
     {
@@ -8002,7 +8095,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L514",
+      "source_location": "L527",
       "weight": 1.0
     },
     {
@@ -8013,7 +8106,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L516",
+      "source_location": "L529",
       "weight": 1.0
     },
     {
@@ -8024,7 +8117,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L551",
+      "source_location": "L564",
       "weight": 1.0
     },
     {
@@ -8035,7 +8128,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L555",
+      "source_location": "L568",
       "weight": 1.0
     },
     {
@@ -8046,7 +8139,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L596",
+      "source_location": "L609",
       "weight": 1.0
     },
     {
@@ -8073,7 +8166,7 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_restoretableblockbreaks",
+      "target": "src_app_editor_markdown_editor_striptablebreaksentinels",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8084,13 +8177,24 @@
     },
     {
       "source": "src_app_editor_markdown_editor",
-      "target": "src_app_editor_markdown_editor_parsetablelistitems",
+      "target": "src_app_editor_markdown_editor_preparemarkdownforeditor",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
       "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_editor_markdown_editor",
+      "target": "src_app_editor_markdown_editor_restoretableblockbreaks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/editor/markdown-editor.tsx",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -8101,7 +8205,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L321",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -8112,7 +8216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L330",
+      "source_location": "L343",
       "weight": 1.0
     },
     {
@@ -8123,7 +8227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L354",
+      "source_location": "L367",
       "weight": 1.0
     },
     {
@@ -8134,7 +8238,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L391",
+      "source_location": "L404",
       "weight": 1.0
     },
     {
@@ -8145,7 +8249,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L408",
+      "source_location": "L421",
       "weight": 1.0
     },
     {
@@ -8156,7 +8260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/editor/markdown-editor.tsx",
-      "source_location": "L422",
+      "source_location": "L435",
       "weight": 1.0
     },
     {
@@ -9216,5 +9320,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e208a7ff3fee30cd2aacb1401d4732b7f25c9e70"
+  "built_at_commit": "b2a2f37cea5c66dffd4e429e37992528d8afee58"
 }
