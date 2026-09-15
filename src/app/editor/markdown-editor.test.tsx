@@ -74,6 +74,7 @@ describe('MarkdownEditor', () => {
     expect(screen.getByLabelText('Markdown note content')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bold' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bulleted list' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Checklist' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Insert table' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Resize image' })).toBeInTheDocument();
   });

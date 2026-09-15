@@ -11,7 +11,7 @@ import { history, redo, undo } from '@milkdown/prose/history';
 import { keymap } from '@milkdown/prose/keymap';
 import { Fragment, Slice } from '@milkdown/prose/model';
 import { NodeSelection, TextSelection, type Command } from '@milkdown/prose/state';
-import { Bold, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
+import { Bold, CheckSquare, Code2, ImageIcon, Italic, Link, List, Minus, Quote, Table2, Type } from 'lucide-react';
 import { diffSegments, type DiffSegment, type NoteChangeProposal } from '@/lib/ai/proposals';
 
 const undoRedo = keymap({ 'Mod-z': undo, 'Mod-y': redo, 'Shift-Mod-z': redo });
@@ -35,7 +35,7 @@ const editActions: Array<{ action: EditAction; label: string }> = [
   { action: 'grammar', label: 'Fix grammar' },
 ];
 
-type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'quote' | 'code' | 'link' | 'table' | 'resizeImage';
+type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'checkList' | 'quote' | 'code' | 'link' | 'table' | 'resizeImage';
 type ImageSize = 'small' | 'medium' | 'large';
 
 const imageWidths: Record<ImageSize, string> = { small: '240', medium: '480', large: '720' };
@@ -142,6 +142,7 @@ const toolbarActions: Array<{ action: ToolbarAction; label: string; content: Rea
   { action: 'strike', label: 'Strikethrough', content: <Minus aria-hidden="true" size={15} /> },
   { action: 'heading', label: 'Heading 1', content: <Type aria-hidden="true" size={15} /> },
   { action: 'bulletList', label: 'Bulleted list', content: <List aria-hidden="true" size={15} /> },
+  { action: 'checkList', label: 'Checklist', content: <CheckSquare aria-hidden="true" size={15} /> },
   { action: 'quote', label: 'Blockquote', content: <Quote aria-hidden="true" size={15} /> },
   { action: 'code', label: 'Inline code', content: <Code2 aria-hidden="true" size={15} /> },
   { action: 'link', label: 'Link', content: <Link aria-hidden="true" size={15} /> },
@@ -457,6 +458,19 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
       if (action === 'strike' && schema.marks.strikethrough) dispatch(toggleMark(schema.marks.strikethrough));
       if (action === 'heading' && schema.nodes.heading) dispatch(setBlockType(schema.nodes.heading, { level: 1 }));
       if (action === 'bulletList' && schema.nodes.bullet_list) dispatch(wrapIn(schema.nodes.bullet_list));
+      if (action === 'checkList' && schema.nodes.bullet_list && schema.nodes.list_item) {
+        const wrapped = wrapIn(schema.nodes.bullet_list);
+        if (!wrapped(view.state, view.dispatch)) return;
+        const { from, to } = view.state.selection;
+        const transaction = view.state.tr;
+        view.state.doc.nodesBetween(0, view.state.doc.content.size, (node, position) => {
+          if (node.type === schema.nodes.list_item && position < to && position + node.nodeSize > from) {
+            transaction.setNodeMarkup(position, undefined, { ...node.attrs, label: '☐', listType: 'task', checked: false });
+          }
+        });
+        if (transaction.docChanged) view.dispatch(transaction);
+        view.focus();
+      }
       if (action === 'quote' && schema.nodes.blockquote) dispatch(wrapIn(schema.nodes.blockquote));
       if (action === 'code' && schema.marks.inlineCode) dispatch(toggleMark(schema.marks.inlineCode));
       if (action === 'table' && schema.nodes.table && schema.nodes.table_row && schema.nodes.table_header && schema.nodes.table_cell && schema.nodes.paragraph) {

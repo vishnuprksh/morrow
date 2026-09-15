@@ -1,54 +1,6 @@
 {
   "communities": {
     "0": [
-      "src_app_page",
-      "src_app_page_default_note",
-      "src_app_page_folderrow",
-      "src_app_page_home_selectvault",
-      "src_app_page_notecontextmenu",
-      "src_app_page_noterow",
-      "src_app_page_noteview",
-      "src_app_page_rawmarkdowneditor",
-      "src_app_page_recoverynotice",
-      "src_app_page_vaultpreview",
-      "src_app_page_workspaceloadingscreen",
-      "src_lib_notes_autosave",
-      "src_lib_notes_autosave_autosavecontroller",
-      "src_lib_notes_autosave_autosaveresult",
-      "src_lib_notes_autosave_createautosavecontroller",
-      "src_lib_notes_autosave_createautosavecontroller_attempt",
-      "src_lib_notes_autosave_createautosavecontroller_flush",
-      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
-      "src_lib_notes_autosave_entry",
-      "src_lib_notes_autosave_notedraft",
-      "src_lib_notes_autosave_readrecoverycopy",
-      "src_lib_notes_autosave_recoverykey",
-      "src_lib_notes_autosave_removerecoverycopy",
-      "src_lib_notes_autosave_savenote",
-      "src_lib_notes_autosave_saveresult",
-      "src_lib_notes_autosave_test",
-      "src_lib_notes_autosave_writerecoverycopy",
-      "src_lib_notes_folders",
-      "src_lib_notes_folders_collectfolderids",
-      "src_lib_notes_folders_folderlike",
-      "src_lib_notes_folders_test",
-      "src_lib_notes_vault_import",
-      "src_lib_notes_vault_import_extension",
-      "src_lib_notes_vault_import_imagecontenttype",
-      "src_lib_notes_vault_import_imageextensions",
-      "src_lib_notes_vault_import_imagelookup",
-      "src_lib_notes_vault_import_imagereferences",
-      "src_lib_notes_vault_import_normalizevaultreference",
-      "src_lib_notes_vault_import_parsevaultfiles",
-      "src_lib_notes_vault_import_relativevaultpath",
-      "src_lib_notes_vault_import_rewriteimagelinks",
-      "src_lib_notes_vault_import_test",
-      "src_lib_notes_vault_import_test_file",
-      "src_lib_notes_vault_import_vaultfile",
-      "src_lib_notes_vault_import_vaultimage",
-      "src_lib_notes_vault_import_vaultnote"
-    ],
-    "1": [
       "ai",
       "ai_sdk_openai",
       "jszip",
@@ -93,7 +45,7 @@
       "testing_library_react",
       "zod"
     ],
-    "2": [
+    "1": [
       "src_app_auth_auth_form",
       "src_app_auth_auth_form_authform",
       "src_app_auth_auth_form_authform_submit",
@@ -115,8 +67,6 @@
       "src_app_page_home_createfolder",
       "src_app_page_home_createnote",
       "src_app_page_home_deletefolder",
-      "src_app_page_home_importvault",
-      "src_app_page_home_loadworkspace",
       "src_app_page_home_movenote",
       "src_app_page_home_movetotrash",
       "src_app_page_home_opennotemenu",
@@ -133,16 +83,18 @@
       "src_app_page_test_mocknotes",
       "src_lib_supabase_client_createclient"
     ],
-    "3": [
+    "2": [
       "core",
       "src_app_editor_markdown_editor",
       "src_app_editor_markdown_editor_difftext",
       "src_app_editor_markdown_editor_editaction",
       "src_app_editor_markdown_editor_editactions",
+      "src_app_editor_markdown_editor_extendtablecellschema",
       "src_app_editor_markdown_editor_imagesize",
       "src_app_editor_markdown_editor_imagewidths",
       "src_app_editor_markdown_editor_markdowneditor",
       "src_app_editor_markdown_editor_markdowneditor_applyproposal",
+      "src_app_editor_markdown_editor_markdowneditor_handleeditorkeydown",
       "src_app_editor_markdown_editor_markdowneditor_handleimagecontextmenu",
       "src_app_editor_markdown_editor_markdowneditor_requestedit",
       "src_app_editor_markdown_editor_markdowneditor_resizeimageto",
@@ -152,26 +104,22 @@
       "src_app_editor_markdown_editor_markdowneditor_submittable",
       "src_app_editor_markdown_editor_markdowneditorprops",
       "src_app_editor_markdown_editor_normalizesvgdataurls",
-      "src_app_editor_markdown_editor_normalizetablebullets",
-      "src_app_editor_markdown_editor_proposaldiff",
+      "src_app_editor_markdown_editor_normalizetableblockbreaks",
+      "src_app_editor_markdown_editor_parsetablelistitems",
       "src_app_editor_markdown_editor_renderinlinesvgs",
       "src_app_editor_markdown_editor_resizableimageschema",
+      "src_app_editor_markdown_editor_restoretableblockbreaks",
       "src_app_editor_markdown_editor_svgattributes",
       "src_app_editor_markdown_editor_svgtags",
-      "src_app_editor_markdown_editor_tablecellwithtasks",
+      "src_app_editor_markdown_editor_tablecellwithblocks",
+      "src_app_editor_markdown_editor_tableheaderwithblocks",
       "src_app_editor_markdown_editor_test",
       "src_app_editor_markdown_editor_toolbaraction",
       "src_app_editor_markdown_editor_toolbaractions",
       "src_app_editor_markdown_editor_toolbarbutton",
-      "src_app_editor_markdown_editor_undoredo",
-      "src_lib_ai_proposals",
-      "src_lib_ai_proposals_changedlinecount",
-      "src_lib_ai_proposals_diffsegment",
-      "src_lib_ai_proposals_diffsegments",
-      "src_lib_ai_proposals_notechangeproposal",
-      "src_lib_ai_proposals_test"
+      "src_app_editor_markdown_editor_undoredo"
     ],
-    "4": [
+    "3": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_esnext",
@@ -203,6 +151,38 @@
       "tsconfig_compileroptions_types",
       "tsconfig_exclude",
       "tsconfig_include"
+    ],
+    "4": [
+      "src_app_page",
+      "src_app_page_default_note",
+      "src_app_page_folderrow",
+      "src_app_page_notecontextmenu",
+      "src_app_page_noterow",
+      "src_app_page_noteview",
+      "src_app_page_rawmarkdowneditor",
+      "src_app_page_recoverynotice",
+      "src_app_page_vaultpreview",
+      "src_app_page_workspaceloadingscreen",
+      "src_lib_notes_autosave",
+      "src_lib_notes_autosave_autosavecontroller",
+      "src_lib_notes_autosave_autosaveresult",
+      "src_lib_notes_autosave_createautosavecontroller",
+      "src_lib_notes_autosave_createautosavecontroller_attempt",
+      "src_lib_notes_autosave_createautosavecontroller_flush",
+      "src_lib_notes_autosave_createautosavecontroller_resultiscomplete",
+      "src_lib_notes_autosave_entry",
+      "src_lib_notes_autosave_notedraft",
+      "src_lib_notes_autosave_readrecoverycopy",
+      "src_lib_notes_autosave_recoverykey",
+      "src_lib_notes_autosave_removerecoverycopy",
+      "src_lib_notes_autosave_savenote",
+      "src_lib_notes_autosave_saveresult",
+      "src_lib_notes_autosave_test",
+      "src_lib_notes_autosave_writerecoverycopy",
+      "src_lib_notes_folders",
+      "src_lib_notes_folders_collectfolderids",
+      "src_lib_notes_folders_folderlike",
+      "src_lib_notes_folders_test"
     ],
     "5": [
       "eslint",
@@ -263,6 +243,48 @@
       "src_lib_supabase_server_createclient"
     ],
     "7": [
+      "src_app_agent_panel",
+      "src_app_agent_panel_agentpanel",
+      "src_app_agent_panel_agentpanel_clearchat",
+      "src_app_agent_panel_agentpanel_send",
+      "src_app_agent_panel_chatmessage",
+      "src_app_agent_panel_extractnotechangeproposal",
+      "src_app_agent_panel_latestagenterror",
+      "src_app_agent_panel_latestagentstatus",
+      "src_app_agent_panel_notecontext",
+      "src_app_agent_panel_test",
+      "src_app_agent_panel_test_activenote",
+      "src_app_agent_panel_visibleassistanttext",
+      "src_app_agent_panel_workingindicator",
+      "src_app_editor_markdown_editor_proposaldiff",
+      "src_lib_ai_proposals",
+      "src_lib_ai_proposals_changedlinecount",
+      "src_lib_ai_proposals_diffsegment",
+      "src_lib_ai_proposals_diffsegments",
+      "src_lib_ai_proposals_notechangeproposal",
+      "src_lib_ai_proposals_test"
+    ],
+    "8": [
+      "src_app_page_home_importvault",
+      "src_app_page_home_loadworkspace",
+      "src_app_page_home_selectvault",
+      "src_lib_notes_vault_import",
+      "src_lib_notes_vault_import_extension",
+      "src_lib_notes_vault_import_imagecontenttype",
+      "src_lib_notes_vault_import_imageextensions",
+      "src_lib_notes_vault_import_imagelookup",
+      "src_lib_notes_vault_import_imagereferences",
+      "src_lib_notes_vault_import_normalizevaultreference",
+      "src_lib_notes_vault_import_parsevaultfiles",
+      "src_lib_notes_vault_import_relativevaultpath",
+      "src_lib_notes_vault_import_rewriteimagelinks",
+      "src_lib_notes_vault_import_test",
+      "src_lib_notes_vault_import_test_file",
+      "src_lib_notes_vault_import_vaultfile",
+      "src_lib_notes_vault_import_vaultimage",
+      "src_lib_notes_vault_import_vaultnote"
+    ],
+    "9": [
       "package",
       "package_name",
       "package_packagemanager",
@@ -277,22 +299,7 @@
       "package_scripts_typecheck",
       "package_version"
     ],
-    "8": [
-      "src_app_agent_panel",
-      "src_app_agent_panel_agentpanel",
-      "src_app_agent_panel_agentpanel_clearchat",
-      "src_app_agent_panel_agentpanel_send",
-      "src_app_agent_panel_chatmessage",
-      "src_app_agent_panel_extractnotechangeproposal",
-      "src_app_agent_panel_latestagenterror",
-      "src_app_agent_panel_latestagentstatus",
-      "src_app_agent_panel_notecontext",
-      "src_app_agent_panel_test",
-      "src_app_agent_panel_test_activenote",
-      "src_app_agent_panel_visibleassistanttext",
-      "src_app_agent_panel_workingindicator"
-    ],
-    "9": [
+    "10": [
       "readme",
       "readme_1_create_supabase_resources",
       "readme_2_configure_the_environment",
@@ -306,7 +313,7 @@
       "readme_stack",
       "readme_what_is_included"
     ],
-    "10": [
+    "11": [
       "src_lib_notes_portability",
       "src_lib_notes_portability_downloadblob",
       "src_lib_notes_portability_folderpath",
@@ -317,107 +324,107 @@
       "src_lib_notes_portability_test",
       "src_lib_notes_portability_workspacezip"
     ],
-    "11": [
+    "12": [
       "src_lib_ai_credentials",
       "src_lib_ai_credentials_decryptapikey",
       "src_lib_ai_credentials_encryptapikey",
       "src_lib_ai_credentials_encryptionkey",
       "src_lib_ai_credentials_test"
     ],
-    "12": [
+    "13": [
       "src_lib_notes_trash",
       "src_lib_notes_trash_isexpiredtrash",
       "src_lib_notes_trash_test",
       "src_lib_notes_trash_trash_retention_days",
       "src_lib_notes_trash_trashexpirycutoff"
     ],
-    "13": [
+    "14": [
       "prettierrc",
       "prettierrc_semi",
       "prettierrc_singlequote",
       "prettierrc_trailingcomma"
     ],
-    "14": [
+    "15": [
       "src_app_settings_page",
       "src_app_settings_page_settingspage",
       "src_app_settings_page_settingspage_changetheme",
       "src_app_settings_page_test"
     ],
-    "15": [
+    "16": [
       "src_app_ai_settings",
       "src_app_ai_settings_agent",
       "src_app_ai_settings_aisettings"
     ],
-    "16": [
+    "17": [
       "src_app_layout",
       "src_app_layout_metadata",
       "src_app_layout_rootlayout"
     ],
-    "17": [
+    "18": [
       "src_lib_ai_validation",
       "src_lib_ai_validation_credentialinput",
       "src_lib_ai_validation_credentialschema"
     ],
-    "18": [
+    "19": [
       "agents",
       "agents_this_is_not_the_next_js_you_know"
     ],
-    "19": [
+    "20": [
       "next_config",
       "next_config_nextconfig"
     ],
-    "20": [
+    "21": [
       "next_env_d",
       "next_env_d_rationale_6"
     ],
-    "21": [
+    "22": [
       "postcss_config",
       "postcss_config_config"
     ],
-    "22": [
+    "23": [
       "src_app_auth_layout",
       "src_app_auth_layout_authlayout"
     ],
-    "23": [
+    "24": [
       "src_app_auth_page",
       "src_app_auth_page_authlayout"
     ],
-    "24": [
+    "25": [
       "claude"
     ],
-    "25": [
+    "26": [
       "eslint_config"
     ],
-    "26": [
+    "27": [
       "mvp_plan"
     ],
-    "27": [
+    "28": [
       "src_test_setup"
     ],
-    "28": [
+    "29": [
       "vitest_config"
     ]
   },
   "cohesion": {
-    "0": 0.07536231884057971,
-    "1": 0.046511627906976744,
-    "2": 0.08250355618776671,
-    "3": 0.0761904761904762,
-    "4": 0.06451612903225806,
+    "0": 0.046511627906976744,
+    "1": 0.08571428571428572,
+    "2": 0.08021390374331551,
+    "3": 0.06451612903225806,
+    "4": 0.10574712643678161,
     "5": 0.07407407407407407,
     "6": 0.1396011396011396,
-    "7": 0.15384615384615385,
-    "8": 0.23076923076923078,
-    "9": 0.16666666666666666,
-    "10": 0.4166666666666667,
-    "11": 0.8,
-    "12": 0.7,
-    "13": 0.5,
-    "14": 0.6666666666666666,
+    "7": 0.14210526315789473,
+    "8": 0.1895424836601307,
+    "9": 0.15384615384615385,
+    "10": 0.16666666666666666,
+    "11": 0.4166666666666667,
+    "12": 0.8,
+    "13": 0.7,
+    "14": 0.5,
     "15": 0.6666666666666666,
     "16": 0.6666666666666666,
     "17": 0.6666666666666666,
-    "18": 1.0,
+    "18": 0.6666666666666666,
     "19": 1.0,
     "20": 1.0,
     "21": 1.0,
@@ -427,7 +434,8 @@
     "25": 1.0,
     "26": 1.0,
     "27": 1.0,
-    "28": 1.0
+    "28": 1.0,
+    "29": 1.0
   },
   "gods": [
     {
@@ -448,7 +456,7 @@
     {
       "id": "src_app_editor_markdown_editor_markdowneditor",
       "label": "MarkdownEditor()",
-      "degree": 14
+      "degree": 16
     },
     {
       "id": "src_lib_supabase_server_createclient",
@@ -466,13 +474,13 @@
       "degree": 8
     },
     {
-      "id": "src_lib_notes_autosave_createautosavecontroller",
-      "label": "createAutosaveController()",
+      "id": "src_lib_notes_portability_safefilename",
+      "label": "safeFilename()",
       "degree": 7
     },
     {
-      "id": "src_lib_notes_portability_safefilename",
-      "label": "safeFilename()",
+      "id": "src_lib_notes_autosave_createautosavecontroller",
+      "label": "createAutosaveController()",
       "degree": 7
     },
     {
@@ -494,48 +502,48 @@
       "why": "connects across different repos/directories"
     },
     {
-      "source": "Home()",
-      "target": "createAutosaveController()",
+      "source": "submit()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/app/auth/auth-form.tsx",
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "moveToTrash()",
-      "target": "removeRecoveryCopy()",
+      "source": "submit()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/autosave.ts"
+        "src/app/auth/forgot-password/page.tsx",
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "deleteFolder()",
-      "target": "collectFolderIds()",
+      "source": "submit()",
+      "target": "createClient()",
       "source_files": [
-        "src/app/page.tsx",
-        "src/lib/notes/folders.ts"
+        "src/app/auth/update-password/page.tsx",
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `submit()` unexpectedly reaches hub `createClient()`"
     },
     {
-      "source": "importVault()",
-      "target": "imageContentType()",
+      "source": "archiveNote()",
+      "target": "createClient()",
       "source_files": [
         "src/app/page.tsx",
-        "src/lib/notes/vault-import.ts"
+        "src/lib/supabase/client.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "bridges separate communities"
+      "why": "peripheral node `archiveNote()` unexpectedly reaches hub `createClient()`"
     }
   ],
   "tokens": {
