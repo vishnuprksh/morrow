@@ -21,6 +21,8 @@ import {
   GripVertical,
   ImagePlus,
   MoreHorizontal,
+  PanelLeftClose,
+  PanelLeftOpen,
   PanelRight,
   Pencil,
   PenLine,
@@ -153,6 +155,10 @@ export default function Home() {
   const globalSearchRef = useRef<HTMLInputElement>(null);
   const noteSearchRef = useRef<HTMLInputElement>(null);
   const agentResizeMovedRef = useRef(false);
+
+  useEffect(() => {
+    setPanelsCollapsed(localStorage.getItem('morrow-panels-collapsed') === '1');
+  }, []);
 
   async function loadWorkspace(supabase: ReturnType<typeof createClient>) {
     setLoading(true);
@@ -322,6 +328,14 @@ export default function Home() {
     if (globalSearchOpen) globalSearchRef.current?.focus();
   }, [globalSearchOpen]);
   const [chatOpen, setChatOpen] = useState(true);
+  const [panelsCollapsed, setPanelsCollapsed] = useState(false);
+
+  function togglePanels() {
+    setPanelsCollapsed((current) => {
+      localStorage.setItem('morrow-panels-collapsed', current ? '0' : '1');
+      return !current;
+    });
+  }
   useEffect(() => {
     const width = localStorage.getItem('morrow-agent-width');
     if (width)
@@ -849,13 +863,60 @@ export default function Home() {
   if (loading && !error) return <WorkspaceLoadingScreen />;
 
   return (
-    <main className={`app-shell ${chatOpen ? 'chat-open' : 'chat-closed'}`}>
+    <main
+      className={`app-shell ${chatOpen ? 'chat-open' : 'chat-closed'} ${
+        panelsCollapsed ? 'panels-collapsed' : ''
+      }`}
+    >
       <aside className="sidebar">
+        {panelsCollapsed && (
+          <div className="sidebar-rail">
+            <div className="brand-mark" aria-hidden="true">
+              <Sparkles size={14} />
+            </div>
+            <button
+              className="icon-button"
+              onClick={togglePanels}
+              aria-label="Expand panels"
+              title="Expand panels"
+            >
+              <PanelLeftOpen size={16} />
+            </button>
+            <button
+              className="icon-button"
+              onClick={createNote}
+              aria-label="New note"
+              title="New note"
+            >
+              <Plus size={16} />
+            </button>
+            <button
+              className="icon-button"
+              onClick={() => setGlobalSearchOpen(true)}
+              aria-label="Search all notes"
+              title="Search all notes"
+            >
+              <Search size={16} />
+            </button>
+          </div>
+        )}
         <div className="brand">
           <div className="brand-mark">
             <Sparkles size={15} />
           </div>
           <span>Morrow</span>
+          <button
+            className="icon-button sidebar-collapse"
+            onClick={togglePanels}
+            aria-label={panelsCollapsed ? 'Expand panels' : 'Collapse panels'}
+            title={panelsCollapsed ? 'Expand panels' : 'Collapse panels'}
+          >
+            {panelsCollapsed ? (
+              <PanelLeftOpen size={15} />
+            ) : (
+              <PanelLeftClose size={15} />
+            )}
+          </button>
         </div>
         <div className="sidebar-actions">
           <button className="new-note" onClick={createNote}>
@@ -1050,7 +1111,7 @@ export default function Home() {
       </aside>
       <section className="notes-panel">
         <div className="panel-header">
-          <div>
+          <div className="panel-header-title">
             <p className="eyebrow">Personal workspace</p>
             <h2>
               {noteView === 'trash'
