@@ -519,7 +519,7 @@ export default function Home() {
       return allSelected ? new Set() : new Set(visibleIds);
     });
   }
-  async function createFolder() {
+  async function createFolder(parentId: string | null = null) {
     if (!user) return;
     if (folderSaving) return;
     setFolderSaving(true);
@@ -530,7 +530,7 @@ export default function Home() {
       .insert({
         user_id: user.id,
         name: 'untitled',
-        parent_id: null,
+        parent_id: parentId,
         position: folders.length,
       })
       .select('id, name, parent_id, position')
@@ -894,6 +894,109 @@ export default function Home() {
 
   if (loading && !error) return <WorkspaceLoadingScreen />;
 
+  function FolderNode({ folder, depth }: { folder: FolderRow; depth: number }) {
+    const children = folders.filter((item) => item.parent_id === folder.id);
+    const isOpen = openFolders[folder.id] ?? false;
+    return (
+      <>
+        <div
+          className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`}
+          style={{ paddingLeft: depth * 16 }}
+          key={folder.id}
+        >
+          <button
+            className="folder-toggle"
+            onClick={() => {
+              setSelectedFolder(folder.id);
+              setNoteView('folder');
+              setOpenFolders((current) => ({
+                ...current,
+                [folder.id]: !isOpen,
+              }));
+            }}
+            aria-label={`Toggle ${folder.name}`}
+          >
+            <span className="folder-icon">
+              {children.length > 0 ? (
+                isOpen ? (
+                  <ChevronDown size={14} />
+                ) : (
+                  <ChevronRight size={14} />
+                )
+              ) : (
+                <span style={{ width: 14 }} />
+              )}
+              <Folder size={15} />
+            </span>
+            {renamingFolderId === folder.id ? (
+              <input
+                className="folder-rename-input"
+                aria-label={`Rename ${folder.name}`}
+                autoFocus
+                value={folderRenameInput}
+                maxLength={120}
+                onChange={(event) => setFolderRenameInput(event.target.value)}
+                onClick={(event) => event.stopPropagation()}
+                onDoubleClick={(event) => event.stopPropagation()}
+                onBlur={() => void renameFolder(folder)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    event.preventDefault();
+                    void renameFolder(folder);
+                  }
+                  if (event.key === 'Escape') {
+                    setRenamingFolderId(null);
+                  }
+                }}
+              />
+            ) : (
+              <span
+                onDoubleClick={(event) => {
+                  event.stopPropagation();
+                  setRenamingFolderId(folder.id);
+                  setFolderRenameInput(folder.name);
+                }}
+              >
+                {folder.name}
+              </span>
+            )}
+          </button>
+          <span className="muted-count">
+            {
+              notes.filter(
+                (note) => note.folder_id === folder.id && !note.deleted_at,
+              ).length
+            }
+          </span>
+          <button
+            className="folder-add"
+            aria-label={`Add subfolder to ${folder.name}`}
+            title={`Add subfolder to ${folder.name}`}
+            disabled={folderSaving}
+            onClick={(event) => {
+              event.stopPropagation();
+              setOpenFolders((current) => ({ ...current, [folder.id]: true }));
+              void createFolder(folder.id);
+            }}
+          >
+            <Plus size={13} />
+          </button>
+          <button
+            className="folder-delete"
+            aria-label={`Delete ${folder.name}`}
+            onClick={() => deleteFolder(folder)}
+          >
+            <Trash2 size={13} />
+          </button>
+        </div>
+        {isOpen &&
+          children.map((child) => (
+            <FolderNode key={child.id} folder={child} depth={depth + 1} />
+          ))}
+      </>
+    );
+  }
+
   return (
     <main
       className={`app-shell ${chatOpen ? 'chat-open' : 'chat-closed'} ${
@@ -1086,82 +1189,11 @@ export default function Home() {
           </button>
         </div>
         <div className="folder-list">
-          {folders.map((folder) => (
-            <div
-              className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`}
-              key={folder.id}
-            >
-              <button
-                className="folder-toggle"
-                onClick={() => {
-                  setSelectedFolder(folder.id);
-                  setNoteView('folder');
-                  setOpenFolders((current) => ({
-                    ...current,
-                    [folder.id]: !current[folder.id],
-                  }));
-                }}
-                aria-label={`Toggle ${folder.name}`}
-              >
-                <span className="folder-icon">
-                  {openFolders[folder.id] ? (
-                    <ChevronDown size={14} />
-                  ) : (
-                    <ChevronRight size={14} />
-                  )}
-                  <Folder size={15} />
-                </span>
-                {renamingFolderId === folder.id ? (
-                  <input
-                    className="folder-rename-input"
-                    aria-label={`Rename ${folder.name}`}
-                    autoFocus
-                    value={folderRenameInput}
-                    maxLength={120}
-                    onChange={(event) =>
-                      setFolderRenameInput(event.target.value)
-                    }
-                    onClick={(event) => event.stopPropagation()}
-                    onDoubleClick={(event) => event.stopPropagation()}
-                    onBlur={() => void renameFolder(folder)}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter') {
-                        event.preventDefault();
-                        void renameFolder(folder);
-                      }
-                      if (event.key === 'Escape') {
-                        setRenamingFolderId(null);
-                      }
-                    }}
-                  />
-                ) : (
-                  <span
-                    onDoubleClick={(event) => {
-                      event.stopPropagation();
-                      setRenamingFolderId(folder.id);
-                      setFolderRenameInput(folder.name);
-                    }}
-                  >
-                    {folder.name}
-                  </span>
-                )}
-              </button>
-              <span className="muted-count">
-                {
-                  notes.filter(
-                    (note) => note.folder_id === folder.id && !note.deleted_at,
-                  ).length
-                }
-              </span>
-              <button
-                className="folder-delete"
-                aria-label={`Delete ${folder.name}`}
-                onClick={() => deleteFolder(folder)}
-              >
-                <Trash2 size={13} />
-              </button>
-            </div>
-          ))}
+          {folders
+            .filter((folder) => folder.parent_id === null)
+            .map((folder) => (
+              <FolderNode key={folder.id} folder={folder} depth={0} />
+            ))}
         </div>
         <div className="sidebar-footer">
           <div className="avatar">
