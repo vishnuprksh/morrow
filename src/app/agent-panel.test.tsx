@@ -5,6 +5,7 @@ const activeNote = {
   id: 'a564e5b2-9498-4a4a-bc42-ba983ec33c4b',
   title: 'Lantern',
   content_markdown: 'Original note',
+  agent_instructions: '',
   folder_id: null,
   version: 4,
 };

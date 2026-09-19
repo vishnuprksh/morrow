@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) return NextResponse.json({ error: 'Authentication required.' }, { status: 401 });
   const body = await request.json().catch(() => null) as {
-    messages?: unknown; activeNote?: { id?: unknown; title?: unknown; content?: unknown; version?: unknown };
+    messages?: unknown; activeNote?: { id?: unknown; title?: unknown; content?: unknown; agentInstructions?: unknown; version?: unknown };
     selection?: { text?: unknown; from?: unknown; to?: unknown }; cursor?: { position?: unknown };
     attachedNoteIds?: unknown[]; attachedFolderIds?: unknown[]; runId?: unknown;
   } | null;
@@ -53,6 +53,12 @@ export async function POST(request: Request) {
   Selection: ${String(body.selection?.text ?? '').slice(0, 4000)}
   Cursor position: ${String(body.cursor?.position ?? '')}
   Attached notes: ${JSON.stringify(attached?.map((note) => ({ id: note.id, title: note.title, content: note.content_markdown.slice(0, MAX_NOTE_CHARS) })) ?? [])}
+  ${(() => {
+    const agentInstructions = typeof active?.agentInstructions === 'string' ? active.agentInstructions.trim().slice(0, 2000) : '';
+    return agentInstructions
+      ? `Note author instructions (highest priority, follow exactly):\n${agentInstructions}\n`
+      : '';
+  })()}
   Attached folders: ${requestedFolderIds.length ? 'The user explicitly attached folder context; use search_notes to retrieve matching notes.' : 'none'}
 
   For SVG notes, use exactly Markdown image syntax with a complete percent-encoded data URL; do not return a raw SVG block. Diagnose concrete syntax problems before suggesting alternatives. Keep a generated note title separate from the body and do not repeat it as a heading or standalone line unless explicitly requested. Write tools only return proposals and never mutate data directly.`;

@@ -10,6 +10,7 @@ import {
 import {
   Archive,
   ArchiveRestore,
+  Bot,
   Check,
   CheckCheck,
   ChevronDown,
@@ -74,6 +75,7 @@ type NoteRow = {
   title: string;
   folder_id: string | null;
   content_markdown: string;
+  agent_instructions: string;
   version: number;
   updated_at: string;
   is_favorite: boolean;
@@ -136,6 +138,7 @@ export default function Home() {
     'saved',
   );
   const [rawMarkdown, setRawMarkdown] = useState(false);
+  const [showAgentInstructions, setShowAgentInstructions] = useState(false);
   const [vaultPreview, setVaultPreview] = useState<{
     notes: VaultNote[];
     images: VaultImage[];
@@ -181,7 +184,7 @@ export default function Home() {
       supabase
         .from('notes')
         .select(
-          'id, title, content_markdown, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
+          'id, title, content_markdown, agent_instructions, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
         )
         .order('updated_at', { ascending: false }),
     ]);
@@ -202,7 +205,7 @@ export default function Home() {
           ...DEFAULT_NOTE,
         })
         .select(
-          'id, title, content_markdown, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
+          'id, title, content_markdown, agent_instructions, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
         )
         .single();
       if (defaultNoteError || !defaultNote) {
@@ -377,13 +380,17 @@ export default function Home() {
       : 'Unfiled';
   function updateNote(
     noteId: string,
-    changes: Partial<Pick<NoteRow, 'title' | 'content_markdown'>>,
+    changes: Partial<
+      Pick<NoteRow, 'title' | 'content_markdown' | 'agent_instructions'>
+    >,
   ) {
     const note = notes.find((item) => item.id === noteId);
     if (!note || note.deleted_at) return;
     const draft: NoteDraft = {
       title: changes.title ?? note.title,
       content_markdown: changes.content_markdown ?? note.content_markdown,
+      agent_instructions:
+        changes.agent_instructions ?? note.agent_instructions,
     };
     setNotes((current) =>
       current.map((item) =>
@@ -549,7 +556,7 @@ export default function Home() {
         content_markdown: '',
       })
       .select(
-        'id, title, folder_id, content_markdown, version, updated_at, is_favorite, is_archived, deleted_at',
+        'id, title, folder_id, content_markdown, agent_instructions, version, updated_at, is_favorite, is_archived, deleted_at',
       )
       .single();
     if (insertError) return setError(insertError.message);
@@ -830,7 +837,7 @@ export default function Home() {
           .update({ content_markdown: content })
           .eq('id', importedNote.id)
           .select(
-            'id, title, folder_id, content_markdown, version, updated_at, is_favorite, is_archived, deleted_at',
+            'id, title, folder_id, content_markdown, agent_instructions, version, updated_at, is_favorite, is_archived, deleted_at',
           )
           .single();
         if (noteError || !data)
@@ -1335,6 +1342,17 @@ export default function Home() {
               >
                 <Code2 size={14} />
               </button>
+              <button
+                type="button"
+                className={showAgentInstructions ? 'selected' : ''}
+                aria-pressed={showAgentInstructions}
+                aria-label="Agent instructions"
+                title="Agent instructions"
+                onClick={() => setShowAgentInstructions((current) => !current)}
+                disabled={!selected}
+              >
+                <Bot size={14} />
+              </button>
             </div>
             <button
               className="icon-button"
@@ -1415,6 +1433,30 @@ export default function Home() {
                   }
                   onAcceptProposal={acceptProposal}
                   onDiscardProposal={() => setPendingProposal(null)}
+                  toolbarSlot={
+                    showAgentInstructions ? (
+                      <div className="agent-instructions">
+                        <label className="agent-instructions-label" htmlFor="agent-instructions-input">
+                          <Bot size={13} /> Instructions for the AI agent
+                        </label>
+                        <textarea
+                          id="agent-instructions-input"
+                          value={selected.agent_instructions}
+                          onChange={(event) =>
+                            updateNote(selected.id, {
+                              agent_instructions: event.target.value,
+                            })
+                          }
+                          placeholder="e.g. Keep paragraphs short, use British spelling, never change the title. These instructions apply to every AI request on this note."
+                          rows={5}
+                        />
+                        <p className="agent-instructions-hint">
+                          Saved with the note and sent to the agent with every
+                          request.
+                        </p>
+                      </div>
+                    ) : null
+                  }
                 />
               )}
             </>

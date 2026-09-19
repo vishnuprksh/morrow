@@ -23,6 +23,7 @@ export type MarkdownEditorProps = {
   proposal?: NoteChangeProposal | null;
   onAcceptProposal?: (proposal: NoteChangeProposal) => void;
   onDiscardProposal?: () => void;
+  toolbarSlot?: React.ReactNode;
 };
 
 type EditAction = 'improve' | 'simplify' | 'shorten' | 'expand' | 'grammar' | 'custom';
@@ -162,7 +163,7 @@ const toolbarActions: Array<{ action: ToolbarAction; label: string; content: Rea
   { action: 'table', label: 'Insert table', content: <Table2 aria-hidden="true" size={15} /> },
 ];
 
-export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal }: MarkdownEditorProps) {
+export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal, toolbarSlot }: MarkdownEditorProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const imageMenuRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Editor | null>(null);
@@ -508,6 +509,7 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
         {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>}
         <ToolbarButton label="Resize image" onClick={() => runToolbarAction('resizeImage')}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>
       </div>
+      {toolbarSlot}
       {tableDialogOpen && <div className="table-dialog" role="dialog" aria-modal="true" aria-labelledby="table-dialog-title"><form onSubmit={submitTable}><strong id="table-dialog-title">Insert table</strong><label htmlFor="table-rows">Rows<input id="table-rows" type="number" min="1" max="20" value={tableRows} onChange={(event) => setTableRows(event.target.value)} autoFocus /></label><label htmlFor="table-columns">Columns<input id="table-columns" type="number" min="1" max="12" value={tableColumns} onChange={(event) => setTableColumns(event.target.value)} /></label><div><button type="submit">Insert table</button><button type="button" onClick={() => setTableDialogOpen(false)}>Cancel</button></div></form></div>}
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">

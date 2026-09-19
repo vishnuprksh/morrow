@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Eraser, Send, Square, X } from 'lucide-react';
 import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
-type NoteContext = { id: string; title: string; content_markdown: string; folder_id: string | null; version: number };
+type NoteContext = { id: string; title: string; content_markdown: string; agent_instructions: string; folder_id: string | null; version: number };
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 const STATUS_PREFIX = '__MORROW_STATUS__';
 
@@ -94,7 +94,7 @@ export function AgentPanel({ activeNote, onClose, onProposal }: { activeNote: No
     setInput(''); setBusy(true); setActivity('Connecting to your agent...');
     const controller = new AbortController(); abortRef.current = controller;
     try {
-      const response = await fetch('/api/ai/agent', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: nextMessages, activeNote: activeNote && { id: activeNote.id, title: activeNote.title, content: activeNote.content_markdown, version: activeNote.version }, selection: { text: '' }, cursor: {} }), signal: controller.signal });
+      const response = await fetch('/api/ai/agent', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: nextMessages, activeNote: activeNote && { id: activeNote.id, title: activeNote.title, content: activeNote.content_markdown, agentInstructions: activeNote.agent_instructions, version: activeNote.version }, selection: { text: '' }, cursor: {} }), signal: controller.signal });
       if (!response.ok || !response.body) { const body = await response.json().catch(() => null) as { error?: string } | null; throw new Error(body?.error ?? 'The agent could not respond.'); }
       const reader = response.body.getReader(); const decoder = new TextDecoder(); let answer = '';
       setMessages((current) => [...current, { role: 'assistant', content: '' }]);
