@@ -62,6 +62,11 @@ import {
   type VaultNote,
 } from '@/lib/notes/vault-import';
 import { AgentPanel } from './agent-panel';
+import {
+  BLANK_TEMPLATE_ID,
+  NOTE_TEMPLATES,
+  findTemplate,
+} from '@/lib/notes/templates';
 import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
 type FolderRow = {
@@ -138,6 +143,8 @@ export default function Home() {
     'saved',
   );
   const [rawMarkdown, setRawMarkdown] = useState(false);
+  const [templateMenuOpen, setTemplateMenuOpen] = useState(false);
+  const templateMenuRef = useRef<HTMLDivElement | null>(null);
   const [showAgentInstructions, setShowAgentInstructions] = useState(false);
   const [vaultPreview, setVaultPreview] = useState<{
     notes: VaultNote[];
@@ -330,6 +337,22 @@ export default function Home() {
   useEffect(() => {
     if (globalSearchOpen) globalSearchRef.current?.focus();
   }, [globalSearchOpen]);
+  useEffect(() => {
+    if (!templateMenuOpen) return;
+    const onPointerDown = (event: globalThis.MouseEvent) => {
+      if (!templateMenuRef.current?.contains(event.target as Node))
+        setTemplateMenuOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setTemplateMenuOpen(false);
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [templateMenuOpen]);
   const [chatOpen, setChatOpen] = useState(true);
   const [panelsCollapsed, setPanelsCollapsed] = useState(false);
 
@@ -544,16 +567,18 @@ export default function Home() {
     );
     setRenamingFolderId(null);
   }
-  async function createNote() {
+  async function createNote(templateId: string = BLANK_TEMPLATE_ID) {
     if (!user) return;
+    const template = findTemplate(templateId);
     const supabase = createClient();
     const { data, error: insertError } = await supabase
       .from('notes')
       .insert({
         user_id: user.id,
-        title: 'Untitled note',
+        title: template?.title ?? 'Untitled note',
         folder_id: selectedFolder,
-        content_markdown: '',
+        content_markdown: template?.content_markdown ?? '',
+        agent_instructions: template?.agent_instructions ?? '',
       })
       .select(
         'id, title, folder_id, content_markdown, agent_instructions, version, updated_at, is_favorite, is_archived, deleted_at',
@@ -891,7 +916,7 @@ export default function Home() {
             </button>
             <button
               className="icon-button"
-              onClick={createNote}
+              onClick={() => createNote()}
               aria-label="New note"
               title="New note"
             >
@@ -926,9 +951,51 @@ export default function Home() {
           </button>
         </div>
         <div className="sidebar-actions">
-          <button className="new-note" onClick={createNote}>
-            <Plus size={16} /> New note
-          </button>
+          <div className="new-note-wrap" ref={templateMenuRef}>
+            <button
+              className="new-note"
+              onClick={() => setTemplateMenuOpen((open) => !open)}
+              aria-haspopup="menu"
+              aria-expanded={templateMenuOpen}
+            >
+              <Plus size={16} /> New note
+            </button>
+            {templateMenuOpen && (
+              <div className="template-menu" role="menu">
+                <button
+                  className="template-menu-item"
+                  role="menuitem"
+                  onClick={() => {
+                    setTemplateMenuOpen(false);
+                    createNote(BLANK_TEMPLATE_ID);
+                  }}
+                >
+                  <FileText size={15} />
+                  <span>
+                    <strong>Blank note</strong>
+                    <small>Start from an empty page.</small>
+                  </span>
+                </button>
+                {NOTE_TEMPLATES.map((template) => (
+                  <button
+                    key={template.id}
+                    className="template-menu-item"
+                    role="menuitem"
+                    onClick={() => {
+                      setTemplateMenuOpen(false);
+                      createNote(template.id);
+                    }}
+                  >
+                    <CheckCheck size={15} />
+                    <span>
+                      <strong>{template.name}</strong>
+                      <small>{template.description}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button
             className="icon-button"
             aria-label="Search all notes"
@@ -1271,7 +1338,7 @@ export default function Home() {
           </div>
         )}
         {noteView !== 'trash' && (
-          <button className="add-note" onClick={createNote}>
+          <button className="add-note" onClick={() => createNote()}>
             <Plus size={16} /> Add a note
           </button>
         )}
