@@ -1,5 +1,13 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { AgentPanel, extractNoteChangeProposal } from './agent-panel';
+
+beforeEach(() => {
+  window.localStorage.clear();
+});
+
+afterEach(() => {
+  cleanup();
+});
 
 const activeNote = {
   id: 'a564e5b2-9498-4a4a-bc42-ba983ec33c4b',
@@ -90,6 +98,31 @@ describe('AgentPanel', () => {
     expect(screen.getByText('What would you like to do?')).toBeInTheDocument();
     expect(screen.queryByText('Hello there.')).not.toBeInTheDocument();
     expect(input).toHaveValue('');
+  });
+
+  it('persists chat messages across remounts until cleared', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('Hello there.')));
+
+    const { unmount } = render(
+      <AgentPanel activeNote={activeNote} onClose={vi.fn()} onProposal={vi.fn()} />,
+    );
+    const input = screen.getByRole('textbox', { name: 'Chat message' });
+    fireEvent.change(input, { target: { value: 'Remember this' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Send message' }));
+    expect(await screen.findByText('Hello there.')).toBeInTheDocument();
+    unmount();
+
+    render(<AgentPanel activeNote={activeNote} onClose={vi.fn()} onProposal={vi.fn()} />);
+    expect(screen.getByText('Remember this')).toBeInTheDocument();
+    expect(screen.getByText('Hello there.')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Clear chat' }));
+    expect(screen.getAllByText('What would you like to do?').length).toBeGreaterThan(0);
+    unmount();
+
+    render(<AgentPanel activeNote={activeNote} onClose={vi.fn()} onProposal={vi.fn()} />);
+    expect(screen.getAllByText('What would you like to do?').length).toBeGreaterThan(0);
+    expect(screen.queryByText('Hello there.')).not.toBeInTheDocument();
   });
 
   it('keeps partial output and replaces the empty placeholder on a terminal stream error', async () => {
