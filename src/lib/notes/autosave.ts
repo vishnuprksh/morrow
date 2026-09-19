@@ -1,6 +1,7 @@
 export type NoteDraft = {
   title: string;
   content_markdown: string;
+  agent_instructions: string;
 };
 
 export type SaveResult =
@@ -34,7 +35,14 @@ export function readRecoveryCopy(noteId: string): NoteDraft | null {
     if (!value) return null;
     const parsed = JSON.parse(value) as Partial<NoteDraft>;
     return typeof parsed.title === 'string' && typeof parsed.content_markdown === 'string'
-      ? { title: parsed.title, content_markdown: parsed.content_markdown }
+      ? {
+          title: parsed.title,
+          content_markdown: parsed.content_markdown,
+          agent_instructions:
+            typeof parsed.agent_instructions === 'string'
+              ? parsed.agent_instructions
+              : '',
+        }
       : null;
   } catch {
     return null;

@@ -23,17 +23,10 @@ export type MarkdownEditorProps = {
   proposal?: NoteChangeProposal | null;
   onAcceptProposal?: (proposal: NoteChangeProposal) => void;
   onDiscardProposal?: () => void;
+  toolbarSlot?: React.ReactNode;
 };
 
 type EditAction = 'improve' | 'simplify' | 'shorten' | 'expand' | 'grammar' | 'custom';
-
-const editActions: Array<{ action: EditAction; label: string }> = [
-  { action: 'improve', label: 'Improve writing' },
-  { action: 'simplify', label: 'Simplify' },
-  { action: 'shorten', label: 'Shorten' },
-  { action: 'expand', label: 'Expand' },
-  { action: 'grammar', label: 'Fix grammar' },
-];
 
 type ToolbarAction = 'bold' | 'italic' | 'strike' | 'heading' | 'bulletList' | 'checkList' | 'quote' | 'code' | 'link' | 'table' | 'resizeImage';
 type ImageSize = 'small' | 'medium' | 'large';
@@ -162,7 +155,7 @@ const toolbarActions: Array<{ action: ToolbarAction; label: string; content: Rea
   { action: 'table', label: 'Insert table', content: <Table2 aria-hidden="true" size={15} /> },
 ];
 
-export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal }: MarkdownEditorProps) {
+export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteProposal, onAcceptProposal, onDiscardProposal, toolbarSlot }: MarkdownEditorProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const imageMenuRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Editor | null>(null);
@@ -171,7 +164,6 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
   const [selection, setSelection] = useState<{ from: number; to: number; text: string; top: number; left: number } | null>(null);
   const [proposal, setProposal] = useState<{ replacement: string; from: number; to: number; original: string } | null>(null);
   const [busy, setBusy] = useState(false);
-  const [customDialogOpen, setCustomDialogOpen] = useState(false);
   const [customInstruction, setCustomInstruction] = useState('');
   const [tableDialogOpen, setTableDialogOpen] = useState(false);
   const [tableRows, setTableRows] = useState('3');
@@ -335,7 +327,6 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
     event.preventDefault();
     const instruction = customInstruction.trim();
     if (!instruction || busy) return;
-    setCustomDialogOpen(false);
     setCustomInstruction('');
     void requestEdit('custom', instruction);
   }
@@ -508,15 +499,15 @@ export function MarkdownEditor({ value, onChange, onUploadImage, proposal: noteP
         {onUploadImage && <ToolbarButton label="Insert image" onClick={() => document.getElementById('attachment-picker')?.click()}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>}
         <ToolbarButton label="Resize image" onClick={() => runToolbarAction('resizeImage')}><ImageIcon aria-hidden="true" size={15} /></ToolbarButton>
       </div>
+      {toolbarSlot}
       {tableDialogOpen && <div className="table-dialog" role="dialog" aria-modal="true" aria-labelledby="table-dialog-title"><form onSubmit={submitTable}><strong id="table-dialog-title">Insert table</strong><label htmlFor="table-rows">Rows<input id="table-rows" type="number" min="1" max="20" value={tableRows} onChange={(event) => setTableRows(event.target.value)} autoFocus /></label><label htmlFor="table-columns">Columns<input id="table-columns" type="number" min="1" max="12" value={tableColumns} onChange={(event) => setTableColumns(event.target.value)} /></label><div><button type="submit">Insert table</button><button type="button" onClick={() => setTableDialogOpen(false)}>Cancel</button></div></form></div>}
       {onUploadImage && <input id="attachment-picker" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" hidden onChange={async (event) => { const file = event.target.files?.[0]; if (file) { const url = await onUploadImage(file); if (url) editorRef.current?.action((ctx) => { const view = ctx.get(editorViewCtx); view.dispatch(view.state.tr.insertText(`![${file.name}](${url})`)); view.focus(); }); } event.target.value = ''; }} />}
       <div className="editor-surface">
         <div ref={rootRef} className="milkdown-editor" aria-label="Markdown note content" onContextMenu={handleImageContextMenu} onKeyDown={handleEditorKeyDown} />
         {imageMenu && <div ref={imageMenuRef} className="image-size-menu" role="menu" aria-label="Image size" style={{ top: imageMenu.top, left: imageMenu.left }} onContextMenu={(event) => event.preventDefault()}><strong>Image size</strong><button type="button" role="menuitem" onClick={() => resizeImageTo('small')}>Small</button><button type="button" role="menuitem" onClick={() => resizeImageTo('medium')}>Medium</button><button type="button" role="menuitem" onClick={() => resizeImageTo('large')}>Large</button></div>}
         {noteProposal && <ProposalDiff key={`${noteProposal.noteId}-${noteProposal.expectedVersion}`} proposal={noteProposal} onAccept={onAcceptProposal} onDiscard={onDiscardProposal} />}
-        {selection && !proposal && !noteProposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong>{editActions.map(({ action, label }) => <button key={action} type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => void requestEdit(action)}>{label}</button>)}<button type="button" disabled={busy} onMouseDown={(event) => event.preventDefault()} onClick={() => setCustomDialogOpen(true)}>Custom instruction</button>{busy && <span>Working…</span>}</div>}
+        {selection && !proposal && !noteProposal && <div className="ai-selection-menu" style={{ top: selection.top, left: selection.left }} role="menu" aria-label="AI edit actions"><strong>AI edit</strong><form onSubmit={submitCustomInstruction}><input type="text" value={customInstruction} disabled={busy} placeholder="Describe how to rewrite the selection…" aria-label="AI instruction" maxLength={2_000} autoFocus onMouseDown={(event) => event.stopPropagation()} onChange={(event) => setCustomInstruction(event.target.value)} /><button type="submit" disabled={busy || !customInstruction.trim()} onMouseDown={(event) => event.preventDefault()}>Apply</button></form>{busy && <span>Working…</span>}</div>}
         {proposal && <div className="ai-proposal" role="dialog" aria-label="AI edit proposal"><strong>Suggested replacement</strong><p>{proposal.replacement}</p><div><button type="button" onClick={applyProposal}>Accept</button><button type="button" onClick={() => setProposal(null)}>Discard</button></div></div>}
-        {customDialogOpen && <div className="ai-custom-dialog" role="dialog" aria-modal="true" aria-labelledby="custom-instruction-title"><form onSubmit={submitCustomInstruction}><strong id="custom-instruction-title">Custom AI instruction</strong><label htmlFor="custom-instruction">Describe how to rewrite the selection</label><textarea id="custom-instruction" value={customInstruction} onChange={(event) => setCustomInstruction(event.target.value)} autoFocus maxLength={2_000} rows={4} /><div><button type="submit" disabled={!customInstruction.trim()}>Rewrite selection</button><button type="button" onClick={() => { setCustomDialogOpen(false); setCustomInstruction(''); }}>Cancel</button></div></form></div>}
         {resizeDialog && <div className="ai-custom-dialog" role="dialog" aria-modal="true" aria-labelledby="resize-image-title"><form onSubmit={submitResize}><strong id="resize-image-title">Resize image</strong><label htmlFor="image-width">Width in pixels, or auto</label><input id="image-width" value={resizeDialog.width} onChange={(event) => setResizeDialog({ ...resizeDialog, width: event.target.value })} autoFocus inputMode="numeric" /><div><button type="submit">Apply width</button><button type="button" onClick={() => setResizeDialog(null)}>Cancel</button></div></form></div>}
       </div>
     </>

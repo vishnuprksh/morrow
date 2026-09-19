@@ -10,6 +10,7 @@ import {
 import {
   Archive,
   ArchiveRestore,
+  Bot,
   Check,
   CheckCheck,
   ChevronDown,
@@ -21,6 +22,8 @@ import {
   GripVertical,
   ImagePlus,
   MoreHorizontal,
+  PanelLeftClose,
+  PanelLeftOpen,
   PanelRight,
   Pencil,
   PenLine,
@@ -59,6 +62,11 @@ import {
   type VaultNote,
 } from '@/lib/notes/vault-import';
 import { AgentPanel } from './agent-panel';
+import {
+  BLANK_TEMPLATE_ID,
+  NOTE_TEMPLATES,
+  findTemplate,
+} from '@/lib/notes/templates';
 import type { NoteChangeProposal } from '@/lib/ai/proposals';
 
 type FolderRow = {
@@ -72,6 +80,7 @@ type NoteRow = {
   title: string;
   folder_id: string | null;
   content_markdown: string;
+  agent_instructions: string;
   version: number;
   updated_at: string;
   is_favorite: boolean;
@@ -134,6 +143,9 @@ export default function Home() {
     'saved',
   );
   const [rawMarkdown, setRawMarkdown] = useState(false);
+  const [templateMenuOpen, setTemplateMenuOpen] = useState(false);
+  const templateMenuRef = useRef<HTMLDivElement | null>(null);
+  const [showAgentInstructions, setShowAgentInstructions] = useState(false);
   const [vaultPreview, setVaultPreview] = useState<{
     notes: VaultNote[];
     images: VaultImage[];
@@ -153,6 +165,10 @@ export default function Home() {
   const globalSearchRef = useRef<HTMLInputElement>(null);
   const noteSearchRef = useRef<HTMLInputElement>(null);
   const agentResizeMovedRef = useRef(false);
+
+  useEffect(() => {
+    setPanelsCollapsed(localStorage.getItem('morrow-panels-collapsed') === '1');
+  }, []);
 
   async function loadWorkspace(supabase: ReturnType<typeof createClient>) {
     setLoading(true);
@@ -175,7 +191,7 @@ export default function Home() {
       supabase
         .from('notes')
         .select(
-          'id, title, content_markdown, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
+          'id, title, content_markdown, agent_instructions, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
         )
         .order('updated_at', { ascending: false }),
     ]);
@@ -196,7 +212,7 @@ export default function Home() {
           ...DEFAULT_NOTE,
         })
         .select(
-          'id, title, content_markdown, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
+          'id, title, content_markdown, agent_instructions, folder_id, version, updated_at, is_favorite, is_archived, deleted_at',
         )
         .single();
       if (defaultNoteError || !defaultNote) {
@@ -321,7 +337,31 @@ export default function Home() {
   useEffect(() => {
     if (globalSearchOpen) globalSearchRef.current?.focus();
   }, [globalSearchOpen]);
+  useEffect(() => {
+    if (!templateMenuOpen) return;
+    const onPointerDown = (event: globalThis.MouseEvent) => {
+      if (!templateMenuRef.current?.contains(event.target as Node))
+        setTemplateMenuOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setTemplateMenuOpen(false);
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [templateMenuOpen]);
   const [chatOpen, setChatOpen] = useState(true);
+  const [panelsCollapsed, setPanelsCollapsed] = useState(false);
+
+  function togglePanels() {
+    setPanelsCollapsed((current) => {
+      localStorage.setItem('morrow-panels-collapsed', current ? '0' : '1');
+      return !current;
+    });
+  }
   useEffect(() => {
     const width = localStorage.getItem('morrow-agent-width');
     if (width)
@@ -363,13 +403,17 @@ export default function Home() {
       : 'Unfiled';
   function updateNote(
     noteId: string,
-    changes: Partial<Pick<NoteRow, 'title' | 'content_markdown'>>,
+    changes: Partial<
+      Pick<NoteRow, 'title' | 'content_markdown' | 'agent_instructions'>
+    >,
   ) {
     const note = notes.find((item) => item.id === noteId);
     if (!note || note.deleted_at) return;
     const draft: NoteDraft = {
       title: changes.title ?? note.title,
       content_markdown: changes.content_markdown ?? note.content_markdown,
+      agent_instructions:
+        changes.agent_instructions ?? note.agent_instructions,
     };
     setNotes((current) =>
       current.map((item) =>
@@ -475,7 +519,7 @@ export default function Home() {
       return allSelected ? new Set() : new Set(visibleIds);
     });
   }
-  async function createFolder() {
+  async function createFolder(parentId: string | null = null) {
     if (!user) return;
     if (folderSaving) return;
     setFolderSaving(true);
@@ -486,7 +530,7 @@ export default function Home() {
       .insert({
         user_id: user.id,
         name: 'untitled',
-        parent_id: null,
+        parent_id: parentId,
         position: folders.length,
       })
       .select('id, name, parent_id, position')
@@ -523,19 +567,21 @@ export default function Home() {
     );
     setRenamingFolderId(null);
   }
-  async function createNote() {
+  async function createNote(templateId: string = BLANK_TEMPLATE_ID) {
     if (!user) return;
+    const template = findTemplate(templateId);
     const supabase = createClient();
     const { data, error: insertError } = await supabase
       .from('notes')
       .insert({
         user_id: user.id,
-        title: 'Untitled note',
+        title: template?.title ?? 'Untitled note',
         folder_id: selectedFolder,
-        content_markdown: '',
+        content_markdown: template?.content_markdown ?? '',
+        agent_instructions: template?.agent_instructions ?? '',
       })
       .select(
-        'id, title, folder_id, content_markdown, version, updated_at, is_favorite, is_archived, deleted_at',
+        'id, title, folder_id, content_markdown, agent_instructions, version, updated_at, is_favorite, is_archived, deleted_at',
       )
       .single();
     if (insertError) return setError(insertError.message);
@@ -816,7 +862,7 @@ export default function Home() {
           .update({ content_markdown: content })
           .eq('id', importedNote.id)
           .select(
-            'id, title, folder_id, content_markdown, version, updated_at, is_favorite, is_archived, deleted_at',
+            'id, title, folder_id, content_markdown, agent_instructions, version, updated_at, is_favorite, is_archived, deleted_at',
           )
           .single();
         if (noteError || !data)
@@ -848,19 +894,211 @@ export default function Home() {
 
   if (loading && !error) return <WorkspaceLoadingScreen />;
 
+  function FolderNode({ folder, depth }: { folder: FolderRow; depth: number }) {
+    const children = folders.filter((item) => item.parent_id === folder.id);
+    const isOpen = openFolders[folder.id] ?? false;
+    return (
+      <>
+        <div
+          className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`}
+          style={{ paddingLeft: depth * 16 }}
+          key={folder.id}
+        >
+          <button
+            className="folder-toggle"
+            onClick={() => {
+              setSelectedFolder(folder.id);
+              setNoteView('folder');
+              setOpenFolders((current) => ({
+                ...current,
+                [folder.id]: !isOpen,
+              }));
+            }}
+            aria-label={`Toggle ${folder.name}`}
+          >
+            <span className="folder-icon">
+              {children.length > 0 ? (
+                isOpen ? (
+                  <ChevronDown size={14} />
+                ) : (
+                  <ChevronRight size={14} />
+                )
+              ) : (
+                <span style={{ width: 14 }} />
+              )}
+              <Folder size={15} />
+            </span>
+            {renamingFolderId === folder.id ? (
+              <input
+                className="folder-rename-input"
+                aria-label={`Rename ${folder.name}`}
+                autoFocus
+                value={folderRenameInput}
+                maxLength={120}
+                onChange={(event) => setFolderRenameInput(event.target.value)}
+                onClick={(event) => event.stopPropagation()}
+                onDoubleClick={(event) => event.stopPropagation()}
+                onBlur={() => void renameFolder(folder)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    event.preventDefault();
+                    void renameFolder(folder);
+                  }
+                  if (event.key === 'Escape') {
+                    setRenamingFolderId(null);
+                  }
+                }}
+              />
+            ) : (
+              <span
+                onDoubleClick={(event) => {
+                  event.stopPropagation();
+                  setRenamingFolderId(folder.id);
+                  setFolderRenameInput(folder.name);
+                }}
+              >
+                {folder.name}
+              </span>
+            )}
+          </button>
+          <span className="muted-count">
+            {
+              notes.filter(
+                (note) => note.folder_id === folder.id && !note.deleted_at,
+              ).length
+            }
+          </span>
+          <button
+            className="folder-add"
+            aria-label={`Add subfolder to ${folder.name}`}
+            title={`Add subfolder to ${folder.name}`}
+            disabled={folderSaving}
+            onClick={(event) => {
+              event.stopPropagation();
+              setOpenFolders((current) => ({ ...current, [folder.id]: true }));
+              void createFolder(folder.id);
+            }}
+          >
+            <Plus size={13} />
+          </button>
+          <button
+            className="folder-delete"
+            aria-label={`Delete ${folder.name}`}
+            onClick={() => deleteFolder(folder)}
+          >
+            <Trash2 size={13} />
+          </button>
+        </div>
+        {isOpen &&
+          children.map((child) => (
+            <FolderNode key={child.id} folder={child} depth={depth + 1} />
+          ))}
+      </>
+    );
+  }
+
   return (
-    <main className={`app-shell ${chatOpen ? 'chat-open' : 'chat-closed'}`}>
+    <main
+      className={`app-shell ${chatOpen ? 'chat-open' : 'chat-closed'} ${
+        panelsCollapsed ? 'panels-collapsed' : ''
+      }`}
+    >
       <aside className="sidebar">
+        {panelsCollapsed && (
+          <div className="sidebar-rail">
+            <div className="brand-mark" aria-hidden="true">
+              <Sparkles size={14} />
+            </div>
+            <button
+              className="icon-button"
+              onClick={togglePanels}
+              aria-label="Expand panels"
+              title="Expand panels"
+            >
+              <PanelLeftOpen size={16} />
+            </button>
+            <button
+              className="icon-button"
+              onClick={() => createNote()}
+              aria-label="New note"
+              title="New note"
+            >
+              <Plus size={16} />
+            </button>
+            <button
+              className="icon-button"
+              onClick={() => setGlobalSearchOpen(true)}
+              aria-label="Search all notes"
+              title="Search all notes"
+            >
+              <Search size={16} />
+            </button>
+          </div>
+        )}
         <div className="brand">
           <div className="brand-mark">
             <Sparkles size={15} />
           </div>
           <span>Morrow</span>
+          <button
+            className="icon-button sidebar-collapse"
+            onClick={togglePanels}
+            aria-label={panelsCollapsed ? 'Expand panels' : 'Collapse panels'}
+            title={panelsCollapsed ? 'Expand panels' : 'Collapse panels'}
+          >
+            {panelsCollapsed ? (
+              <PanelLeftOpen size={15} />
+            ) : (
+              <PanelLeftClose size={15} />
+            )}
+          </button>
         </div>
         <div className="sidebar-actions">
-          <button className="new-note" onClick={createNote}>
-            <Plus size={16} /> New note
-          </button>
+          <div className="new-note-wrap" ref={templateMenuRef}>
+            <button
+              className="new-note"
+              onClick={() => setTemplateMenuOpen((open) => !open)}
+              aria-haspopup="menu"
+              aria-expanded={templateMenuOpen}
+            >
+              <Plus size={16} /> New note
+            </button>
+            {templateMenuOpen && (
+              <div className="template-menu" role="menu">
+                <button
+                  className="template-menu-item"
+                  role="menuitem"
+                  onClick={() => {
+                    setTemplateMenuOpen(false);
+                    createNote(BLANK_TEMPLATE_ID);
+                  }}
+                >
+                  <FileText size={15} />
+                  <span>
+                    <strong>Blank note</strong>
+                    <small>Start from an empty page.</small>
+                  </span>
+                </button>
+                {NOTE_TEMPLATES.map((template) => (
+                  <button
+                    key={template.id}
+                    className="template-menu-item"
+                    role="menuitem"
+                    onClick={() => {
+                      setTemplateMenuOpen(false);
+                      createNote(template.id);
+                    }}
+                  >
+                    <CheckCheck size={15} />
+                    <span>
+                      <strong>{template.name}</strong>
+                      <small>{template.description}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button
             className="icon-button"
             aria-label="Search all notes"
@@ -951,82 +1189,11 @@ export default function Home() {
           </button>
         </div>
         <div className="folder-list">
-          {folders.map((folder) => (
-            <div
-              className={`folder-row ${selectedFolder === folder.id ? 'selected' : ''}`}
-              key={folder.id}
-            >
-              <button
-                className="folder-toggle"
-                onClick={() => {
-                  setSelectedFolder(folder.id);
-                  setNoteView('folder');
-                  setOpenFolders((current) => ({
-                    ...current,
-                    [folder.id]: !current[folder.id],
-                  }));
-                }}
-                aria-label={`Toggle ${folder.name}`}
-              >
-                <span className="folder-icon">
-                  {openFolders[folder.id] ? (
-                    <ChevronDown size={14} />
-                  ) : (
-                    <ChevronRight size={14} />
-                  )}
-                  <Folder size={15} />
-                </span>
-                {renamingFolderId === folder.id ? (
-                  <input
-                    className="folder-rename-input"
-                    aria-label={`Rename ${folder.name}`}
-                    autoFocus
-                    value={folderRenameInput}
-                    maxLength={120}
-                    onChange={(event) =>
-                      setFolderRenameInput(event.target.value)
-                    }
-                    onClick={(event) => event.stopPropagation()}
-                    onDoubleClick={(event) => event.stopPropagation()}
-                    onBlur={() => void renameFolder(folder)}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter') {
-                        event.preventDefault();
-                        void renameFolder(folder);
-                      }
-                      if (event.key === 'Escape') {
-                        setRenamingFolderId(null);
-                      }
-                    }}
-                  />
-                ) : (
-                  <span
-                    onDoubleClick={(event) => {
-                      event.stopPropagation();
-                      setRenamingFolderId(folder.id);
-                      setFolderRenameInput(folder.name);
-                    }}
-                  >
-                    {folder.name}
-                  </span>
-                )}
-              </button>
-              <span className="muted-count">
-                {
-                  notes.filter(
-                    (note) => note.folder_id === folder.id && !note.deleted_at,
-                  ).length
-                }
-              </span>
-              <button
-                className="folder-delete"
-                aria-label={`Delete ${folder.name}`}
-                onClick={() => deleteFolder(folder)}
-              >
-                <Trash2 size={13} />
-              </button>
-            </div>
-          ))}
+          {folders
+            .filter((folder) => folder.parent_id === null)
+            .map((folder) => (
+              <FolderNode key={folder.id} folder={folder} depth={0} />
+            ))}
         </div>
         <div className="sidebar-footer">
           <div className="avatar">
@@ -1050,7 +1217,7 @@ export default function Home() {
       </aside>
       <section className="notes-panel">
         <div className="panel-header">
-          <div>
+          <div className="panel-header-title">
             <p className="eyebrow">Personal workspace</p>
             <h2>
               {noteView === 'trash'
@@ -1203,7 +1370,7 @@ export default function Home() {
           </div>
         )}
         {noteView !== 'trash' && (
-          <button className="add-note" onClick={createNote}>
+          <button className="add-note" onClick={() => createNote()}>
             <Plus size={16} /> Add a note
           </button>
         )}
@@ -1273,6 +1440,17 @@ export default function Home() {
                 disabled={!selected}
               >
                 <Code2 size={14} />
+              </button>
+              <button
+                type="button"
+                className={showAgentInstructions ? 'selected' : ''}
+                aria-pressed={showAgentInstructions}
+                aria-label="Agent instructions"
+                title="Agent instructions"
+                onClick={() => setShowAgentInstructions((current) => !current)}
+                disabled={!selected}
+              >
+                <Bot size={14} />
               </button>
             </div>
             <button
@@ -1354,6 +1532,30 @@ export default function Home() {
                   }
                   onAcceptProposal={acceptProposal}
                   onDiscardProposal={() => setPendingProposal(null)}
+                  toolbarSlot={
+                    showAgentInstructions ? (
+                      <div className="agent-instructions">
+                        <label className="agent-instructions-label" htmlFor="agent-instructions-input">
+                          <Bot size={13} /> Instructions for the AI agent
+                        </label>
+                        <textarea
+                          id="agent-instructions-input"
+                          value={selected.agent_instructions}
+                          onChange={(event) =>
+                            updateNote(selected.id, {
+                              agent_instructions: event.target.value,
+                            })
+                          }
+                          placeholder="e.g. Keep paragraphs short, use British spelling, never change the title. These instructions apply to every AI request on this note."
+                          rows={5}
+                        />
+                        <p className="agent-instructions-hint">
+                          Saved with the note and sent to the agent with every
+                          request.
+                        </p>
+                      </div>
+                    ) : null
+                  }
                 />
               )}
             </>

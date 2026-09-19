@@ -7,7 +7,7 @@ describe('autosave controller', () => {
   it('debounces changes and writes a recovery copy', async () => {
     const save = vi.fn().mockResolvedValue({ status: 'saved', version: 2, updated_at: 'later' });
     const controller = createAutosaveController(save, vi.fn());
-    controller.schedule('note-1', { title: 'Draft', content_markdown: 'hello' }, 1);
+    controller.schedule('note-1', { title: 'Draft', content_markdown: 'hello', agent_instructions: '' }, 1);
     await vi.advanceTimersByTimeAsync(799);
     expect(save).not.toHaveBeenCalled();
     expect(window.localStorage.getItem('morrow:note-recovery:note-1')).toContain('hello');
@@ -24,9 +24,9 @@ describe('autosave controller', () => {
       .mockResolvedValueOnce({ status: 'saved', version: 3, updated_at: 'newer' });
     const onResult = vi.fn();
     const controller = createAutosaveController(save, onResult);
-    controller.schedule('note-1', { title: 'One', content_markdown: 'one' }, 1);
+    controller.schedule('note-1', { title: 'One', content_markdown: 'one', agent_instructions: '' }, 1);
     const first = controller.flush('note-1');
-    controller.schedule('note-1', { title: 'Two', content_markdown: 'two' }, 1);
+    controller.schedule('note-1', { title: 'Two', content_markdown: 'two', agent_instructions: '' }, 1);
     const second = controller.flush('note-1');
     resolveOld({ status: 'saved', version: 2, updated_at: 'old' });
     await Promise.all([first, second]);
@@ -38,7 +38,7 @@ describe('autosave controller', () => {
     const save = vi.fn().mockRejectedValue(new Error('network unavailable'));
     const onResult = vi.fn();
     const controller = createAutosaveController(save, onResult);
-    controller.schedule('note-1', { title: 'Offline draft', content_markdown: 'keep me' }, 1);
+    controller.schedule('note-1', { title: 'Offline draft', content_markdown: 'keep me', agent_instructions: '' }, 1);
 
     const pending = controller.flush('note-1');
     await vi.runAllTimersAsync();
@@ -54,7 +54,7 @@ describe('autosave controller', () => {
     const controller = createAutosaveController(save, vi.fn());
 
     for (const content of ['h', 'he', 'hel', 'hell', 'hello']) {
-      controller.schedule('note-1', { title: 'Draft', content_markdown: content }, 1);
+      controller.schedule('note-1', { title: 'Draft', content_markdown: content, agent_instructions: '' }, 1);
       await vi.advanceTimersByTimeAsync(100);
     }
 
