@@ -355,6 +355,7 @@ export default function Home() {
   }, [templateMenuOpen]);
   const [chatOpen, setChatOpen] = useState(true);
   const [panelsCollapsed, setPanelsCollapsed] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   function togglePanels() {
     setPanelsCollapsed((current) => {
@@ -1001,7 +1002,7 @@ export default function Home() {
     <main
       className={`app-shell ${chatOpen ? 'chat-open' : 'chat-closed'} ${
         panelsCollapsed ? 'panels-collapsed' : ''
-      }`}
+      } ${mobileNavOpen ? 'mobile-nav-open' : ''}`}
     >
       <aside className="sidebar">
         {panelsCollapsed && (
@@ -1215,6 +1216,13 @@ export default function Home() {
           <SignOutButton />
         </div>
       </aside>
+      {mobileNavOpen && (
+        <button
+          className="mobile-nav-backdrop"
+          aria-label="Close workspace navigation"
+          onClick={() => setMobileNavOpen(false)}
+        />
+      )}
       <section className="notes-panel">
         <div className="panel-header">
           <div className="panel-header-title">
@@ -1406,6 +1414,17 @@ export default function Home() {
             <span>{selected?.title ?? 'No note selected'}</span>
           </div>
           <div className="editor-tools">
+            <button
+              className="icon-button mobile-nav-toggle"
+              aria-label="Open workspace navigation"
+              title="Open workspace navigation"
+              onClick={() => {
+                setPanelsCollapsed(false);
+                setMobileNavOpen(true);
+              }}
+            >
+              <PanelLeftOpen size={17} />
+            </button>
             <span className="save-status">
               <span
                 className={
