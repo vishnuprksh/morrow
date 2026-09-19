@@ -7,6 +7,23 @@ import type { NoteChangeProposal } from '@/lib/ai/proposals';
 type NoteContext = { id: string; title: string; content_markdown: string; agent_instructions: string; folder_id: string | null; version: number };
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 const STATUS_PREFIX = '__MORROW_STATUS__';
+const CHAT_STORAGE_KEY = 'morrow.agent-chat';
+
+function loadStoredMessages(): ChatMessage[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(CHAT_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((item): item is ChatMessage => {
+      const message = item as Partial<ChatMessage>;
+      return (message.role === 'user' || message.role === 'assistant') && typeof message.content === 'string';
+    });
+  } catch {
+    return [];
+  }
+}
 
 export function extractNoteChangeProposal(text: string): NoteChangeProposal | null {
   const start = text.search(/\{\s*"type"\s*:\s*"note_change_proposal"/);
@@ -73,11 +90,24 @@ function WorkingIndicator({ message = 'Agent is working' }: { message?: string }
 
 export function AgentPanel({ activeNote, onClose, onProposal }: { activeNote: NoteContext | null; onClose: () => void; onProposal: (proposal: NoteChangeProposal) => void }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [hydrated, setHydrated] = useState(false);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const [activity, setActivity] = useState('');
   const abortRef = useRef<AbortController | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    setMessages(loadStoredMessages());
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated || typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+    } catch {}
+  }, [hydrated, messages]);
 
   useEffect(() => {
     const textarea = inputRef.current;
@@ -113,6 +143,11 @@ export function AgentPanel({ activeNote, onClose, onProposal }: { activeNote: No
     setInput('');
     setBusy(false);
     setActivity('');
+    if (typeof window !== 'undefined') {
+      try {
+        window.localStorage.removeItem(CHAT_STORAGE_KEY);
+      } catch {}
+    }
   }
 
   return <aside className="chat-panel agent-panel"><header className="chat-header"><div><p className="eyebrow">Morrow AI</p><h2>Chat with your agent</h2></div><div className="chat-header-actions"><button className="icon-button" onClick={clearChat} aria-label="Clear chat" title="Clear chat"><Eraser size={16} /></button><button className="icon-button" onClick={onClose} aria-label="Close AI agent"><X size={17} /></button></div></header><div className="agent-messages">{messages.length === 0 && !busy && <div className="agent-empty"><strong>What would you like to do?</strong><p>Your agent can read and propose updates to the active note.</p><div className="suggestions"><button onClick={() => void send('Summarize the active note.')}>Summarize this note</button><button onClick={() => void send('Improve the active note while preserving my voice.')}>Improve this note</button></div></div>}{messages.map((message, index) => <div className={`agent-message ${message.role}`} key={`${message.role}-${index}`}>{message.content ? <span>{message.content}</span> : null}</div>)}{busy && <WorkingIndicator message={activity || 'Agent is working'} />}</div><div className="chat-input"><textarea ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); void send(); } }} placeholder="Ask your note agent…" aria-label="Chat message" rows={1} disabled={busy} /><button onClick={() => busy ? abortRef.current?.abort() : void send()} aria-label={busy ? 'Stop agent' : 'Send message'}>{busy ? <Square size={14} /> : <Send size={14} />}</button></div><p className="chat-hint">Shift+Enter for a new line · Agent edits stay pending until you accept them.</p></aside>;
